@@ -1,7 +1,7 @@
 {
-  "name": "gaia-react",
+  "name": "fv-react-ui-components",
   "version": "0.0.1",
-  "description": "Gaia UI React library",
+  "description": "Further Ventures Components Library",
   "scripts": {
     "start": "start-storybook -p 6006",
     "build": "webpack --config webpack.config.js && node postBuild.js",
