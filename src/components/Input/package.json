@@ -1,0 +1,11 @@
+{
+  "name": "@further-ventures/fv-react-ui-components.input",
+  "version": "0.0.4",
+  "peerDependencies": {
+    "classnames": ">=2.0.0",
+    "react": ">=17.0.0",
+    "react-jss": ">=10.0.0",
+    "@further-ventures/fv-react-ui-components.form": ">=0.0.1",
+    "@further-ventures/fv-react-ui-components.theme": ">=0.0.1"
+  }
+}
