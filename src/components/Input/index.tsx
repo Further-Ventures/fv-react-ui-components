@@ -9,7 +9,7 @@ export interface IInput extends React.InputHTMLAttributes<HTMLInputElement>{
   label?: string,
   placeholder?: string,
   disabled?: boolean,
-  color?: 'primary' | 'secondary',
+  color?: 'primary',
   hint?: string,
   errorMessage?: string,
   value?: string,
