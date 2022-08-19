@@ -44,9 +44,10 @@ interface IDefaultPalette {
 
 export interface ITheme {
   primary: IPalette,
-  secondary: IPalette,
+  secondary?: IPalette,
   error: IPalette,
   success: IPalette,
+  warning: IPalette,
   default: IDefaultPalette,
   background: {
     default: string,
@@ -58,4 +59,5 @@ export interface ITheme {
     hint: string,
   }
   font: string,
+  altFont?: string
 }

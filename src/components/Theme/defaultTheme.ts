@@ -2,43 +2,43 @@ import { ITheme } from './types';
 
 export const defaultTheme: ITheme = {
   background: {
-    default: '#fff',
+    default: '#FFF'
   },
   default: {
-    dark: '#667085',
+    dark: '#667985',
     main: '#C7CCD3',
     light: '#E4E7EC',
-    extraLight: '#EFF1F3',
+    extraLight: '#EFF1F3'
   },
   text: {
     primary: '#000',
     secondary: '#344054',
     disabled: '#D2D2D2',
-    hint: '#667085',
+    hint: '#667085'
   },
   primary: {
-    main: '#003CB8',
-    light: '#E7EAF9',
-    dark: '#001D9A',
-    contrast: '#fff',
-  },
-  secondary: {
-    main: '#58329A',
-    light: '#EDE7F4',
-    dark: '#3D2181',
-    contrast: '#fff',
+    main: '#2400FF',
+    light: '#D1D3FD',
+    dark: '#17019C',
+    contrast: '#000'
   },
   error: {
-    main: '#EC726B',
+    main: '#CC2418',
     light: '#FBDCDA',
-    dark: '#D92C20',
-    contrast: '#000',
+    dark: '#B91D12',
+    contrast: '#000'
   },
   success: {
-    main: '#6CA78B',
-    light: '#6CA78B',
-    dark: '#6CA78B',
-    contrast: '#fff',
+    main: '#088940',
+    light: '#B3DFCA',
+    dark: '#007133',
+    contrast: '#FFF'
   },
-  font: 'Inter, sans-serif',
+  warning: {
+    main: '#FE9E34',
+    light: '#FFDDB3',
+    dark: '#EB621C',
+    contrast: '#000'
+  },
+  font: 'Inter, sans-serif'
 }
