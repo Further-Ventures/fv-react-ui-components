@@ -1,6 +1,6 @@
 {
   "name": "@further-ventures/fv-react-ui-components.input",
-  "version": "0.0.4",
+  "version": "0.0.1",
   "peerDependencies": {
     "classnames": ">=2.0.0",
     "react": ">=17.0.0",
