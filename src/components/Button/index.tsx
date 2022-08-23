@@ -7,7 +7,7 @@ export interface IButton extends Omit<React.ButtonHTMLAttributes<HTMLButtonEleme
   size?: 'mini' | 'small' | 'medium' | 'large',
   shape?: 'flat' | 'round' | 'circle',
   variant?: 'contained' | 'outlined',
-  color?: 'primary' | 'secondary',
+  color?: 'primary',
   disabled?: boolean,
   className?: string,
   iconLeft?: React.FC<{className?: string}>,
