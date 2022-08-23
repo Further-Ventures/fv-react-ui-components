@@ -40,5 +40,6 @@ export const defaultTheme: ITheme = {
     dark: '#EB621C',
     contrast: '#000'
   },
-  font: 'Inter, sans-serif'
+  font: 'PP Object Sans, sans-serif',
+  altFont: 'PP Monument Extended, sans-serif'
 }
