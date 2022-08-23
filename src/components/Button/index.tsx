@@ -28,7 +28,7 @@ const Button: React.FC<IButton> = (props) => {
     ...rest
   } = props;
   const classes = useStyles(props);
-  
+  console.log('test pr');
   return (
     <button
       className={classNames(classes.button, classes[variant], classes[shape], classes[size], {
