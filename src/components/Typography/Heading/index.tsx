@@ -29,7 +29,7 @@ export const Heading: React.FC<AllButBook | OnlyBold> = (props) => {
 
   const tag = variation.includes('-') ? variation.split('-').shift() : variation;
   const fontFamily = ['h1', 'h2', 'h3'].includes(variation) ? theme.altFont : theme.font
-  const fontSize = variation === 'h1' ? 68 : variation === 'h2' ? 60 : variation === 'h3' ? 54 : ['h4', 'h4-slanted', 'h5-regular', 'h5-thin'].includes(variation) ? 48 : 32;
+  const fontSize = variation === 'h1' ? 68 : variation === 'h2' ? 60 : variation === 'h3' ? 54 : ['h4', 'h4-slanted', 'h5-regular', 'h5-thin'].includes(variation) ? 48 : ['h5-regular', 'h5-thin'].includes(variation) ? 42 : 32;
   const fontStyle = variation === 'h4-slanted' ? 'italic' : 'normal';
   const fontWeight = ['h1', 'h2', 'h3', 'h4', 'h4-slanted', 'h6'].includes(variation) ? 700 : ['h5-regular', 'h6-regular'].includes(variation) ? 400 : variation === 'h5-thin' ? 200 : 600;
   const textTransform = ['h1', 'h2'].includes(variation) ? 'uppercase' : 'none';
