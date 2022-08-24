@@ -33,7 +33,7 @@ interface IPalette {
   dark: string,
   light: string,
   contrast: string,
-  contrastSecondary: string
+  contrastSecondary?: string
 }
 
 interface IDefaultPalette {

@@ -34,7 +34,8 @@ export const defaultTheme: ITheme = {
     main: '#088940',
     light: '#B3DFCA',
     dark: '#007133',
-    contrast: '#FFFFFF'
+    contrast: '#FFFFFF',
+    contrastSecondary: '#000000'
   },
   warning: {
     main: '#FE9E34',
