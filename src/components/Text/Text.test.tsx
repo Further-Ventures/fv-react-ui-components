@@ -1,11 +1,11 @@
 import '@testing-library/jest-dom'
 import * as React from 'react'
 import { render, screen } from '@testing-library/react'
-import Typography from './index'
+import Text from './index'
 
 it('should render paragraph', () => {
   const children = 'Text test';
-  render(<Typography tag="p">{children}</Typography>)
+  render(<Text tag="p">{children}</Text>)
   
   const element = screen.queryByText(children);
   expect(screen.queryByText(children)).toBeInTheDocument();
@@ -14,7 +14,7 @@ it('should render paragraph', () => {
 
 it('should render div', () => {
   const children = 'Text test';
-  render(<Typography tag="div">{children}</Typography>)
+  render(<Text tag="div">{children}</Text>)
   
   const element = screen.queryByText(children);
   expect(screen.queryByText(children)).toBeInTheDocument();
@@ -23,7 +23,7 @@ it('should render div', () => {
 
 it('should render span', () => {
   const children = 'Text test';
-  render(<Typography tag="span">{children}</Typography>)
+  render(<Text tag="span">{children}</Text>)
   
   const element = screen.queryByText(children);
   expect(screen.queryByText(children)).toBeInTheDocument();
@@ -32,7 +32,7 @@ it('should render span', () => {
 
 it('should render q', () => {
   const children = 'Text test';
-  render(<Typography tag="q">{children}</Typography>)
+  render(<Text tag="q">{children}</Text>)
   
   const element = screen.queryByText(children);
   expect(screen.queryByText(children)).toBeInTheDocument();
@@ -41,7 +41,7 @@ it('should render q', () => {
 
 it('should render h1', () => {
   const children = 'Text test';
-  render(<Typography tag="h1">{children}</Typography>)
+  render(<Text tag="h1">{children}</Text>)
   
   const element = screen.queryByText(children);
   expect(screen.queryByText(children)).toBeInTheDocument();
@@ -50,7 +50,7 @@ it('should render h1', () => {
 
 it('should render h2', () => {
   const children = 'Text test';
-  render(<Typography tag="h2">{children}</Typography>)
+  render(<Text tag="h2">{children}</Text>)
   
   const element = screen.queryByText(children);
   expect(screen.queryByText(children)).toBeInTheDocument();
@@ -59,7 +59,7 @@ it('should render h2', () => {
 
 it('should render h3', () => {
   const children = 'Text test';
-  render(<Typography tag="h3">{children}</Typography>)
+  render(<Text tag="h3">{children}</Text>)
   
   const element = screen.queryByText(children);
   expect(screen.queryByText(children)).toBeInTheDocument();
@@ -68,7 +68,7 @@ it('should render h3', () => {
 
 it('should render h4', () => {
   const children = 'Text test';
-  render(<Typography tag="h4">{children}</Typography>)
+  render(<Text tag="h4">{children}</Text>)
   
   const element = screen.queryByText(children);
   expect(screen.queryByText(children)).toBeInTheDocument();
@@ -77,7 +77,7 @@ it('should render h4', () => {
 
 it('should render h5', () => {
   const children = 'Text test';
-  render(<Typography tag="h5">{children}</Typography>)
+  render(<Text tag="h5">{children}</Text>)
   
   const element = screen.queryByText(children);
   expect(screen.queryByText(children)).toBeInTheDocument();
@@ -86,7 +86,7 @@ it('should render h5', () => {
 
 it('should render h6', () => {
   const children = 'Text test';
-  render(<Typography tag="h6">{children}</Typography>)
+  render(<Text tag="h6">{children}</Text>)
   
   const element = screen.queryByText(children);
   expect(screen.queryByText(children)).toBeInTheDocument();

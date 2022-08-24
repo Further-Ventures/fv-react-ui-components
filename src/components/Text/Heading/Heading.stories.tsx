@@ -22,5 +22,5 @@ const Template: ComponentStory<typeof Heading> = (args) => {
 
 export const Head = Template.bind({});
 Head.args = {
-  variation: 'h1'
+  tag: 'h1'
 };

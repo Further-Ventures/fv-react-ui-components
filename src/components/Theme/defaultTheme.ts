@@ -41,7 +41,8 @@ export const defaultTheme: ITheme = {
     contrast: '#000'
   },
   font: 'PP Object Sans, sans-serif',
-  altFont: 'PP Monument Extended, sans-serif'
+  altFont: 'PP Monument Extended, sans-serif',
+  mobileView: 1023
 };
 
 export const defaultTypography: ITypography = {

@@ -59,7 +59,8 @@ export interface ITheme {
     hint: string,
   }
   font: string,
-  altFont?: string
+  altFont?: string,
+  mobileView: number
 }
 
 export interface ITypography {

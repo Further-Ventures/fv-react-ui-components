@@ -2,7 +2,7 @@ import React from 'react';
 import useStyles from './styles';
 import classNames from 'classnames';
 
-interface TypographyProps {
+interface TextProps {
   tag?: string,
   fontFamily?: string,
   fontSize?: number | string,
@@ -19,7 +19,7 @@ interface TypographyProps {
   children?: React.ReactNode,
 }
 
-const Typography: React.FC<TypographyProps> = (props) => {
+const Text: React.FC<TextProps> = (props) => {
   const {
     tag,
     fontFamily,
@@ -64,10 +64,9 @@ const Typography: React.FC<TypographyProps> = (props) => {
   );
 }
 
-export default Typography;
-export { Heading } from './Heading';
+export default Text;
 
-Typography.defaultProps = {
+Text.defaultProps = {
   tag: 'p',
   fontFamily: 'sans-serif',
   fontSize: 16,
