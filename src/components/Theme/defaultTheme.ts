@@ -40,5 +40,22 @@ export const defaultTheme: ITheme = {
     dark: '#EB621C',
     contrast: '#000'
   },
+  gradient: {
+    main: {
+      start: '#375267',
+      end: '#9CB2C9',
+      degree: '45deg',
+    },
+    light: {
+      start: '#D1DDEB',
+      end: '#EEF3F8',
+      degree: '45deg',
+    },
+    dark: {
+      start: '#14212E',
+      end: '#375267',
+      degree: '45deg',
+    },
+  },
   font: 'Inter, sans-serif'
 }

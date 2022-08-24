@@ -41,6 +41,16 @@ interface IDefaultPalette {
   light: string,
   extraLight: string,
 }
+interface IGradient {
+  start: string,
+  end: string,
+  degree: string
+}
+interface IGradientPalette {
+  main?: IGradient,
+  light?: IGradient,
+  dark?: IGradient,
+}
 
 export interface ITheme {
   primary: IPalette,
@@ -57,7 +67,8 @@ export interface ITheme {
     secondary: string,
     disabled: string,
     hint: string,
-  }
+  },
+  gradient: IGradientPalette,
   font: string,
   altFont?: string
 }
