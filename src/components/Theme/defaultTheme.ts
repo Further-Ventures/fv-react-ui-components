@@ -2,7 +2,7 @@ import { ITheme } from './types';
 
 export const defaultTheme: ITheme = {
   background: {
-    default: '#FFF'
+    default: '#FFFFFF'
   },
   default: {
     dark: '#667985',
@@ -20,25 +20,28 @@ export const defaultTheme: ITheme = {
     main: '#2400FF',
     light: '#D1D3FD',
     dark: '#17019C',
-    contrast: '#000'
+    contrast: '#FFFFFF',
+    contrastSecondary: '#000000'
   },
   error: {
     main: '#CC2418',
     light: '#FBDCDA',
     dark: '#B91D12',
-    contrast: '#000'
+    contrast: '#FFFFFF',
+    contrastSecondary: '#000000'
   },
   success: {
     main: '#088940',
     light: '#B3DFCA',
     dark: '#007133',
-    contrast: '#FFF'
+    contrast: '#FFFFFF'
   },
   warning: {
     main: '#FE9E34',
     light: '#FFDDB3',
     dark: '#EB621C',
-    contrast: '#000'
+    contrast: '#FFFFFF',
+    contrastSecondary: '#000000'
   },
   gradient: {
     main: {
