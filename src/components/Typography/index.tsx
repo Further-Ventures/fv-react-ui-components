@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import useStyles from './styles';
 import classNames from 'classnames';
 
@@ -15,7 +15,7 @@ interface TypographyProps {
   marginLeft?: string | number,
   marginRight?: string | number,
   marginBottom?: string | number,
-  className?: {},
+  className?: string,
   children?: React.ReactNode,
 }
 

@@ -11,7 +11,7 @@ it('should be rendered as h1', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h1)/i);
-  expect(element?.style.fontWeight).toContain("700");
+  expect(element?.style.fontWeight).toContain('700');
 });
 it('should be rendered as mobile h1', () => {
   const children = 'Test heading';
@@ -20,7 +20,7 @@ it('should be rendered as mobile h1', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h1)/i);
-  expect(element?.style.fontWeight).toContain("700");
+  expect(element?.style.fontWeight).toContain('700');
 });
 it('should be rendered as mobile h1 medium', () => {
   const children = 'Test heading';
@@ -29,7 +29,7 @@ it('should be rendered as mobile h1 medium', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h1)/i);
-  expect(element?.style.fontWeight).toContain("500");
+  expect(element?.style.fontWeight).toContain('500');
 });
 it('should be rendered as mobile h1 regular', () => {
   const children = 'Test heading';
@@ -38,7 +38,7 @@ it('should be rendered as mobile h1 regular', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h1)/i);
-  expect(element?.style.fontWeight).toContain("400");
+  expect(element?.style.fontWeight).toContain('400');
 });
 
 
@@ -49,7 +49,7 @@ it('should be rendered as h2', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h2)/i);
-  expect(element?.style.fontWeight).toContain("700");
+  expect(element?.style.fontWeight).toContain('700');
 });
 it('should be rendered as mobile h2', () => {
   const children = 'Test heading';
@@ -58,7 +58,7 @@ it('should be rendered as mobile h2', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h2)/i);
-  expect(element?.style.fontWeight).toContain("700");
+  expect(element?.style.fontWeight).toContain('700');
 });
 it('should be rendered as mobile h2 medium', () => {
   const children = 'Test heading';
@@ -67,7 +67,7 @@ it('should be rendered as mobile h2 medium', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h2)/i);
-  expect(element?.style.fontWeight).toContain("500");
+  expect(element?.style.fontWeight).toContain('500');
 });
 it('should be rendered as mobile h2 regular', () => {
   const children = 'Test heading';
@@ -76,7 +76,7 @@ it('should be rendered as mobile h2 regular', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h2)/i);
-  expect(element?.style.fontWeight).toContain("400");
+  expect(element?.style.fontWeight).toContain('400');
 });
 
 
@@ -87,7 +87,7 @@ it('should be rendered as h3', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h3)/i);
-  expect(element?.style.fontWeight).toContain("700");
+  expect(element?.style.fontWeight).toContain('700');
 });
 it('should be rendered as mobile h3', () => {
   const children = 'Test heading';
@@ -96,7 +96,7 @@ it('should be rendered as mobile h3', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h3)/i);
-  expect(element?.style.fontWeight).toContain("700");
+  expect(element?.style.fontWeight).toContain('700');
 });
 it('should be rendered as mobile h3 medium', () => {
   const children = 'Test heading';
@@ -105,7 +105,7 @@ it('should be rendered as mobile h3 medium', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h3)/i);
-  expect(element?.style.fontWeight).toContain("500");
+  expect(element?.style.fontWeight).toContain('500');
 });
 it('should be rendered as mobile h3 regular', () => {
   const children = 'Test heading';
@@ -114,7 +114,7 @@ it('should be rendered as mobile h3 regular', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h3)/i);
-  expect(element?.style.fontWeight).toContain("400");
+  expect(element?.style.fontWeight).toContain('400');
 });
 
 
@@ -125,7 +125,7 @@ it('should be rendered as h4', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h4)/i);
-  expect(element?.style.fontWeight).toContain("700");
+  expect(element?.style.fontWeight).toContain('700');
 });
 it('should be rendered as h4 slanted', () => {
   const children = 'Test heading';
@@ -134,8 +134,8 @@ it('should be rendered as h4 slanted', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h4)/i);
-  expect(element?.style.fontWeight).toContain("700");
-  expect(element?.style.fontStyle).toContain("italic");
+  expect(element?.style.fontWeight).toContain('700');
+  expect(element?.style.fontStyle).toContain('italic');
 });
 it('should be rendered as mobile h4', () => {
   const children = 'Test heading';
@@ -144,7 +144,7 @@ it('should be rendered as mobile h4', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h4)/i);
-  expect(element?.style.fontWeight).toContain("700");
+  expect(element?.style.fontWeight).toContain('700');
 });
 it('should be rendered as mobile h4 medium', () => {
   const children = 'Test heading';
@@ -153,7 +153,7 @@ it('should be rendered as mobile h4 medium', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h4)/i);
-  expect(element?.style.fontWeight).toContain("500");
+  expect(element?.style.fontWeight).toContain('500');
 });
 it('should be rendered as mobile h4 regular', () => {
   const children = 'Test heading';
@@ -162,7 +162,7 @@ it('should be rendered as mobile h4 regular', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h4)/i);
-  expect(element?.style.fontWeight).toContain("400");
+  expect(element?.style.fontWeight).toContain('400');
 });
 
 
@@ -173,7 +173,7 @@ it('should be rendered as h5 regular', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h5)/i);
-  expect(element?.style.fontWeight).toContain("400");
+  expect(element?.style.fontWeight).toContain('400');
 });
 it('should be rendered as h5 thin', () => {
   const children = 'Test heading';
@@ -182,7 +182,7 @@ it('should be rendered as h5 thin', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h5)/i);
-  expect(element?.style.fontWeight).toContain("200");
+  expect(element?.style.fontWeight).toContain('200');
 });
 
 it('should be rendered as h6', () => {
@@ -192,7 +192,7 @@ it('should be rendered as h6', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h6)/i);
-  expect(element?.style.fontWeight).toContain("700");
+  expect(element?.style.fontWeight).toContain('700');
 });
 it('should be rendered as h6 medium', () => {
   const children = 'Test heading';
@@ -201,7 +201,7 @@ it('should be rendered as h6 medium', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h6)/i);
-  expect(element?.style.fontWeight).toContain("500");
+  expect(element?.style.fontWeight).toContain('500');
 });
 it('should be rendered as h6 regular', () => {
   const children = 'Test heading';
@@ -210,5 +210,5 @@ it('should be rendered as h6 regular', () => {
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h6)/i);
-  expect(element?.style.fontWeight).toContain("400");
+  expect(element?.style.fontWeight).toContain('400');
 });

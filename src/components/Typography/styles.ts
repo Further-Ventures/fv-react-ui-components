@@ -1,5 +1,5 @@
 import { createStyles } from '../Theme';
 
-export default createStyles((theme) => ({
+export default createStyles(() => ({
   typography: {}
 }));

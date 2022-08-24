@@ -45,9 +45,9 @@ export const defaultTheme: ITheme = {
 };
 
 export const defaultTypography: ITypography = {
-  "h1": {
-    "desktop": {
-      "bold": {
+  h1: {
+    desktop: {
+      bold: {
         fontFamily: defaultTheme.altFont,
         fontSize: 68,
         fontStyle: 'normal',
@@ -56,8 +56,8 @@ export const defaultTypography: ITypography = {
         marginBottom: 24
       }
     },
-    "mobile": {
-      "bold": {
+    mobile: {
+      bold: {
         fontFamily: defaultTheme.font,
         fontSize: 48,
         fontStyle: 'normal',
@@ -65,7 +65,7 @@ export const defaultTypography: ITypography = {
         textTransform: 'none',
         marginBottom: 20
       },
-      "medium": {
+      medium: {
         fontFamily: defaultTheme.font,
         fontSize: 48,
         fontStyle: 'normal',
@@ -73,7 +73,7 @@ export const defaultTypography: ITypography = {
         textTransform: 'none',
         marginBottom: 20
       },
-      "regular": {
+      regular: {
         fontFamily: defaultTheme.font,
         fontSize: 48,
         fontStyle: 'normal',
