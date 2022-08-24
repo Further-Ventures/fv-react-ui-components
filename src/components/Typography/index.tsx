@@ -7,7 +7,7 @@ interface TypographyProps {
   fontFamily?: string,
   fontSize?: number | string,
   lineHeight?: number | string,
-  fontStyle?: 'normal' | 'italic' | 'oblique',
+  fontStyle?: string,
   fontWeight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900,
   fontVariant?: 'normal' | 'small-caps',
   textTransform?: 'lowercase' | 'uppercase' | 'capitalize' | 'none',
@@ -29,6 +29,10 @@ const Typography: React.FC<TypographyProps> = (props) => {
     fontWeight,
     fontVariant,
     textTransform,
+    marginTop,
+    marginLeft,
+    marginRight,
+    marginBottom,
     className,
     children,
     ...rest
@@ -39,7 +43,7 @@ const Typography: React.FC<TypographyProps> = (props) => {
   
   return (
     <Component
-      className={classNames(classes.heading, className)}
+      className={classNames(classes.typography, className)}
       style={{
         fontFamily,
         fontSize,
@@ -47,7 +51,11 @@ const Typography: React.FC<TypographyProps> = (props) => {
         fontStyle,
         fontWeight,
         fontVariant,
-        textTransform
+        textTransform,
+        marginTop,
+        marginLeft,
+        marginRight,
+        marginBottom
       }}
       {...rest}
     >

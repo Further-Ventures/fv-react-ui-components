@@ -61,3 +61,7 @@ export interface ITheme {
   font: string,
   altFont?: string
 }
+
+export interface ITypography {
+  [key: string]: any
+}
