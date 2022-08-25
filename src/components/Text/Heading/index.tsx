@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import { useScreenSize } from '../../../hooks/useScreenSize';
 
 interface HeadingProps {
-  tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6',
+  tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'subline',
   fontWeight?: 200 | 300 | 400 | 500 | 700,
   fontStyle?: null | 'italic',
   children: React.ReactNode,
@@ -21,13 +21,11 @@ export const Heading: React.FC<HeadingProps> = (props) => {
   } = props;
   const classes = useStyles(props);
   const { isMobile } = useScreenSize();
-  const Component = tag as any;
-
-  console.log('isMobile', isMobile);
+  const Component = tag === 'subline' ? 'p' : tag as any;
 
   return (
     <Component
-      className={classNames(classes.heading, classes[tag], `w${fontWeight}`, !!fontStyle && fontStyle, isMobile && 'mobile', className)}
+      className={classNames(classes.heading, classes[tag], classes[`w-${fontWeight}`], !!fontStyle && classes[fontStyle], isMobile && classes['mobile'], className)}
     >
       {children}
     </Component>

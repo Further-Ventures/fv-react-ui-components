@@ -190,6 +190,27 @@ it('should be rendered as regular h6', () => {
   expect(window.getComputedStyle(element).getPropertyValue('font-weight')).toContain('400');
 });
 
+it('should be rendered as subline', () => {
+  const children = 'Test heading';
+  render(<Heading tag="subline">{children}</Heading>)
+  
+  const element = screen.queryByText(children) as HTMLElement;
+  expect(element).toBeInTheDocument();
+  expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
+
+  expect(window.getComputedStyle(element).getPropertyValue('font-weight')).toContain('500');
+});
+it('should be rendered as subline even if we add different weight in props', () => {
+  const children = 'Test heading';
+  render(<Heading tag="subline" fontWeight={200}>{children}</Heading>)
+  
+  const element = screen.queryByText(children) as HTMLElement;
+  expect(element).toBeInTheDocument();
+  expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
+
+  expect(window.getComputedStyle(element).getPropertyValue('font-weight')).toContain('500');
+});
+
 
 /* 
     mobile tests
@@ -364,4 +385,15 @@ it('should be rendered as regular h4 on mobile', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h4)/i);
 
   expect(window.getComputedStyle(element).getPropertyValue('font-weight')).toContain('400');
+});
+
+it('should be rendered as subline on mobile even if we add different weight in props', () => {
+  const children = 'Test heading';
+  render(<Heading tag="subline" fontWeight={200} >{children}</Heading>)
+  
+  const element = screen.queryByText(children) as HTMLElement;
+  expect(element).toBeInTheDocument();
+  expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
+
+  expect(window.getComputedStyle(element).getPropertyValue('font-weight')).toContain('500');
 });
