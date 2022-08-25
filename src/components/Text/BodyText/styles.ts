@@ -7,22 +7,22 @@ export default createStyles((theme) => ({
     padding: '0',
     margin: '0 0 0 10px'
   },
-  "w-400": {
+  'w-400': {
     fontWeight: 400
   },
-  "w-500": {
+  'w-500': {
     fontWeight: 500
   },
-  "w-700": {
+  'w-700': {
     fontWeight: 700
   },
-  "s-l": {
+  's-l': {
     fontSize: 18
   },
-  "s-m": {
+  's-m': {
     fontSize: 16
   },
-  "s-s": {
+  's-s': {
     fontSize: 14
   },
   quote: {

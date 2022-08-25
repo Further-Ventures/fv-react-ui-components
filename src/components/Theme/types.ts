@@ -62,7 +62,3 @@ export interface ITheme {
   altFont?: string,
   mobileView: number
 }
-
-export interface ITypography {
-  [key: string]: any
-}

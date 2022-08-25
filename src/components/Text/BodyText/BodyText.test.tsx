@@ -3,13 +3,6 @@ import * as React from 'react'
 import { render, screen } from '@testing-library/react'
 import { BodyText } from './index'
 
-let mockIsMobile = false;
-jest.mock('../../../hooks/useScreenSize', () =>({
-  useScreenSize: () => ({
-    isMobile: mockIsMobile
-  })
-}));
-
 it('should rendered bold slanted quote', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
   render(<BodyText variation="quote">{children}</BodyText>)

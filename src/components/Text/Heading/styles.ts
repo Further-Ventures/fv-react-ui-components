@@ -162,19 +162,19 @@ export default createStyles((theme) => ({
       fontWeight: 500
     }
   },
-  "w-200": {
+  'w-200': {
     fontWeight: 200
   },
-  "w-300": {
+  'w-300': {
     fontWeight: 300
   },
-  "w-400": {
+  'w-400': {
     fontWeight: 400
   },
-  "w-500": {
+  'w-500': {
     fontWeight: 500
   },
-  "w-700": {
+  'w-700': {
     fontWeight: 700
   },
   mobile: {

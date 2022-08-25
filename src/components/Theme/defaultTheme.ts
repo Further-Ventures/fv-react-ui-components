@@ -1,4 +1,4 @@
-import { ITheme, ITypography } from './types';
+import { ITheme } from './types';
 
 export const defaultTheme: ITheme = {
   background: {

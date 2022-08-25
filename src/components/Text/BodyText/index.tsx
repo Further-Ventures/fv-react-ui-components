@@ -19,14 +19,8 @@ export const BodyText: React.FC<BodyTextProps> = (props) => {
     children
   } = props;
   const classes = useStyles(props);
-  const Component = ['paragraph', 'description'].includes(variation) ? 'p' : 
-        variation === 'quote' ? 'q' : 
-        variation === 'button' ? 'span' : 
-        variation as any;
+  const Component = ['paragraph', 'description'].includes(variation) ? 'p' : variation === 'quote' ? 'q' : variation === 'button' ? 'span' : variation as any;
 
-        // console.log('----------');
-        // console.log('variation', variation);
-        // console.log('Component', Component);
   return (
     <Component
       className={classNames(classes.bodyText, classes[variation], classes[`w-${fontWeight}`], classes[`s-${size}`], className)}
