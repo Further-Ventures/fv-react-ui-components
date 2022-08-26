@@ -37,7 +37,7 @@ async function moveComponentsFiles() {
 }
 
 async function moveFontFiles() {
-  fs.copySync(`src/fonts`, `${buildDir}/fonts`);
+  fs.copySync(`src/components/Theme/fonts`, `${buildDir}/Theme/fonts`);
 }
 
 async function replacePaths() {

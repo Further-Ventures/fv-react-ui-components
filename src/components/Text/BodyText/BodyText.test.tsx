@@ -143,7 +143,7 @@ it('should rendered regular caption', () => {
   
   const element = screen.queryByText(children) as HTMLElement;
   expect(element).toBeInTheDocument();
-  expect(element?.tagName?.toLowerCase()).toMatch(/(caption)/i);
+  expect(element?.tagName?.toLowerCase()).toMatch(/(span)/i);
 
   expect(window.getComputedStyle(element).getPropertyValue('font-weight')).toContain('400');
   expect(window.getComputedStyle(element).getPropertyValue('font-size')).toContain('12');
@@ -154,7 +154,7 @@ it('should rendered regular caption even if we add different props to change the
   
   const element = screen.queryByText(children) as HTMLElement;
   expect(element).toBeInTheDocument();
-  expect(element?.tagName?.toLowerCase()).toMatch(/(caption)/i);
+  expect(element?.tagName?.toLowerCase()).toMatch(/(span)/i);
 
   expect(window.getComputedStyle(element).getPropertyValue('font-weight')).toContain('400');
   expect(window.getComputedStyle(element).getPropertyValue('font-size')).toContain('12');

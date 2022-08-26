@@ -19,7 +19,7 @@ export const BodyText: React.FC<BodyTextProps> = (props) => {
     children
   } = props;
   const classes = useStyles(props);
-  const Component = ['paragraph', 'description'].includes(variation) ? 'p' : variation === 'quote' ? 'q' : variation === 'button' ? 'span' : variation as any;
+  const Component = ['paragraph', 'description'].includes(variation) ? 'p' : variation === 'quote' ? 'q' : ['caption', 'button'].includes(variation) ? 'span' : variation as any;
 
   return (
     <Component
