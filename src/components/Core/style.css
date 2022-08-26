@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --mercury-primary-color-light: #d1d3fd;
+  --mercury-primary-color: #2400ff;
+  --mercury-primary-color-dark: #17019c;
+  --mercury-primary-color-contrast: #ffffff;
+}
