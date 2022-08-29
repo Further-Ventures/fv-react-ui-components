@@ -61,5 +61,7 @@ export const defaultTheme: ITheme = {
       degree: '45deg',
     },
   },
-  font: 'Inter, sans-serif'
-}
+  font: 'PP Object Sans, sans-serif',
+  altFont: 'PP Monument Extended, sans-serif',
+  mobileView: 1023
+};
