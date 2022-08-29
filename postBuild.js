@@ -17,12 +17,12 @@ async function postBuild() {
     await fs.remove(webpackBuildDir);
     console.log('\x1b[32m', 'postBuild.js: Build is ready for deployment');
   } catch (e) {
-    console.log('\x1b[31m','postBuild.js: Error', e);
+    console.log('\x1b[31m', 'postBuild.js: Error', e);
   }
 }
 
 async function moveComponentsFiles() {
-  componentsList.forEach(dir => {
+  componentsList.forEach((dir) => {
     fs.copySync(`${webpackBuildDir}/components/${dir}`, `${buildDir}/${dir}`);
     fs.copySync(`src/components/${dir}/package.json`, `${buildDir}/${dir}/package.json`);
     fs.copySync(`component_README.md`, `${buildDir}/${dir}/README.md`);
@@ -30,19 +30,22 @@ async function moveComponentsFiles() {
       files: [`${buildDir}/${dir}/README.md`],
       from: '{name}',
       to: dir,
-    })
+    });
     fs.copySync(`${webpackBuildDir}/${dir}.js`, `${buildDir}/${dir}/index.js`);
+    if (fs.existsSync(`${webpackBuildDir}/${dir}.css`)) {
+      fs.copySync(`${webpackBuildDir}/${dir}.css`, `${buildDir}/${dir}/index.css`);
+    }
   });
 }
 
 async function replacePaths() {
-  const from = componentsList.map(key => new RegExp(`(\\.{2}\\/)+${key}(?![\\w\\d])`, 'g'));
-  const to = componentsList.map(key => `${name}.${components[key]}`);
+  const from = componentsList.map((key) => new RegExp(`(\\.{2}\\/)+${key}(?![\\w\\d])`, 'g'));
+  const to = componentsList.map((key) => `${name}.${components[key]}`);
   await replace({
     from,
     to,
     files: [`${buildDir}/**/index.js`, `${buildDir}/**/*.d.ts`],
-  })
+  });
 }
 
 postBuild();

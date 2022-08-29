@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import './style.css';
+import './style.scss';
 
 export interface IButton extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'> {
   label: string;
