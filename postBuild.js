@@ -13,6 +13,7 @@ async function postBuild() {
   try {
     await fs.remove(buildDir);
     await moveComponentsFiles();
+    await moveFontFiles();
     await replacePaths();
     await fs.remove(webpackBuildDir);
     console.log('\x1b[32m', 'postBuild.js: Build is ready for deployment');
@@ -36,6 +37,10 @@ async function moveComponentsFiles() {
       fs.copySync(`${webpackBuildDir}/${dir}.css`, `${buildDir}/${dir}/index.css`);
     }
   });
+}
+
+async function moveFontFiles() {
+  fs.copySync(`src/components/Theme/fonts`, `${buildDir}/Theme/fonts`);
 }
 
 async function replacePaths() {

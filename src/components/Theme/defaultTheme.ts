@@ -11,7 +11,7 @@ export const defaultTheme: ITheme = {
     extraLight: '#EFF1F3'
   },
   text: {
-    primary: '#000',
+    primary: '#000000',
     secondary: '#344054',
     disabled: '#D2D2D2',
     hint: '#667085'
@@ -61,5 +61,7 @@ export const defaultTheme: ITheme = {
       degree: '45deg',
     },
   },
-  font: 'Inter, sans-serif'
-}
+  font: 'PP Object Sans, sans-serif',
+  altFont: 'PP Monument Extended, sans-serif',
+  mobileView: 1023
+};

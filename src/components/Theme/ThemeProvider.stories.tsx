@@ -20,7 +20,16 @@ const Template: ComponentStory<typeof ThemeChooser> = (args) => {
   
   return (
     <ThemeChooser {...args}>
-      <div style={{fontFamily: 'sans-serif'}}>
+      <div style={{ fontFamily: theme.font }}>
+        <h3 className='h3'>
+          <span>fonts</span>
+          <p className='p'>
+            <span style={{ fontFamily: theme.font }}>{theme.font}</span>
+          </p>
+          <p className='p'>
+            <span style={{ fontFamily: theme.altFont }}>{theme.altFont}</span>
+          </p>
+        </h3>
         <h3 className='h3'>
           <span>background</span>
           <p className='p'>
@@ -165,12 +174,12 @@ const Template: ComponentStory<typeof ThemeChooser> = (args) => {
             <span>main - start: {theme.gradient?.main?.start} / end: {theme.gradient?.main?.end} / degree: {theme.gradient?.main?.degree}</span>
           </p>
           <p className='p'>
-          <span className='span' style={{ width: 150, background: `linear-gradient(${theme.gradient?.light?.degree}, ${theme.gradient?.light?.start} 0%, ${theme.gradient?.light?.end} 100%)` }}/>
-          <span>light - start: {theme.gradient?.light?.start} / end: {theme.gradient?.light?.end} / degree: {theme.gradient?.light?.degree}</span>
+            <span className='span' style={{ width: 150, background: `linear-gradient(${theme.gradient?.light?.degree}, ${theme.gradient?.light?.start} 0%, ${theme.gradient?.light?.end} 100%)` }}/>
+            <span>light - start: {theme.gradient?.light?.start} / end: {theme.gradient?.light?.end} / degree: {theme.gradient?.light?.degree}</span>
           </p>
           <p className='p'>
-          <span className='span' style={{ width: 150, background: `linear-gradient(${theme.gradient?.dark?.degree}, ${theme.gradient?.dark?.start} 0%, ${theme.gradient?.dark?.end} 100%)` }}/>
-          <span>dark - start: {theme.gradient?.dark?.start} / end: {theme.gradient?.dark?.end} / degree: {theme.gradient?.dark?.degree}</span>
+            <span className='span' style={{ width: 150, background: `linear-gradient(${theme.gradient?.dark?.degree}, ${theme.gradient?.dark?.start} 0%, ${theme.gradient?.dark?.end} 100%)` }}/>
+            <span>dark - start: {theme.gradient?.dark?.start} / end: {theme.gradient?.dark?.end} / degree: {theme.gradient?.dark?.degree}</span>
           </p>
         </h3>
       </div>

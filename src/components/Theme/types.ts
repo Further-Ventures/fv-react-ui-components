@@ -71,5 +71,6 @@ export interface ITheme {
   },
   gradient: IGradientPalette,
   font: string,
-  altFont?: string
+  altFont?: string,
+  mobileView: number
 }
