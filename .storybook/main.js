@@ -1,17 +1,36 @@
 module.exports = {
-  "stories": [
-    "../src/**/*.stories.mdx",
-    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: [
+    {
+      name: '@storybook/addon-postcss',
+      options: {
+        postcssLoaderOptions: {
+          implementation: require('postcss'),
+        },
+        rule: {
+          test: /\.css$/i,
+        },
+      },
+    },
+    {
+      name: 'storybook-addon-sass-postcss',
+      options: {
+        postcssLoaderOptions: {
+          implementation: require('postcss'),
+        },
+        rule: {
+          test: /\.(scss|sass)$/i,
+        },
+      },
+    },
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    './addons/register.js',
   ],
-  "addons": [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-    "./addons/register.js"
-  ],
-  "framework": "@storybook/react",
+  framework: '@storybook/react',
   core: {
-    builder: "webpack5"
+    builder: 'webpack5',
   },
-  staticDirs: [{from: '../src/components/Theme/fonts', to: 'fonts'}]
+  staticDirs: [{ from: '../src/components/Core/fonts', to: 'fonts' }],
 };

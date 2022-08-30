@@ -4,6 +4,8 @@
     "Button": "button",
     "Theme": "theme",
     "Input": "input",
-    "Form": "form"
+    "Form": "form",
+    "ButtonTW": "buttontailwind",
+    "Core": "Core"
   }
 }

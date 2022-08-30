@@ -9,7 +9,6 @@ export default createStyles((theme) => ({
     cursor: 'pointer',
     outline: 'none',
     border: 'none',
-    display: 'flex',
     alignItems: 'center',
     '&:active:not($disabled)': {
       outline: `4px solid ${theme[props.color!].light}`,
@@ -23,7 +22,7 @@ export default createStyles((theme) => ({
     },
     '&:hover': {
       backgroundColor: theme[props.color!].dark,
-    }
+    },
   }),
   outlined: (props: IButton) => ({
     backgroundColor: theme[props.color!].contrast,

@@ -1,0 +1,7 @@
+{
+  "name": "@further-ventures/fv-react-ui-components.core",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  }
+}
