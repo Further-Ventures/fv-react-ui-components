@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import './style.scss';
 
 export interface IButton extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'> {
   label: string;
@@ -28,7 +27,16 @@ const Button: React.FC<IButton> = (props) => {
     ...rest
   } = props;
 
-  return <button className={'ButtonTW'}>{label}</button>;
+  return (
+    <button
+      className={classNames('inline-flex items-center px-6 py-3 border-2 rounded-md hover:ring hover:ring-primary-light', {
+        ['bg-primary border-transparent text-primary-contrast-secondary']: variant === 'contained',
+        ['bg-transparent border-primary text-primary']: variant === 'outlined',
+      })}
+    >
+      {label}
+    </button>
+  );
 };
 
 export default Button;
