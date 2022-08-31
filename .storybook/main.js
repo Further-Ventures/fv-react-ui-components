@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
@@ -33,4 +35,12 @@ module.exports = {
     builder: 'webpack5',
   },
   staticDirs: [{ from: '../src/components/Core/fonts', to: 'fonts' }],
+  webpackFinal: async (config) => {
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@utils': path.resolve(__dirname, '../src/utils'),
+    };
+    config.resolve.extensions.push('.tsx', '.ts', '.js', 'scss');
+    return config;
+  },
 };

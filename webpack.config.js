@@ -3,6 +3,10 @@ const { entry, externals } = require('./preBuild');
 const { webpackBuildDir } = require('./buildConstants');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const paths = {
+  APP_DIR: path.resolve(__dirname, '..', 'src'),
+};
+
 module.exports = {
   entry,
   externals,
@@ -53,7 +57,10 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js', 'scss'],
+    alias: {
+      utils: path.resolve(paths.APP_DIR, 'utils'),
+    },
   },
   output: {
     filename: '[name].js',
