@@ -3,10 +3,10 @@ import { IInput } from './index';
 
 export default createStyles((theme) => ({
   root: {
-    width: 320,
+    width: 320
   },
   fullWidth: {
-    width: '100%',
+    width: '100%'
   },
   inputContainer: (props: IInput) => ({
     boxSizing: 'border-box',
@@ -18,29 +18,29 @@ export default createStyles((theme) => ({
     backgroundColor: theme.background.default,
     '&:focus-within:not($inputContainerError)': {
       border: `1px solid ${theme[props.color!].main}`,
-      outline: `4px solid ${theme[props.color!].light}`,
+      outline: `4px solid ${theme[props.color!].light}`
     },
     '&:not($inputContainerError)': {
-      border: `1px solid ${theme.default.main}`,
+      border: `1px solid ${theme.default.main}`
     },
     '&$withLabel': {
-      height: 44,
+      height: 44
     }
   }),
   inputContainerError: {
     border: `1px solid ${theme.error.main}`,
     '&:focus-within': {
-      outline: `4px solid ${theme.error.light}`,
-    },
+      outline: `4px solid ${theme.error.light}`
+    }
   },
   input: {
     '&::-webkit-outer-spin-button, &::-webkit-inner-spin-button': {
       '-webkit-appearance': 'none',
       appearance: 'none',
-      margin: 0,
+      margin: 0
     },
     '&[type=number]': {
-      '-moz-appearance': 'textfield',
+      '-moz-appearance': 'textfield'
     },
     fontFamily: theme.font,
     border: 'none',
@@ -53,25 +53,25 @@ export default createStyles((theme) => ({
     fontSize: 14,
     backgroundColor: theme.background.default,
     '&::placeholder': {
-      color: theme.text.hint,
+      color: theme.text.hint
     }
   },
   inputArea: {
     display: 'flex',
     flexDirection: 'column',
-    width: '100%',
+    width: '100%'
   },
   prefix: {
     paddingTop: 17,
     fontSize: 14,
     color: theme.text.primary,
     backgroundColor: theme.background.default,
-    whiteSpace: 'nowrap',
+    whiteSpace: 'nowrap'
   },
   disabled: {
     pointerEvents: 'none',
     userSelect: 'none',
-    backgroundColor: theme.background.default,
+    backgroundColor: theme.background.default
   },
   label: {
     color: theme.text.secondary,
@@ -79,16 +79,16 @@ export default createStyles((theme) => ({
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     height: 17,
-    fontSize: 14,
+    fontSize: 14
   },
   textDisabled: {
     color: theme.text.disabled,
     '&::placeholder': {
-      color: theme.text.disabled,
+      color: theme.text.disabled
     }
   },
   message: {
-    marginTop: 8,
+    marginTop: 8
   },
-  withLabel: {},
+  withLabel: {}
 }));

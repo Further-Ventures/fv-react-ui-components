@@ -9,81 +9,80 @@ export default {
   title: 'Components/Button',
   component: Button,
   parameters: {
-    pkg,
+    pkg
   },
-  argTypes: buildExcludeArgTypes(['iconLeft', 'iconRight', 'className']),
+  argTypes: buildExcludeArgTypes(['iconLeft', 'iconRight', 'className'])
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Contained = Template.bind({});
 Contained.args = {
-  label: 'Contained',
+  label: 'Contained'
 };
 
 export const Outlined = Template.bind({});
 Outlined.args = {
   label: 'Outlined',
-  variant: 'outlined',
+  variant: 'outlined'
 };
 
 export const Mini = Template.bind({});
 Mini.args = {
   size: 'mini',
   label: 'Mini',
-  shape: 'round',
+  shape: 'round'
 };
 
 export const Small = Template.bind({});
 Small.args = {
   size: 'small',
   label: 'Small',
-  shape: 'flat',
+  shape: 'flat'
 };
 
 export const Medium = Template.bind({});
 Medium.args = {
   size: 'medium',
   label: 'Medium',
-  shape: 'flat',
+  shape: 'flat'
 };
 
 export const Large = Template.bind({});
 Large.args = {
   size: 'large',
   label: 'Large',
-  shape: 'flat',
+  shape: 'flat'
 };
 
 export const Round = Template.bind({});
 Round.args = {
   label: 'Round',
   size: 'medium',
-  shape: 'round',
+  shape: 'round'
 };
 
 export const Circle = Template.bind({});
 Circle.args = {
   label: 'Circle',
   size: 'medium',
-  shape: 'circle',
+  shape: 'circle'
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   label: 'Disabled',
-  disabled: true,
+  disabled: true
 };
 
 export const LeftIcon = Template.bind({});
 LeftIcon.args = {
   label: 'Left Icon',
-  iconLeft: Placeholder,
+  iconLeft: Placeholder
 };
 
 export const RightIcon = Template.bind({});
 RightIcon.args = {
   label: 'Right Icon',
-  iconRight: Placeholder,
+  iconRight: Placeholder
 };
-

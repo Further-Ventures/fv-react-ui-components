@@ -12,17 +12,17 @@ export default createStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     '&:active:not($disabled)': {
-      outline: `4px solid ${theme[props.color!].light}`,
-    },
+      outline: `4px solid ${theme[props.color!].light}`
+    }
   }),
   contained: (props: IButton) => ({
     backgroundColor: theme[props.color!].main,
     color: theme[props.color!].contrast,
     '& $icon path': {
-      fill: theme[props.color!].contrast,
+      fill: theme[props.color!].contrast
     },
     '&:hover': {
-      backgroundColor: theme[props.color!].dark,
+      backgroundColor: theme[props.color!].dark
     }
   }),
   outlined: (props: IButton) => ({
@@ -30,67 +30,67 @@ export default createStyles((theme) => ({
     color: theme[props.color!].main,
     border: [2, 'solid', theme[props.color!].main],
     '& $icon path': {
-      fill: theme[props.color!].main,
+      fill: theme[props.color!].main
     },
     '&:hover': {
-      backgroundColor: theme[props.color!].light,
+      backgroundColor: theme[props.color!].light
     },
     '&$mini': {
-      padding: '2.5px 8px',
+      padding: '2.5px 8px'
     },
     '&$small': {
-      padding: '6px 16px',
+      padding: '6px 16px'
     },
     '&$medium': {
-      padding: '14px 24px',
+      padding: '14px 24px'
     },
     '&$large': {
-      padding: '22px 32px',
-    },
+      padding: '22px 32px'
+    }
   }),
   disabled: {
     opacity: 0.3,
-    pointerEvents: 'none',
+    pointerEvents: 'none'
   },
   mini: {
     gap: 8,
     fontSize: 10,
     lineHeight: '15px',
-    padding: '4.5px 8px',
+    padding: '4.5px 8px'
   },
   small: {
     fontSize: 16,
     lineHeight: '24px',
     padding: '8px 16px',
-    gap: 10,
+    gap: 10
   },
   medium: {
     fontSize: 16,
     lineHeight: '24px',
     padding: '16px 24px',
-    gap: 10,
+    gap: 10
   },
   large: {
     fontSize: 16,
     lineHeight: '24px',
     padding: '24px 32px',
-    gap: 14,
+    gap: 14
   },
   flat: {},
   round: {
-    borderRadius: 4,
+    borderRadius: 4
   },
   circle: {
-    borderRadius: 50,
+    borderRadius: 50
   },
   icon: {
     '$mini &': {
       width: 14,
-      height: 14,
+      height: 14
     },
     '$small &, $medium &, $large &': {
       width: 20,
-      height: 20,
-    },
-  },
+      height: 20
+    }
+  }
 }));

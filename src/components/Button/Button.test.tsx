@@ -1,23 +1,23 @@
-import '@testing-library/jest-dom'
-import * as React from 'react'
-import { render, screen, fireEvent } from '@testing-library/react'
-import Button from './index'
+import '@testing-library/jest-dom';
+import * as React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import Button from './index';
 import Placeholder from '../../storybook/icons/placeholder';
 
 it('should be rendered', () => {
-  const label = 'Test button'
-  render(<Button label={label}/>)
+  const label = 'Test button';
+  render(<Button label={label} />);
   expect(screen.queryByText(label)).toBeInTheDocument();
 });
 
 it('should be visible', () => {
-  render(<Button label="Button"/>)
+  render(<Button label="Button" />);
   const button = screen.getByRole('button');
   expect(button).toBeVisible();
 });
 
 it('should contain default classes', () => {
-  render(<Button label="Button"/>)
+  render(<Button label="Button" />);
   const button = screen.getByRole('button');
   expect(button.className).toMatch(/(contained)/i);
   expect(button.className).toMatch(/(medium)/i);
@@ -25,7 +25,9 @@ it('should contain default classes', () => {
 });
 
 it('should contain variant, size and shape classes', () => {
-  render(<Button label="Button" variant="outlined" size="small" shape="round" />)
+  render(
+    <Button label="Button" variant="outlined" size="small" shape="round" />
+  );
   const button = screen.getByRole('button');
   expect(button.className).toMatch(/(outlined)/i);
   expect(button.className).toMatch(/(small)/i);
@@ -34,7 +36,7 @@ it('should contain variant, size and shape classes', () => {
 
 it('should call onClick handler', () => {
   const onClick = jest.fn();
-  render(<Button label="Button" onClick={onClick} />)
+  render(<Button label="Button" onClick={onClick} />);
   const button = screen.getByRole('button');
   fireEvent.click(button);
   expect(onClick).toHaveBeenCalled();
@@ -42,7 +44,7 @@ it('should call onClick handler', () => {
 
 it('should not call onClick handler when disabled', () => {
   const onClick = jest.fn();
-  render(<Button label="Button" disabled={true} onClick={onClick} />)
+  render(<Button label="Button" disabled={true} onClick={onClick} />);
   const button = screen.getByRole('button');
   fireEvent.click(button);
   expect(onClick).not.toHaveBeenCalled();
