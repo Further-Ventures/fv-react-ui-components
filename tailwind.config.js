@@ -21,7 +21,7 @@ module.exports = {
         primary: {
           light: 'var(--mercury-primary-color-light)',
           DEFAULT: 'var(--mercury-primary-color)',
-          medium: 'var(--mercury-primary-medium-color)',
+          medium: 'var(--mercury-primary-color-medium)',
           dark: 'var(--mercury-primary-color-dark)',
           contrast: 'var(--mercury-primary-color-contrast)',
           'contrast-secondary': 'var(--mercury-primary-color-contrast-secondary)',
@@ -29,7 +29,7 @@ module.exports = {
         error: {
           light: 'var(--mercury-error-color-light)',
           DEFAULT: 'var(--mercury-error-color)',
-          medium: 'var(--mercury-error-medium-color)',
+          medium: 'var(--mercury-error-color-medium)',
           dark: 'var(--mercury-error-color-dark)',
           contrast: 'var(--mercury-error-color-contrast)',
           'contrast-secondary': 'var(--mercury-error-color-contrast-secondary)',
@@ -37,7 +37,7 @@ module.exports = {
         warning: {
           light: 'var(--mercury-warning-color-light)',
           DEFAULT: 'var(--mercury-warning-color)',
-          medium: 'var(--mercury-warning-medium-color)',
+          medium: 'var(--mercury-warning-color-medium)',
           dark: 'var(--mercury-warning-color-dark)',
           contrast: 'var(--mercury-warning-color-contrast)',
           'contrast-secondary': 'var(--mercury-warning-color-contrast-secondary)',
@@ -45,7 +45,7 @@ module.exports = {
         success: {
           light: 'var(--mercury-success-color-light)',
           DEFAULT: 'var(--mercury-success-color)',
-          medium: 'var(--mercury-success-medium-color)',
+          medium: 'var(--mercury-success-color-medium)',
           dark: 'var(--mercury-success-color-dark)',
           contrast: 'var(--mercury-success-color-contrast)',
           'contrast-secondary': 'var(--mercury-success-color-contrast-secondary)',
