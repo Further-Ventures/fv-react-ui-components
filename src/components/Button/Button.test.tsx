@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
-import { getClassList } from 'utils/testUtils';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { getClassList } from '../../utils/testUtils';
 import Button from './index';
 
 it('should render a primary contained button with the correct style (default)', () => {
@@ -10,9 +10,15 @@ it('should render a primary contained button with the correct style (default)', 
   const element = screen.queryByText('Test button');
   expect(screen.queryByText('Test button')).toBeInTheDocument();
   console.log('classes', getClassList(element));
-  expect(getClassList(element)).toEqual(expect.arrayContaining(['bg-transparent', 'border-primary', 'text-primary']));
-  expect(element?.classList.toString().split(' ')).not.toEqual(
-    expect.arrayContaining(['bg-primary', 'border-transparent', 'text-primary-contrast-secondary'])
+  expect(getClassList(element)).toEqual(
+    expect.arrayContaining([
+      'bg-primary',
+      'disabled:bg-default-extra-light',
+      'hover:bg-primary-medium',
+      'active:bg-primary-dark',
+      'border-transparent',
+      'text-primary-contrast-secondary',
+    ])
   );
 });
 
@@ -22,34 +28,62 @@ it('should render a primary outlined button with the correct style', () => {
   const element = screen.queryByText('Test button');
   expect(screen.queryByText('Test button')).toBeInTheDocument();
 
-  expect(element?.classList.toString().split(' ')).toEqual(expect.arrayContaining(['bg-transparent', 'border-primary', 'text-primary']));
-  expect(element?.classList.toString().split(' ')).not.toEqual(
-    expect.arrayContaining(['bg-primary', 'border-transparent', 'text-primary-contrast-secondary'])
+  expect(getClassList(element)).toEqual(
+    expect.arrayContaining([
+      'bg-transparent',
+      'hover:bg-default-extra-light',
+      'active:bg-primary-light',
+      'border-primary',
+      'hover:border-primary-dark',
+      'text-primary',
+      'hover:text-primary-dark',
+    ])
   );
 });
 
 it('should render a error contained button with the correct style', () => {
-  render(<Button label='Test button' variant='outlined' />);
+  render(<Button label='Test button' color='error' />);
 
   const element = screen.queryByText('Test button');
   expect(screen.queryByText('Test button')).toBeInTheDocument();
 
-  expect(element?.classList.toString().split(' ')).toEqual(expect.arrayContaining(['bg-transparent', 'border-primary', 'text-primary']));
-  expect(element?.classList.toString().split(' ')).not.toEqual(
-    expect.arrayContaining(['bg-primary', 'border-transparent', 'text-primary-contrast-secondary'])
+  expect(getClassList(element)).toEqual(
+    expect.arrayContaining([
+      'bg-error',
+      'disabled:bg-default-extra-light',
+      'hover:bg-error-medium',
+      'active:bg-error-dark',
+      'border-transparent',
+      'text-primary-contrast-secondary',
+    ])
   );
 });
 
 it('should render a error outlined button with the correct style', () => {
-  render(<Button label='Test button' variant='outlined' />);
+  render(<Button label='Test button' color='error' variant='outlined' />);
 
   const element = screen.queryByText('Test button');
   expect(screen.queryByText('Test button')).toBeInTheDocument();
 
-  expect(element?.classList.toString().split(' ')).toEqual(expect.arrayContaining(['bg-transparent', 'border-primary', 'text-primary']));
-  expect(element?.classList.toString().split(' ')).not.toEqual(
-    expect.arrayContaining(['bg-primary', 'border-transparent', 'text-primary-contrast-secondary'])
+  expect(getClassList(element)).toEqual(
+    expect.arrayContaining([
+      'bg-transparent',
+      'hover:bg-default-extra-light',
+      'active:bg-error-light',
+      'border-error',
+      'hover:border-error-dark',
+      'text-error',
+      'hover:text-error-dark',
+    ])
   );
+});
+
+it('should call onClick handler', () => {
+  const onClick = jest.fn();
+  render(<Button label='Button' onClick={onClick} />);
+  const button = screen.getByRole('button');
+  fireEvent.click(button);
+  expect(onClick).toHaveBeenCalled();
 });
 
 it('should call the onclick callback when button is clicked', () => {
@@ -57,11 +91,17 @@ it('should call the onclick callback when button is clicked', () => {
 
   render(<Button label='Test button' variant='outlined' onClick={onClickSpy} />);
 
-  const element = screen.queryByText('Test button');
-  expect(screen.queryByText('Test button')).toBeInTheDocument();
+  const button = screen.getByRole('button');
+  fireEvent.click(button);
+  expect(onClickSpy).toHaveBeenCalled();
+});
 
-  expect(element?.classList.toString().split(' ')).toEqual(expect.arrayContaining(['bg-transparent', 'border-primary', 'text-primary']));
-  expect(element?.classList.toString().split(' ')).not.toEqual(
-    expect.arrayContaining(['bg-primary', 'border-transparent', 'text-primary-contrast-secondary'])
-  );
+it('should not call the onclick callback when disabled button is clicked', () => {
+  const onClickSpy = jest.fn();
+
+  render(<Button label='Test button' variant='outlined' onClick={onClickSpy} disabled />);
+
+  const button = screen.getByRole('button');
+  fireEvent.click(button);
+  expect(onClickSpy).not.toHaveBeenCalled();
 });
