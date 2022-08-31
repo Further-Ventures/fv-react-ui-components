@@ -5,16 +5,18 @@ const fs = require('fs-extra');
 
 const getComponentsEntries = () => {
   const entry = {};
-  Object.keys(components).forEach(dir => { entry[dir] = `./src/components/${dir}/index.tsx` });
+  Object.keys(components).forEach((dir) => {
+    entry[dir] = `./src/components/${dir}/index.tsx`;
+  });
 
   return entry;
-}
+};
 
 // Returns list of external libraries based on peerDependencies
 
 const getComponentsExternals = () => {
   const componentsList = Object.keys(components);
-  let libComponents = componentsList.map(dir => `../${dir}`);
+  const libComponents = componentsList.map(dir => new RegExp(`.+\\b${dir}\\b$`, 'i'));
   const externalsSet = new Set(libComponents);
 
   componentsList.forEach((component) => {
@@ -22,16 +24,16 @@ const getComponentsExternals = () => {
       const item = fs.readFileSync(`./src/components/${component}/package.json`, 'utf8');
       const packageObject = JSON.parse(item);
       const peers = Object.keys(packageObject.peerDependencies) || [];
-      peers.forEach(peer => externalsSet.add(peer));
+      peers.forEach((peer) => externalsSet.add(peer));
     } catch (e) {
-       console.error(`package.json file is missed in ./src/components/${component}/package.json`);
+      console.error(`package.json file is missed in ./src/components/${component}/package.json`);
     }
   });
 
   return Array.from(externalsSet);
-}
+};
 
 module.exports = {
   entry: getComponentsEntries(),
   externals: getComponentsExternals(),
-}
+};

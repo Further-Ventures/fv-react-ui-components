@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'PP Object Sans';
+  src: url('./fonts/PPObjectSans-Bold.woff') format('woff'), url('./fonts/PPObjectSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PP Object Sans';
+  src: url('./fonts/PPObjectSans-BoldSlanted.woff') format('woff'), url('./fonts/PPObjectSans-BoldSlanted.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'PP Object Sans';
+  src: url('./fonts/PPObjectSans-Medium.woff') format('woff'), url('./fonts/PPObjectSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PP Object Sans';
+  src: url('./fonts/PPObjectSans-Regular.woff') format('woff'), url('./fonts/PPObjectSans-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PP Object Sans';
+  src: url('./fonts/PPObjectSans-Light.woff') format('woff'), url('./fonts/PPObjectSans-Light.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PP Monument Extended';
+  src: url('./fonts/PPMonumentExtended-Bold.woff') format('woff'), url('./fonts/PPMonumentExtended-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'PP Monument Extended';
+  src: url('./fonts/PPMonumentExtended-Book.woff') format('woff'), url('./fonts/PPMonumentExtended-Book.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+}
+
+:root {
+  --mercury-font-family: 'PP Object Sans, sans-serif';
+  --mercury-font-family-alt: 'PP Monument Extended, sans-serif';
+
+  --mercury-primary-color-light: #d1d3fd;
+  --mercury-primary-color: #2400ff;
+  --mercury-primary-color-dark: #17019c;
+  --mercury-primary-color-contrast: #000000;
+  --mercury-primary-color-contrast-secondary: #ffffff;
+
+  --mercury-error-color: #cc2418;
+  --mercury-error-color-light: #fbdcda;
+  --mercury-error-color-dark: #b91d12;
+  --mercury-error-color-contrast: #000000;
+  --mercury-error-color-contrast-secondary: #ffffff;
+
+  --mercury-warning-color: #fe9e34;
+  --mercury-warning-color-light: #ffddb3;
+  --mercury-warning-color-dark: #eb621c;
+  --mercury-warning-color-contrast: #000000;
+  --mercury-warning-color-contrast-secondary: #ffffff;
+
+  --mercury-success-color: #088940;
+  --mercury-success-color-light: #b3dfca;
+  --mercury-success-color-dark: #007133;
+  --mercury-success-color-contrast: #000000;
+  --mercury-success-color-contrast-secondary: #ffffff;
+
+  --mercury-default-color: #c7ccd3;
+  --mercury-default-color-extra-light: #e4e7ec;
+  --mercury-default-color-light: #eff1f3;
+  --mercury-default-color-dark: #667985;
+
+  --mercury-text-color: #000000;
+  --mercury-text-color-extra-light: #344054;
+  --mercury-text-color-light: #d2d2d2;
+  --mercury-text-color-dark: #667085;
+
+  --mercury-background-color: #ffffff;
+
+  --mercury-cool-color-20: #eef3f8;
+  --mercury-cool-color-40: #d1ddeb;
+  --mercury-cool-color-60: #9cb2c9;
+  --mercury-cool-color-90: #375267;
+  --mercury-cool-color-100: #14212e;
+}

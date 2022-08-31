@@ -30,7 +30,7 @@ components.forEach((name) => {
   try {
     if (fs.existsSync(`${buildDir}/${name}`)) {
       shell.cd(`${buildDir}/${name}`);
-      console.log("\x1b[1m");
+      console.log('\x1b[1m');
       shell.exec(`npm publish --access public`, (code) => {
         if (code !== 0) {
           throw Error(`Can not publish ${name}`);
