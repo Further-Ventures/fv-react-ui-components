@@ -31,13 +31,6 @@ ColorPrimary.args = {
   placeholder: 'olivia@example.com'
 };
 
-export const ColorSecondary = Template.bind({});
-ColorSecondary.args = {
-  label: 'Color secondary',
-  color: 'secondary',
-  placeholder: 'olivia@example.com'
-};
-
 export const WithValue = Template.bind({});
 WithValue.args = {
   label: 'With value',
