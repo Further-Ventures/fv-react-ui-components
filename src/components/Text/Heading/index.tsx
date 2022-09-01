@@ -31,8 +31,6 @@ export const Heading: React.FC<HeadingProps> = (props) => {
       >
         {children}
       </Component>
-      <br />
-      <Component className={classNames()}>{children}</Component>
     </>
   );
 };

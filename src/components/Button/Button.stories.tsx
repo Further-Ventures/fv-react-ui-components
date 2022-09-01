@@ -1,11 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Button, { IButton, ButtonCSS } from './index';
+import Button, { IButton } from './index';
 import Placeholder from '../../storybook/icons/placeholder';
 import pkg from './package.json';
 import { buildExcludeArgTypes } from '../../storybook/utils';
 import './stories.scss';
-import './style.scss';
 
 export default {
   title: 'Components/Button',
@@ -78,39 +77,6 @@ export const Showcase = () => {
               <Button label='Primary Outlined' variant='outlined' disabled size={size} shape={shape} />
               <Button label='Error' color='error' disabled size={size} shape={shape} />
               <Button label='Error Outlined' color='error' variant='outlined' disabled size={size} shape={shape} />
-            </>
-          );
-        });
-      })}
-    </div>
-  );
-};
-
-export const ShowcaseCSS = () => {
-  const sizes: ReadonlyArray<IButton['size']> = ['mini', 'small', 'medium', 'large'];
-  const shapes: ReadonlyArray<IButton['shape']> = ['round', 'circle', 'flat'];
-  return (
-    <div className='showcase'>
-      {shapes.map((shape) => {
-        return sizes.map((size) => {
-          return (
-            <>
-              <p className='rowLabel'>
-                {size} {shape}:
-              </p>
-              <ButtonCSS label='Primary' size={size} shape={shape} />
-              <ButtonCSS label='Primary' size={size} shape={shape} iconLeft={<Placeholder />} />
-              <ButtonCSS label='Primary Outlined' variant='outlined' size={size} shape={shape} />
-              <ButtonCSS label='Error' color='error' size={size} shape={shape} />
-              <ButtonCSS label='Error Outlined' color='error' variant='outlined' size={size} shape={shape} />
-              <p className='rowLabel'>
-                {size} {shape} (disabled):
-              </p>
-              <ButtonCSS label='Primary' disabled size={size} shape={shape} />
-              <ButtonCSS label='Primary' size={size} shape={shape} disabled iconLeft={<Placeholder />} />
-              <ButtonCSS label='Primary Outlined' variant='outlined' disabled size={size} shape={shape} />
-              <ButtonCSS label='Error' color='error' disabled size={size} shape={shape} />
-              <ButtonCSS label='Error Outlined' color='error' variant='outlined' disabled size={size} shape={shape} />
             </>
           );
         });

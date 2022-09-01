@@ -46,6 +46,13 @@
   font-style: normal;
 }
 
+/*Global override for chrome black focus outlines */
+*,
+*:focus,
+*:hover {
+  outline: none;
+}
+
 :root {
   --mercury-font-family: 'PP Object Sans, sans-serif';
   --mercury-font-family-alt: 'PP Monument Extended, sans-serif';
