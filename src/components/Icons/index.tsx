@@ -1,7 +1,5 @@
 import React from 'react';
-import useStyles from './styles';
 import classNames from 'classnames';
-import { useTheme } from '../Theme';
 import { CreateSvg } from './createSvg';
 
 export interface ICustomIconsProps {
@@ -74,8 +72,6 @@ const PAYMENT_ICONS: Record<string, string> = {
 };
 
 const Icons: React.FC<IIconsProps> = (props) => {
-  const classes = useStyles(props);
-  const { theme } = useTheme();
   const { icon = 'person', size = 24, fill = false, color = '' } = props;
 
   const isPaymentIcon = Object.prototype.hasOwnProperty.call(
@@ -93,13 +89,17 @@ const Icons: React.FC<IIconsProps> = (props) => {
     ? (SOCIAL_ICONS[icon] as SocialAndPaymentIcons)
     : (PAYMENT_ICONS[icon] as SocialAndPaymentIcons);
   const iconStyle = isDefaultIcon
-    ? { fontSize: size, color: color || theme.default.dark }
+    ? color ? { fontSize: size, color: color } 
+    : { fontSize: size }
     : {};
 
   return (
     <span className={classNames('flex justify-center items-center')} style={iconWrapperStyle}>
       <span
-        className={classNames(classes.icon, fill && classes.fill)}
+        className={classNames('font-mercury-icons', {
+          ['icon']: !fill,
+          ['filled']: fill
+        })}
         style={iconStyle}
       >
         {isDefaultIcon ? (

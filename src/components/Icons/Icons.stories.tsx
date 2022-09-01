@@ -67,9 +67,9 @@ const Template: ComponentStory<typeof Icons> = (args) => (
         <ul>
           <li>visa</li>
           <li>amazon</li>
-          <li>applePay</li>
-          <li>googlePay</li>
-          <li>shopPay</li>
+          <li>applepay</li>
+          <li>googlepay</li>
+          <li>shoppay</li>
           <li>klarna</li>
           <li>sofort</li>
           <li>mastercard</li>

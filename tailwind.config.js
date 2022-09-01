@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         mercury: ['"PP Object Sans", sans-serif'],
         'mercury-alt': ['"PP Monument Extended", sans-serif'],
+        'mercury-icons': ['Material Symbols Rounded']
       },
       colors: {
         primary: {
