@@ -1,0 +1,21 @@
+.story--components-buttontw--default {
+  background-color: red;
+}
+
+.story-wrapper {
+  min-height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showcase {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  justify-items: start;
+  align-items: center;
+  gap: 1rem;
+}
+.rowLabel {
+  text-transform: capitalize;
+}
