@@ -43,7 +43,6 @@
     "@types/react-dom": "^17.0.11",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
-    "@local/testUtils": "file:/src/utils/testUtils",
     "autoprefixer": "^10.4.8",
     "babel-jest": "^27.5.1",
     "eslint": "^8.11.0",

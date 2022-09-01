@@ -9,7 +9,7 @@ it('should render a primary contained button with the correct style (default)', 
 
   const element = screen.queryByText('Test button');
   expect(screen.queryByText('Test button')).toBeInTheDocument();
-  console.log('classes', getClassList(element));
+
   expect(getClassList(element)).toEqual(
     expect.arrayContaining([
       'bg-primary',

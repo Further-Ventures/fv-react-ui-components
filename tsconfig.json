@@ -16,10 +16,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
-    "baseUrl": "src",
-    "paths": {
-      "utils": ["utils/*"]
-    },
     "jsx": "react",
     "outDir": "build/"
   },

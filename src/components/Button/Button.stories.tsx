@@ -12,28 +12,7 @@ export default {
   parameters: {
     pkg,
   },
-  argTypes: {
-    label: {
-      control: 'text',
-    },
-    variant: {
-      options: ['contained', 'outlined'],
-      control: { type: 'radio' },
-    },
-    size: {
-      options: ['mini', 'small', 'medium', 'large'],
-      control: { type: 'radio' },
-    },
-    shape: {
-      options: ['flat', 'round', 'circle'],
-      control: { type: 'radio' },
-    },
-    color: {
-      options: ['primary', 'error'],
-      control: { type: 'radio' },
-    },
-    ...buildExcludeArgTypes(['iconLeft', 'iconRight', 'className']),
-  },
+  argTypes: buildExcludeArgTypes(['iconLeft', 'iconRight', 'className']),
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => (
