@@ -97,7 +97,7 @@ const Icons: React.FC<IIconsProps> = (props) => {
     : {};
 
   return (
-    <span className={classes.iconWrapper} style={iconWrapperStyle}>
+    <span className={classNames('flex justify-center items-center')} style={iconWrapperStyle}>
       <span
         className={classNames(classes.icon, fill && classes.fill)}
         style={iconStyle}

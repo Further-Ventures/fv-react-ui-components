@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Button from './index';
-import Placeholder from '../../storybook/icons/placeholder';
 import pkg from './package.json';
 import { buildExcludeArgTypes } from '../../storybook/utils';
 

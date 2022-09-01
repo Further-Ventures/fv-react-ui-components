@@ -21,13 +21,8 @@ export default createStyles((theme) => ({
       fill: theme[props.color!].contrast
     },
     '&:hover': {
-<<<<<<< HEAD
-      backgroundColor: theme[props.color!].dark
-    }
-=======
       backgroundColor: theme[props.color!].dark,
     },
->>>>>>> 186be3e385b5f50bdfed6243a8cda8812a886f6e
   }),
   outlined: (props: IButton) => ({
     backgroundColor: theme[props.color!].contrast,
