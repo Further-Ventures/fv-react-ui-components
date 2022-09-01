@@ -19,7 +19,6 @@ const Button: React.FC<IButton> = (props) => {
       onClick={onClick}
       aria-label={label}
       aria-disabled={disabled}
-      role='button'
       className={classNames(
         className,
         'font-mercury font-medium inline-flex items-center border-2 transition-colors duration-300 ease-out disabled:text-text-disabled disabled:border-default-extra-light disabled:pointer-events-none',
