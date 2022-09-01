@@ -24,18 +24,20 @@ export const Heading: React.FC<IHeadingProps> = (props) => {
   const Component = tag === 'subline' ? 'p' : (tag as any);
 
   return (
-    <Component
-      className={classNames(
-        classes.heading,
-        classes[tag],
-        classes[`w-${fontWeight}`],
-        !!fontStyle && classes[fontStyle],
-        isMobile && classes['mobile'],
-        className
-      )}
-    >
-      {children}
-    </Component>
+    <>
+      <Component
+        className={classNames(
+          classes.heading,
+          classes[tag],
+          classes[`w-${fontWeight}`],
+          !!fontStyle && classes[fontStyle],
+          isMobile && classes['mobile'],
+          className
+        )}
+      >
+        {children}
+      </Component>
+    </>
   );
 };
 

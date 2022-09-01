@@ -1,63 +1,107 @@
 import '@testing-library/jest-dom';
 import * as React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
+import { getClassList } from '../../utils/testUtils';
 import Button from './index';
-import Placeholder from '../../storybook/icons/placeholder';
 
-it('should be rendered', () => {
-  const label = 'Test button';
-  render(<Button label={label} />);
-  expect(screen.queryByText(label)).toBeInTheDocument();
-});
+it('should render a primary contained button with the correct style (default)', () => {
+  render(<Button label='Test button' />);
 
-it('should be visible', () => {
-  render(<Button label="Button" />);
-  const button = screen.getByRole('button');
-  expect(button).toBeVisible();
-});
+  const element = screen.queryByText('Test button');
+  expect(screen.queryByText('Test button')).toBeInTheDocument();
 
-it('should contain default classes', () => {
-  render(<Button label="Button" />);
-  const button = screen.getByRole('button');
-  expect(button.className).toMatch(/(contained)/i);
-  expect(button.className).toMatch(/(medium)/i);
-  expect(button.className).toMatch(/(round)/i);
-});
-
-it('should contain variant, size and shape classes', () => {
-  render(
-    <Button label="Button" variant="outlined" size="small" shape="round" />
+  expect(getClassList(element)).toEqual(
+    expect.arrayContaining([
+      'bg-primary',
+      'disabled:bg-default-extra-light',
+      'hover:bg-primary-medium',
+      'active:bg-primary-dark',
+      'border-transparent',
+      'text-primary-contrast-secondary',
+    ])
   );
-  const button = screen.getByRole('button');
-  expect(button.className).toMatch(/(outlined)/i);
-  expect(button.className).toMatch(/(small)/i);
-  expect(button.className).toMatch(/(round)/i);
+});
+
+it('should render a primary outlined button with the correct style', () => {
+  render(<Button label='Test button' variant='outlined' />);
+
+  const element = screen.queryByText('Test button');
+  expect(screen.queryByText('Test button')).toBeInTheDocument();
+
+  expect(getClassList(element)).toEqual(
+    expect.arrayContaining([
+      'bg-transparent',
+      'hover:bg-default-extra-light',
+      'active:bg-primary-light',
+      'border-primary',
+      'hover:border-primary-dark',
+      'text-primary',
+      'hover:text-primary-dark',
+    ])
+  );
+});
+
+it('should render a error contained button with the correct style', () => {
+  render(<Button label='Test button' color='error' />);
+
+  const element = screen.queryByText('Test button');
+  expect(screen.queryByText('Test button')).toBeInTheDocument();
+
+  expect(getClassList(element)).toEqual(
+    expect.arrayContaining([
+      'bg-error',
+      'disabled:bg-default-extra-light',
+      'hover:bg-error-medium',
+      'active:bg-error-dark',
+      'border-transparent',
+      'text-primary-contrast-secondary',
+    ])
+  );
+});
+
+it('should render a error outlined button with the correct style', () => {
+  render(<Button label='Test button' color='error' variant='outlined' />);
+
+  const element = screen.queryByText('Test button');
+  expect(screen.queryByText('Test button')).toBeInTheDocument();
+
+  expect(getClassList(element)).toEqual(
+    expect.arrayContaining([
+      'bg-transparent',
+      'hover:bg-default-extra-light',
+      'active:bg-error-light',
+      'border-error',
+      'hover:border-error-dark',
+      'text-error',
+      'hover:text-error-dark',
+    ])
+  );
 });
 
 it('should call onClick handler', () => {
   const onClick = jest.fn();
-  render(<Button label="Button" onClick={onClick} />);
+  render(<Button label='Button' onClick={onClick} />);
   const button = screen.getByRole('button');
   fireEvent.click(button);
   expect(onClick).toHaveBeenCalled();
 });
 
-it('should not call onClick handler when disabled', () => {
-  const onClick = jest.fn();
-  render(<Button label="Button" disabled={true} onClick={onClick} />);
+it('should call the onclick callback when button is clicked', () => {
+  const onClickSpy = jest.fn();
+
+  render(<Button label='Test button' variant='outlined' onClick={onClickSpy} />);
+
   const button = screen.getByRole('button');
   fireEvent.click(button);
-  expect(onClick).not.toHaveBeenCalled();
+  expect(onClickSpy).toHaveBeenCalled();
 });
 
-it('should contain left icon', () => {
-  render(<Button label="Button" iconLeft={Placeholder} />);
-  const icon = screen.getByTestId('test-svg');
-  expect(icon).toBeVisible();
-});
+it('should not call the onclick callback when disabled button is clicked', () => {
+  const onClickSpy = jest.fn();
 
-it('should contain right icon', () => {
-  render(<Button label="Button" iconRight={Placeholder} />);
-  const icon = screen.getByTestId('test-svg');
-  expect(icon).toBeVisible();
+  render(<Button label='Test button' variant='outlined' onClick={onClickSpy} disabled />);
+
+  const button = screen.getByRole('button');
+  fireEvent.click(button);
+  expect(onClickSpy).not.toHaveBeenCalled();
 });

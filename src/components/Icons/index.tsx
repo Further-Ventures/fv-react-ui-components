@@ -123,7 +123,7 @@ const Icons: React.FC<IIconsProps> = ({ icon = 'person', size = 24, fill = false
     : (PAYMENT_ICONS[icon] as SocialAndPaymentIcons);
   const iconStyle = isDefaultIcon
     ? color ? { fontSize: size, color: color } 
-    : { fontSize: size }
+      : { fontSize: size }
     : {};
 
   return (
