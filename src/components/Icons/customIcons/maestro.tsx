@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 
 import { ICustomIconsProps } from '..';
@@ -25,7 +26,7 @@ const Maestro: React.FC<ICustomIconsProps> = ({ color, size = 24 }) => (
       fillRule="evenodd"
       clipRule="evenodd"
       d="M16.9286 6.60193C18.3539 7.83189 19.2576 9.66205 19.2576 11.7057C19.2576 13.7494 18.3539 15.5796 16.9286 16.8096C15.5033 15.5796 14.5996 13.7494 14.5996 11.7057C14.5996 9.66205 15.5033 7.83189 16.9286 6.60193Z"
-      fill={color ? color : '#6C6BBD'}
+      fill="#6C6BBD"
     />
     <rect
       x="0.5"
@@ -33,7 +34,8 @@ const Maestro: React.FC<ICustomIconsProps> = ({ color, size = 24 }) => (
       width="33"
       height="23"
       rx="3.5"
-      stroke={color ? color : '#F2F4F7'}
+      stroke="#F2F4F7"
+      className={classNames({ ['stroke-current']: color })}
     />
   </svg>
 );

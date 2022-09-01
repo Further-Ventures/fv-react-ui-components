@@ -1,11 +1,11 @@
 import React from 'react';
-import { SocialAndPaymentIcons } from '.';
+import { SocialAndPaymentIcons, tColors } from '.';
 import * as CustomIcons from './customIcons';
 
 interface ICreateSvgProps {
   icon?: SocialAndPaymentIcons;
   size?: number;
-  color?: string;
+  color?: tColors;
 }
 export const CreateSvg: React.FC<ICreateSvgProps> = ({
   icon = 'Facebook',

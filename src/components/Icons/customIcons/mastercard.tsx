@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 
 import { ICustomIconsProps } from '..';
@@ -37,7 +38,8 @@ const Mastercard: React.FC<ICustomIconsProps> = ({ color, size = 24 }) => (
       width="33"
       height="23"
       rx="3.5"
-      stroke={color ? color : '#F2F4F7'}
+      stroke="#F2F4F7"
+      className={classNames({ ['stroke-current']: color })}
     />
   </svg>
 );

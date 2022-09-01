@@ -2,6 +2,41 @@ import React from 'react';
 import classNames from 'classnames';
 import { CreateSvg } from './createSvg';
 
+export type tColors = '' | 'primary-light' 
+| 'primary' 
+| 'primary-dark' 
+| 'primary-contrast' 
+| 'primary-contrast-secondary' 
+| 'error' 
+| 'error-light' 
+| 'error-dark' 
+| 'error-contrast' 
+| 'error-contrast-secondary' 
+| 'warning' 
+| 'warning-light' 
+| 'warning-dark' 
+| 'warning-contrast' 
+| 'warning-contrast-secondary' 
+| 'success' 
+| 'success-light' 
+| 'success-dark' 
+| 'success-contrast' 
+| 'success-contrast-secondary' 
+| 'default' 
+| 'default-extra-light' 
+| 'default-light' 
+| 'default-dark' 
+| 'text' 
+| 'text-extra-light' 
+| 'text-light' 
+| 'text-dark' 
+| 'background' 
+| 'cool-20' 
+| 'cool-40' 
+| 'cool-60' 
+| 'cool-90' 
+| 'cool-100';
+
 export interface ICustomIconsProps {
   color?: string;
   size?: number;
@@ -10,7 +45,7 @@ interface IIconsProps {
   icon?: string;
   size?: number;
   fill?: boolean;
-  color?: string;
+  color?: tColors;
 }
 
 export type SocialAndPaymentIcons =
@@ -71,9 +106,7 @@ const PAYMENT_ICONS: Record<string, string> = {
   paypal: 'PayPal'
 };
 
-const Icons: React.FC<IIconsProps> = (props) => {
-  const { icon = 'person', size = 24, fill = false, color = '' } = props;
-
+const Icons: React.FC<IIconsProps> = ({ icon = 'person', size = 24, fill = false, color = '' }) => {
   const isPaymentIcon = Object.prototype.hasOwnProperty.call(
     PAYMENT_ICONS,
     icon
@@ -98,7 +131,11 @@ const Icons: React.FC<IIconsProps> = (props) => {
       <span
         className={classNames('font-mercury-icons', {
           ['icon']: !fill,
-          ['filled']: fill
+          ['filled']: fill,
+          [`text-${color}`]: color,
+          [`fill-${color}`]: color,
+          [`stroke-${color}`]: color,
+          ['text-text']: !color
         })}
         style={iconStyle}
       >

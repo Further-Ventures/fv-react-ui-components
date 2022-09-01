@@ -11,6 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@material-icons/font": "^1.0.34",
     "@stryberventures/gaia-react.theme": "^0.0.2",
     "@stryberventures/gaia-react.tooltip": "^0.0.3",
     "classnames": "^2.3.1",
