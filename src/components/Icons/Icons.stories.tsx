@@ -84,7 +84,7 @@ const Template: ComponentStory<typeof Icons> = (args) => (
 
 export const Icon = Template.bind({});
 Icon.args = {
-  icon: 'maestro',
-  size: 240,
+  icon: 'person',
+  size: 96,
   color: ''
 };
