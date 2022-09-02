@@ -7,17 +7,12 @@ module.exports = {
         5.5: '1.375rem',
         7.5: '1.875rem',
       },
-      fontSize: {
-        '2xs': ['0.625rem', '0.9375rem'],
-      },
-      lineHeight: {
-        'extra-tight': '1.2',
-      },
       fontFamily: {
         mercury: ['"PP Object Sans", sans-serif'],
         'mercury-alt': ['"PP Monument Extended", sans-serif'],
       },
       fontSize: {
+        '2xs': ['0.625rem', '0.9375rem'],
         'xs': '.625rem', // 10px
         'sm': '.75rem', // 12px
         'base': '.875rem', // 14px
@@ -33,6 +28,7 @@ module.exports = {
       },
       lineHeight: {
         'none': 1,
+        'extra-tight': '1.2',
         'tight': 1.25,
         'snug': 1.3,
         'normal': 1.5
