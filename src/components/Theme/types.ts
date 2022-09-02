@@ -11,7 +11,9 @@ declare global {
 }
 
 export type ThemeType = ITheme & DesignSystem.IProjectTheme;
-export type CustomTheme = RecursivePartial<ThemeType> & RecursivePartial<DesignSystem.IProjectTheme> & Record<string, any>;
+export type CustomTheme = RecursivePartial<ThemeType> &
+RecursivePartial<DesignSystem.IProjectTheme> &
+Record<string, any>;
 
 export interface IThemeContext {
   theme: ThemeType;
@@ -20,57 +22,57 @@ export interface IThemeContext {
 
 export interface IThemeProvider {
   theme: CustomTheme;
-  children: React.ReactNode,
+  children: React.ReactNode;
 }
 
 export type createStylesOptions = {
   name?: string;
   index?: number;
-}
+};
 
 interface IPalette {
-  main: string,
-  dark: string,
-  light: string,
-  contrast: string,
-  contrastSecondary?: string
+  main: string;
+  dark: string;
+  light: string;
+  contrast: string;
+  contrastSecondary?: string;
 }
 
 interface IDefaultPalette {
-  main: string,
-  dark: string,
-  light: string,
-  extraLight: string,
+  main: string;
+  dark: string;
+  light: string;
+  extraLight: string;
 }
 interface IGradient {
-  start: string,
-  end: string,
-  degree: string
+  start: string;
+  end: string;
+  degree: string;
 }
 interface IGradientPalette {
-  main?: IGradient,
-  light?: IGradient,
-  dark?: IGradient,
+  main?: IGradient;
+  light?: IGradient;
+  dark?: IGradient;
 }
 
 export interface ITheme {
-  primary: IPalette,
-  secondary?: IPalette,
-  error: IPalette,
-  success: IPalette,
-  warning: IPalette,
-  default: IDefaultPalette,
+  primary: IPalette;
+  secondary?: IPalette;
+  error: IPalette;
+  success: IPalette;
+  warning: IPalette;
+  default: IDefaultPalette;
   background: {
-    default: string,
-  },
+    default: string;
+  };
   text: {
-    primary: string,
-    secondary: string,
-    disabled: string,
-    hint: string,
-  },
-  gradient: IGradientPalette,
-  font: string,
-  altFont?: string,
-  mobileView: number
+    primary: string;
+    secondary: string;
+    disabled: string;
+    hint: string;
+  };
+  gradient: IGradientPalette;
+  font: string;
+  altFont?: string;
+  mobileView: number;
 }

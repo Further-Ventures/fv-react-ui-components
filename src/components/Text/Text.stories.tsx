@@ -8,12 +8,13 @@ export default {
   title: 'Components/Text',
   component: Text,
   parameters: {
-    pkg,
+    pkg
   },
-  argTypes: buildExcludeArgTypes(['className']),
+  argTypes: buildExcludeArgTypes(['className'])
 } as ComponentMeta<typeof Text>;
 
-const Template: ComponentStory<typeof Text> = (args) => <Text {...args}>Test Text</Text>;
-
+const Template: ComponentStory<typeof Text> = (args) => (
+  <Text {...args}>Test Text</Text>
+);
 
 export const FreeText = Template.bind({});

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useTheme } from '../components/Theme';
 
 export const useScreenSize = () => {
-  const [ mobile, setMobile ] = useState(false);
+  const [mobile, setMobile] = useState(false);
 
   const { theme } = useTheme();
   const handleResize = () => {
@@ -13,15 +13,15 @@ export const useScreenSize = () => {
     }
   };
 
-  useEffect( () => {
-    window.addEventListener('resize', handleResize)
-  
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+
     return () => {
-      window.removeEventListener('resize', handleResize)
-    }
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   return {
     isMobile: mobile
-  }
+  };
 };

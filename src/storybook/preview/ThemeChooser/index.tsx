@@ -3,14 +3,14 @@ import { ThemeProvider, useTheme } from '../../../components/Theme';
 import { CustomTheme } from '../../../components/Theme/types';
 
 export interface IThemeChooser {
-  children: React.ReactNode,
-  theme: CustomTheme,
+  children: React.ReactNode;
+  theme: CustomTheme;
 }
 
 const ThemePreview = (props: IThemeChooser) => {
   const { children, theme } = props;
   const { updateTheme } = useTheme();
-  
+
   useEffect(() => {
     updateTheme(theme);
   }, [theme]);
@@ -23,9 +23,7 @@ export const ThemeChooser = (props: IThemeChooser) => {
 
   return (
     <ThemeProvider theme={theme}>
-      <ThemePreview theme={theme}>
-        {children}
-      </ThemePreview>
+      <ThemePreview theme={theme}>{children}</ThemePreview>
     </ThemeProvider>
   );
-}
+};

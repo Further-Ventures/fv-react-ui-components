@@ -3,7 +3,7 @@ import useStyles from './styles';
 import classNames from 'classnames';
 import { useScreenSize } from '../../../hooks/useScreenSize';
 
-interface HeadingProps {
+interface IHeadingProps {
   tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'subline';
   fontWeight?: 200 | 300 | 400 | 500 | 700;
   fontStyle?: null | 'italic';
@@ -11,8 +11,14 @@ interface HeadingProps {
   className?: string;
 }
 
-export const Heading: React.FC<HeadingProps> = (props) => {
-  const { tag = 'h1', fontWeight = 700, fontStyle = null, className, children } = props;
+export const Heading: React.FC<IHeadingProps> = (props) => {
+  const {
+    tag = 'h1',
+    fontWeight = 700,
+    fontStyle = null,
+    className,
+    children
+  } = props;
   const classes = useStyles(props);
   const { isMobile } = useScreenSize();
   const Component = tag === 'subline' ? 'p' : (tag as any);
@@ -38,5 +44,5 @@ export const Heading: React.FC<HeadingProps> = (props) => {
 Heading.defaultProps = {
   tag: 'h1',
   fontWeight: 700,
-  fontStyle: null,
+  fontStyle: null
 };
