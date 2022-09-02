@@ -5,6 +5,7 @@ import { HintMessage } from '../HintMessage';
 import classNames from 'classnames';
 import { useInput } from './hooks';
 import Button, { IButton } from '../Button';
+import Icon from '../Icons';
 
 export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -76,7 +77,7 @@ export const InputTW: React.FC<IInputTW> = (props) => {
 
   const { name, value, disabled, inputProps, onChange, onBlur } = useInput(rest);
   return (
-    <div className={classNames('relative mb-5 inline-block bg-default-extra-light')}>
+    <div className={classNames('relative mb-5 inline-block')}>
       <input
         ref={inputRef}
         type='text'
@@ -110,6 +111,7 @@ export const InputTW: React.FC<IInputTW> = (props) => {
           {<Button size='mini' variant='outlined' label='Button' {...buttonProps} />}
         </div>
       )}
+      <div className={classNames('absolute')}>This is an error text</div>
     </div>
   );
 };
