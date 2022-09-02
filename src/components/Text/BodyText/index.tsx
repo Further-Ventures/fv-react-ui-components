@@ -35,13 +35,14 @@ export const BodyText: React.FC<IBodyTextProps> = (props) => {
 
   return (
     <Component
-      className={classNames(
-        classes.bodyText,
-        classes[variation],
-        classes[`w-${fontWeight}`],
-        classes[`s-${size}`],
-        className
-      )}
+    className={classNames(
+        
+      classes.bodyText, 
+      classes[variation], 
+      classes[`w-${fontWeight}`], 
+      classes[`s-${size}`], 
+      className
+    )}
     >
       {children}
     </Component>
