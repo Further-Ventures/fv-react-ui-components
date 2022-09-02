@@ -82,7 +82,6 @@ it('should render content on the left', () => {
   render(<Button label='Test button' color='error' variant='outlined' contentLeft={<span>Content Left</span>} />);
 
   const buttonElement = screen.queryByText('Test button');
-  const element = screen.queryByText('Content Left');
   expect(buttonElement?.textContent).toEqual('Content LeftTest button');
 });
 

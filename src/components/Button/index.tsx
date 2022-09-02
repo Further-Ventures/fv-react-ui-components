@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import Icon from '../Icons';
 
 export interface IButton extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'> {
   label?: string;
@@ -29,6 +28,7 @@ const Button: React.FC<IButton> = (props) => {
     ...rest
   } = props;
 
+  const isIconOnly = Boolean(!label && (contentLeft || contentRight));
   return (
     <button
       disabled={disabled}
@@ -41,14 +41,26 @@ const Button: React.FC<IButton> = (props) => {
         'disabled:text-text-disabled disabled:border-default-extra-light disabled:pointer-events-none', //disabled
         'transition-colors duration-300 ease-out', //transition
         {
-          ['text-2xs px-1.5 py-0.5']: size === 'mini',
-          ['text-sm leading-extra-tight px-3.5 py-1.5']: size === 'small',
-          ['text-base px-5.5 py-3.5']: size === 'medium',
-          ['text-base px-7.5 py-5.5']: size === 'large',
+          //text size
+          ['text-2xs']: size === 'mini',
+          ['text-sm leading-extra-tight']: size === 'small',
+          ['text-base']: size === 'medium' || size === 'large',
+          //paddings with text
+          ['py-0.5 px-1.5']: !isIconOnly && size === 'mini',
+          ['py-1.5 px-3.5']: !isIconOnly && size === 'small',
+          ['py-3.5 px-5.5']: !isIconOnly && size === 'medium',
+          ['py-5.5 px-7.5']: !isIconOnly && size === 'large',
+          //paddings with icons only
+          ['p-0.5']: isIconOnly && size === 'mini',
+          ['p-1.5']: isIconOnly && size === 'small',
+          ['p-3.5']: isIconOnly && size === 'medium',
+          ['p-5.5']: isIconOnly && size === 'large',
+          //border radius
           ['rounded']: `${shape}-${size}` === 'round-mini',
           ['rounded-md']: `${shape}-${size}` === 'round-small',
           ['rounded-lg']: `${shape}-${size}` === 'round-medium' || `${shape}-${size}` === 'round-large',
           ['rounded-full']: `${shape}` === 'circle',
+          //color variants
           ['bg-primary disabled:bg-default-extra-light focus:bg-primary-medium focus:border-primary-medium hover:bg-primary-medium active:bg-primary-dark border-transparent text-primary-contrast-secondary']:
             `${color}-${variant}` === 'primary-contained',
           ['bg-transparent hover:bg-default-extra-light active:bg-error-light border-error hover:border-error-dark text-error hover:text-error-dark']:

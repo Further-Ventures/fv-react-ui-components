@@ -47,6 +47,7 @@ export const Showcase = () => {
               <Button label='Primary' size={size} shape={shape} />
               <Button label='Primary' size={size} shape={shape} contentLeft={<Icon icon='check_circle' size={iconSize} />} />
               <Button label='Primary' size={size} shape={shape} contentRight={<Icon icon='check_circle' size={iconSize} />} />
+              <Button size={size} shape={shape} contentLeft={<Icon icon='check_circle' size={iconSize} />} />
               <Button label='Primary Outlined' variant='outlined' size={size} shape={shape} />
               <Button label='Error' color='error' size={size} shape={shape} contentLeft={<Icon icon='check_circle' size={iconSize} />} />
               <Button label='Error' color='error' size={size} shape={shape} />
@@ -57,6 +58,7 @@ export const Showcase = () => {
               <Button label='Primary' disabled size={size} shape={shape} />
               <Button label='Primary' size={size} shape={shape} disabled contentLeft={<Icon icon='check_circle' size={iconSize} />} />
               <Button label='Primary' size={size} shape={shape} disabled contentRight={<Icon icon='check_circle' size={iconSize} />} />
+              <Button size={size} shape={shape} contentLeft={<Icon icon='check_circle' size={iconSize} />} />
               <Button label='Primary Outlined' variant='outlined' disabled size={size} shape={shape} />
               <Button label='Error' color='error' disabled size={size} shape={shape} contentLeft={<Icon icon='check_circle' size={iconSize} />} />
               <Button label='Error' color='error' size={size} shape={shape} />
