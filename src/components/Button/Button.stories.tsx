@@ -44,7 +44,7 @@ export const Showcase = () => {
                 {size} {shape}:
               </p>
               <Button label='Primary' size={size} shape={shape} />
-              <Button label='Primary' size={size} shape={shape} iconLeft={<Placeholder />} />
+              <Button label='Primary' size={size} shape={shape} />
               <Button label='Primary Outlined' variant='outlined' size={size} shape={shape} />
               <Button label='Error' color='error' size={size} shape={shape} />
               <Button label='Error Outlined' color='error' variant='outlined' size={size} shape={shape} />
@@ -52,7 +52,7 @@ export const Showcase = () => {
                 {size} {shape} (disabled):
               </p>
               <Button label='Primary' disabled size={size} shape={shape} />
-              <Button label='Primary' size={size} shape={shape} disabled iconLeft={<Placeholder />} />
+              <Button label='Primary' size={size} shape={shape} disabled />
               <Button label='Primary Outlined' variant='outlined' disabled size={size} shape={shape} />
               <Button label='Error' color='error' disabled size={size} shape={shape} />
               <Button label='Error Outlined' color='error' variant='outlined' disabled size={size} shape={shape} />
