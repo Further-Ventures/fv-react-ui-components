@@ -25,11 +25,12 @@ module.exports = {
         '3base': '1.125rem', // 18px
         'lg': '1.5rem', // 24px
         'xl': '2rem', // 32px
-        '2xl': '2.625rem', // 42px
-        '3xl': '3rem', // 48px
-        '4xl': '3.375rem', // 54px
-        '5xl': '3.75rem', // 60px
-        '6xl': '4.25rem', // 68px
+        '2xl': '2.5rem', // 40px
+        '3xl': '2.625rem', // 42px
+        '4xl': '3rem', // 48px
+        '5xl': '3.375rem', // 54px
+        '6xl': '3.75rem', // 60px
+        '7xl': '4.25rem', // 68px
       },
       lineHeight: {
         'none': 1,

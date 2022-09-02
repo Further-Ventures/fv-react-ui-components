@@ -22,8 +22,8 @@ it('should be rendered as bold h1', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h1)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('700');
+    element.className
+  ).toContain('font-bold');
 });
 
 it('should be rendered as bold h2', () => {
@@ -35,8 +35,8 @@ it('should be rendered as bold h2', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h2)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('700');
+    element.className
+  ).toContain('font-bold');
 });
 
 it('should be rendered as bold h3', () => {
@@ -48,8 +48,8 @@ it('should be rendered as bold h3', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h3)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('700');
+    element.className
+  ).toContain('font-bold');
 });
 
 it('should be rendered as bold h4', () => {
@@ -61,8 +61,8 @@ it('should be rendered as bold h4', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h4)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('700');
+    element.className
+  ).toContain('font-bold');
 });
 it('should be rendered as bold slanted h4', () => {
   const children = 'Test heading';
@@ -77,8 +77,8 @@ it('should be rendered as bold slanted h4', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h4)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('700');
+    element.className
+  ).toContain('font-bold');
 });
 
 it('should be rendered as regular h5', () => {
@@ -94,8 +94,8 @@ it('should be rendered as regular h5', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h5)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('400');
+    element.className
+  ).toContain('font-normal');
 });
 it('should be rendered as thin h5', () => {
   const children = 'Test heading';
@@ -110,8 +110,8 @@ it('should be rendered as thin h5', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h5)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('200');
+    element.className
+  ).toContain('font-extralight');
 });
 
 it('should be rendered as bold h6', () => {
@@ -123,8 +123,8 @@ it('should be rendered as bold h6', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h6)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('700');
+    element.className
+  ).toContain('font-bold');
 });
 it('should be rendered as medium h6', () => {
   const children = 'Test heading';
@@ -139,8 +139,8 @@ it('should be rendered as medium h6', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h6)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('500');
+    element.className
+  ).toContain('font-medium');
 });
 it('should be rendered as regular h6', () => {
   const children = 'Test heading';
@@ -155,8 +155,8 @@ it('should be rendered as regular h6', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h6)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('400');
+    element.className
+  ).toContain('font-normal');
 });
 
 it('should be rendered as subline', () => {
@@ -172,8 +172,8 @@ it('should be rendered as subline', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('500');
+    element.className
+  ).toContain('font-medium');
 });
 
 // /*
@@ -189,8 +189,8 @@ it('should be rendered as bold h1 on mobile', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h1)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('700');
+    element.className
+  ).toContain('font-bold');
 });
 it('should be rendered as medium h1 on mobile', () => {
   const children = 'Test heading';
@@ -205,8 +205,8 @@ it('should be rendered as medium h1 on mobile', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h1)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('500');
+    element.className
+  ).toContain('font-medium');
 });
 it('should be rendered as regular h1 on mobile', () => {
   const children = 'Test heading';
@@ -221,8 +221,8 @@ it('should be rendered as regular h1 on mobile', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h1)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('400');
+    element.className
+  ).toContain('font-normal');
 });
 
 it('should be rendered as bold h2 on mobile', () => {
@@ -235,8 +235,8 @@ it('should be rendered as bold h2 on mobile', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h2)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('700');
+    element.className
+  ).toContain('font-bold');
 });
 it('should be rendered as medium h2 on mobile', () => {
   const children = 'Test heading';
@@ -251,8 +251,8 @@ it('should be rendered as medium h2 on mobile', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h2)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('500');
+    element.className
+  ).toContain('font-medium');
 });
 it('should be rendered as regular h2 on mobile', () => {
   const children = 'Test heading';
@@ -267,8 +267,8 @@ it('should be rendered as regular h2 on mobile', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h2)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('400');
+    element.className
+  ).toContain('font-normal');
 });
 
 it('should be rendered as bold h3 on mobile', () => {
@@ -281,8 +281,8 @@ it('should be rendered as bold h3 on mobile', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h3)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('700');
+    element.className
+  ).toContain('font-bold');
 });
 it('should be rendered as medium h3 on mobile', () => {
   const children = 'Test heading';
@@ -297,8 +297,8 @@ it('should be rendered as medium h3 on mobile', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h3)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('500');
+    element.className
+  ).toContain('font-medium');
 });
 it('should be rendered as regular h3 on mobile', () => {
   const children = 'Test heading';
@@ -313,8 +313,8 @@ it('should be rendered as regular h3 on mobile', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h3)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('400');
+    element.className
+  ).toContain('font-normal');
 });
 
 it('should be rendered as bold h4 on mobile', () => {
@@ -327,8 +327,8 @@ it('should be rendered as bold h4 on mobile', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h4)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('700');
+    element.className
+  ).toContain('font-bold');
 });
 it('should be rendered as medium h4 on mobile', () => {
   const children = 'Test heading';
@@ -343,8 +343,8 @@ it('should be rendered as medium h4 on mobile', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h4)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('500');
+    element.className
+  ).toContain('font-medium');
 });
 it('should be rendered as regular h4 on mobile', () => {
   const children = 'Test heading';
@@ -359,6 +359,6 @@ it('should be rendered as regular h4 on mobile', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(h4)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('400');
+    element.className
+  ).toContain('font-normal');
 });
