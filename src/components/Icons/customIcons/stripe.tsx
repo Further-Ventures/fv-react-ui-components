@@ -5,7 +5,7 @@ import { ICustomIconsProps } from '..';
 
 const Stripe: React.FC<ICustomIconsProps> = ({ color, size = 24 }) => (
   <svg
-    width={Math.round(size * 1.4167)}
+    className={classNames('aspect-paymentIcon')}
     height={size}
     viewBox="0 0 34 24"
     fill="none"

@@ -13,6 +13,10 @@ module.exports = {
       lineHeight: {
         'extra-tight': '1.2',
       },
+      aspectRatio: {
+        'one': '1/1',
+        'paymentIcon': '17/12',
+      },
       fontFamily: {
         mercury: ['"PP Object Sans", sans-serif'],
         'mercury-alt': ['"PP Monument Extended", sans-serif'],

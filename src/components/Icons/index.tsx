@@ -2,40 +2,44 @@ import React from 'react';
 import classNames from 'classnames';
 import { CreateSvg } from './createSvg';
 
-export type tColors = '' | 'primary-light' 
-| 'primary' 
-| 'primary-dark' 
-| 'primary-contrast' 
-| 'primary-contrast-secondary' 
-| 'error' 
-| 'error-light' 
-| 'error-dark' 
-| 'error-contrast' 
-| 'error-contrast-secondary' 
-| 'warning' 
-| 'warning-light' 
-| 'warning-dark' 
-| 'warning-contrast' 
-| 'warning-contrast-secondary' 
-| 'success' 
-| 'success-light' 
-| 'success-dark' 
-| 'success-contrast' 
-| 'success-contrast-secondary' 
-| 'default' 
-| 'default-extra-light' 
-| 'default-light' 
-| 'default-dark' 
-| 'text' 
-| 'text-extra-light' 
-| 'text-light' 
-| 'text-dark' 
-| 'background' 
-| 'cool-20' 
-| 'cool-40' 
-| 'cool-60' 
-| 'cool-90' 
-| 'cool-100';
+export type tColors = '' | 'primary'
+| 'primary-light'
+| 'primary-medium'
+| 'primary-dark'
+| 'primary-contrast'
+| 'primary-contrast-secondary'
+| 'error'
+| 'error-light'
+| 'error-medium'
+| 'error-dark'
+| 'error-contrast'
+| 'error-contrast-secondary'
+| 'warning'
+| 'warning-light'
+| 'warning-medium'
+| 'warning-dark'
+| 'warning-contrast'
+| 'warning-contrast-secondary'
+| 'success'
+| 'success-light'
+| 'success-medium'
+| 'success-dark'
+| 'success-contrast'
+| 'success-contrast-secondary'
+| 'default'
+| 'default-extra-light'
+| 'default-light'
+| 'default-dark'
+| 'text-primary'
+| 'text-secondary'
+| 'text-disabled'
+| 'text-hint'
+| 'background'
+| 'cool-20'
+| 'cool-40'
+| 'cool-60'
+| 'cool-90'
+| 'cool-100'
 
 export interface ICustomIconsProps {
   color?: string;
@@ -115,7 +119,6 @@ const Icons: React.FC<IIconsProps> = ({ icon = 'person', size = 24, fill = false
   const isDefaultIcon = !(isPaymentIcon || isSocialIcon);
 
   const iconWrapperStyle = {
-    width: isPaymentIcon ? Math.round(size * 1.4167) : size,
     height: size
   };
   const customIconComponentName: SocialAndPaymentIcons = isSocialIcon
@@ -127,15 +130,20 @@ const Icons: React.FC<IIconsProps> = ({ icon = 'person', size = 24, fill = false
     : {};
 
   return (
-    <span className={classNames('flex justify-center items-center')} style={iconWrapperStyle}>
+    <span className={classNames('flex justify-center items-center', {
+      ['aspect-paymentIcon']: isPaymentIcon,
+      ['aspect-one']: !isPaymentIcon
+    })} style={iconWrapperStyle}>
       <span
         className={classNames('font-mercury-icons', {
           ['icon']: !fill,
           ['filled']: fill,
           [`text-${color}`]: color,
-          [`fill-${color}`]: color,
-          [`stroke-${color}`]: color,
-          ['text-text']: !color
+          // [`fill-${color}`]: color,
+          // [`stroke-${color}`]: color,
+          ['text-text']: !color,
+          ['aspect-paymentIcon']: isPaymentIcon,
+          ['aspect-one']: !isPaymentIcon
         })}
         style={iconStyle}
       >

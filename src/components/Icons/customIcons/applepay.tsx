@@ -5,10 +5,10 @@ import { ICustomIconsProps } from '..';
 
 const ApplePay: React.FC<ICustomIconsProps> = ({ color, size = 24 }) => (
   <svg
-    width={Math.round(size * 1.4167)}
     height={size}
     viewBox="0 0 34 24"
     fill="none"
+    className={classNames('aspect-paymentIcon')}
     xmlns="http://www.w3.org/2000/svg"
   >
     {!color ? (

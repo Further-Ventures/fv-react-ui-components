@@ -5,7 +5,7 @@ import { ICustomIconsProps } from '..';
 
 const Signal: React.FC<ICustomIconsProps> = ({ color, size = 24 }) => (
   <svg
-    width={size}
+    className={classNames('aspect-one')}
     height={size}
     viewBox="0 0 24 24"
     fill="none"
