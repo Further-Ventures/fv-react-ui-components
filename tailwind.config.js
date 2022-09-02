@@ -8,6 +8,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      borderWidth: {
+        1.5: '1.5px',
+      },
       spacing: {
         5.5: '1.375rem',
         6.5: '1.625rem',
@@ -20,13 +23,13 @@ module.exports = {
         'extra-tight': '1.2',
       },
       aspectRatio: {
-        'one': '1/1',
-        'paymentIcon': '17/12',
+        one: '1/1',
+        paymentIcon: '17/12',
       },
       fontFamily: {
         mercury: ['"PP Object Sans", sans-serif'],
         'mercury-alt': ['"PP Monument Extended", sans-serif'],
-        'mercury-icons': ['Material Symbols Rounded']
+        'mercury-icons': ['Material Symbols Rounded'],
       },
       colors: {
         primary: {

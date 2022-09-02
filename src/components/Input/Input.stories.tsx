@@ -37,10 +37,12 @@ export const Showcase = () => {
   return (
     <div className='showcase'>
       <InputTW label='Label' placeholder='with placeholder' />
-      <InputTW label='Some very long label' />
+      <InputTW label='Some very long label asdasd a as dasd as dasd a as s sa a' />
       <InputTW placeholder='No label' />
       <InputTW label='test button' buttonProps={{ onClick: () => alert('Button Click!') }} />
-      <InputTW label='test error' errorMessage='Test Error' />
+      <InputTW label='test error' errorMessage='Test Error message' />
+      <InputTW label='test error' errorMessage='Test Error message' hint='Test Hint' />
+      <InputTW label='test error' errorMessage='Test Error message' hint='Test Hint' buttonProps={{ onClick: () => alert('Button Click!') }} />
       <InputTW label='test hint' hint='Test Hint' />
     </div>
   );
