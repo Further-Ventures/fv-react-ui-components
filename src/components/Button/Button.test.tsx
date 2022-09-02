@@ -78,12 +78,18 @@ it('should render a error outlined button with the correct style', () => {
   );
 });
 
-it('should call onClick handler', () => {
-  const onClick = jest.fn();
-  render(<Button label='Button' onClick={onClick} />);
-  const button = screen.getByRole('button');
-  fireEvent.click(button);
-  expect(onClick).toHaveBeenCalled();
+it('should render content on the left', () => {
+  render(<Button label='Test button' color='error' variant='outlined' contentLeft={<span>Content Left</span>} />);
+
+  const buttonElement = screen.queryByText('Test button');
+  expect(buttonElement?.textContent).toEqual('Content LeftTest button');
+});
+
+it('should render icon on the right', () => {
+  render(<Button label='Test button' color='error' variant='outlined' contentRight={<span>Content Right</span>} />);
+
+  const buttonElement = screen.queryByText('Test button');
+  expect(buttonElement?.textContent).toEqual('Test buttonContent Right');
 });
 
 it('should call the onclick callback when button is clicked', () => {
