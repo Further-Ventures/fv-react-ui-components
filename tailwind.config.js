@@ -17,6 +17,26 @@ module.exports = {
         mercury: ['"PP Object Sans", sans-serif'],
         'mercury-alt': ['"PP Monument Extended", sans-serif'],
       },
+      fontSize: {
+        'xs': '.625rem', // 10px
+        'sm': '.75rem', // 12px
+        'base': '.875rem', // 14px
+        '2base': '1rem', // 16px
+        '3base': '1.125rem', // 18px
+        'lg': '1.5rem', // 24px
+        'xl': '2rem', // 32px
+        '2xl': '2.625rem', // 42px
+        '3xl': '3rem', // 48px
+        '4xl': '3.375rem', // 54px
+        '5xl': '3.75rem', // 60px
+        '6xl': '4.25rem', // 68px
+      },
+      lineHeight: {
+        'none': 1,
+        'tight': 1.25,
+        'snug': 1.3,
+        'normal': 1.5
+      },
       colors: {
         primary: {
           light: 'var(--mercury-primary-color-light)',
