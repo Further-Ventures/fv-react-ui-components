@@ -79,7 +79,7 @@ export type SocialAndPaymentIcons =
   | 'Stripe'
   | 'Visa';
 
-const SOCIAL_ICONS: Record<string, string> = {
+const SOCIAL_ICONS: Record<string, SocialAndPaymentIcons> = {
   facebook: 'Facebook',
   twitter: 'Twitter',
   instagram: 'Instagram',
@@ -96,7 +96,7 @@ const SOCIAL_ICONS: Record<string, string> = {
   signal: 'Signal'
 };
 
-const PAYMENT_ICONS: Record<string, string> = {
+const PAYMENT_ICONS: Record<string, SocialAndPaymentIcons> = {
   visa: 'Visa',
   amazon: 'Amazon',
   applepay: 'ApplePay',
@@ -111,22 +111,19 @@ const PAYMENT_ICONS: Record<string, string> = {
 };
 
 const Icons: React.FC<IIconsProps> = ({ icon = 'person', size = 24, fill = false, color = '' }) => {
-  const isPaymentIcon = Object.prototype.hasOwnProperty.call(
-    PAYMENT_ICONS,
-    icon
-  );
-  const isSocialIcon = Object.prototype.hasOwnProperty.call(SOCIAL_ICONS, icon);
+  const isPaymentIcon = Boolean(PAYMENT_ICONS[icon]);
+  const isSocialIcon = Boolean(SOCIAL_ICONS[icon]);
   const isDefaultIcon = !(isPaymentIcon || isSocialIcon);
 
   const iconWrapperStyle = {
     height: size
   };
   const customIconComponentName: SocialAndPaymentIcons = isSocialIcon
-    ? (SOCIAL_ICONS[icon] as SocialAndPaymentIcons)
-    : (PAYMENT_ICONS[icon] as SocialAndPaymentIcons);
+    ? SOCIAL_ICONS[icon]
+    : PAYMENT_ICONS[icon];
+
   const iconStyle = isDefaultIcon
-    ? color ? { fontSize: size, color: color } 
-      : { fontSize: size }
+    ? { fontSize: size }
     : {};
 
   return (
@@ -139,8 +136,6 @@ const Icons: React.FC<IIconsProps> = ({ icon = 'person', size = 24, fill = false
           ['icon']: !fill,
           ['filled']: fill,
           [`text-${color}`]: color,
-          // [`fill-${color}`]: color,
-          // [`stroke-${color}`]: color,
           ['text-text']: !color,
           ['aspect-paymentIcon']: isPaymentIcon,
           ['aspect-one']: !isPaymentIcon
