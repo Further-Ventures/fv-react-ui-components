@@ -1,5 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
+import Icon from '../Icons';
+
 export interface IButton extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'> {
   label?: string;
   size?: 'mini' | 'small' | 'medium' | 'large';
@@ -8,10 +10,24 @@ export interface IButton extends Omit<React.ButtonHTMLAttributes<HTMLButtonEleme
   color?: 'primary' | 'error';
   disabled?: boolean;
   className?: string;
+  contentLeft?: React.ReactNode;
+  contentRight?: React.ReactNode;
 }
 
 const Button: React.FC<IButton> = (props) => {
-  const { size = 'medium', shape = 'round', variant = 'contained', color = 'primary', label, disabled, className, onClick, ...rest } = props;
+  const {
+    size = 'medium',
+    shape = 'round',
+    variant = 'contained',
+    color = 'primary',
+    label,
+    disabled,
+    className,
+    onClick,
+    contentLeft,
+    contentRight,
+    ...rest
+  } = props;
 
   return (
     <button
@@ -21,7 +37,9 @@ const Button: React.FC<IButton> = (props) => {
       aria-disabled={disabled}
       className={classNames(
         className,
-        'font-mercury font-medium inline-flex items-center border-2 transition-colors duration-300 ease-out disabled:text-text-disabled disabled:border-default-extra-light disabled:pointer-events-none',
+        'font-mercury font-medium inline-flex items-center border-2 gap-2.5', //base
+        'disabled:text-text-disabled disabled:border-default-extra-light disabled:pointer-events-none', //disabled
+        'transition-colors duration-300 ease-out', //transition
         {
           ['text-2xs px-1.5 py-0.5']: size === 'mini',
           ['text-sm leading-extra-tight px-3.5 py-1.5']: size === 'small',
@@ -43,7 +61,9 @@ const Button: React.FC<IButton> = (props) => {
       )}
       {...rest}
     >
+      {contentLeft}
       {label}
+      {contentRight}
     </button>
   );
 };
