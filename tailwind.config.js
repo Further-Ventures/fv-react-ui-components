@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{html,js,ts,tsx,css,scss}'],
+  safelist: [
+    { pattern: /text-(primary|error|warning|success|cool|default|text)/ },
+    { pattern: /fill-(primary|error|warning|success|cool|default|text)/ },
+    { pattern: /stroke-(primary|error|warning|success|cool|default|text)/ },
+  ],
   theme: {
     extend: {
       spacing: {
