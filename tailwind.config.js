@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{html,js,ts,tsx,css,scss}'],
+  safelist: [
+    { pattern: /text-(primary|error|warning|success|cool|default|text)/ },
+    { pattern: /fill-(primary|error|warning|success|cool|default|text)/ },
+    { pattern: /stroke-(primary|error|warning|success|cool|default|text)/ },
+  ],
   theme: {
     extend: {
       spacing: {
@@ -32,6 +37,10 @@ module.exports = {
         'tight': 1.25,
         'snug': 1.3,
         'normal': 1.5
+      },
+      aspectRatio: {
+        'one': '1/1',
+        'paymentIcon': '17/12',
       },
       colors: {
         primary: {

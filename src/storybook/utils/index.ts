@@ -4,9 +4,9 @@ export const buildExcludeArgTypes = (keys: string[]) => {
   keys.forEach((key) => {
     argTypes[key] = {
       table: {
-        disable: true,
+        disable: true
       }
-    }
+    };
   });
   return argTypes;
-}
+};

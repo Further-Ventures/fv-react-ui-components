@@ -3,9 +3,9 @@ import useStyles from './styles';
 import classNames from 'classnames';
 
 interface IHintMessage extends React.HTMLAttributes<HTMLDivElement> {
-  text: string,
-  className?: string,
-  disabled?: boolean,
+  text: string;
+  className?: string;
+  disabled?: boolean;
 }
 
 export const HintMessage = (props: IHintMessage) => {
@@ -16,10 +16,10 @@ export const HintMessage = (props: IHintMessage) => {
     <div
       {...rest}
       className={classNames(classes.message, className, {
-        [classes.disabled]: disabled,
+        [classes.disabled]: disabled
       })}
     >
       {text}
     </div>
   );
-}
+};

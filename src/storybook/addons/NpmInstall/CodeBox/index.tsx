@@ -11,7 +11,7 @@ interface ICodeBoxProps {
 const CodeBox = ({ children }: ICodeBoxProps) => {
   const [copyString, setCopyString] = React.useState('Press to Copy');
   const classes = useStyles();
-  
+
   return (
     <div className={classes.codebox}>
       <pre className={classes.children}>{children}</pre>

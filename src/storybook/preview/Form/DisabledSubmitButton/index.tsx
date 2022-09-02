@@ -17,7 +17,7 @@ const FormDisabledSubmitButton = () => {
       }}
       validationSchema={yup.object({
         email: yup.string().email().required(),
-        password: yup.string().required(),
+        password: yup.string().required()
       })}
     >
       <h2 style={{ fontFamily: 'Inter', color: defaultTheme.primary.main }}>
@@ -28,8 +28,8 @@ const FormDisabledSubmitButton = () => {
       <Input name="password" placeholder="Password" label="Password" />
       <h1> </h1>
       <div style={{ display: 'flex', gap: 20 }}>
-        <Button label="Submit" type="submit" disabled={disabled}/>
-        <Button label="Reset" type="reset" variant="outlined"/>
+        <Button label="Submit" type="submit" disabled={disabled} />
+        <Button label="Reset" type="reset" variant="outlined" />
       </div>
     </Form>
   );
@@ -67,4 +67,4 @@ const FormDisabledSubmitButton = () => {
     </Form>
   );
 };
-`
+`;

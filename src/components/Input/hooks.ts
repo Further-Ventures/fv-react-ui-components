@@ -15,11 +15,17 @@ export const useInput = (props: IInput) => {
     mask,
     ...inputProps
   } = props;
-  const { updateFormTouched, updateFormValue, unsetFormValue, fieldValue, fieldError } = useFormContext(name);
+  const {
+    updateFormTouched,
+    updateFormValue,
+    unsetFormValue,
+    fieldValue,
+    fieldError
+  } = useFormContext(name);
   const errorMessage = fieldError || error;
   const initValue = fieldValue || value;
   const [internalValue, setInternalValue] = React.useState<string>(
-    mask && initValue ? applyDigitMask(initValue, mask) : initValue,
+    mask && initValue ? applyDigitMask(initValue, mask) : initValue
   );
   const onChangeWrapper = (e: React.BaseSyntheticEvent) => {
     if (disabled) {
@@ -28,13 +34,16 @@ export const useInput = (props: IInput) => {
     const { value: targetValue } = e.target;
     let nextValue = targetValue;
 
-    setInternalValue(prevValue => {
+    setInternalValue((prevValue) => {
       if (inputProps.type === 'number') {
         // Fixes input[type=number] on Safari, where any symbol is allowed
         return targetValue.replace(/^\D/g, '');
       }
       if (mask) {
-        nextValue = prevValue.length >= targetValue.length ? targetValue : applyDigitMask(targetValue, mask);
+        nextValue =
+          prevValue.length >= targetValue.length
+            ? targetValue
+            : applyDigitMask(targetValue, mask);
       }
 
       return nextValue;
@@ -64,6 +73,6 @@ export const useInput = (props: IInput) => {
     inputProps,
     value: controlled ? value : internalValue,
     onChange: onChangeWrapper,
-    onBlur: onBlurWrapper,
-  }
-}
+    onBlur: onBlurWrapper
+  };
+};

@@ -3,15 +3,13 @@ import useStyles from './styles';
 import classNames from 'classnames';
 
 interface IErrorMessage {
-  text: string,
-  className?: string,
+  text: string;
+  className?: string;
 }
 
 export const ErrorMessage = (props: IErrorMessage) => {
   const { text, className } = props;
   const classes = useStyles();
 
-  return (
-    <div className={classNames(classes.message, className)}>{text}</div>
-  );
-}
+  return <div className={classNames(classes.message, className)}>{text}</div>;
+};
