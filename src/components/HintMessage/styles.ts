@@ -5,9 +5,9 @@ export default createStyles((theme) => ({
     color: theme.text.hint,
     lineHeight: '17px',
     fontSize: 14,
-    fontFamily: theme.font,
+    fontFamily: theme.font
   },
   disabled: {
-    color: theme.text.disabled,
+    color: theme.text.disabled
   }
 }));

@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./src/**/*.{html,js,ts,tsx,css,scss}'],
+  safelist: [
+    { pattern: /text-(primary|error|warning|success|cool|default|text)/ },
+    { pattern: /fill-(primary|error|warning|success|cool|default|text)/ },
+    { pattern: /stroke-(primary|error|warning|success|cool|default|text)/ },
+  ],
   theme: {
     extend: {
       spacing: {
@@ -14,9 +19,14 @@ module.exports = {
       lineHeight: {
         'extra-tight': '1.2',
       },
+      aspectRatio: {
+        'one': '1/1',
+        'paymentIcon': '17/12',
+      },
       fontFamily: {
         mercury: ['"PP Object Sans", sans-serif'],
         'mercury-alt': ['"PP Monument Extended", sans-serif'],
+        'mercury-icons': ['Material Symbols Rounded']
       },
       colors: {
         primary: {

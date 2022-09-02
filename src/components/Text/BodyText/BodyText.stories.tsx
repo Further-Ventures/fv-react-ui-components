@@ -8,15 +8,19 @@ export default {
   title: 'Components/BodyText',
   component: BodyText,
   parameters: {
-    pkg,
+    pkg
   },
   argTypes: buildExcludeArgTypes(['className'])
 } as ComponentMeta<typeof BodyText>;
 
 const Template: ComponentStory<typeof BodyText> = (args) => {
-  return <>
-    <BodyText {...args}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</BodyText>
-  </>
+  return (
+    <>
+      <BodyText {...args}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </BodyText>
+    </>
+  );
 };
 
 export const Text = Template.bind({});

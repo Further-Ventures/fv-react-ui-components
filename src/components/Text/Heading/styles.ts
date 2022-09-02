@@ -123,7 +123,7 @@ export default createStyles((theme) => ({
       fontSize: 24,
       lineHeight: 1.5,
       fontWeight: 700,
-      marginBottom: 12,
+      marginBottom: 12
     }
   },
   h6: {
@@ -144,7 +144,7 @@ export default createStyles((theme) => ({
       fontSize: 24,
       lineHeight: 1.5,
       fontWeight: 700,
-      marginBottom: 12,
+      marginBottom: 12
     }
   },
   subline: {
@@ -182,5 +182,5 @@ export default createStyles((theme) => ({
   },
   italic: {
     fontStyle: 'italic'
-  },
+  }
 }));

@@ -1,4 +1,9 @@
-import React, { ForwardedRef, forwardRef, useContext, useImperativeHandle } from 'react';
+import React, {
+  ForwardedRef,
+  forwardRef,
+  useContext,
+  useImperativeHandle
+} from 'react';
 import { IFormContext, IFormProps, IFormRef } from './types';
 
 const defaultFormContextValues: IFormContext = {
@@ -14,12 +19,13 @@ const defaultFormContextValues: IFormContext = {
     submit: () => {},
     reset: () => {},
     isValid: true,
-    setErrors: () => {},
-  },
+    setErrors: () => {}
+  }
 };
 
-export const FormContext: React.Context<IFormContext> =
-  React.createContext(defaultFormContextValues);
+export const FormContext: React.Context<IFormContext> = React.createContext(
+  defaultFormContextValues
+);
 
 const Form = forwardRef((props: IFormProps, ref: ForwardedRef<IFormRef>) => {
   const {
@@ -47,7 +53,10 @@ const Form = forwardRef((props: IFormProps, ref: ForwardedRef<IFormRef>) => {
       try {
         validationSchema.validateSync(values, { abortEarly: false });
       } catch (errors: any) {
-        validationRes = errors.inner.reduce((a: any, v: any) => ({ ...a, [v.path]: v.message }), {});
+        validationRes = errors.inner.reduce(
+          (a: any, v: any) => ({ ...a, [v.path]: v.message }),
+          {}
+        );
       }
       setFormErrors(validationRes);
 
@@ -68,8 +77,8 @@ const Form = forwardRef((props: IFormProps, ref: ForwardedRef<IFormRef>) => {
     setFormTouched(() =>
       Object.keys(formValues).reduce(
         (acc: any, key: string) => ({ ...acc, [key]: true }),
-        {},
-      ),
+        {}
+      )
     );
 
   const setFormErrorsActionWrapper = (errors: any) => {
@@ -77,7 +86,7 @@ const Form = forwardRef((props: IFormProps, ref: ForwardedRef<IFormRef>) => {
     setFormErrors(errors);
     onError && onError(errors, formValues);
   };
-  
+
   const onSubmitFormWrapper = (e?: React.SyntheticEvent) => {
     e?.preventDefault();
     if (Object.keys(formErrors).length > 0) {
@@ -99,7 +108,7 @@ const Form = forwardRef((props: IFormProps, ref: ForwardedRef<IFormRef>) => {
     isValid: JSON.stringify(formErrors) === '{}',
     setErrors: setFormErrorsActionWrapper,
     reset: onResetFormWrapper,
-    submit: onSubmitFormWrapper,
+    submit: onSubmitFormWrapper
   };
 
   /** Updating form values whenever a change is made within an input field */
@@ -109,9 +118,9 @@ const Form = forwardRef((props: IFormProps, ref: ForwardedRef<IFormRef>) => {
       newFormValues[name] = value;
       const validationResult = validate(newFormValues);
       const isValid = JSON.stringify(validationResult) === '{}';
-      !init && onChange && onChange({ ...newFormValues },
-        { ...formActions, isValid }
-      );
+      !init &&
+        onChange &&
+        onChange({ ...newFormValues }, { ...formActions, isValid });
 
       return newFormValues;
     });
@@ -133,14 +142,14 @@ const Form = forwardRef((props: IFormProps, ref: ForwardedRef<IFormRef>) => {
   };
 
   useImperativeHandle(ref, () => formActions);
-  
+
   React.useEffect(() => {
     validate(formValues);
   }, []);
 
   return (
     <form
-      { ...rest }
+      {...rest}
       onSubmit={onSubmitFormWrapper}
       onReset={onResetFormWrapper}
       key={formSessionId}
@@ -158,7 +167,7 @@ const Form = forwardRef((props: IFormProps, ref: ForwardedRef<IFormRef>) => {
           loading
         }}
       >
-        { children }
+        {children}
       </FormContext.Provider>
     </form>
   );
@@ -174,7 +183,7 @@ export const useFormContext = (fieldName = 'unnamed') => {
     formValues,
     formErrors,
     formTouched,
-    formActions,
+    formActions
   } = useContext(FormContext);
   return {
     fieldError:
