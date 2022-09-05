@@ -49,7 +49,7 @@ import { BodyText } from './index';
 //   ).toContain('font-bold');
 //   expect(
 //     element.className
-//   ).toContain('text-3base');
+//   ).toContain('text-base2');
 // });
 // it('should rendered medium large p', () => {
 //   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -68,7 +68,7 @@ import { BodyText } from './index';
 //   ).toContain('font-medium');
 //   expect(
 //     element.className
-//   ).toContain('text-3base');
+//   ).toContain('text-base2');
 // });
 // it('should rendered regular large p', () => {
 //   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -87,7 +87,7 @@ import { BodyText } from './index';
 //   ).toContain('font-normal');
 //   expect(
 //     element.className
-//   ).toContain('text-3base');
+//   ).toContain('text-base2');
 // });
 
 // it('should rendered regular normal p', () => {
@@ -107,7 +107,7 @@ import { BodyText } from './index';
 //   ).toContain('font-bold');
 //   expect(
 //     element.className
-//   ).toContain('text-2base');
+//   ).toContain('text-base');
 // });
 // it('should rendered regular normal p', () => {
 //   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -126,7 +126,7 @@ import { BodyText } from './index';
 //   ).toContain('font-medium');
 //   expect(
 //     element.className
-//   ).toContain('text-2base');
+//   ).toContain('text-base');
 // });
 // it('should rendered regular normal p', () => {
 //   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -141,7 +141,7 @@ import { BodyText } from './index';
 //   ).toContain('font-normal');
 //   expect(
 //     element.className
-//   ).toContain('text-2base');
+//   ).toContain('text-base');
 // });
 // it('should rendered regular normal p even if we add different props to change the styling to something that is not in the design', () => {
 //   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -160,7 +160,7 @@ import { BodyText } from './index';
 //   ).toContain('font-normal');
 //   expect(
 //     element.className
-//   ).toContain('text-2base');
+//   ).toContain('text-base');
 // });
 
 // it('should rendered bold description', () => {
@@ -180,7 +180,7 @@ import { BodyText } from './index';
 //   ).toContain('font-bold');
 //   expect(
 //     element.className
-//   ).toContain('text-sm');
+//   ).toContain('text-xs');
 // });
 it('should rendered medium description', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -195,7 +195,7 @@ it('should rendered medium description', () => {
   ).toContain('font-medium');
   expect(
     element.className
-  ).toContain('text-sm');
+  ).toContain('text-xs');
 });
 it('should rendered medium description even if we add different props to change the styling to something that is not in the design', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -214,7 +214,7 @@ it('should rendered medium description even if we add different props to change 
   ).toContain('font-medium');
   expect(
     element.className
-  ).toContain('text-sm');
+  ).toContain('text-xs');
 });
 
 it('should rendered regular caption', () => {
@@ -230,7 +230,7 @@ it('should rendered regular caption', () => {
   ).toContain('font-normal');
   expect(
     element.className
-  ).toContain('text-sm');
+  ).toContain('text-xs');
 });
 it('should rendered regular caption even if we add different props to change the styling to something that is not in the design', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -249,7 +249,7 @@ it('should rendered regular caption even if we add different props to change the
   ).toContain('font-normal');
   expect(
     element.className
-  ).toContain('text-sm');
+  ).toContain('text-xs');
 });
 
 it('should rendered small', () => {
@@ -265,7 +265,7 @@ it('should rendered small', () => {
   ).toContain('font-normal');
   expect(
     element.className
-  ).toContain('text-xs');
+  ).toContain('text-xxs');
 });
 it('should rendered small even if we add different props to change the styling to something that is not in the design', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -284,7 +284,7 @@ it('should rendered small even if we add different props to change the styling t
   ).toContain('font-normal');
   expect(
     element.className
-  ).toContain('text-xs');
+  ).toContain('text-xxs');
 });
 
 it('should rendered medium button text', () => {
@@ -304,7 +304,7 @@ it('should rendered medium button text', () => {
   ).toContain('font-medium');
   expect(
     element.className
-  ).toContain('text-2base');
+  ).toContain('text-base');
 });
 it('should rendered medium weight and medium size button text', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -323,7 +323,7 @@ it('should rendered medium weight and medium size button text', () => {
   ).toContain('font-medium');
   expect(
     element.className
-  ).toContain('text-base');
+  ).toContain('text-sm');
 });
 it('should rendered medium weight and small size button text', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -342,7 +342,7 @@ it('should rendered medium weight and small size button text', () => {
   ).toContain('font-medium');
   expect(
     element.className
-  ).toContain('text-xs');
+  ).toContain('text-xxs');
 });
 it('should rendered medium weight and small size button text even if we add different props to change the styling to something that is not in the design', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -361,7 +361,7 @@ it('should rendered medium weight and small size button text even if we add diff
   ).toContain('font-medium');
   expect(
     element.className
-  ).toContain('text-xs');
+  ).toContain('text-xxs');
 });
 
 it('should rendered regular label', () => {
@@ -377,7 +377,7 @@ it('should rendered regular label', () => {
   ).toContain('font-normal');
   expect(
     element.className
-  ).toContain('text-base');
+  ).toContain('text-sm');
 });
 it('should rendered bold label', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -396,7 +396,7 @@ it('should rendered bold label', () => {
   ).toContain('font-bold');
   expect(
     element.className
-  ).toContain('text-base');
+  ).toContain('text-sm');
 });
 it('should rendered regular label even if we add different props to change the styling to something that is not in the design', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -415,5 +415,5 @@ it('should rendered regular label even if we add different props to change the s
   ).toContain('font-normal');
   expect(
     element.className
-  ).toContain('text-base');
+  ).toContain('text-sm');
 });

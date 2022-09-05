@@ -34,15 +34,15 @@ export const BodyText: React.FC<IBodyTextProps> = ({
     <Component
       className={classNames(
         'leading-normal p-0 mt-0 ml-0 mr-0 mb-2.5', {
-          ['text-3base font-bold italic lg:text-2xl']: variation === 'quote',
-          ['text-3base']: variation === 'paragraph' && size === 'l',
-          ['text-2base']: variation === 'paragraph' && size !== 'l' || variation === 'button' && size === 'l',
-          ['text-sm']: ['description', 'caption'].includes(variation),
+          ['text-sbase font-bold italic lg:text-2xl']: variation === 'quote',
+          ['text-base2']: variation === 'paragraph' && size === 'l',
+          ['text-base']: variation === 'paragraph' && size !== 'l' || variation === 'button' && size === 'l',
+          ['text-xs']: ['description', 'caption'].includes(variation),
           ['font-bold']: ['paragraph', 'description', 'label'].includes(variation) && fontWeight === 700,
           ['font-medium']: ['paragraph', 'description', 'button'].includes(variation) && fontWeight === 500 || variation === 'description' && ![700, 500].includes(fontWeight) || variation === 'button' && fontWeight !== 500,
           ['font-normal']: ['paragraph', 'caption', 'small'].includes(variation) && fontWeight === 400 || variation === 'label' && fontWeight !== 700 || ['caption', 'small'].includes(variation) && fontWeight !== 400,
-          ['text-xs']: variation === 'small' || variation === 'button' && size === 's',
-          ['text-base']: variation === 'button' && size === 'm' || variation === 'label',
+          ['text-xxs']: variation === 'small' || variation === 'button' && size === 's',
+          ['text-sm']: variation === 'button' && size === 'm' || variation === 'label',
         },
         className
       )}

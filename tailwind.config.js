@@ -8,21 +8,23 @@ module.exports = {
   ],
   theme: {
     extend: {
+      borderWidth: {
+        1.5: '1.5px',
+      },
       spacing: {
         5.5: '1.375rem',
+        6.5: '1.625rem',
         7.5: '1.875rem',
       },
       fontFamily: {
         mercury: ['"PP Object Sans", sans-serif'],
         'mercury-alt': ['"PP Monument Extended", sans-serif'],
+        'mercury-icons': ['Material Symbols Rounded'],
       },
       fontSize: {
         '2xs': ['0.625rem', '0.9375rem'],
-        'xs': '.625rem', // 10px
-        'sm': '.75rem', // 12px
-        'base': '.875rem', // 14px
-        '2base': '1rem', // 16px
-        '3base': '1.125rem', // 18px
+        'xxs': '.625rem', // 10px
+        'base2': '1.125rem', // 18px
         'lg': '1.5rem', // 24px
         'xl': '2rem', // 32px
         '2xl': '2.5rem', // 40px
@@ -40,8 +42,8 @@ module.exports = {
         'normal': 1.5
       },
       aspectRatio: {
-        'one': '1/1',
-        'paymentIcon': '17/12',
+        one: '1/1',
+        paymentIcon: '17/12',
       },
       colors: {
         primary: {

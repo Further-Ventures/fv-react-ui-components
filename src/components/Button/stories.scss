@@ -9,9 +9,9 @@
   justify-content: center;
 }
 
-.showcase {
+.showcaseButtons {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(9, minmax(10rem ,max-content));
   justify-items: start;
   align-items: center;
   gap: 1rem;
