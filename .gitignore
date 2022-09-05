@@ -6,3 +6,4 @@ npm-debug.log*
 /storybook-static
 .idea
 .history
+.vscode
