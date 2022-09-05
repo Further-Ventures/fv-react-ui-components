@@ -80,14 +80,6 @@ describe('Button component', () => {
     );
   });
 
-  it('should call onClick handler', () => {
-    const onClick = jest.fn();
-    render(<Button label='Button' onClick={onClick} />);
-    const button = screen.getByRole('button');
-    fireEvent.click(button);
-    expect(onClick).toHaveBeenCalled();
-  });
-
   it('should call the onclick callback when button is clicked', () => {
     const onClickSpy = jest.fn();
 

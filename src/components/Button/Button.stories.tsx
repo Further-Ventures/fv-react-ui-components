@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Button, { IButton } from './index';
-import Placeholder from '../../storybook/icons/placeholder';
+import Icon from '../Icons';
 import pkg from './package.json';
 import { buildExcludeArgTypes } from '../../storybook/utils';
 import './stories.scss';
@@ -38,23 +38,30 @@ export const Showcase = () => {
     <div className='showcase'>
       {shapes.map((shape) => {
         return sizes.map((size) => {
+          const iconSize = size === 'mini' ? 12 : 20;
           return (
             <>
               <p className='rowLabel'>
                 {size} {shape}:
               </p>
               <Button label='Primary' size={size} shape={shape} />
-              <Button label='Primary' size={size} shape={shape} />
+              <Button label='Primary' size={size} shape={shape} contentLeft={<Icon icon='check_circle' size={iconSize} />} />
+              <Button label='Primary' size={size} shape={shape} contentRight={<Icon icon='check_circle' size={iconSize} />} />
+              <Button size={size} shape={shape} contentLeft={<Icon icon='check_circle' size={iconSize} />} />
               <Button label='Primary Outlined' variant='outlined' size={size} shape={shape} />
+              <Button label='Error' color='error' size={size} shape={shape} contentLeft={<Icon icon='check_circle' size={iconSize} />} />
               <Button label='Error' color='error' size={size} shape={shape} />
               <Button label='Error Outlined' color='error' variant='outlined' size={size} shape={shape} />
               <p className='rowLabel'>
                 {size} {shape} (disabled):
               </p>
               <Button label='Primary' disabled size={size} shape={shape} />
-              <Button label='Primary' size={size} shape={shape} disabled />
+              <Button label='Primary' size={size} shape={shape} disabled contentLeft={<Icon icon='check_circle' size={iconSize} />} />
+              <Button label='Primary' size={size} shape={shape} disabled contentRight={<Icon icon='check_circle' size={iconSize} />} />
+              <Button size={size} shape={shape} contentLeft={<Icon icon='check_circle' size={iconSize} />} />
               <Button label='Primary Outlined' variant='outlined' disabled size={size} shape={shape} />
-              <Button label='Error' color='error' disabled size={size} shape={shape} />
+              <Button label='Error' color='error' disabled size={size} shape={shape} contentLeft={<Icon icon='check_circle' size={iconSize} />} />
+              <Button label='Error' color='error' size={size} shape={shape} />
               <Button label='Error Outlined' color='error' variant='outlined' disabled size={size} shape={shape} />
             </>
           );
