@@ -7,8 +7,13 @@
     "build": "webpack --config webpack.config.js && node postBuild.js",
     "build-storybook": "build-storybook -o docs-build",
     "lint": "eslint . --ext .ts,.tsx",
+    "lint:fix": "npm run lint -- --fix",
     "tsc-compile": "tsc --noemit",
-    "test": "jest"
+    "test": "jest",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --fix"
   },
   "dependencies": {
     "@stryberventures/gaia-react.theme": "^0.0.2",
@@ -50,8 +55,10 @@
     "eslint-plugin-react": "^7.29.4",
     "file-loader": "^6.2.0",
     "fs-extra": "^10.0.1",
+    "husky": "^8.0.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
+    "lint-staged": "^13.0.3",
     "mini-css-extract-plugin": "^2.6.1",
     "postcss": "^8.4.16",
     "react-copy-to-clipboard": "^5.1.0",
