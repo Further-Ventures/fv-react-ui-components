@@ -21,7 +21,7 @@ const Button: React.FC<IButton> = (props) => {
       aria-disabled={disabled}
       className={classNames(
         className,
-        'font-mercury font-medium inline-flex items-center border-2',
+        'font-mercury font-medium inline-flex items-center border-1.5',
         'disabled:text-text-disabled disabled:border-default-extra-light disabled:pointer-events-none',
         'transition-colors duration-300 ease-out',
         {

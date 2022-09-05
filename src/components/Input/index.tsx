@@ -1,87 +1,49 @@
-import React, { useRef } from 'react';
-import useStyles from './styles';
-import { ErrorMessage } from '../ErrorMessage';
-import { HintMessage } from '../HintMessage';
+import React from 'react';
 import classNames from 'classnames';
 import { useInput } from './hooks';
 import Button, { IButton } from '../Button';
 import Icon from '../Icons';
-
 export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
+  inputClassName?: string;
   placeholder?: string;
   disabled?: boolean;
-  color?: 'primary';
   hint?: string;
-  errorMessage?: string;
+  hintClassName?: string;
+  error?: string;
+  errorClassName?: string;
   value?: string;
   name?: string;
   controlled?: boolean;
   onChange?: (e: React.BaseSyntheticEvent) => void;
   onBlur?: (e: React.BaseSyntheticEvent) => void;
-  prefix?: string;
-  prefixClassName?: string;
-  errorClassName?: string;
-  hintClassName?: string;
-  endAdornment?: React.ReactNode;
   mask?: string;
-  fullWidth?: boolean;
-}
-
-export interface IInputTW extends React.InputHTMLAttributes<HTMLInputElement> {
-  label?: string;
-  placeholder?: string;
-  disabled?: boolean;
-  color?: 'primary';
-  hint?: string;
-  errorMessage?: string;
-  value?: string;
-  name?: string;
-  controlled?: boolean;
-  onChange?: (e: React.BaseSyntheticEvent) => void;
-  onBlur?: (e: React.BaseSyntheticEvent) => void;
-  prefix?: string;
-  prefixClassName?: string;
-  errorClassName?: string;
-  hintClassName?: string;
-  endAdornment?: React.ReactNode;
-  mask?: string;
-  fullWidth?: boolean;
 
   width?: 'small' | 'medium' | 'large' | 'full';
-  buttonText?: string;
-  onButtonClick?: (e: React.BaseSyntheticEvent) => void;
-  buttonProps?: IButton;
-  inputIcon?: React.ReactNode;
+
+  buttonProps?: Omit<IButton, 'size' | 'variant' | 'disabled' | 'color'>;
+  inputIcon?: string;
 }
 
-export const InputTW: React.FC<IInputTW> = (props) => {
-  const {
-    label,
-    className,
-    hint,
-    prefix,
-    prefixClassName,
-    errorClassName,
-    hintClassName,
-    endAdornment,
-    placeholder,
-    onClick,
-    fullWidth,
-    buttonText,
-    onButtonClick,
-    errorMessage,
-    ...rest
-  } = props;
-  const { buttonProps } = props;
-  const inputRef = useRef<HTMLInputElement>(null);
+export const Input: React.FC<IInput> = (props) => {
+  const { inputClassName, inputIcon, label, className, hint, hintClassName, error, errorClassName, placeholder, onClick, width, buttonProps, ...rest } =
+    props;
 
   const { name, value, disabled, inputProps, onChange, onBlur } = useInput(rest);
+
+  const hasError = Boolean(error);
+  const hasValue = Boolean(value);
+  const hasLabel = Boolean(label);
+
+  const hasContent = Boolean(inputIcon || buttonProps)
   return (
-    <div className={classNames('relative mb-5 inline-block')}>
-      <div className={classNames('relative inline-block')}>
+    <div className={classNames(className, 'mb-5', {
+      ['w-48']: width === 'small',
+      ['w-64']: width === 'medium',
+      ['w-96']: width === 'large',
+    })}>
+      <div className={classNames('relative overflow-hidden', { ['text-text-disabled']: disabled })}>
         <input
-          ref={inputRef}
           type='text'
           name={name}
           placeholder={placeholder}
@@ -89,105 +51,63 @@ export const InputTW: React.FC<IInputTW> = (props) => {
           disabled={disabled}
           onChange={onChange}
           onBlur={onBlur}
-          className={classNames('peer border-1.5 rounded h-14', 'transition-colors duration-300 ease-out', {
-            ['border-default hover:border-text-primary hover:bg-default-extra-light focus:border-primary']: !errorMessage,
-            ['border-error hover:bg-default-extra-light']: errorMessage,
-            ['px-3 pb-1.5 pt-6.5']: label,
+          className={classNames(inputClassName, 'peer border-1.5 rounded h-14', 'transition-colors duration-300 ease-out w-full', {
+            ['disabled:border-default-light disabled:bg-background select-none']: disabled,
+            ['border-default hover:border-text-primary hover:bg-default-extra-light focus:border-primary']: !hasError,
+            ['border-error hover:bg-default-extra-light']: hasError,
+            ['px-3 pb-1.5 pt-6.5']: hasLabel,
             ['placeholder:invisible placeholder:opacity-0 placeholder:translate-y-full placeholder:transition placeholder:duration-250 ease-out focus:placeholder:visible focus:placeholder:opacity-100 focus:placeholder:translate-y-0']:
-              label,
-            ['px-3 py-1.5']: !label,
+              hasLabel,
+            ['px-3 py-1.5']: !hasLabel,
           })}
+          {...inputProps}
         />
-        {label && (
+        {hasLabel && (
           <label
             className={classNames(
-              'text-base leading-none absolute left-3 top-1/2 -translate-y-1/2 flex items-center transition ease-out duration-250 text-text-primary pointer-events-none', //
+              'text-base leading-none absolute left-3 top-1/2 -translate-y-1/2 flex items-center transition ease-out duration-250 text-text-primary pointer-events-none whitespace-nowrap', //base
+              'peer-disabled:text-text-disabled peer-disabled:select-none', //input disabled
               'peer-focus:-translate-y-5.5 peer-focus:scale-75 peer-focus:-translate-x-[12.5%] peer-focus:text-text-hint', //input focus
-              { ['-translate-y-5.5 scale-75 -translate-x-[12.5%] text-text-hint']: value }
+              { ['-translate-y-5.5 scale-75 -translate-x-[12.5%] text-text-hint']: hasValue }
             )}
           >
             {label}
           </label>
         )}
-        {buttonProps && (
+        {hasContent && (
           <div className={classNames('flex gap-2 items-center absolute right-3 top-1/2 -translate-y-1/2')}>
-            <Icon icon='info' size={20} />
-            {<Button size='mini' variant='outlined' label='Button' {...buttonProps} />}
+            {inputIcon && <Icon icon={inputIcon} size={20} />}
+            {buttonProps && <Button size='mini' variant='outlined' color={error ? 'error' : 'primary'} disabled={disabled} {...buttonProps} />}
           </div>
         )}
       </div>
-      {hint && <div className='text-sm leading-none text-text-hint mt-2'>{hint}</div>}
-      {errorMessage && (
-        <div className={classNames('flex items-center gap-1 text-sm leading-none text-error mt-2')}>
+      {hint && (
+        <div
+          className={classNames(hintClassName, 'text-sm leading-none mt-2', {
+            ['text-text-hint']: !disabled,
+            ['text-text-disabled']: disabled,
+          })}
+        >
+          {hint}
+        </div>
+      )}
+      {hasError && (
+        <div
+          className={classNames(errorClassName, 'flex items-center gap-1 text-sm leading-none  mt-2', {
+            ['text-error']: !disabled,
+            ['text-text-disabled']: disabled,
+          })}
+        >
           <Icon icon='info' fill size={14} />
-          {errorMessage}
+          {error}
         </div>
       )}
-    </div>
-  );
-};
-
-const Input: React.FC<IInput> = (props) => {
-  const classes = useStyles(props);
-  const { label, className, hint, prefix, prefixClassName, errorClassName, hintClassName, endAdornment, placeholder, onClick, fullWidth, ...rest } =
-    props;
-  const { name, value, disabled, errorMessage, inputProps, onChange, onBlur } = useInput(rest);
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  return (
-    <div
-      className={classNames(
-        classes.root,
-        {
-          [classes.fullWidth]: fullWidth,
-        },
-        className
-      )}
-    >
-      <div
-        onClick={onClick}
-        className={classNames(classes.inputContainer, {
-          [classes.disabled]: disabled,
-          [classes.inputContainerError]: !!errorMessage,
-          [classes.withLabel]: label,
-        })}
-      >
-        <div className={classes.inputArea}>
-          {label && (
-            <div
-              onClick={() => {
-                inputRef.current?.focus();
-              }}
-              className={classNames(classes.label, { [classes.textDisabled]: disabled })}
-            >
-              {label}
-            </div>
-          )}
-          {prefix && <div className={classNames(classes.prefix, prefixClassName)}>{prefix}</div>}
-          <input
-            {...inputProps}
-            name={name}
-            ref={inputRef}
-            value={value}
-            className={classNames(classes.input, {
-              [classes.disabled]: disabled,
-              [classes.textDisabled]: disabled,
-            })}
-            placeholder={placeholder}
-            onChange={onChange}
-            onBlur={onBlur}
-          />
-        </div>
-        {endAdornment}
-      </div>
-      {errorMessage && <ErrorMessage text={errorMessage} className={classNames(classes.message, errorClassName)} />}
-      {hint && <HintMessage text={hint} disabled={disabled} className={classNames(classes.message, hintClassName)} />}
     </div>
   );
 };
 
 Input.defaultProps = {
-  color: 'primary',
+  width: 'medium',
 };
 
 export default Input;

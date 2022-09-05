@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Input, { InputTW } from './index';
+import Input from './index';
 import pkg from './package.json';
 import { buildExcludeArgTypes } from '../../storybook/utils';
 
@@ -12,122 +12,72 @@ export default {
   parameters: {
     pkg,
   },
-  argTypes: buildExcludeArgTypes([
-    'name',
-    'controlled',
-    'onChange',
-    'endAdornment',
-    'onBlur',
-    'prefixClassName',
-    'contentClassName',
-    'hintClassName',
-    'errorClassName',
-  ]),
+  argTypes: buildExcludeArgTypes(['value', 'name', 'controlled', 'onChange', 'onBlur', 'contentClassName', 'hintClassName', 'errorClassName', 'buttonProps', 'inputIcon']),
 } as ComponentMeta<typeof Input>;
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
+const Template: ComponentStory<typeof Input> = (args) => {
+  const [inputValue, setInputValue] = useState('');
+  const handleInputChange = (e) => setInputValue(e.target.value);
 
-export const ColorPrimary = Template.bind({});
-ColorPrimary.args = {
-  label: 'Color primary',
+  return (
+    <>
+      <h4 className='mb-2'>{`State: ${inputValue}`}</h4>
+      <Input {...args} value={inputValue} onChange={handleInputChange} />
+    </>
+  );
+};
+
+export const Default = Template.bind({});
+
+Default.args = {
+  label: 'Input default',
   placeholder: 'olivia@example.com',
 };
+
+export const WithButton = Template.bind({});
+
+WithButton.args = {
+  label: 'Input default',
+  placeholder: 'olivia@example.com',
+  buttonProps: { label: 'Test', onClick: () => alert('Button Click') }
+};
+
+export const WithIcon = Template.bind({});
+
+WithIcon.args = {
+  label: 'Input default',
+  placeholder: 'olivia@example.com',
+  inputIcon: 'info'
+};
+
 
 export const Showcase = () => {
   return (
     <div className='showcase'>
-      <InputTW label='Label' placeholder='with placeholder' />
-      <InputTW label='Some very long label asdasd a as dasd as dasd a as s sa a' />
-      <InputTW placeholder='No label' />
-      <InputTW label='test button' buttonProps={{ onClick: () => alert('Button Click!') }} />
-      <InputTW label='test error' errorMessage='Test Error message' />
-      <InputTW label='test error' errorMessage='Test Error message' hint='Test Hint' />
-      <InputTW label='test error' errorMessage='Test Error message' hint='Test Hint' buttonProps={{ onClick: () => alert('Button Click!') }} />
-      <InputTW label='test hint' hint='Test Hint' />
+      <Input label='Label' placeholder='with placeholder' />
+      <Input label='Some very long label asdasd a as dasd as dasd a as s sa a' />
+      <Input placeholder='No label' />
+      <Input label='test button' buttonProps={{ label: 'Button CTA', onClick: () => alert('Button Click!') }} />
+      <Input label='test error' error='Test Error message' buttonProps={{ label: 'Button CTA', onClick: () => alert('Button Click!') }} />
+      <Input label='test error' error='Test Error message' hint='Test Hint' />
+      <Input
+        label='test error'
+        error='Test Error message'
+        hint='Test Hint'
+        buttonProps={{ label: 'Button CTA', onClick: () => alert('Button Click!') }}
+      />
+      <Input label='With hint' hint='Test Hint' />
+
+      <Input label='Disabled' placeholder='with placeholder' disabled />
+      <Input
+        label='Disabled'
+        placeholder='with placeholder'
+        error='Test Error message'
+        hint='Test Hint'
+        disabled
+        inputIcon='info'
+        buttonProps={{ label: 'Button CTA', onClick: () => alert('Button Click!') }}
+      />
     </div>
   );
 };
-// export const WithValue = Template.bind({});
-// WithValue.args = {
-//   label: 'With value',
-//   placeholder: 'placeholder@example.com',
-//   value: 'olivia@example.com',
-// };
-
-// export const Disabled = Template.bind({});
-// Disabled.args = {
-//   label: 'Disabled',
-//   placeholder: 'olivia@example.com',
-//   disabled: true,
-// };
-
-// export const Error = Template.bind({});
-// Error.args = {
-//   label: 'With error',
-//   placeholder: 'olivia@example.com',
-//   errorMessage: 'Error message',
-// };
-
-// export const Hint = Template.bind({});
-// Hint.args = {
-//   label: 'With hint',
-//   placeholder: 'olivia@example.com',
-//   hint: 'Hint message',
-// };
-
-// export const ReadOnly = Template.bind({});
-// ReadOnly.args = {
-//   label: 'Read only',
-//   placeholder: 'olivia@example.com',
-//   value: 'olivia@example.com',
-//   readOnly: true,
-// };
-
-// export const NoLabel = Template.bind({});
-// NoLabel.args = {
-//   placeholder: 'olivia@example.com',
-// };
-
-// export const FullWidth = Template.bind({});
-// FullWidth.args = {
-//   label: 'Fits parent width',
-//   placeholder: 'olivia@example.com',
-//   fullWidth: true,
-// };
-
-// export const EndAdornment = Template.bind({});
-// EndAdornment.args = {
-//   label: 'End adornment',
-//   placeholder: 'placeholder@example.com',
-//   value: 'olivia@example.com',
-//   endAdornment: (
-//     <div
-//       style={{
-//         width: 32,
-//         height: 32,
-//         backgroundColor: '#D0D5DD',
-//         borderRadius: 16,
-//         lineHeight: '32px',
-//         textAlign: 'center',
-//         color: 'white',
-//       }}
-//     >
-//       O
-//     </div>
-//   ),
-// };
-
-// export const Mask = Template.bind({});
-// Mask.args = {
-//   label: 'Digit mask',
-//   mask: '+X (XXX) XX-XX-XXX',
-//   placeholder: '+0 (000) 00-00-000',
-// };
-
-// export const Prefix = Template.bind({});
-// Prefix.args = {
-//   label: 'Prefix',
-//   prefix: 'G-',
-//   mask: 'XXX-XXX',
-//   placeholder: 'XXX-XXX',
-// };
