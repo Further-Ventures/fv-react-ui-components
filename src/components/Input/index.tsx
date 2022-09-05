@@ -1,7 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import { useInput } from './hooks';
-import Button, { IButton } from '../Button';
 import Icon from '../Icons';
 export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
