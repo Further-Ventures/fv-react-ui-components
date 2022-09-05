@@ -35,7 +35,7 @@ export const Showcase = () => {
   const sizes: ReadonlyArray<IButton['size']> = ['mini', 'small', 'medium', 'large'];
   const shapes: ReadonlyArray<IButton['shape']> = ['round', 'circle', 'flat'];
   return (
-    <div className='showcase'>
+    <div className='showcaseButtons'>
       {shapes.map((shape) => {
         return sizes.map((size) => {
           const iconSize = size === 'mini' ? 12 : 20;
