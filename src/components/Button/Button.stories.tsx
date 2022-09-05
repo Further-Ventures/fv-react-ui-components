@@ -12,7 +12,7 @@ export default {
   parameters: {
     pkg,
   },
-  argTypes: buildExcludeArgTypes(['iconLeft', 'iconRight', 'className']),
+  argTypes: buildExcludeArgTypes(['contentLeft', 'contentRight', 'className']),
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = (args) => (
