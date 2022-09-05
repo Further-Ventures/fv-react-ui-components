@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import Icon from '../Icons';
+import Button from '../Button';
 import Input from './index';
 import pkg from './package.json';
 import { buildExcludeArgTypes } from '../../storybook/utils';
@@ -12,7 +14,7 @@ export default {
   parameters: {
     pkg,
   },
-  argTypes: buildExcludeArgTypes(['value', 'name', 'controlled', 'onChange', 'onBlur', 'contentClassName', 'hintClassName', 'errorClassName', 'buttonProps', 'inputIcon']),
+  argTypes: buildExcludeArgTypes(['value', 'name', 'controlled', 'onChange', 'onBlur', 'contentClassName', 'hintClassName', 'errorClassName', 'sideContent']),
 } as ComponentMeta<typeof Input>;
 
 const Template: ComponentStory<typeof Input> = (args) => {
@@ -39,7 +41,7 @@ export const WithButton = Template.bind({});
 WithButton.args = {
   label: 'Input default',
   placeholder: 'olivia@example.com',
-  buttonProps: { label: 'Test', onClick: () => alert('Button Click') }
+  sideContent: <Button label="Button CTA" size='mini' onClick={() => alert('Button Click!')} variant='outlined'/>
 };
 
 export const WithIcon = Template.bind({});
@@ -47,7 +49,7 @@ export const WithIcon = Template.bind({});
 WithIcon.args = {
   label: 'Input default',
   placeholder: 'olivia@example.com',
-  inputIcon: 'info'
+  sideContent: <Icon icon='info' size={20} />
 };
 
 
@@ -57,14 +59,14 @@ export const Showcase = () => {
       <Input label='Label' placeholder='with placeholder' />
       <Input label='Some very long label asdasd a as dasd as dasd a as s sa a' />
       <Input placeholder='No label' />
-      <Input label='test button' buttonProps={{ label: 'Button CTA', onClick: () => alert('Button Click!') }} />
-      <Input label='test error' error='Test Error message' buttonProps={{ label: 'Button CTA', onClick: () => alert('Button Click!') }} />
+      <Input label='test button' sideContent={ <Button label="Button CTA" size='mini' onClick={() => alert('Button Click!')} variant='outlined'/>} />
+      <Input label='test error' error='Test Error message' sideContent={ <Button color='error' label="Button CTA" size='mini' onClick={() => alert('Button Click!')} variant='outlined'/>} />
       <Input label='test error' error='Test Error message' hint='Test Hint' />
       <Input
         label='test error'
         error='Test Error message'
         hint='Test Hint'
-        buttonProps={{ label: 'Button CTA', onClick: () => alert('Button Click!') }}
+        sideContent={ <Button color='error' label="Button CTA" size='mini' onClick={() => alert('Button Click!')} variant='outlined'/>}
       />
       <Input label='With hint' hint='Test Hint' />
 
@@ -75,8 +77,12 @@ export const Showcase = () => {
         error='Test Error message'
         hint='Test Hint'
         disabled
-        inputIcon='info'
-        buttonProps={{ label: 'Button CTA', onClick: () => alert('Button Click!') }}
+        sideContent={
+          <>
+            <Icon icon='info' size={20} />
+            <Button disabled label="Button CTA" size='mini' onClick={() => alert('Button Click!')} variant='outlined' />
+          </>
+        }
       />
     </div>
   );

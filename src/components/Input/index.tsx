@@ -21,12 +21,11 @@ export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
 
   width?: 'small' | 'medium' | 'large' | 'full';
 
-  buttonProps?: Omit<IButton, 'size' | 'variant' | 'disabled' | 'color'>;
-  inputIcon?: string;
+  sideContent?: React.ReactNode;
 }
 
 export const Input: React.FC<IInput> = (props) => {
-  const { inputClassName, inputIcon, label, className, hint, hintClassName, error, errorClassName, placeholder, onClick, width, buttonProps, ...rest } =
+  const { sideContent, inputClassName, label, className, hint, hintClassName, error, errorClassName, placeholder, onClick, width, ...rest } =
     props;
 
   const { name, value, disabled, inputProps, onChange, onBlur } = useInput(rest);
@@ -35,7 +34,8 @@ export const Input: React.FC<IInput> = (props) => {
   const hasValue = Boolean(value);
   const hasLabel = Boolean(label);
 
-  const hasContent = Boolean(inputIcon || buttonProps)
+  const hasContent = Boolean(sideContent);
+
   return (
     <div className={classNames(className, 'mb-5', {
       ['w-48']: width === 'small',
@@ -76,8 +76,7 @@ export const Input: React.FC<IInput> = (props) => {
         )}
         {hasContent && (
           <div className={classNames('flex gap-2 items-center absolute right-3 top-1/2 -translate-y-1/2')}>
-            {inputIcon && <Icon icon={inputIcon} size={20} />}
-            {buttonProps && <Button size='mini' variant='outlined' color={error ? 'error' : 'primary'} disabled={disabled} {...buttonProps} />}
+            {sideContent}
           </div>
         )}
       </div>
