@@ -12,14 +12,48 @@ export default {
   parameters: {
     pkg,
   },
-  argTypes: buildExcludeArgTypes(['contentLeft', 'contentRight', 'className']),
+  argTypes: {
+    ...buildExcludeArgTypes(['contentLeft', 'contentRight', 'className']), icon: {
+      options: ['none', 'left', 'right', 'both', 'only'],
+      control: { type: 'radio' },
+    },
+  },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => (
-  <div className='story-wrapper'>
-    <Button {...args} />
-  </div>
-);
+interface IStoryArgs extends IButton {icon?: string}
+
+const Template: ComponentStory<typeof Button> = (args) => {
+  const { icon, ...rest } = args as IStoryArgs;
+
+  const iconSize = args.size === 'mini' ? 12 : 20;
+  let componentArgs = rest;
+
+  if(icon === 'left' || icon ==='both') {
+    componentArgs = {
+      ...componentArgs,
+      contentLeft: <Icon icon='check_circle' size={iconSize} />
+    }
+  }
+  if(icon === 'right' || icon ==='both') {
+    componentArgs = {
+      ...componentArgs,
+      contentRight: <Icon icon='check_circle' size={iconSize} />
+    }
+  }
+  if(icon === 'only') {
+    componentArgs = {
+      ...componentArgs,
+      contentLeft: <Icon icon='check_circle' size={iconSize} />,
+      label: undefined,
+    }
+  }
+
+  return (
+    <div className='story-wrapper'>
+      <Button {...componentArgs} />
+    </div>
+  );
+}
 
 export const Default = Template.bind({});
 
@@ -27,13 +61,13 @@ Default.args = {
   label: 'Contained',
   variant: 'contained',
   size: 'medium',
-  shape: 'round',
+  shape: 'curved',
   color: 'primary',
 };
 
 export const Showcase = () => {
   const sizes: ReadonlyArray<IButton['size']> = ['mini', 'small', 'medium', 'large'];
-  const shapes: ReadonlyArray<IButton['shape']> = ['round', 'circle', 'flat'];
+  const shapes: ReadonlyArray<IButton['shape']> = ['curved', 'round', 'flat'];
   return (
     <div className='showcaseButtons'>
       {shapes.map((shape) => {
