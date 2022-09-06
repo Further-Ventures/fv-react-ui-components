@@ -4,7 +4,7 @@ import classNames from 'classnames';
 export interface IButton extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'> {
   label?: string;
   size?: 'mini' | 'small' | 'medium' | 'large';
-  shape?: 'flat' | 'round' | 'circle';
+  shape?: 'flat' | 'curved' | 'round';
   variant?: 'contained' | 'outlined';
   color?: 'primary' | 'error';
   disabled?: boolean;
@@ -16,7 +16,7 @@ export interface IButton extends Omit<React.ButtonHTMLAttributes<HTMLButtonEleme
 const Button: React.FC<IButton> = (props) => {
   const {
     size = 'medium',
-    shape = 'round',
+    shape = 'curved',
     variant = 'contained',
     color = 'primary',
     label,
@@ -56,10 +56,10 @@ const Button: React.FC<IButton> = (props) => {
           ['p-3.5']: isIconOnly && size === 'medium',
           ['p-5.5']: isIconOnly && size === 'large',
           //border radius
-          ['rounded']: `${shape}-${size}` === 'round-mini',
-          ['rounded-md']: `${shape}-${size}` === 'round-small',
-          ['rounded-lg']: `${shape}-${size}` === 'round-medium' || `${shape}-${size}` === 'round-large',
-          ['rounded-full']: `${shape}` === 'circle',
+          ['rounded']: `${shape}-${size}` === 'curved-mini',
+          ['rounded-md']: `${shape}-${size}` === 'curved-small',
+          ['rounded-lg']: `${shape}-${size}` === 'curved-medium' || `${shape}-${size}` === 'curved-large',
+          ['rounded-full']: `${shape}` === 'round',
           //color variants
           ['bg-primary disabled:bg-default-extra-light focus:bg-primary-medium focus:border-primary-medium hover:bg-primary-medium active:bg-primary-dark border-transparent text-primary-contrast-secondary']:
             `${color}-${variant}` === 'primary-contained',
