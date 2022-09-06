@@ -16,20 +16,34 @@ module.exports = {
         6.5: '1.625rem',
         7.5: '1.875rem',
       },
-      fontSize: {
-        '2xs': ['0.625rem', '0.9375rem'],
-      },
-      lineHeight: {
-        'extra-tight': '1.2',
-      },
-      aspectRatio: {
-        one: '1/1',
-        paymentIcon: '17/12',
-      },
       fontFamily: {
         mercury: ['"PP Object Sans", sans-serif'],
         'mercury-alt': ['"PP Monument Extended", sans-serif'],
         'mercury-icons': ['Material Symbols Rounded'],
+      },
+      fontSize: {
+        '2xs': ['0.625rem', '0.9375rem'],
+        'xxs': '.625rem', // 10px
+        'base2': '1.125rem', // 18px
+        'lg': '1.5rem', // 24px
+        'xl': '2rem', // 32px
+        '2xl': '2.5rem', // 40px
+        '3xl': '2.625rem', // 42px
+        '4xl': '3rem', // 48px
+        '5xl': '3.375rem', // 54px
+        '6xl': '3.75rem', // 60px
+        '7xl': '4.25rem', // 68px
+      },
+      lineHeight: {
+        'none': 1,
+        'extra-tight': '1.2',
+        'tight': 1.25,
+        'snug': 1.3,
+        'normal': 1.5
+      },
+      aspectRatio: {
+        one: '1/1',
+        paymentIcon: '17/12',
       },
       colors: {
         primary: {
