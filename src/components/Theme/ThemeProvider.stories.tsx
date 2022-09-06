@@ -220,7 +220,7 @@ export const TailwindTemplate = () => {
   return (
     <div className='font-mercury'>
       <div>
-        <h3 className='p-2 text-3xl'>Fonts</h3>
+        <h3 className='p-2 text-4xl'>Fonts</h3>
         <p className='p-2'>
           <span className='font-mercury'>PP Object Sans, sans-serif</span>
         </p>
@@ -228,7 +228,7 @@ export const TailwindTemplate = () => {
           <span className='font-mercury-alt'>PP Monument Extended, sans-serif</span>
         </p>
       </div>
-      <h3 className='p-2 text-3xl'>Colors</h3>
+      <h3 className='p-2 text-4xl'>Colors</h3>
       <h4 className='p-2 text-lg w-full'>Primary</h4>
       <div className='flex flex-wrap gap-4'>
         <div className='shadow-lg border-primary bg-primary rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>

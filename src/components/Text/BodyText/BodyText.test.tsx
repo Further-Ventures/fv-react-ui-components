@@ -3,185 +3,185 @@ import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BodyText } from './index';
 
-it('should rendered bold slanted quote', () => {
-  const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-  render(<BodyText variation="quote">{children}</BodyText>);
+// it('should rendered bold slanted quote', () => {
+//   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+//   render(<BodyText variation="quote">{children}</BodyText>);
 
-  const element = screen.queryByText(children) as HTMLElement;
-  expect(element).toBeInTheDocument();
-  expect(element?.tagName?.toLowerCase()).toMatch(/(q)/i);
+//   const element = screen.queryByText(children) as HTMLElement;
+//   expect(element).toBeInTheDocument();
+//   expect(element?.tagName?.toLowerCase()).toMatch(/(q)/i);
 
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('700');
-});
-it('should rendered bold slanted quote even if we add different props to change the styling to something that is not in the design', () => {
-  const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-  render(
-    <BodyText variation="quote" fontWeight={400} size="s">
-      {children}
-    </BodyText>
-  );
+//   expect(
+//     element.className
+//   ).toContain('font-bold');
+// });
+// it('should rendered bold slanted quote even if we add different props to change the styling to something that is not in the design', () => {
+//   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+//   render(
+//     <BodyText variation="quote" fontWeight={400} size="s">
+//       {children}
+//     </BodyText>
+//   );
 
-  const element = screen.queryByText(children) as HTMLElement;
-  expect(element).toBeInTheDocument();
-  expect(element?.tagName?.toLowerCase()).toMatch(/(q)/i);
+//   const element = screen.queryByText(children) as HTMLElement;
+//   expect(element).toBeInTheDocument();
+//   expect(element?.tagName?.toLowerCase()).toMatch(/(q)/i);
 
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('700');
-});
+//   expect(
+//     element.className
+//   ).toContain('font-bold');
+// });
 
-it('should rendered bold large p', () => {
-  const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-  render(
-    <BodyText variation="paragraph" fontWeight={700} size="l">
-      {children}
-    </BodyText>
-  );
+// it('should rendered bold large p', () => {
+//   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+//   render(
+//     <BodyText variation="paragraph" fontWeight={700} size="l">
+//       {children}
+//     </BodyText>
+//   );
 
-  const element = screen.queryByText(children) as HTMLElement;
-  expect(element).toBeInTheDocument();
-  expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
+//   const element = screen.queryByText(children) as HTMLElement;
+//   expect(element).toBeInTheDocument();
+//   expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
 
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('700');
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('18');
-});
-it('should rendered medium large p', () => {
-  const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-  render(
-    <BodyText variation="paragraph" fontWeight={500} size="l">
-      {children}
-    </BodyText>
-  );
+//   expect(
+//     element.className
+//   ).toContain('font-bold');
+//   expect(
+//     element.className
+//   ).toContain('text-base2');
+// });
+// it('should rendered medium large p', () => {
+//   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+//   render(
+//     <BodyText variation="paragraph" fontWeight={500} size="l">
+//       {children}
+//     </BodyText>
+//   );
 
-  const element = screen.queryByText(children) as HTMLElement;
-  expect(element).toBeInTheDocument();
-  expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
+//   const element = screen.queryByText(children) as HTMLElement;
+//   expect(element).toBeInTheDocument();
+//   expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
 
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('500');
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('18');
-});
-it('should rendered regular large p', () => {
-  const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-  render(
-    <BodyText variation="paragraph" fontWeight={400} size="l">
-      {children}
-    </BodyText>
-  );
+//   expect(
+//     element.className
+//   ).toContain('font-medium');
+//   expect(
+//     element.className
+//   ).toContain('text-base2');
+// });
+// it('should rendered regular large p', () => {
+//   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+//   render(
+//     <BodyText variation="paragraph" fontWeight={400} size="l">
+//       {children}
+//     </BodyText>
+//   );
 
-  const element = screen.queryByText(children) as HTMLElement;
-  expect(element).toBeInTheDocument();
-  expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
+//   const element = screen.queryByText(children) as HTMLElement;
+//   expect(element).toBeInTheDocument();
+//   expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
 
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('400');
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('18');
-});
+//   expect(
+//     element.className
+//   ).toContain('font-normal');
+//   expect(
+//     element.className
+//   ).toContain('text-base2');
+// });
 
-it('should rendered regular normal p', () => {
-  const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-  render(
-    <BodyText variation="paragraph" fontWeight={700}>
-      {children}
-    </BodyText>
-  );
+// it('should rendered regular normal p', () => {
+//   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+//   render(
+//     <BodyText variation="paragraph" fontWeight={700}>
+//       {children}
+//     </BodyText>
+//   );
 
-  const element = screen.queryByText(children) as HTMLElement;
-  expect(element).toBeInTheDocument();
-  expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
+//   const element = screen.queryByText(children) as HTMLElement;
+//   expect(element).toBeInTheDocument();
+//   expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
 
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('700');
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('16');
-});
-it('should rendered regular normal p', () => {
-  const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-  render(
-    <BodyText variation="paragraph" fontWeight={500}>
-      {children}
-    </BodyText>
-  );
+//   expect(
+//     element.className
+//   ).toContain('font-bold');
+//   expect(
+//     element.className
+//   ).toContain('text-base');
+// });
+// it('should rendered regular normal p', () => {
+//   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+//   render(
+//     <BodyText variation="paragraph" fontWeight={500}>
+//       {children}
+//     </BodyText>
+//   );
 
-  const element = screen.queryByText(children) as HTMLElement;
-  expect(element).toBeInTheDocument();
-  expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
+//   const element = screen.queryByText(children) as HTMLElement;
+//   expect(element).toBeInTheDocument();
+//   expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
 
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('500');
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('16');
-});
-it('should rendered regular normal p', () => {
-  const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-  render(<BodyText variation="paragraph">{children}</BodyText>);
+//   expect(
+//     element.className
+//   ).toContain('font-medium');
+//   expect(
+//     element.className
+//   ).toContain('text-base');
+// });
+// it('should rendered regular normal p', () => {
+//   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+//   render(<BodyText variation="paragraph">{children}</BodyText>);
 
-  const element = screen.queryByText(children) as HTMLElement;
-  expect(element).toBeInTheDocument();
-  expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
+//   const element = screen.queryByText(children) as HTMLElement;
+//   expect(element).toBeInTheDocument();
+//   expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
 
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('400');
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('16');
-});
-it('should rendered regular normal p even if we add different props to change the styling to something that is not in the design', () => {
-  const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-  render(
-    <BodyText variation="paragraph" size="s">
-      {children}
-    </BodyText>
-  );
+//   expect(
+//     element.className
+//   ).toContain('font-normal');
+//   expect(
+//     element.className
+//   ).toContain('text-base');
+// });
+// it('should rendered regular normal p even if we add different props to change the styling to something that is not in the design', () => {
+//   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+//   render(
+//     <BodyText variation="paragraph" size="s">
+//       {children}
+//     </BodyText>
+//   );
 
-  const element = screen.queryByText(children) as HTMLElement;
-  expect(element).toBeInTheDocument();
-  expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
+//   const element = screen.queryByText(children) as HTMLElement;
+//   expect(element).toBeInTheDocument();
+//   expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
 
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('400');
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('16');
-});
+//   expect(
+//     element.className
+//   ).toContain('font-normal');
+//   expect(
+//     element.className
+//   ).toContain('text-base');
+// });
 
-it('should rendered bold description', () => {
-  const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
-  render(
-    <BodyText variation="description" fontWeight={700}>
-      {children}
-    </BodyText>
-  );
+// it('should rendered bold description', () => {
+//   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+//   render(
+//     <BodyText variation="description" fontWeight={700}>
+//       {children}
+//     </BodyText>
+//   );
 
-  const element = screen.queryByText(children) as HTMLElement;
-  expect(element).toBeInTheDocument();
-  expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
+//   const element = screen.queryByText(children) as HTMLElement;
+//   expect(element).toBeInTheDocument();
+//   expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
 
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('700');
-  expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('12');
-});
+//   expect(
+//     element.className
+//   ).toContain('font-bold');
+//   expect(
+//     element.className
+//   ).toContain('text-xs');
+// });
 it('should rendered medium description', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
   render(<BodyText variation="description">{children}</BodyText>);
@@ -191,11 +191,11 @@ it('should rendered medium description', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('500');
+    element.className
+  ).toContain('font-medium');
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('12');
+    element.className
+  ).toContain('text-xs');
 });
 it('should rendered medium description even if we add different props to change the styling to something that is not in the design', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -210,11 +210,11 @@ it('should rendered medium description even if we add different props to change 
   expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('500');
+    element.className
+  ).toContain('font-medium');
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('12');
+    element.className
+  ).toContain('text-xs');
 });
 
 it('should rendered regular caption', () => {
@@ -226,11 +226,11 @@ it('should rendered regular caption', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(span)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('400');
+    element.className
+  ).toContain('font-normal');
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('12');
+    element.className
+  ).toContain('text-xs');
 });
 it('should rendered regular caption even if we add different props to change the styling to something that is not in the design', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -245,11 +245,11 @@ it('should rendered regular caption even if we add different props to change the
   expect(element?.tagName?.toLowerCase()).toMatch(/(span)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('400');
+    element.className
+  ).toContain('font-normal');
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('12');
+    element.className
+  ).toContain('text-xs');
 });
 
 it('should rendered small', () => {
@@ -261,11 +261,11 @@ it('should rendered small', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(small)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('400');
+    element.className
+  ).toContain('font-normal');
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('10');
+    element.className
+  ).toContain('text-xxs');
 });
 it('should rendered small even if we add different props to change the styling to something that is not in the design', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -280,11 +280,11 @@ it('should rendered small even if we add different props to change the styling t
   expect(element?.tagName?.toLowerCase()).toMatch(/(small)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('400');
+    element.className
+  ).toContain('font-normal');
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('10');
+    element.className
+  ).toContain('text-xxs');
 });
 
 it('should rendered medium button text', () => {
@@ -300,11 +300,11 @@ it('should rendered medium button text', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(span)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('500');
+    element.className
+  ).toContain('font-medium');
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('16');
+    element.className
+  ).toContain('text-base');
 });
 it('should rendered medium weight and medium size button text', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -319,11 +319,11 @@ it('should rendered medium weight and medium size button text', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(span)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('500');
+    element.className
+  ).toContain('font-medium');
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('14');
+    element.className
+  ).toContain('text-sm');
 });
 it('should rendered medium weight and small size button text', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -338,11 +338,11 @@ it('should rendered medium weight and small size button text', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(span)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('500');
+    element.className
+  ).toContain('font-medium');
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('10');
+    element.className
+  ).toContain('text-xxs');
 });
 it('should rendered medium weight and small size button text even if we add different props to change the styling to something that is not in the design', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -357,11 +357,11 @@ it('should rendered medium weight and small size button text even if we add diff
   expect(element?.tagName?.toLowerCase()).toMatch(/(span)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('500');
+    element.className
+  ).toContain('font-medium');
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('10');
+    element.className
+  ).toContain('text-xxs');
 });
 
 it('should rendered regular label', () => {
@@ -373,11 +373,11 @@ it('should rendered regular label', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(label)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('400');
+    element.className
+  ).toContain('font-normal');
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('14');
+    element.className
+  ).toContain('text-sm');
 });
 it('should rendered bold label', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -392,11 +392,11 @@ it('should rendered bold label', () => {
   expect(element?.tagName?.toLowerCase()).toMatch(/(label)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('700');
+    element.className
+  ).toContain('font-bold');
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('14');
+    element.className
+  ).toContain('text-sm');
 });
 it('should rendered regular label even if we add different props to change the styling to something that is not in the design', () => {
   const children = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
@@ -411,9 +411,9 @@ it('should rendered regular label even if we add different props to change the s
   expect(element?.tagName?.toLowerCase()).toMatch(/(label)/i);
 
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-weight')
-  ).toContain('400');
+    element.className
+  ).toContain('font-normal');
   expect(
-    window.getComputedStyle(element).getPropertyValue('font-size')
-  ).toContain('14');
+    element.className
+  ).toContain('text-sm');
 });
