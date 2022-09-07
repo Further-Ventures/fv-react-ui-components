@@ -19,7 +19,7 @@ const Template: ComponentStory<typeof Elevation> = (args) => {
   </Elevation>;
 };
 
-export const Text = Template.bind({});
-Text.args = {
+export const ElevationView = Template.bind({});
+ElevationView.args = {
   variation: 'extraLight'
 };
