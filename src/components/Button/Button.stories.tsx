@@ -50,7 +50,7 @@ const Template: ComponentStory<typeof Button> = (args) => {
   }
 
   return (
-    <div className='story-wrapper'>
+    <div className='storyWrapper'>
       <Button {...componentArgs} />
     </div>
   );

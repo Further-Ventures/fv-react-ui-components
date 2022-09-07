@@ -52,7 +52,7 @@ const Template: ComponentStory<typeof Chip> = (args) => {
   }
 
   return (
-    <div className='story-wrapper'>
+    <div className='storyWrapper'>
       <Chip {...componentArgs} />
     </div>
   );

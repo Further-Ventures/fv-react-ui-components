@@ -52,7 +52,7 @@ const Template: ComponentStory<typeof Tag> = (args) => {
   }
 
   return (
-    <div className='story-wrapper'>
+    <div className='storyWrapper'>
       <Tag {...componentArgs} />
     </div>
   );

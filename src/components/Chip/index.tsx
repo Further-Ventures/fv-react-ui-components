@@ -1,15 +1,8 @@
 import React from 'react';
-import Pressable from '../Pressable';
+import Pressable, { IPressable } from '../Pressable';
 
-export interface IChip extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'size'> {
-  label: string;
+export interface IChip extends Omit<IPressable, 'size' | 'color'> {
   size:  'small' | 'large';
-  variant?: 'contained' | 'outlined';
-  color?: 'default';
-  disabled?: boolean;
-  className?: string;
-  contentLeft?: React.ReactNode;
-  contentRight?: React.ReactNode;
 }
 
 const Chip: React.FC<IChip> = (props) => {
@@ -20,7 +13,6 @@ const Chip: React.FC<IChip> = (props) => {
 Chip.defaultProps = {
   size: 'large',
   variant: 'outlined',
-  color: 'default'
 }
 
 export default Chip;
