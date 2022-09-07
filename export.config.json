@@ -6,6 +6,9 @@
     "Input": "input",
     "Form": "form",
     "Icons": "icons",
-    "Core": "core"
+    "Core": "core",
+    "Chip": "chip",
+    "Tag": "tag",
+    "TextLink": "textlink",
   }
 }

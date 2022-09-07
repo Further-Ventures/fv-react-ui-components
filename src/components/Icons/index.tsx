@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { CreateSvg } from './createSvg';
 
-export type tColors = '' | 'primary'
+export type tColors = '' | 'inherit' | 'primary'
 | 'primary-light'
 | 'primary-medium'
 | 'primary-dark'
@@ -50,6 +50,7 @@ interface IIconsProps {
   size?: number;
   fill?: boolean;
   color?: tColors;
+  className?: string;
 }
 
 export type SocialAndPaymentIcons =
@@ -110,7 +111,7 @@ const PAYMENT_ICONS: Record<string, SocialAndPaymentIcons> = {
   paypal: 'PayPal'
 };
 
-const Icons: React.FC<IIconsProps> = ({ icon = 'person', size = 24, fill = false, color = '' }) => {
+const Icons: React.FC<IIconsProps> = ({ icon = 'person', size = 24, fill = false, color = '', className = '' }) => {
   const isPaymentIcon = Boolean(PAYMENT_ICONS[icon]);
   const isSocialIcon = Boolean(SOCIAL_ICONS[icon]);
   const isDefaultIcon = !(isPaymentIcon || isSocialIcon);
@@ -130,7 +131,9 @@ const Icons: React.FC<IIconsProps> = ({ icon = 'person', size = 24, fill = false
     <span className={classNames('flex justify-center items-center', {
       ['aspect-paymentIcon']: isPaymentIcon,
       ['aspect-one']: !isPaymentIcon
-    })} style={iconWrapperStyle}>
+    },
+    className
+    )} style={iconWrapperStyle}>
       <span
         className={classNames('font-mercury-icons', {
           ['icon']: !fill,
@@ -139,7 +142,8 @@ const Icons: React.FC<IIconsProps> = ({ icon = 'person', size = 24, fill = false
           ['text-text']: !color,
           ['aspect-paymentIcon']: isPaymentIcon,
           ['aspect-one']: !isPaymentIcon
-        })}
+        }
+        )}
         style={iconStyle}
       >
         {isDefaultIcon ? (
