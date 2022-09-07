@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Link } from 'react-router-dom';
 import Icons from '../Icons';
 
 interface ITextLinkProps {
@@ -11,15 +10,6 @@ interface ITextLinkProps {
   children: React.ReactNode;
   className?: string;
 }
-
-const typeOfUrl = (str: string) => {
-  const pattern = new RegExp(
-    '^(http:|https:|)//' // url starts with http://, https:// or //
-  );
-  const actionPattern = new RegExp('^(?:mailto|tel|sms|callto|mms|skype)\\b');
-
-  return pattern.test(str) ? 'external' : actionPattern.test(str) ? 'action' : 'internal';
-};
 
 export const TextLink: React.FC<ITextLinkProps> = ({
   variation = 'default',
@@ -58,31 +48,18 @@ export const TextLink: React.FC<ITextLinkProps> = ({
     }, className
   );
 
-  return <>
-    {
-      disabled ? 
-        <span
-          className={classes}
-        >
-          {textLinkContent}
-        </span>
-        :
-        typeOfUrl(to) === 'internal' ?
-          <Link
-            to={to}
-            className={classes}
-          >
-            {textLinkContent}
-          </Link>
-          :
-          <a 
-            href={to}
-            className={classes}
-          >
-            {textLinkContent}
-          </a>
-    }
-  </>
+  if (disabled) return <span
+    className={classes}
+  >
+    {textLinkContent}
+  </span>;
+
+  return <a 
+    href={to}
+    className={classes}
+  >
+    {textLinkContent}
+  </a>
 };
 
 TextLink.defaultProps = {

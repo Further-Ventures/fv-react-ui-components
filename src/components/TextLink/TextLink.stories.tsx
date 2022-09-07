@@ -1,6 +1,5 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { BrowserRouter } from 'react-router-dom';
 import { TextLink } from './index';
 import pkg from './package.json';
 import { buildExcludeArgTypes } from '../../storybook/utils';
@@ -15,15 +14,9 @@ export default {
 } as ComponentMeta<typeof TextLink>;
 
 const Template: ComponentStory<typeof TextLink> = (args) => {
-  return (
-    <>
-      <BrowserRouter>
-        <TextLink {...args}>
-          Text Link
-        </TextLink>
-      </BrowserRouter>
-    </>
-  );
+  return <TextLink {...args}>
+        Text Link
+  </TextLink>;
 };
 
 export const Text = Template.bind({});

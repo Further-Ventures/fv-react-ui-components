@@ -2,16 +2,13 @@ import '@testing-library/jest-dom';
 import * as React from 'react';
 import { render } from '@testing-library/react';
 import { TextLink } from './index';
-import { BrowserRouter } from 'react-router-dom';
 
 it('should render default variant and no icon', () => {
   const children = 'Text Link';
   render(
-    <BrowserRouter>
-      <TextLink to="https://google.com/">
-        {children}
-      </TextLink>
-    </BrowserRouter>
+    <TextLink to="https://google.com/">
+      {children}
+    </TextLink>
   );
 
   const iconWrapper = document.getElementsByTagName('a') as HTMLCollection;
@@ -24,11 +21,9 @@ it('should render default variant and no icon', () => {
 it('should render default variant and left icon', () => {
   const children = 'Text Link';
   render(
-    <BrowserRouter>
-      <TextLink icon="left" to="https://google.com/">
-        {children}
-      </TextLink>
-    </BrowserRouter>
+    <TextLink icon="left" to="https://google.com/">
+      {children}
+    </TextLink>
   );
 
   const iconWrapper = document.getElementsByTagName('a') as HTMLCollection;
@@ -41,11 +36,9 @@ it('should render default variant and left icon', () => {
 it('should render large variant', () => {
   const children = 'Text Link';
   render(
-    <BrowserRouter>
-      <TextLink variation="large" to="https://google.com/">
-        {children}
-      </TextLink>
-    </BrowserRouter>
+    <TextLink variation="large" to="https://google.com/">
+      {children}
+    </TextLink>
   );
 
   const iconWrapper = document.getElementsByTagName('a') as HTMLCollection;
@@ -58,11 +51,9 @@ it('should render large variant', () => {
 it('should render description variant', () => {
   const children = 'Text Link';
   render(
-    <BrowserRouter>
-      <TextLink variation="description" to="https://google.com/">
-        {children}
-      </TextLink>
-    </BrowserRouter>
+    <TextLink variation="description" to="https://google.com/">
+      {children}
+    </TextLink>
   );
 
   const iconWrapper = document.getElementsByTagName('a') as HTMLCollection;
@@ -76,11 +67,9 @@ it('should render description variant', () => {
 it('should render caption variant', () => {
   const children = 'Text Link';
   render(
-    <BrowserRouter>
-      <TextLink variation="caption" to="https://google.com/">
-        {children}
-      </TextLink>
-    </BrowserRouter>
+    <TextLink variation="caption" to="https://google.com/">
+      {children}
+    </TextLink>
   );
 
   const iconWrapper = document.getElementsByTagName('a') as HTMLCollection;
