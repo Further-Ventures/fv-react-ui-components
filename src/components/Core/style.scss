@@ -104,27 +104,9 @@
   --mercury-cool-color-60: #9cb2c9;
   --mercury-cool-color-90: #375267;
   --mercury-cool-color-100: #14212e;
-}
 
-.elevation-extraLight {
-  box-shadow: 0 1px 2px rgba(var(--mercury-default-color-dark), 0.30),
-    0 1px 3px 1px rgba(var(--mercury-default-color-dark), 0.15);
-}
-.elevation-light {
-  box-shadow: 0 1px 2px rgba(var(--mercury-default-color-dark), 0.30),
-    0 2px 6px 2px rgba(var(--mercury-default-color-dark), 0.15);
-}
-.elevation-medium {
-  box-shadow: 0 1px 3px rgba(var(--mercury-default-color-dark), 0.30),
-    0 4px 8px 3px rgba(var(--mercury-default-color-dark), 0.15);
-}
-.elevation-heavy {
-  box-shadow: 0 2px 3px rgba(var(--mercury-default-color-dark), 0.30),
-    0 6px 10px 4px rgba(var(--mercury-default-color-dark), 0.15);
-}
-.elevation-extraHeavy {
-  box-shadow: 0 4px 4px rgba(var(--mercury-default-color-dark), 0.30),
-    0 8px 12px 6px rgba(var(--mercury-default-color-dark), 0.15);
+  --mercury-shadow-color-light: rgba(40,47,52,.15);
+  --mercury-shadow-color-dark: rgba(40,47,52,.3);
 }
 
 .icon {
