@@ -40,9 +40,9 @@ const ButtonShowCase: React.FC<IButtonShowcase> = (props) => {
                 <Button key={`${key}-3`} label={`${color}`} size={size} shape={shape} contentLeft={<Icon icon='check_circle' size={iconSize} />} color={color}/>
                 <Button key={`${key}-4`} label={`${color}`} size={size} shape={shape} contentRight={<Icon icon='check_circle' size={iconSize} />} color={color}/>
                 <Button key={`${key}-5`} size={size} shape={shape} contentLeft={<Icon icon='check_circle' size={iconSize} />} color={color}/>
-                <Button key={`${key}-6`} label={`${color} Outlined`} variant='outlined' size={size} shape={shape} color={color}/>
-                <Button key={`${key}-7`} label={`${color} disabled`} disabled size={size} shape={shape} color={color}/>
-                <Button key={`${key}-8`} label={`${color} disabled`} size={size} shape={shape} disabled contentRight={<Icon icon='check_circle' size={iconSize} />} color={color}/>
+                <Button key={`${key}-6`} label="Outlined" variant='outlined' size={size} shape={shape} color={color}/>
+                <Button key={`${key}-7`} label="Disabled" disabled size={size} shape={shape} color={color}/>
+                <Button key={`${key}-8`} label="Disabled" size={size} shape={shape} disabled contentRight={<Icon icon='check_circle' size={iconSize} />} color={color}/>
               </>
             );
           })
