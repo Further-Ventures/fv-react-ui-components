@@ -1,0 +1,8 @@
+{
+  "name": "@further-ventures/fv-react-ui-components.textarea",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "classnames": ">=2.0.0",
+    "react": ">=18.0.0"
+  }
+}

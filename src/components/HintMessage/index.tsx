@@ -1,5 +1,4 @@
 import React from 'react';
-import useStyles from './styles';
 import classNames from 'classnames';
 
 interface IHintMessage extends React.HTMLAttributes<HTMLDivElement> {
@@ -8,18 +7,20 @@ interface IHintMessage extends React.HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
 }
 
-export const HintMessage = (props: IHintMessage) => {
+const HintMessage = (props: IHintMessage) => {
   const { text, className, disabled, ...rest } = props;
-  const classes = useStyles();
-
+  
   return (
     <div
       {...rest}
-      className={classNames(classes.message, className, {
-        [classes.disabled]: disabled
+      className={classNames(className, 'text-sm leading-none mt-2', {
+        ['text-text-hint']: !disabled,
+        ['text-text-disabled']: disabled,
       })}
     >
       {text}
     </div>
   );
 };
+
+export default HintMessage
