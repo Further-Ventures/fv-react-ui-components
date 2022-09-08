@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Icon from '../Icons';
 import Button from '../Button';
-import Input from './index';
+import Input, { IInput } from './index';
 import pkg from './package.json';
 import { buildExcludeArgTypes } from '../../storybook/utils';
 
@@ -14,17 +14,26 @@ export default {
   parameters: {
     pkg,
   },
-  argTypes: buildExcludeArgTypes(['value', 'name', 'controlled', 'onChange', 'onBlur', 'contentClassName', 'hintClassName', 'errorClassName', 'sideContent', 'inputClassName', 'mask']),
+  argTypes: {
+    ...buildExcludeArgTypes(['value', 'name', 'controlled', 'onChange', 'onBlur', 'contentClassName', 'hintClassName', 'errorClassName', 'sideContent', 'inputClassName', 'mask']),
+    buttonText: {
+      control: 'text'
+    }
+  },
 } as ComponentMeta<typeof Input>;
 
+interface IStoryArgs extends IInput {buttonText?: string}
+
 const Template: ComponentStory<typeof Input> = (args) => {
+  const { buttonText, sideContent: inputSideContent, ...rest } = args as IStoryArgs;
   const [inputValue, setInputValue] = useState('');
   const handleInputChange = (e) => setInputValue(e.target.value);
-
+  const sideContent = buttonText && ((hasError: boolean, disabled: boolean) => <Button label={buttonText} color={hasError ? 'error' : 'primary'} size='mini' disabled={disabled} onClick={() => alert('Button Click!')} variant='outlined'/>)
+ 
   return (
     <>
       <h4 className='mb-2'>{`State: ${inputValue}`}</h4>
-      <Input {...args} value={inputValue} onChange={handleInputChange} />
+      <Input {...rest} value={inputValue} onChange={handleInputChange} sideContent={inputSideContent ?? sideContent}/>
     </>
   );
 };
@@ -41,7 +50,7 @@ export const WithButton = Template.bind({});
 WithButton.args = {
   label: 'Input default',
   placeholder: 'olivia@example.com',
-  sideContent: <Button label="Button CTA" size='mini' onClick={() => alert('Button Click!')} variant='outlined'/>
+  buttonText: 'Button CTA'
 };
 
 export const WithIcon = Template.bind({});

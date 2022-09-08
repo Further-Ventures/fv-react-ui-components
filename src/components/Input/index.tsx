@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
 import { useInput } from './hooks';
 import Icon from '../Icons';
@@ -20,20 +20,41 @@ export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
 
   width?: 'small' | 'medium' | 'large' | 'full';
 
-  sideContent?: React.ReactNode;
+  sideContent?: React.ReactNode | ((hasError: boolean, disabled?: boolean) => React.ReactNode);
 }
+
+const getPropertyValue = (ref: React.RefObject<HTMLElement>, value: string) => ref.current && parseFloat(window.getComputedStyle(ref.current).getPropertyValue(value))
 
 export const Input: React.FC<IInput> = (props) => {
   const { sideContent, inputClassName, label, className, hint, hintClassName, error, errorClassName, placeholder, onClick, width, ...rest } =
     props;
 
   const { name, value, disabled, inputProps, onChange, onBlur } = useInput(rest);
+  const sideContentRef = useRef<HTMLDivElement>(null)
+  const [rightPad, setRightPad] = useState(0);
 
   const hasError = Boolean(error);
   const hasValue = Boolean(value);
   const hasLabel = Boolean(label);
 
   const hasContent = Boolean(sideContent);
+  const overridePadding = Boolean(hasContent && sideContentRef.current);
+
+  useLayoutEffect(() => {
+    if(!hasContent){
+      return
+    }
+    
+    const contentWidth = getPropertyValue(sideContentRef,'width') ?? 0;
+    const contentRight = getPropertyValue(sideContentRef,'right') ?? 0;
+
+    const newPadRight =contentWidth + 2 * contentRight;
+
+    if(newPadRight !== rightPad){
+      setRightPad(newPadRight)
+    }
+
+  }, [sideContent])
 
   return (
     <div className={classNames(className, 'mb-5', {
@@ -50,6 +71,7 @@ export const Input: React.FC<IInput> = (props) => {
           disabled={disabled}
           onChange={onChange}
           onBlur={onBlur}
+          style={overridePadding ? { paddingRight: rightPad } : {}}
           className={classNames(inputClassName, 'peer border-1.5 rounded h-14', 'transition-colors duration-300 ease-out w-full', {
             ['disabled:border-default-light disabled:bg-background select-none']: disabled,
             ['border-default hover:border-text-primary hover:bg-default-extra-light focus:border-primary']: !hasError,
@@ -74,8 +96,8 @@ export const Input: React.FC<IInput> = (props) => {
           </label>
         )}
         {hasContent && (
-          <div className={classNames('flex gap-2 items-center absolute right-3 top-1/2 -translate-y-1/2')}>
-            {sideContent}
+          <div ref={sideContentRef} className={classNames('flex gap-2 items-center absolute right-3 top-1/2 -translate-y-1/2')}>
+            {typeof sideContent === 'function' ? sideContent(hasError, disabled) : sideContent }
           </div>
         )}
       </div>

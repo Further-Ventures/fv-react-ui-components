@@ -78,12 +78,12 @@ const Button: React.FC<IPressable> = (props) => {
           //primary
           ['bg-primary disabled:bg-default-extra-light focus:bg-primary-medium focus:border-primary-medium hover:bg-primary-medium active:bg-primary-dark border-transparent text-primary-contrast-secondary']:
             `${color}-${variant}` === 'primary-contained',
-          ['bg-transparent hover:bg-default-extra-light active:bg-primary-light border-primary hover:border-primary-dark text-primary hover:text-primary-dark']:
+          ['bg-transparent hover:bg-default-extra-light focus:bg-default-extra-light active:bg-primary-light border-primary hover:border-primary-dark text-primary hover:text-primary-dark']:
             `${color}-${variant}` === 'primary-outlined',
           //outlined
-          ['bg-error disabled:bg-default-extra-light hover:bg-error-medium active:bg-error-dark border-transparent text-primary-contrast-secondary']:
+          ['bg-error disabled:bg-default-extra-light focus:bg-error-medium hover:bg-error-medium active:bg-error-dark border-transparent text-primary-contrast-secondary']:
             `${color}-${variant}` === 'error-contained',
-          ['bg-transparent hover:bg-default-extra-light active:bg-error-light border-error hover:border-error-dark text-error hover:text-error-dark']:
+          ['bg-transparent hover:bg-default-extra-light focus:bg-default-extra-light active:bg-error-light border-error hover:border-error-dark text-error hover:text-error-dark']:
               `${color}-${variant}` === 'error-outlined',
           //default
           ['bg-default-extra-light border-default-extra-light text-default-dark hover:bg-default-light focus:bg-default-light active:bg-default']:
