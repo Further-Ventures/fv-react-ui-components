@@ -557,6 +557,46 @@ export const TailwindTemplate = () => {
           </span>
         </div>
       </div>
+      <h4 className='p-2 text-lg w-full'>Elevation</h4>
+      <div className='flex flex-wrap gap-4'>
+        <div className='elevation-extraLight bg-white rounded-md p-1 w-60 h-40 pt-4 flex flex-col justify-end'>
+          <span className='p-8 text-center text-primary-contrast'>AAA</span>
+          <span className='bg-white text-black w-full block rounded-md p-1'>
+            Elevation Extra Light
+          </span>
+        </div>
+        <div
+          className='shadow-lg border-background bg-background rounded-md p-1 w-60 h-40 pt-4 flex flex-col justify-end'
+          style={{
+            background: 'linear-gradient(45deg, #375267 0%, #9cb2c9 100%)',
+          }}
+        >
+          <span className='p-8 text-center text-primary-contrast'>AAA</span>
+          <span className='bg-white text-black w-full block rounded-md p-1'>
+            Background: <br />
+            #000000
+          </span>
+        </div>
+        <div className='shadow-lg bg-gradient-to-tr from-cool-90 to-cool-60 rounded-md p-1 w-40 h-96 pt-4 flex flex-col justify-end'>
+          <span className='p-8 text-center text-primary-contrast-secondary'>AAA</span>
+          <span className='bg-white text-black w-full block rounded-md p-1'>
+            Background: <br />
+            #000000
+          </span>
+        </div>
+        <div
+          className='shadow-lg border-background bg-background rounded-md p-1 w-40 h-96 pt-4 flex flex-col justify-end'
+          style={{
+            background: 'linear-gradient(45deg, #375267 0%, #9cb2c9 100%)',
+          }}
+        >
+          <span className='p-8 text-center text-primary-contrast'>AAA</span>
+          <span className='bg-white text-black w-full block rounded-md p-1'>
+            Background: <br />
+            #000000
+          </span>
+        </div>
+      </div>
     </div>
   );
 };

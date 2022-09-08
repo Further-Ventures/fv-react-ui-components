@@ -5,6 +5,7 @@ module.exports = {
     { pattern: /text-(primary|error|warning|success|cool|default|text)/ },
     { pattern: /fill-(primary|error|warning|success|cool|default|text)/ },
     { pattern: /stroke-(primary|error|warning|success|cool|default|text)/ },
+    { pattern: /shadow-(extraLight|light|medium|heavy|extraHeavy)/ },
   ],
   theme: {
     extend: {
@@ -103,7 +104,14 @@ module.exports = {
         },
         background: {
           DEFAULT: 'var(--mercury-background-color)',
-        },
+        }
+      },
+      boxShadow: {
+        extraLight: '0 1px 2px var(--mercury-shadow-color-dark), 0 1px 3px 1px var(--mercury-shadow-color-light)',
+        light: '0 1px 2px var(--mercury-shadow-color-dark), 0 2px 6px 2px var(--mercury-shadow-color-light)',
+        medium: '0 1px 3px var(--mercury-shadow-color-dark), 0 4px 8px 3px var(--mercury-shadow-color-light)',
+        heavy: '0 2px 3px var(--mercury-shadow-color-dark), 0 6px 10px 4px var(--mercury-shadow-color-light)',
+        extraHeavy: '0 4px 4px var(--mercury-shadow-color-dark), 0 8px 12px 6px var(--mercury-shadow-color-light)',
       },
     },
   },

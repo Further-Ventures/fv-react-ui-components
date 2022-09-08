@@ -15,7 +15,7 @@ export default {
     pkg,
   },
   argTypes: {
-    ...buildExcludeArgTypes(['value', 'name', 'controlled', 'onChange', 'onBlur', 'contentClassName', 'hintClassName', 'errorClassName', 'sideContent']),
+    ...buildExcludeArgTypes(['value', 'name', 'controlled', 'onChange', 'onBlur', 'contentClassName', 'hintClassName', 'errorClassName', 'sideContent', 'inputClassName', 'mask']),
     buttonText: {
       control: 'text'
     }
