@@ -31,7 +31,6 @@ const Button: React.FC<IPressable> = (props) => {
 
   const isIconOnly = Boolean(!label && (contentLeft || contentRight));
 
-  
   return (
     <button
       disabled={disabled}
@@ -47,13 +46,15 @@ const Button: React.FC<IPressable> = (props) => {
           //border radius
           ['rounded']: ['curved-mini', 'curved-tag-large', 'curved-tag-small'].includes(`${shape}-${size}`),
           ['rounded-md']: `${shape}-${size}` === 'curved-small',
-          ['rounded-lg']: ['curved-medium', 'curved-large',].includes(`${shape}-${size}`),
+          ['rounded-lg']: ['curved-medium', 'curved-large'].includes(`${shape}-${size}`),
           ['rounded-full']: `${shape}` === 'round',
 
           //border-width
-          ['font-medium border-1.5 disabled:text-text-disabled disabled:border-default-extra-light']: ['mini','small','medium','large'].includes(size),
-          ['font-normal border disabled:text-default disabled:bg-default-light ']: ['tag-large','tag-small'].includes(size),
- 
+          ['font-medium border-1.5 disabled:text-text-disabled disabled:border-default-extra-light']: ['mini', 'small', 'medium', 'large'].includes(
+            size
+          ),
+          ['font-normal border disabled:text-default disabled:bg-default-light ']: ['tag-large', 'tag-small'].includes(size),
+
           //text size
           ['text-2xs']: size === 'mini' || size === 'tag-small',
           ['text-sm leading-extra-tight']: size === 'small' || size === 'tag-large',
@@ -84,13 +85,12 @@ const Button: React.FC<IPressable> = (props) => {
           ['bg-error disabled:bg-default-extra-light focus:bg-error-medium hover:bg-error-medium active:bg-error-dark border-transparent text-primary-contrast-secondary']:
             `${color}-${variant}` === 'error-contained',
           ['bg-transparent hover:bg-default-extra-light focus:bg-default-extra-light active:bg-error-light border-error hover:border-error-dark text-error hover:text-error-dark']:
-              `${color}-${variant}` === 'error-outlined',
+            `${color}-${variant}` === 'error-outlined',
           //default
           ['bg-default-extra-light border-default-extra-light text-default-dark hover:bg-default-light focus:bg-default-light active:bg-default']:
-          `${color}-${variant}` === 'default-contained',
+            `${color}-${variant}` === 'default-contained',
           ['bg-transparent border-default-dark text-default-dark hover:bg-default-light focus:bg-default-light active:bg-default']:
-          `${color}-${variant}` === 'default-outlined',
-          
+            `${color}-${variant}` === 'default-outlined',
         }
       )}
       {...rest}

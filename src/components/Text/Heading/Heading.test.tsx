@@ -6,8 +6,8 @@ import { Heading } from './index';
 let mockIsMobile = false;
 jest.mock('../../../hooks/useScreenSize', () => ({
   useScreenSize: () => ({
-    isMobile: mockIsMobile
-  })
+    isMobile: mockIsMobile,
+  }),
 }));
 
 /* 
@@ -15,59 +15,51 @@ jest.mock('../../../hooks/useScreenSize', () => ({
 */
 it('should be rendered as bold h1', () => {
   const children = 'Test heading';
-  render(<Heading tag="h1">{children}</Heading>);
+  render(<Heading tag='h1'>{children}</Heading>);
 
   const element = screen.queryByText(children) as HTMLElement;
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h1)/i);
 
-  expect(
-    element.className
-  ).toContain('font-bold');
+  expect(element.className).toContain('font-bold');
 });
 
 it('should be rendered as bold h2', () => {
   const children = 'Test heading';
-  render(<Heading tag="h2">{children}</Heading>);
+  render(<Heading tag='h2'>{children}</Heading>);
 
   const element = screen.queryByText(children) as HTMLElement;
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h2)/i);
 
-  expect(
-    element.className
-  ).toContain('font-bold');
+  expect(element.className).toContain('font-bold');
 });
 
 it('should be rendered as bold h3', () => {
   const children = 'Test heading';
-  render(<Heading tag="h3">{children}</Heading>);
+  render(<Heading tag='h3'>{children}</Heading>);
 
   const element = screen.queryByText(children) as HTMLElement;
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h3)/i);
 
-  expect(
-    element.className
-  ).toContain('font-bold');
+  expect(element.className).toContain('font-bold');
 });
 
 it('should be rendered as bold h4', () => {
   const children = 'Test heading';
-  render(<Heading tag="h4">{children}</Heading>);
+  render(<Heading tag='h4'>{children}</Heading>);
 
   const element = screen.queryByText(children) as HTMLElement;
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h4)/i);
 
-  expect(
-    element.className
-  ).toContain('font-bold');
+  expect(element.className).toContain('font-bold');
 });
 it('should be rendered as bold slanted h4', () => {
   const children = 'Test heading';
   render(
-    <Heading tag="h4" fontStyle="italic">
+    <Heading tag='h4' fontStyle='italic'>
       {children}
     </Heading>
   );
@@ -76,15 +68,13 @@ it('should be rendered as bold slanted h4', () => {
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h4)/i);
 
-  expect(
-    element.className
-  ).toContain('font-bold');
+  expect(element.className).toContain('font-bold');
 });
 
 it('should be rendered as regular h5', () => {
   const children = 'Test heading';
   render(
-    <Heading tag="h5" fontWeight={400}>
+    <Heading tag='h5' fontWeight={400}>
       {children}
     </Heading>
   );
@@ -93,14 +83,12 @@ it('should be rendered as regular h5', () => {
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h5)/i);
 
-  expect(
-    element.className
-  ).toContain('font-normal');
+  expect(element.className).toContain('font-normal');
 });
 it('should be rendered as thin h5', () => {
   const children = 'Test heading';
   render(
-    <Heading tag="h5" fontWeight={200}>
+    <Heading tag='h5' fontWeight={200}>
       {children}
     </Heading>
   );
@@ -109,27 +97,23 @@ it('should be rendered as thin h5', () => {
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h5)/i);
 
-  expect(
-    element.className
-  ).toContain('font-extralight');
+  expect(element.className).toContain('font-extralight');
 });
 
 it('should be rendered as bold h6', () => {
   const children = 'Test heading';
-  render(<Heading tag="h6">{children}</Heading>);
+  render(<Heading tag='h6'>{children}</Heading>);
 
   const element = screen.queryByText(children) as HTMLElement;
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h6)/i);
 
-  expect(
-    element.className
-  ).toContain('font-bold');
+  expect(element.className).toContain('font-bold');
 });
 it('should be rendered as medium h6', () => {
   const children = 'Test heading';
   render(
-    <Heading tag="h6" fontWeight={500}>
+    <Heading tag='h6' fontWeight={500}>
       {children}
     </Heading>
   );
@@ -138,14 +122,12 @@ it('should be rendered as medium h6', () => {
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h6)/i);
 
-  expect(
-    element.className
-  ).toContain('font-medium');
+  expect(element.className).toContain('font-medium');
 });
 it('should be rendered as regular h6', () => {
   const children = 'Test heading';
   render(
-    <Heading tag="h6" fontWeight={400}>
+    <Heading tag='h6' fontWeight={400}>
       {children}
     </Heading>
   );
@@ -154,15 +136,13 @@ it('should be rendered as regular h6', () => {
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h6)/i);
 
-  expect(
-    element.className
-  ).toContain('font-normal');
+  expect(element.className).toContain('font-normal');
 });
 
 it('should be rendered as subline', () => {
   const children = 'Test heading';
   render(
-    <Heading tag="subline" fontWeight={500}>
+    <Heading tag='subline' fontWeight={500}>
       {children}
     </Heading>
   );
@@ -171,9 +151,7 @@ it('should be rendered as subline', () => {
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(p)/i);
 
-  expect(
-    element.className
-  ).toContain('font-medium');
+  expect(element.className).toContain('font-medium');
 });
 
 // /*
@@ -182,20 +160,18 @@ it('should be rendered as subline', () => {
 it('should be rendered as bold h1 on mobile', () => {
   mockIsMobile = true;
   const children = 'Test heading';
-  render(<Heading tag="h1">{children}</Heading>);
+  render(<Heading tag='h1'>{children}</Heading>);
 
   const element = screen.queryByText(children) as HTMLElement;
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h1)/i);
 
-  expect(
-    element.className
-  ).toContain('font-bold');
+  expect(element.className).toContain('font-bold');
 });
 it('should be rendered as medium h1 on mobile', () => {
   const children = 'Test heading';
   render(
-    <Heading tag="h1" fontWeight={500}>
+    <Heading tag='h1' fontWeight={500}>
       {children}
     </Heading>
   );
@@ -204,14 +180,12 @@ it('should be rendered as medium h1 on mobile', () => {
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h1)/i);
 
-  expect(
-    element.className
-  ).toContain('font-medium');
+  expect(element.className).toContain('font-medium');
 });
 it('should be rendered as regular h1 on mobile', () => {
   const children = 'Test heading';
   render(
-    <Heading tag="h1" fontWeight={400}>
+    <Heading tag='h1' fontWeight={400}>
       {children}
     </Heading>
   );
@@ -220,28 +194,24 @@ it('should be rendered as regular h1 on mobile', () => {
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h1)/i);
 
-  expect(
-    element.className
-  ).toContain('font-normal');
+  expect(element.className).toContain('font-normal');
 });
 
 it('should be rendered as bold h2 on mobile', () => {
   mockIsMobile = true;
   const children = 'Test heading';
-  render(<Heading tag="h2">{children}</Heading>);
+  render(<Heading tag='h2'>{children}</Heading>);
 
   const element = screen.queryByText(children) as HTMLElement;
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h2)/i);
 
-  expect(
-    element.className
-  ).toContain('font-bold');
+  expect(element.className).toContain('font-bold');
 });
 it('should be rendered as medium h2 on mobile', () => {
   const children = 'Test heading';
   render(
-    <Heading tag="h2" fontWeight={500}>
+    <Heading tag='h2' fontWeight={500}>
       {children}
     </Heading>
   );
@@ -250,14 +220,12 @@ it('should be rendered as medium h2 on mobile', () => {
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h2)/i);
 
-  expect(
-    element.className
-  ).toContain('font-medium');
+  expect(element.className).toContain('font-medium');
 });
 it('should be rendered as regular h2 on mobile', () => {
   const children = 'Test heading';
   render(
-    <Heading tag="h2" fontWeight={400}>
+    <Heading tag='h2' fontWeight={400}>
       {children}
     </Heading>
   );
@@ -266,28 +234,24 @@ it('should be rendered as regular h2 on mobile', () => {
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h2)/i);
 
-  expect(
-    element.className
-  ).toContain('font-normal');
+  expect(element.className).toContain('font-normal');
 });
 
 it('should be rendered as bold h3 on mobile', () => {
   mockIsMobile = true;
   const children = 'Test heading';
-  render(<Heading tag="h3">{children}</Heading>);
+  render(<Heading tag='h3'>{children}</Heading>);
 
   const element = screen.queryByText(children) as HTMLElement;
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h3)/i);
 
-  expect(
-    element.className
-  ).toContain('font-bold');
+  expect(element.className).toContain('font-bold');
 });
 it('should be rendered as medium h3 on mobile', () => {
   const children = 'Test heading';
   render(
-    <Heading tag="h3" fontWeight={500}>
+    <Heading tag='h3' fontWeight={500}>
       {children}
     </Heading>
   );
@@ -296,14 +260,12 @@ it('should be rendered as medium h3 on mobile', () => {
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h3)/i);
 
-  expect(
-    element.className
-  ).toContain('font-medium');
+  expect(element.className).toContain('font-medium');
 });
 it('should be rendered as regular h3 on mobile', () => {
   const children = 'Test heading';
   render(
-    <Heading tag="h3" fontWeight={400}>
+    <Heading tag='h3' fontWeight={400}>
       {children}
     </Heading>
   );
@@ -312,28 +274,24 @@ it('should be rendered as regular h3 on mobile', () => {
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h3)/i);
 
-  expect(
-    element.className
-  ).toContain('font-normal');
+  expect(element.className).toContain('font-normal');
 });
 
 it('should be rendered as bold h4 on mobile', () => {
   mockIsMobile = true;
   const children = 'Test heading';
-  render(<Heading tag="h4">{children}</Heading>);
+  render(<Heading tag='h4'>{children}</Heading>);
 
   const element = screen.queryByText(children) as HTMLElement;
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h4)/i);
 
-  expect(
-    element.className
-  ).toContain('font-bold');
+  expect(element.className).toContain('font-bold');
 });
 it('should be rendered as medium h4 on mobile', () => {
   const children = 'Test heading';
   render(
-    <Heading tag="h4" fontWeight={500}>
+    <Heading tag='h4' fontWeight={500}>
       {children}
     </Heading>
   );
@@ -342,14 +300,12 @@ it('should be rendered as medium h4 on mobile', () => {
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h4)/i);
 
-  expect(
-    element.className
-  ).toContain('font-medium');
+  expect(element.className).toContain('font-medium');
 });
 it('should be rendered as regular h4 on mobile', () => {
   const children = 'Test heading';
   render(
-    <Heading tag="h4" fontWeight={400}>
+    <Heading tag='h4' fontWeight={400}>
       {children}
     </Heading>
   );
@@ -358,7 +314,5 @@ it('should be rendered as regular h4 on mobile', () => {
   expect(element).toBeInTheDocument();
   expect(element?.tagName?.toLowerCase()).toMatch(/(h4)/i);
 
-  expect(
-    element.className
-  ).toContain('font-normal');
+  expect(element.className).toContain('font-normal');
 });

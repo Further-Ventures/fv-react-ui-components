@@ -3,7 +3,7 @@ import React from 'react';
 import { applyDigitMask } from './utils';
 
 export const useInput = (props: IInput) => {
-  const { disabled, name = '', value = '', controlled , onChange, onBlur, mask, ...inputProps } = props;
+  const { disabled, name = '', value = '', controlled, onChange, onBlur, mask, ...inputProps } = props;
   const initValue = value;
   const [internalValue, setInternalValue] = React.useState<string>(mask && initValue ? applyDigitMask(initValue, mask) : initValue);
   const onChangeWrapper = (e: React.BaseSyntheticEvent) => {

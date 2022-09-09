@@ -20,17 +20,18 @@ it('should apply theme colors', () => {
   const red = 'rgb(255, 0, 0)';
   const black = 'rgb(0, 0, 0)';
   render(
-    <ThemeProvider
-      theme={{ primary: { main: red, contrast: black, light: red, dark: red } }}
-    >
+    <ThemeProvider theme={{ primary: { main: red, contrast: black, light: red, dark: red } }}>
       <Button label={label} />
     </ThemeProvider>
   );
 
-  waitFor(() => {
-    const button = screen.getByRole('button');
-    const buttonStyles = getComputedStyle(button);
-    expect(buttonStyles.getPropertyValue('background-color')).toMatch(red);
-    expect(buttonStyles.getPropertyValue('color')).toMatch(black);
-  }, { timeout: 1000 })
+  waitFor(
+    () => {
+      const button = screen.getByRole('button');
+      const buttonStyles = getComputedStyle(button);
+      expect(buttonStyles.getPropertyValue('background-color')).toMatch(red);
+      expect(buttonStyles.getPropertyValue('color')).toMatch(black);
+    },
+    { timeout: 1000 }
+  );
 });

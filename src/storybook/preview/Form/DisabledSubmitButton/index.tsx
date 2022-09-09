@@ -17,19 +17,17 @@ const FormDisabledSubmitButton = () => {
       }}
       validationSchema={yup.object({
         email: yup.string().email().required(),
-        password: yup.string().required()
+        password: yup.string().required(),
       })}
     >
-      <h2 style={{ fontFamily: 'Inter', color: defaultTheme.primary.main }}>
-        isValid from formActions
-      </h2>
-      <Input name="email" placeholder="Email" label="Email" />
+      <h2 style={{ fontFamily: 'Inter', color: defaultTheme.primary.main }}>isValid from formActions</h2>
+      <Input name='email' placeholder='Email' label='Email' />
       <h1> </h1>
-      <Input name="password" placeholder="Password" label="Password" />
+      <Input name='password' placeholder='Password' label='Password' />
       <h1> </h1>
       <div style={{ display: 'flex', gap: 20 }}>
-        <Button label="Submit" type="submit" disabled={disabled} />
-        <Button label="Reset" type="reset" variant="outlined" />
+        <Button label='Submit' type='submit' disabled={disabled} />
+        <Button label='Reset' type='reset' variant='outlined' />
       </div>
     </Form>
   );

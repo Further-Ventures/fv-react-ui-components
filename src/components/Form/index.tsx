@@ -1,9 +1,4 @@
-import React, {
-  ForwardedRef,
-  forwardRef,
-  useContext,
-  useImperativeHandle
-} from 'react';
+import React, { ForwardedRef, forwardRef, useContext, useImperativeHandle } from 'react';
 import { IFormContext, IFormProps, IFormRef } from './types';
 
 const defaultFormContextValues: IFormContext = {
@@ -19,28 +14,14 @@ const defaultFormContextValues: IFormContext = {
     submit: () => {},
     reset: () => {},
     isValid: true,
-    setErrors: () => {}
-  }
+    setErrors: () => {},
+  },
 };
 
-export const FormContext: React.Context<IFormContext> = React.createContext(
-  defaultFormContextValues
-);
+export const FormContext: React.Context<IFormContext> = React.createContext(defaultFormContextValues);
 
 const Form = forwardRef((props: IFormProps, ref: ForwardedRef<IFormRef>) => {
-  const {
-    children,
-    onSubmit,
-    onReset,
-    onChange,
-    onError,
-    onValidate,
-    onValidateAsync,
-    validationSchema,
-    initialValues,
-    loading,
-    ...rest
-  } = props;
+  const { children, onSubmit, onReset, onChange, onError, onValidate, onValidateAsync, validationSchema, initialValues, loading, ...rest } = props;
 
   const [formValues, setFormValues] = React.useState(initialValues || {});
   const [formErrors, setFormErrors] = React.useState({});
@@ -53,10 +34,7 @@ const Form = forwardRef((props: IFormProps, ref: ForwardedRef<IFormRef>) => {
       try {
         validationSchema.validateSync(values, { abortEarly: false });
       } catch (errors: any) {
-        validationRes = errors.inner.reduce(
-          (a: any, v: any) => ({ ...a, [v.path]: v.message }),
-          {}
-        );
+        validationRes = errors.inner.reduce((a: any, v: any) => ({ ...a, [v.path]: v.message }), {});
       }
       setFormErrors(validationRes);
 
@@ -73,13 +51,7 @@ const Form = forwardRef((props: IFormProps, ref: ForwardedRef<IFormRef>) => {
   };
 
   /** Set everything to "touched" to highlight errors on submit */
-  const setAllTouched = () =>
-    setFormTouched(() =>
-      Object.keys(formValues).reduce(
-        (acc: any, key: string) => ({ ...acc, [key]: true }),
-        {}
-      )
-    );
+  const setAllTouched = () => setFormTouched(() => Object.keys(formValues).reduce((acc: any, key: string) => ({ ...acc, [key]: true }), {}));
 
   const setFormErrorsActionWrapper = (errors: any) => {
     setAllTouched();
@@ -108,7 +80,7 @@ const Form = forwardRef((props: IFormProps, ref: ForwardedRef<IFormRef>) => {
     isValid: JSON.stringify(formErrors) === '{}',
     setErrors: setFormErrorsActionWrapper,
     reset: onResetFormWrapper,
-    submit: onSubmitFormWrapper
+    submit: onSubmitFormWrapper,
   };
 
   /** Updating form values whenever a change is made within an input field */
@@ -118,9 +90,7 @@ const Form = forwardRef((props: IFormProps, ref: ForwardedRef<IFormRef>) => {
       newFormValues[name] = value;
       const validationResult = validate(newFormValues);
       const isValid = JSON.stringify(validationResult) === '{}';
-      !init &&
-        onChange &&
-        onChange({ ...newFormValues }, { ...formActions, isValid });
+      !init && onChange && onChange({ ...newFormValues }, { ...formActions, isValid });
 
       return newFormValues;
     });
@@ -148,12 +118,7 @@ const Form = forwardRef((props: IFormProps, ref: ForwardedRef<IFormRef>) => {
   }, []);
 
   return (
-    <form
-      {...rest}
-      onSubmit={onSubmitFormWrapper}
-      onReset={onResetFormWrapper}
-      key={formSessionId}
-    >
+    <form {...rest} onSubmit={onSubmitFormWrapper} onReset={onResetFormWrapper} key={formSessionId}>
       <FormContext.Provider
         value={{
           updateFormValue,
@@ -164,7 +129,7 @@ const Form = forwardRef((props: IFormProps, ref: ForwardedRef<IFormRef>) => {
           formErrors,
           formTouched,
           formActions,
-          loading
+          loading,
         }}
       >
         {children}
@@ -176,26 +141,14 @@ const Form = forwardRef((props: IFormProps, ref: ForwardedRef<IFormRef>) => {
 Form.displayName = 'Form';
 
 export const useFormContext = (fieldName = 'unnamed') => {
-  const {
-    updateFormValue,
-    updateFormTouched,
-    unsetFormValue,
-    formValues,
-    formErrors,
-    formTouched,
-    formActions
-  } = useContext(FormContext);
+  const { updateFormValue, updateFormTouched, unsetFormValue, formValues, formErrors, formTouched, formActions } = useContext(FormContext);
   return {
-    fieldError:
-      fieldName &&
-      formTouched &&
-      formTouched[fieldName] &&
-      formErrors[fieldName],
+    fieldError: fieldName && formTouched && formTouched[fieldName] && formErrors[fieldName],
     fieldValue: fieldName && formValues && formValues[fieldName],
     updateFormValue: formValues ? updateFormValue : () => {},
     updateFormTouched: formTouched ? updateFormTouched : () => {},
     unsetFormValue: formValues ? unsetFormValue : () => {},
-    formActions
+    formActions,
   };
 };
 

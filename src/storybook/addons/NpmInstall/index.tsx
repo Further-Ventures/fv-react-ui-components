@@ -18,12 +18,7 @@ const NpmInstall = ({ active }: { active: boolean }) => {
   }
   const { name, version, peerDependencies } = pkg;
   const filteredPeerDependencies = peerDependencies
-    ? Object.keys(peerDependencies).filter(
-      (peerName) =>
-        peerName !== 'react' &&
-          peerName !== 'react-jss' &&
-          peerName !== 'classnames'
-    )
+    ? Object.keys(peerDependencies).filter((peerName) => peerName !== 'react' && peerName !== 'react-jss' && peerName !== 'classnames')
     : [];
 
   return (
@@ -34,13 +29,8 @@ const NpmInstall = ({ active }: { active: boolean }) => {
       </CodeBox>
       {!!filteredPeerDependencies.length && (
         <>
-          <h3 className={classes.title}>
-            ⚠️ Make sure that all needed peer dependencies are also installed
-            ⚠️:
-          </h3>
-          <CodeBox>
-            npm install {filteredPeerDependencies.join(' \\\n')}
-          </CodeBox>
+          <h3 className={classes.title}>⚠️ Make sure that all needed peer dependencies are also installed ⚠️:</h3>
+          <CodeBox>npm install {filteredPeerDependencies.join(' \\\n')}</CodeBox>
         </>
       )}
     </div>

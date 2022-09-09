@@ -11,12 +11,10 @@ const FormSetErrorOnSubmit = () => {
         setErrors({ email: 'This email is already taken' });
       }}
     >
-      <h2 style={{ fontFamily: 'Inter', color: defaultTheme.primary.main }}>
-        Set error from formActions
-      </h2>
-      <Input label={'Email'} name="email" placeholder="some@mail.com" />
+      <h2 style={{ fontFamily: 'Inter', color: defaultTheme.primary.main }}>Set error from formActions</h2>
+      <Input label={'Email'} name='email' placeholder='some@mail.com' />
       <h1> </h1>
-      <Button label="Submit" type="submit" />
+      <Button label='Submit' type='submit' />
     </Form>
   );
 };
