@@ -1,7 +1,8 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
-import { useInput } from './hooks';
-import Icon from '../Icons';
+import useInput from '../../hooks/useInput';
+import HintMessage from '../HintMessage';
+import ErrorMessage from '../ErrorMessage';
 export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   inputClassName?: string;
@@ -13,7 +14,6 @@ export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   errorClassName?: string;
   value?: string;
   name?: string;
-  controlled?: boolean;
   onChange?: (e: React.BaseSyntheticEvent) => void;
   onBlur?: (e: React.BaseSyntheticEvent) => void;
   mask?: string;
@@ -27,9 +27,10 @@ const getPropertyValue = (ref: React.RefObject<HTMLElement>, value: string) =>
   ref.current && parseFloat(window.getComputedStyle(ref.current).getPropertyValue(value));
 
 export const Input: React.FC<IInput> = (props) => {
-  const { sideContent, inputClassName, label, className, hint, hintClassName, error, errorClassName, placeholder, onClick, width, ...rest } = props;
+  const { sideContent, inputClassName, label, className, hint, hintClassName, error, errorClassName, placeholder, onClick, width, mask, ...rest } =
+    props;
 
-  const { name, value, disabled, inputProps, onChange, onBlur } = useInput(rest);
+  const { name, value, disabled, inputProps, onChange, onBlur } = useInput<IInput>(rest, mask);
   const sideContentRef = useRef<HTMLDivElement>(null);
   const [rightPad, setRightPad] = useState(0);
 
@@ -73,15 +74,21 @@ export const Input: React.FC<IInput> = (props) => {
           onChange={onChange}
           onBlur={onBlur}
           style={overridePadding ? { paddingRight: rightPad } : {}}
-          className={classNames(inputClassName, 'peer border-1.5 rounded h-14', 'transition-colors duration-300 ease-out w-full', {
-            ['disabled:border-default-light disabled:bg-background select-none']: disabled,
-            ['border-default hover:border-text-primary hover:bg-default-extra-light focus:border-primary']: !hasError,
-            ['border-error hover:bg-default-extra-light']: hasError,
-            ['px-3 pb-1.5 pt-6.5']: hasLabel,
-            ['placeholder:invisible placeholder:opacity-0 placeholder:translate-y-full placeholder:transition placeholder:duration-250 ease-out focus:placeholder:visible focus:placeholder:opacity-100 focus:placeholder:translate-y-0']:
-              hasLabel,
-            ['px-3 py-1.5']: !hasLabel,
-          })}
+          className={classNames(
+            inputClassName,
+            'peer border-1.5 rounded h-14',
+            'transition-colors duration-300 ease-out w-full',
+            'placeholder:text-text-disabled',
+            {
+              ['disabled:border-default-light disabled:bg-background select-none']: disabled,
+              ['border-default hover:border-text-primary hover:bg-default-extra-light focus:border-primary']: !hasError,
+              ['border-error hover:bg-default-extra-light']: hasError,
+              ['px-3 pb-1.5 pt-6.5']: hasLabel,
+              ['placeholder:invisible placeholder:opacity-0 placeholder:translate-y-full placeholder:transition placeholder:duration-250 ease-out focus:placeholder:visible focus:placeholder:opacity-100 focus:placeholder:translate-y-0']:
+                hasLabel,
+              ['px-3 py-1.5']: !hasLabel,
+            }
+          )}
           {...inputProps}
         />
         {hasLabel && (
@@ -102,27 +109,8 @@ export const Input: React.FC<IInput> = (props) => {
           </div>
         )}
       </div>
-      {hint && (
-        <div
-          className={classNames(hintClassName, 'text-sm leading-none mt-2', {
-            ['text-text-hint']: !disabled,
-            ['text-text-disabled']: disabled,
-          })}
-        >
-          {hint}
-        </div>
-      )}
-      {hasError && (
-        <div
-          className={classNames(errorClassName, 'flex items-center gap-1 text-sm leading-none  mt-2', {
-            ['text-error']: !disabled,
-            ['text-text-disabled']: disabled,
-          })}
-        >
-          <Icon icon='info' fill size={14} />
-          {error}
-        </div>
-      )}
+      {hint && <HintMessage text={hint} className={hintClassName} />}
+      {error && <ErrorMessage text={error} className={errorClassName} />}
     </div>
   );
 };
