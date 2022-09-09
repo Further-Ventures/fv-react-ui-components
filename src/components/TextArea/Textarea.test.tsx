@@ -1,56 +1,49 @@
 import '@testing-library/jest-dom';
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import Input from './index';
+import TextArea from './index';
 
-describe('Input component', () => {
+describe('TextArea component', () => {
   it('should be rendered with label', () => {
     const label = 'Test input';
-    render(<Input label={label} />);
+    render(<TextArea label={label} />);
     expect(screen.queryByText(label)).toBeInTheDocument();
   });
 
   it('should display the placeholder', () => {
-    render(<Input label='Input' placeholder='Placeholder' />);
+    render(<TextArea label='TextArea' placeholder='Placeholder' />);
     expect(screen.queryByPlaceholderText(/Placeholder/i)).toBeInTheDocument();
   });
 
   it('should render the value', () => {
-    const { getByRole } = render(<Input label='Input' value='Value' />);
-    const input = getByRole('textbox') as HTMLInputElement;
+    const { getByRole } = render(<TextArea label='TextArea' value='Value' />);
+    const input = getByRole('textbox') as HTMLTextAreaElement;
     expect(input.value).toBe('Value');
   });
 
   it('should handle onChange with value', () => {
-    const { getByRole } = render(<Input label='Input' />);
-    const input = getByRole('textbox') as HTMLInputElement;
+    const { getByRole } = render(<TextArea label='TextArea' />);
+    const input = getByRole('textbox') as HTMLTextAreaElement;
     fireEvent.change(input, { target: { value: 'some value' } });
     expect(input.value).toBe('some value');
   });
 
   it('should not handle onChange when disabled', () => {
-    const { getByRole } = render(<Input label='Input' disabled />);
-    const input = getByRole('textbox') as HTMLInputElement;
+    const { getByRole } = render(<TextArea label='TextArea' disabled />);
+    const input = getByRole('textbox') as HTMLTextAreaElement;
     fireEvent.change(input, { target: { value: 'some value' } });
     expect(input.value).toBe('');
   });
 
   it('should display the error', () => {
     const errorMessage = 'Error message';
-    render(<Input label='Input' error={errorMessage} />);
+    render(<TextArea label='TextArea' error={errorMessage} />);
     expect(screen.queryByText(errorMessage)).toBeInTheDocument();
   });
 
   it('should display the hint', () => {
     const hintMessage = 'Hint message';
-    render(<Input label='Input' hint={hintMessage} />);
+    render(<TextArea label='TextArea' hint={hintMessage} />);
     expect(screen.queryByText(hintMessage)).toBeInTheDocument();
-  });
-
-  it('should use the mask', () => {
-    const { getByRole } = render(<Input label='Input' mask='+XX-XX X' />);
-    const input = getByRole('textbox') as HTMLInputElement;
-    fireEvent.change(input, { target: { value: '12345' } });
-    expect(input.value).toBe('+12-34 5');
   });
 });

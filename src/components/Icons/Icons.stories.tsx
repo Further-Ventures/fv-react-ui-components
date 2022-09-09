@@ -8,32 +8,26 @@ export default {
   title: 'Components/Icons',
   component: Icons,
   parameters: {
-    pkg
+    pkg,
   },
-  argTypes: buildExcludeArgTypes(['className'])
+  argTypes: buildExcludeArgTypes(['className']),
 } as ComponentMeta<typeof Icons>;
 
 const Template: ComponentStory<typeof Icons> = (args) => (
   <>
     <Icons {...args} />
     <p style={{ paddingTop: 25, marginTop: 0, marginBottom: 0 }}>
-      The list of available icons is{' '}
-      <a href="https://fonts.google.com/icons?icon.platform=web&icon.style=Rounded">
-        HERE
-      </a>
-      .
+      The list of available icons is <a href='https://fonts.google.com/icons?icon.platform=web&icon.style=Rounded'>HERE</a>.
     </p>
-    <h3 style={{ paddingTop: 25, marginTop: 0, marginBottom: 0 }}>
-      Besides the above list we can also use custom icons
-    </h3>
+    <h3 style={{ paddingTop: 25, marginTop: 0, marginBottom: 0 }}>Besides the above list we can also use custom icons</h3>
     <div
       style={{
-        display: 'flex'
+        display: 'flex',
       }}
     >
       <div
         style={{
-          width: '50%'
+          width: '50%',
         }}
       >
         <p style={{ paddingTop: 5, marginBottom: 0 }}>
@@ -58,7 +52,7 @@ const Template: ComponentStory<typeof Icons> = (args) => (
       </div>
       <div
         style={{
-          width: '50%'
+          width: '50%',
         }}
       >
         <p style={{ paddingTop: 5, marginBottom: 0 }}>
@@ -86,5 +80,5 @@ export const Icon = Template.bind({});
 Icon.args = {
   icon: 'person',
   size: 96,
-  color: ''
+  color: '',
 };

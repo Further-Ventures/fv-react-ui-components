@@ -7,14 +7,14 @@ export default createUseStyles({
     backgroundColor: '#E4E7EC',
     display: 'flex',
     justifyContent: 'space-between',
-    maxWidth: 700
+    maxWidth: 700,
   },
   children: {
     marginTop: 0,
-    marginBottom: 0
+    marginBottom: 0,
   },
   copyContainer: {
     padding: 10,
-    cursor: 'pointer'
-  }
+    cursor: 'pointer',
+  },
 });

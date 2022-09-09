@@ -5,7 +5,6 @@ import { getClassList } from '../../utils/testUtils';
 import Button from './index';
 
 describe('Button component', () => {
-  
   it('should render a primary contained button with the correct style (default)', () => {
     render(<Button label='Test button' />);
 
@@ -99,4 +98,4 @@ describe('Button component', () => {
     fireEvent.click(button);
     expect(onClickSpy).not.toHaveBeenCalled();
   });
-})
+});
