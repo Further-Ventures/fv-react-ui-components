@@ -11,9 +11,7 @@ declare global {
 }
 
 export type ThemeType = ITheme & DesignSystem.IProjectTheme;
-export type CustomTheme = RecursivePartial<ThemeType> &
-RecursivePartial<DesignSystem.IProjectTheme> &
-Record<string, any>;
+export type CustomTheme = RecursivePartial<ThemeType> & RecursivePartial<DesignSystem.IProjectTheme> & Record<string, any>;
 
 export interface IThemeContext {
   theme: ThemeType;

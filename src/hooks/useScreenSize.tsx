@@ -22,6 +22,6 @@ export const useScreenSize = () => {
   }, []);
 
   return {
-    isMobile: mobile
+    isMobile: mobile,
   };
 };

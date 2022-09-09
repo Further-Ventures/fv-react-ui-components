@@ -8,18 +8,16 @@ export default {
   title: 'Components/TextLink',
   component: TextLink,
   parameters: {
-    pkg
+    pkg,
   },
-  argTypes: buildExcludeArgTypes(['className'])
+  argTypes: buildExcludeArgTypes(['className']),
 } as ComponentMeta<typeof TextLink>;
 
 const Template: ComponentStory<typeof TextLink> = (args) => {
-  return <TextLink {...args}>
-        Text Link
-  </TextLink>;
+  return <TextLink {...args}>Text Link</TextLink>;
 };
 
 export const Text = Template.bind({});
 Text.args = {
-  to: 'https://google.com'
+  to: 'https://google.com',
 };

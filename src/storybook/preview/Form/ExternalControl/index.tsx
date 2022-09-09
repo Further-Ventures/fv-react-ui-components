@@ -24,20 +24,16 @@ const FormExternalControl = () => {
     <Form
       ref={formRef}
       onSubmit={(formData: any) => console.log('onSubmit external', formData)}
-      onError={(errorData: any, formData: any) =>
-        console.log('onError external', errorData, formData)
-      }
+      onError={(errorData: any, formData: any) => console.log('onError external', errorData, formData)}
       validationSchema={yup.object({
         email: yup.string().email().required(),
-        password: yup.string().required()
+        password: yup.string().required(),
       })}
     >
-      <h2 style={{ fontFamily: 'Inter', color: defaultTheme.primary.main }}>
-        Form external controls from ref
-      </h2>
-      <Input name="email" placeholder="Email" label="Email" />
+      <h2 style={{ fontFamily: 'Inter', color: defaultTheme.primary.main }}>Form external controls from ref</h2>
+      <Input name='email' placeholder='Email' label='Email' />
       <h1> </h1>
-      <Input name="password" placeholder="Password" label="Password" />
+      <Input name='password' placeholder='Password' label='Password' />
       <h1> </h1>
       <div style={{ display: 'flex', gap: 20 }}>
         <div onClick={handleSubmit}>Submit</div>

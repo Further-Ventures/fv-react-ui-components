@@ -1,17 +1,16 @@
 import React from 'react';
 import { applyDigitMask } from './utils';
 
-
 interface BaseInput extends React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
-  disabled?: boolean,
-  name?: string
-  value?: string,
-  onChange?: (e: React.BaseSyntheticEvent) => void
-  onBlur?: (e: React.BaseSyntheticEvent) => void,
+  disabled?: boolean;
+  name?: string;
+  value?: string;
+  onChange?: (e: React.BaseSyntheticEvent) => void;
+  onBlur?: (e: React.BaseSyntheticEvent) => void;
 }
 
 const useInput = <T extends BaseInput>(props: T, mask?: string) => {
-  const { disabled, name = '', value = '' , onChange, onBlur, ...inputProps } = props;
+  const { disabled, name = '', value = '', onChange, onBlur, ...inputProps } = props;
   const controlled = Boolean(onChange);
   const initValue = value;
   const [internalValue, setInternalValue] = React.useState<string>(mask && initValue ? applyDigitMask(initValue, mask) : initValue);
@@ -51,4 +50,4 @@ const useInput = <T extends BaseInput>(props: T, mask?: string) => {
   };
 };
 
-export default useInput
+export default useInput;

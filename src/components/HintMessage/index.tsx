@@ -9,7 +9,7 @@ interface IHintMessage extends React.HTMLAttributes<HTMLDivElement> {
 
 const HintMessage = (props: IHintMessage) => {
   const { text, className, disabled, ...rest } = props;
-  
+
   return (
     <div
       {...rest}
@@ -23,4 +23,4 @@ const HintMessage = (props: IHintMessage) => {
   );
 };
 
-export default HintMessage
+export default HintMessage;

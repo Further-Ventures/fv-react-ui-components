@@ -6,6 +6,6 @@ export interface IButton extends Omit<IPressable, 'size' | 'color'> {
   color?: 'primary' | 'error';
 }
 
-const Button: React.FC<IButton> = (props) => <Pressable {...props}/>;
+const Button: React.FC<IButton> = (props) => <Pressable {...props} />;
 
 export default Button;

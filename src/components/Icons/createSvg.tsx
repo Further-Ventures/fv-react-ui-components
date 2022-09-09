@@ -7,8 +7,5 @@ interface ICreateSvgProps {
   size?: number;
   color?: tColors;
 }
-export const CreateSvg: React.FC<ICreateSvgProps> = ({
-  icon = 'Facebook',
-  size = 24,
-  color = ''
-}) => React.createElement(CustomIcons[icon], { size, color });
+export const CreateSvg: React.FC<ICreateSvgProps> = ({ icon = 'Facebook', size = 24, color = '' }) =>
+  React.createElement(CustomIcons[icon], { size, color });

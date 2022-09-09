@@ -23,14 +23,15 @@ export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   sideContent?: React.ReactNode | ((hasError: boolean, disabled?: boolean) => React.ReactNode);
 }
 
-const getPropertyValue = (ref: React.RefObject<HTMLElement>, value: string) => ref.current && parseFloat(window.getComputedStyle(ref.current).getPropertyValue(value))
+const getPropertyValue = (ref: React.RefObject<HTMLElement>, value: string) =>
+  ref.current && parseFloat(window.getComputedStyle(ref.current).getPropertyValue(value));
 
 export const Input: React.FC<IInput> = (props) => {
   const { sideContent, inputClassName, label, className, hint, hintClassName, error, errorClassName, placeholder, onClick, width, mask, ...rest } =
     props;
 
   const { name, value, disabled, inputProps, onChange, onBlur } = useInput<IInput>(rest, mask);
-  const sideContentRef = useRef<HTMLDivElement>(null)
+  const sideContentRef = useRef<HTMLDivElement>(null);
   const [rightPad, setRightPad] = useState(0);
 
   const hasError = Boolean(error);
@@ -41,27 +42,28 @@ export const Input: React.FC<IInput> = (props) => {
   const overridePadding = Boolean(hasContent && sideContentRef.current);
 
   useLayoutEffect(() => {
-    if(!hasContent){
-      return
-    }
-    
-    const contentWidth = getPropertyValue(sideContentRef,'width') ?? 0;
-    const contentRight = getPropertyValue(sideContentRef,'right') ?? 0;
-
-    const newPadRight =contentWidth + 2 * contentRight;
-
-    if(newPadRight !== rightPad){
-      setRightPad(newPadRight)
+    if (!hasContent) {
+      return;
     }
 
-  }, [sideContent])
+    const contentWidth = getPropertyValue(sideContentRef, 'width') ?? 0;
+    const contentRight = getPropertyValue(sideContentRef, 'right') ?? 0;
+
+    const newPadRight = contentWidth + 2 * contentRight;
+
+    if (newPadRight !== rightPad) {
+      setRightPad(newPadRight);
+    }
+  }, [sideContent]);
 
   return (
-    <div className={classNames(className, 'mb-5', {
-      ['w-48']: width === 'small',
-      ['w-64']: width === 'medium',
-      ['w-96']: width === 'large',
-    })}>
+    <div
+      className={classNames(className, 'mb-5', {
+        ['w-48']: width === 'small',
+        ['w-64']: width === 'medium',
+        ['w-96']: width === 'large',
+      })}
+    >
       <div className={classNames('relative overflow-hidden', { ['text-text-disabled']: disabled })}>
         <input
           type='text'
@@ -72,9 +74,10 @@ export const Input: React.FC<IInput> = (props) => {
           onChange={onChange}
           onBlur={onBlur}
           style={overridePadding ? { paddingRight: rightPad } : {}}
-          className={classNames(inputClassName, 
-            'peer border-1.5 rounded h-14', 
-            'transition-colors duration-300 ease-out w-full', 
+          className={classNames(
+            inputClassName,
+            'peer border-1.5 rounded h-14',
+            'transition-colors duration-300 ease-out w-full',
             'placeholder:text-text-disabled',
             {
               ['disabled:border-default-light disabled:bg-background select-none']: disabled,
@@ -82,9 +85,10 @@ export const Input: React.FC<IInput> = (props) => {
               ['border-error hover:bg-default-extra-light']: hasError,
               ['px-3 pb-1.5 pt-6.5']: hasLabel,
               ['placeholder:invisible placeholder:opacity-0 placeholder:translate-y-full placeholder:transition placeholder:duration-250 ease-out focus:placeholder:visible focus:placeholder:opacity-100 focus:placeholder:translate-y-0']:
-              hasLabel,
+                hasLabel,
               ['px-3 py-1.5']: !hasLabel,
-            })}
+            }
+          )}
           {...inputProps}
         />
         {hasLabel && (
@@ -101,11 +105,11 @@ export const Input: React.FC<IInput> = (props) => {
         )}
         {hasContent && (
           <div ref={sideContentRef} className={classNames('flex gap-2 items-center absolute right-3 top-1/2 -translate-y-1/2')}>
-            {typeof sideContent === 'function' ? sideContent(hasError, disabled) : sideContent }
+            {typeof sideContent === 'function' ? sideContent(hasError, disabled) : sideContent}
           </div>
         )}
       </div>
-      {hint && <HintMessage text={hint} className={hintClassName} /> }
+      {hint && <HintMessage text={hint} className={hintClassName} />}
       {error && <ErrorMessage text={error} className={errorClassName} />}
     </div>
   );
