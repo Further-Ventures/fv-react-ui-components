@@ -13,7 +13,6 @@ interface IButtonShowcase {
 
 const ButtonShowCase: React.FC<IButtonShowcase> = (props) => {
   const { sizes, shapes, colors } = props;
-  console.log('props', props);
   return (
     <div className='showcaseButtons'>
       {shapes.map((shape) => {
