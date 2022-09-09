@@ -10,5 +10,7 @@
     "Chip": "chip",
     "Tag": "tag",
     "TextLink": "textlink",
+    "Checkbox": "checkbox",
+    "Radio": "radio",
   }
 }
