@@ -14,8 +14,8 @@ const HintMessage = (props: IHintMessage) => {
     <div
       {...rest}
       className={classNames(className, 'text-sm leading-none mt-2', {
-        ['text-text-hint']: !disabled,
-        ['text-text-disabled']: disabled,
+        'text-text-hint': !disabled,
+        'text-text-disabled': disabled,
       })}
     >
       {text}

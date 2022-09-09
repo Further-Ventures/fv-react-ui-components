@@ -13,8 +13,8 @@ const ErrorMessage = (props: IErrorMessage) => {
   return <div
     {...rest}
     className={classNames(className, 'flex items-center gap-1 text-sm leading-none  mt-2', {
-      ['text-error']: !disabled,
-      ['text-text-disabled']: disabled,
+      'text-error': !disabled,
+      'text-text-disabled': disabled,
     })}
   >
     <Icon icon='info' fill size={14} />
