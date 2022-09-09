@@ -1,9 +1,18 @@
-import { ITextArea } from './index';
 import React from 'react';
 import { applyDigitMask } from './utils';
 
-export const useInput = (props: ITextArea) => {
-  const { disabled, name = '', value = '', controlled , onChange, onBlur, mask, ...inputProps } = props;
+
+interface BaseInput extends React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement> {
+  disabled?: boolean,
+  name?: string
+  value?: string,
+  onChange?: (e: React.BaseSyntheticEvent) => void
+  onBlur?: (e: React.BaseSyntheticEvent) => void,
+}
+
+const useInput = <T extends BaseInput>(props: T, mask?: string) => {
+  const { disabled, name = '', value = '' , onChange, onBlur, ...inputProps } = props;
+  const controlled = Boolean(onChange);
   const initValue = value;
   const [internalValue, setInternalValue] = React.useState<string>(mask && initValue ? applyDigitMask(initValue, mask) : initValue);
   const onChangeWrapper = (e: React.BaseSyntheticEvent) => {
@@ -15,7 +24,7 @@ export const useInput = (props: ITextArea) => {
 
     setInternalValue((prevValue) => {
       if (inputProps.type === 'number') {
-        // Fixes input[type=number] on Safari, where any symbol is allowed
+        // Fixes input[type=number] on Safari, where any symbol is allowed`
         return targetValue.replace(/^\D/g, '');
       }
       if (mask) {
@@ -41,3 +50,5 @@ export const useInput = (props: ITextArea) => {
     onBlur: onBlurWrapper,
   };
 };
+
+export default useInput

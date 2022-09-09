@@ -1,10 +1,11 @@
 import React, { useRef, useLayoutEffect } from 'react';
 import classNames from 'classnames';
-import { useInput } from './hooks';
+import useInput from '../../hooks/useInput';
 import HintMessage from '../HintMessage';
 import ErrorMessage from '../ErrorMessage';
+import './index.scss'
 
-export interface ITextArea extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface ITextArea extends React.InputHTMLAttributes<HTMLTextAreaElement> {
   label?: string;
   inputClassName?: string;
   placeholder?: string;
@@ -17,12 +18,10 @@ export interface ITextArea extends React.InputHTMLAttributes<HTMLInputElement> {
   name?: string;
   controlled?: boolean;
   rows?: number;
-  mask?: string,
   onChange?: (e: React.BaseSyntheticEvent) => void;
   onBlur?: (e: React.BaseSyntheticEvent) => void;
 
   width?: 'small' | 'medium' | 'large' | 'full';
-
   maxLength?: number
 }
 
@@ -30,10 +29,11 @@ export const TextArea: React.FC<ITextArea> = (props) => {
   const { inputClassName, rows, label, className, hint, hintClassName, error, errorClassName, placeholder, onClick, width, maxLength, ...rest } =
     props;
 
-  const { name, value, disabled, onChange, onBlur } = useInput(rest);
+  const { name, value, disabled, onChange, onBlur } = useInput<ITextArea>(rest);
   const textAreaRef = useRef<HTMLTextAreaElement>(null) 
   const hasError = Boolean(error);
   const hasLabel = Boolean(label);
+  const hasContent = Boolean(error || hint || maxLength);
 
   useLayoutEffect(() => {
     if(!textAreaRef.current?.scrollHeight){
@@ -84,13 +84,15 @@ export const TextArea: React.FC<ITextArea> = (props) => {
           </label>)
         }
       </div>
-      <div className='flex justify-between pl-3'>
-        <div>
-          {hint && <HintMessage text={hint} className={hintClassName} disabled={disabled}/> }
-          {error && <ErrorMessage text={error} className={errorClassName} disabled={disabled}/>}
+      {hasContent && (
+        <div className='flex justify-between pl-3'>
+          <div>
+            {hint && <HintMessage text={hint} className={hintClassName} disabled={disabled}/> }
+            {error && <ErrorMessage text={error} className={errorClassName} disabled={disabled}/>}
+          </div>
+          {Boolean(maxLength) && <HintMessage text={`${value.length}/${maxLength}`} className={hintClassName} disabled={disabled}/>}
         </div>
-        {Boolean(maxLength) && <HintMessage text={`${value.length}/${maxLength}`} className={hintClassName} disabled={disabled}/>}
-      </div>
+      )}
     </div>
   )
 };

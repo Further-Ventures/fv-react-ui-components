@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import classNames from 'classnames';
-import { useInput } from './hooks';
+import useInput from '../../hooks/useInput';
 import HintMessage from '../HintMessage';
 import ErrorMessage from '../ErrorMessage';
 export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -14,7 +14,6 @@ export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   errorClassName?: string;
   value?: string;
   name?: string;
-  controlled?: boolean;
   onChange?: (e: React.BaseSyntheticEvent) => void;
   onBlur?: (e: React.BaseSyntheticEvent) => void;
   mask?: string;
@@ -27,10 +26,10 @@ export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
 const getPropertyValue = (ref: React.RefObject<HTMLElement>, value: string) => ref.current && parseFloat(window.getComputedStyle(ref.current).getPropertyValue(value))
 
 export const Input: React.FC<IInput> = (props) => {
-  const { sideContent, inputClassName, label, className, hint, hintClassName, error, errorClassName, placeholder, onClick, width, ...rest } =
+  const { sideContent, inputClassName, label, className, hint, hintClassName, error, errorClassName, placeholder, onClick, width, mask, ...rest } =
     props;
 
-  const { name, value, disabled, inputProps, onChange, onBlur } = useInput(rest);
+  const { name, value, disabled, inputProps, onChange, onBlur } = useInput<IInput>(rest, mask);
   const sideContentRef = useRef<HTMLDivElement>(null)
   const [rightPad, setRightPad] = useState(0);
 
