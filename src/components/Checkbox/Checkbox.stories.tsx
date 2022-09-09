@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Checkbox } from './index';
 import pkg from './package.json';
 import { buildExcludeArgTypes } from '../../storybook/utils';
-import { useRef } from 'react';
 
 export default {
   title: 'Components/Checkbox',
@@ -15,11 +14,9 @@ export default {
 } as ComponentMeta<typeof Checkbox>;
 
 const Template: ComponentStory<typeof Checkbox> = (args) => {
-  const ref = useRef(null);
-
   return <Checkbox {...args}>
       Checkbox text
-    </Checkbox>;
+  </Checkbox>;
 };
 
 export const CheckboxInput = Template.bind({});
