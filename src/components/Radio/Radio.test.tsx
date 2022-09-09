@@ -41,7 +41,7 @@ it('should render large radio button', () => {
 it('should render radio with error', () => {
   const children = 'Radio 03';
   render(
-    <Radio fieldName="radio03" error={true}>
+    <Radio fieldName="radio03" errorMessage="Error!">
       {children}
     </Radio>
   );
