@@ -15,25 +15,50 @@ export default {
     pkg,
   },
   argTypes: {
-    ...buildExcludeArgTypes(['value', 'name', 'controlled', 'onChange', 'onBlur', 'contentClassName', 'hintClassName', 'errorClassName', 'sideContent', 'inputClassName', 'mask']),
+    ...buildExcludeArgTypes([
+      'value',
+      'name',
+      'controlled',
+      'onChange',
+      'onBlur',
+      'contentClassName',
+      'hintClassName',
+      'errorClassName',
+      'sideContent',
+      'inputClassName',
+      'mask',
+    ]),
     buttonText: {
-      control: 'text'
-    }
+      control: 'text',
+    },
   },
 } as ComponentMeta<typeof Input>;
 
-interface IStoryArgs extends IInput {buttonText?: string}
+interface IStoryArgs extends IInput {
+  buttonText?: string;
+}
 
 const Template: ComponentStory<typeof Input> = (args) => {
   const { buttonText, sideContent: inputSideContent, ...rest } = args as IStoryArgs;
   const [inputValue, setInputValue] = useState('');
   const handleInputChange = (e) => setInputValue(e.target.value);
-  const sideContent = buttonText && ((hasError: boolean, disabled: boolean) => <Button label={buttonText} color={hasError ? 'error' : 'primary'} size='mini' disabled={disabled} onClick={() => alert('Button Click!')} variant='outlined'/>)
- 
+  const sideContent =
+    buttonText &&
+    ((hasError: boolean, disabled: boolean) => (
+      <Button
+        label={buttonText}
+        color={hasError ? 'error' : 'primary'}
+        size='mini'
+        disabled={disabled}
+        onClick={() => alert('Button Click!')}
+        variant='outlined'
+      />
+    ));
+
   return (
     <>
       <h4 className='mb-2'>{`State: ${inputValue}`}</h4>
-      <Input {...rest} value={inputValue} onChange={handleInputChange} sideContent={inputSideContent ?? sideContent}/>
+      <Input {...rest} value={inputValue} onChange={handleInputChange} sideContent={inputSideContent ?? sideContent} />
     </>
   );
 };
@@ -50,7 +75,7 @@ export const WithButton = Template.bind({});
 WithButton.args = {
   label: 'Input default',
   placeholder: 'olivia@example.com',
-  buttonText: 'Button CTA'
+  buttonText: 'Button CTA',
 };
 
 export const WithIcon = Template.bind({});
@@ -58,9 +83,8 @@ export const WithIcon = Template.bind({});
 WithIcon.args = {
   label: 'Input default',
   placeholder: 'olivia@example.com',
-  sideContent: <Icon icon='info' size={20} />
+  sideContent: <Icon icon='info' size={20} />,
 };
-
 
 export const Showcase = () => {
   return (
@@ -68,14 +92,18 @@ export const Showcase = () => {
       <Input label='Label' placeholder='with placeholder' />
       <Input label='Some very long label asdasd a as dasd as dasd a as s sa a' />
       <Input placeholder='No label' />
-      <Input label='test button' sideContent={ <Button label="Button CTA" size='mini' onClick={() => alert('Button Click!')} variant='outlined'/>} />
-      <Input label='test error' error='Test Error message' sideContent={ <Button color='error' label="Button CTA" size='mini' onClick={() => alert('Button Click!')} variant='outlined'/>} />
+      <Input label='test button' sideContent={<Button label='Button CTA' size='mini' onClick={() => alert('Button Click!')} variant='outlined' />} />
+      <Input
+        label='test error'
+        error='Test Error message'
+        sideContent={<Button color='error' label='Button CTA' size='mini' onClick={() => alert('Button Click!')} variant='outlined' />}
+      />
       <Input label='test error' error='Test Error message' hint='Test Hint' />
       <Input
         label='test error'
         error='Test Error message'
         hint='Test Hint'
-        sideContent={ <Button color='error' label="Button CTA" size='mini' onClick={() => alert('Button Click!')} variant='outlined'/>}
+        sideContent={<Button color='error' label='Button CTA' size='mini' onClick={() => alert('Button Click!')} variant='outlined' />}
       />
       <Input label='With hint' hint='Test Hint' />
 
@@ -89,7 +117,7 @@ export const Showcase = () => {
         sideContent={
           <>
             <Icon icon='info' size={20} />
-            <Button disabled label="Button CTA" size='mini' onClick={() => alert('Button Click!')} variant='outlined' />
+            <Button disabled label='Button CTA' size='mini' onClick={() => alert('Button Click!')} variant='outlined' />
           </>
         }
       />

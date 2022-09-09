@@ -561,9 +561,7 @@ export const TailwindTemplate = () => {
       <div className='flex flex-wrap gap-4'>
         <div className='elevation-extraLight bg-white rounded-md p-1 w-60 h-40 pt-4 flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast'>AAA</span>
-          <span className='bg-white text-black w-full block rounded-md p-1'>
-            Elevation Extra Light
-          </span>
+          <span className='bg-white text-black w-full block rounded-md p-1'>Elevation Extra Light</span>
         </div>
         <div
           className='shadow-lg border-background bg-background rounded-md p-1 w-60 h-40 pt-4 flex flex-col justify-end'

@@ -17,23 +17,22 @@ const FormTemplate = (props: IProps) => {
 
   return (
     <Form {...rest}>
-      <Input label={'Email'} name="email" />
-      <Input label={'Password'} name="password" />
-      {type === 'submit' && <Button type="submit" label="Submit" />}
-      {type === 'reset' && <Button type="reset" label="Reset" />}
+      <Input label={'Email'} name='email' />
+      <Input label={'Password'} name='password' />
+      {type === 'submit' && <Button type='submit' label='Submit' />}
+      {type === 'reset' && <Button type='reset' label='Reset' />}
     </Form>
   );
 };
 
 let container: Element | null = null;
 
-
-describe.skip('Form component', ()=> {
+describe.skip('Form component', () => {
   beforeEach(() => {
     container = document.createElement('div');
     document.body.appendChild(container);
   });
-  
+
   afterEach(() => {
     if (container) {
       unmountComponentAtNode(container);
@@ -50,27 +49,24 @@ describe.skip('Form component', ()=> {
   it('should render values in inputs', () => {
     const initialValues = {
       email: 'some@mail.com',
-      password: 'somePass'
+      password: 'somePass',
     };
     render(<FormTemplate initialValues={initialValues} />);
-    const [email, password] = screen.queryAllByRole('textbox') as [
-      HTMLInputElement,
-      HTMLInputElement
-    ];
+    const [email, password] = screen.queryAllByRole('textbox') as [HTMLInputElement, HTMLInputElement];
     expect(email.value).toBe(initialValues.email);
     expect(password.value).toBe(initialValues.password);
   });
 
   it('should fire onSubmit', () => {
     const onSubmit = jest.fn();
-    render(<FormTemplate onSubmit={onSubmit} type="submit" />);
+    render(<FormTemplate onSubmit={onSubmit} type='submit' />);
     fireEvent.click(screen.getByRole('button'));
     expect(onSubmit).toHaveBeenCalled();
   });
 
   it('should fire onReset', () => {
     const onReset = jest.fn();
-    render(<FormTemplate onReset={onReset} type="reset" />);
+    render(<FormTemplate onReset={onReset} type='reset' />);
     fireEvent.click(screen.getByRole('button'));
     expect(onReset).toHaveBeenCalled();
   });
@@ -80,9 +76,9 @@ describe.skip('Form component', ()=> {
     act(() => {
       ReactDomRender(
         <FormTemplate
-          type="submit"
+          type='submit'
           validationSchema={yup.object({
-            email: yup.string().email().required()
+            email: yup.string().email().required(),
           })}
         />,
         container
@@ -95,5 +91,4 @@ describe.skip('Form component', ()=> {
     });
     expect(screen.queryByText('email is a required field')).toBeInTheDocument();
   });
-
-})
+});

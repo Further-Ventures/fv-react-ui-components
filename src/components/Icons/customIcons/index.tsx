@@ -49,5 +49,5 @@ export {
   ShopPay,
   Sofort,
   Stripe,
-  Visa
+  Visa,
 };

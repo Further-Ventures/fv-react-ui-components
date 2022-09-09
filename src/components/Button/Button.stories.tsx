@@ -13,15 +13,17 @@ export default {
     pkg,
   },
   argTypes: {
-    ...buildExcludeArgTypes(['contentLeft', 'contentRight', 'className']), 
+    ...buildExcludeArgTypes(['contentLeft', 'contentRight', 'className']),
     icon: {
       options: ['none', 'left', 'right', 'both', 'only'],
       control: { type: 'radio' },
-    }
+    },
   },
 } as ComponentMeta<typeof Button>;
 
-interface IStoryArgs extends IButton {icon?: string}
+interface IStoryArgs extends IButton {
+  icon?: string;
+}
 
 const Template: ComponentStory<typeof Button> = (args) => {
   const { icon, ...rest } = args as IStoryArgs;
@@ -29,24 +31,24 @@ const Template: ComponentStory<typeof Button> = (args) => {
   const iconSize = args.size === 'mini' ? 12 : 20;
   let componentArgs = rest;
 
-  if(icon === 'left' || icon ==='both') {
+  if (icon === 'left' || icon === 'both') {
     componentArgs = {
       ...componentArgs,
-      contentLeft: <Icon icon='check_circle' size={iconSize} />
-    }
+      contentLeft: <Icon icon='check_circle' size={iconSize} />,
+    };
   }
-  if(icon === 'right' || icon ==='both') {
+  if (icon === 'right' || icon === 'both') {
     componentArgs = {
       ...componentArgs,
-      contentRight: <Icon icon='check_circle' size={iconSize} />
-    }
+      contentRight: <Icon icon='check_circle' size={iconSize} />,
+    };
   }
-  if(icon === 'only') {
+  if (icon === 'only') {
     componentArgs = {
       ...componentArgs,
       contentLeft: <Icon icon='check_circle' size={iconSize} />,
       label: undefined,
-    }
+    };
   }
 
   return (
@@ -54,7 +56,7 @@ const Template: ComponentStory<typeof Button> = (args) => {
       <Button {...componentArgs} />
     </div>
   );
-}
+};
 
 export const Default = Template.bind({});
 
@@ -64,5 +66,5 @@ Default.args = {
   size: 'medium',
   shape: 'curved',
   color: 'primary',
-  icon: 'none'
+  icon: 'none',
 };

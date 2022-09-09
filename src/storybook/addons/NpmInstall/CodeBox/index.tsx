@@ -16,15 +16,9 @@ const CodeBox = ({ children }: ICodeBoxProps) => {
     <div className={classes.codebox}>
       <pre className={classes.children}>{children}</pre>
       <Tooltip title={copyString}>
-        <CopyToClipboard
-          text={children.join('')}
-          onCopy={() => setCopyString('Copied!')}
-        >
-          <div
-            className={classes.copyContainer}
-            onMouseLeave={() => setCopyString('Press to Copy')}
-          >
-            <CopyIcon fill="#000" />
+        <CopyToClipboard text={children.join('')} onCopy={() => setCopyString('Copied!')}>
+          <div className={classes.copyContainer} onMouseLeave={() => setCopyString('Press to Copy')}>
+            <CopyIcon fill='#000' />
           </div>
         </CopyToClipboard>
       </Tooltip>

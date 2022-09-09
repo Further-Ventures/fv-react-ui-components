@@ -23,14 +23,14 @@ export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   sideContent?: React.ReactNode | ((hasError: boolean, disabled?: boolean) => React.ReactNode);
 }
 
-const getPropertyValue = (ref: React.RefObject<HTMLElement>, value: string) => ref.current && parseFloat(window.getComputedStyle(ref.current).getPropertyValue(value))
+const getPropertyValue = (ref: React.RefObject<HTMLElement>, value: string) =>
+  ref.current && parseFloat(window.getComputedStyle(ref.current).getPropertyValue(value));
 
 export const Input: React.FC<IInput> = (props) => {
-  const { sideContent, inputClassName, label, className, hint, hintClassName, error, errorClassName, placeholder, onClick, width, ...rest } =
-    props;
+  const { sideContent, inputClassName, label, className, hint, hintClassName, error, errorClassName, placeholder, onClick, width, ...rest } = props;
 
   const { name, value, disabled, inputProps, onChange, onBlur } = useInput(rest);
-  const sideContentRef = useRef<HTMLDivElement>(null)
+  const sideContentRef = useRef<HTMLDivElement>(null);
   const [rightPad, setRightPad] = useState(0);
 
   const hasError = Boolean(error);
@@ -41,27 +41,28 @@ export const Input: React.FC<IInput> = (props) => {
   const overridePadding = Boolean(hasContent && sideContentRef.current);
 
   useLayoutEffect(() => {
-    if(!hasContent){
-      return
-    }
-    
-    const contentWidth = getPropertyValue(sideContentRef,'width') ?? 0;
-    const contentRight = getPropertyValue(sideContentRef,'right') ?? 0;
-
-    const newPadRight =contentWidth + 2 * contentRight;
-
-    if(newPadRight !== rightPad){
-      setRightPad(newPadRight)
+    if (!hasContent) {
+      return;
     }
 
-  }, [sideContent])
+    const contentWidth = getPropertyValue(sideContentRef, 'width') ?? 0;
+    const contentRight = getPropertyValue(sideContentRef, 'right') ?? 0;
+
+    const newPadRight = contentWidth + 2 * contentRight;
+
+    if (newPadRight !== rightPad) {
+      setRightPad(newPadRight);
+    }
+  }, [sideContent]);
 
   return (
-    <div className={classNames(className, 'mb-5', {
-      ['w-48']: width === 'small',
-      ['w-64']: width === 'medium',
-      ['w-96']: width === 'large',
-    })}>
+    <div
+      className={classNames(className, 'mb-5', {
+        ['w-48']: width === 'small',
+        ['w-64']: width === 'medium',
+        ['w-96']: width === 'large',
+      })}
+    >
       <div className={classNames('relative overflow-hidden', { ['text-text-disabled']: disabled })}>
         <input
           type='text'
@@ -97,7 +98,7 @@ export const Input: React.FC<IInput> = (props) => {
         )}
         {hasContent && (
           <div ref={sideContentRef} className={classNames('flex gap-2 items-center absolute right-3 top-1/2 -translate-y-1/2')}>
-            {typeof sideContent === 'function' ? sideContent(hasError, disabled) : sideContent }
+            {typeof sideContent === 'function' ? sideContent(hasError, disabled) : sideContent}
           </div>
         )}
       </div>
