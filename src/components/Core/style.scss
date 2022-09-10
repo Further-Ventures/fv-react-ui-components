@@ -59,6 +59,222 @@
   --mercury-font-family-alt: 'PP Monument Extended, sans-serif';
   --mercury-font-family-icons: 'Material Symbols Rounded';
 
+  --mercury-h1-fontFamily: var(--mercury-font-family-alt);
+  --mercury-h1-fontSize: 68px;
+  --mercury-h1-fontWeight: 700;
+  --mercury-h1-lineHeight: 1.3;
+  --mercury-h1-fontStyle: none;
+  --mercury-h1-textTransform: uppercase;
+  --mercury-h1-mobile-fontSize: 48px;
+  --mercury-h1-mobile-fontWeight: 700;
+  --mercury-h1-mobile-lineHeight: 1.3;
+  --mercury-h1-mobile-fontStyle: none;
+  --mercury-h1-mobile-textTransform: none;
+
+  --mercury-h1-secondary-fontFamily: var(--mercury-font-family-alt);
+  --mercury-h1-secondary-fontSize: 68px;
+  --mercury-h1-secondary-fontWeight: 700;
+  --mercury-h1-secondary-lineHeight: 1.3;
+  --mercury-h1-secondary-fontStyle: none;
+  --mercury-h1-secondary-textTransform: uppercase;
+  --mercury-h1-secondary-mobile-fontSize: 48px;
+  --mercury-h1-secondary-mobile-fontWeight: 500;
+  --mercury-h1-secondary-mobile-lineHeight: 1.3;
+  --mercury-h1-secondary-mobile-fontStyle: none;
+  --mercury-h1-secondary-mobile-textTransform: none;
+
+  --mercury-h1-tertiary-fontFamily: var(--mercury-font-family-alt);
+  --mercury-h1-tertiary-fontSize: 68px;
+  --mercury-h1-tertiary-fontWeight: 700;
+  --mercury-h1-tertiary-lineHeight: 1.3;
+  --mercury-h1-tertiary-fontStyle: none;
+  --mercury-h1-tertiary-textTransform: uppercase;
+  --mercury-h1-tertiary-mobile-fontSize: 48px;
+  --mercury-h1-tertiary-mobile-fontWeight: 400;
+  --mercury-h1-tertiary-mobile-lineHeight: 1.3;
+  --mercury-h1-tertiary-mobile-fontStyle: none;
+  --mercury-h1-tertiary-mobile-textTransform: none;
+
+  --mercury-h2-fontFamily: var(--mercury-font-family-alt);
+  --mercury-h2-fontSize: 60px;
+  --mercury-h2-fontWeight: 700;
+  --mercury-h2-lineHeight: 1.3;
+  --mercury-h2-fontStyle: none;
+  --mercury-h2-textTransform: uppercase;
+  --mercury-h2-mobile-fontSize: 32px;
+  --mercury-h2-mobile-fontWeight: 700;
+  --mercury-h2-mobile-lineHeight: 1.3;
+  --mercury-h2-mobile-fontStyle: none;
+  --mercury-h2-mobile-textTransform: none;
+
+  --mercury-h2-secondary-fontFamily: var(--mercury-font-family-alt);
+  --mercury-h2-secondary-fontSize: 68px;
+  --mercury-h2-secondary-fontWeight: 700;
+  --mercury-h2-secondary-lineHeight: 1.3;
+  --mercury-h2-secondary-fontStyle: none;
+  --mercury-h2-secondary-textTransform: uppercase;
+  --mercury-h2-secondary-mobile-fontSize: 32px;
+  --mercury-h2-secondary-mobile-fontWeight: 500;
+  --mercury-h2-secondary-mobile-lineHeight: 1.3;
+  --mercury-h2-secondary-mobile-fontStyle: none;
+  --mercury-h2-secondary-mobile-textTransform: none;
+
+  --mercury-h2-tertiary-fontFamily: var(--mercury-font-family-alt);
+  --mercury-h2-tertiary-fontSize: 68px;
+  --mercury-h2-tertiary-fontWeight: 700;
+  --mercury-h2-tertiary-lineHeight: 1.3;
+  --mercury-h2-tertiary-fontStyle: none;
+  --mercury-h2-tertiary-textTransform: uppercase;
+  --mercury-h2-tertiary-mobile-fontSize: 32px;
+  --mercury-h2-tertiary-mobile-fontWeight: 400;
+  --mercury-h2-tertiary-mobile-lineHeight: 1.3;
+  --mercury-h2-tertiary-mobile-fontStyle: none;
+  --mercury-h2-tertiary-mobile-textTransform: none;
+
+  --mercury-h3-fontFamily: var(--mercury-font-family-alt);
+  --mercury-h3-fontSize: 54px;
+  --mercury-h3-fontWeight: 700;
+  --mercury-h3-lineHeight: 1.25;
+  --mercury-h3-fontStyle: none;
+  --mercury-h3-textTransform: uppercase;
+  --mercury-h3-mobile-fontSize: 24px;
+  --mercury-h3-mobile-fontWeight: 700;
+  --mercury-h3-mobile-lineHeight: 1.25;
+  --mercury-h3-mobile-fontStyle: none;
+  --mercury-h3-mobile-textTransform: none;
+
+  --mercury-h3-secondary-fontFamily: var(--mercury-font-family-alt);
+  --mercury-h3-secondary-fontSize: 54px;
+  --mercury-h3-secondary-fontWeight: 700;
+  --mercury-h3-secondary-lineHeight: 1.25;
+  --mercury-h3-secondary-fontStyle: none;
+  --mercury-h3-secondary-textTransform: uppercase;
+  --mercury-h3-secondary-mobile-fontSize: 24px;
+  --mercury-h3-secondary-mobile-fontWeight: 500;
+  --mercury-h3-secondary-mobile-lineHeight: 1.25;
+  --mercury-h3-secondary-mobile-fontStyle: none;
+  --mercury-h3-secondary-mobile-textTransform: none;
+
+  --mercury-h3-tertiary-fontFamily: var(--mercury-font-family-alt);
+  --mercury-h3-tertiary-fontSize: 54px;
+  --mercury-h3-tertiary-fontWeight: 700;
+  --mercury-h3-tertiary-lineHeight: 1.25;
+  --mercury-h3-tertiary-fontStyle: none;
+  --mercury-h3-tertiary-textTransform: uppercase;
+  --mercury-h3-tertiary-mobile-fontSize: 24px;
+  --mercury-h3-tertiary-mobile-fontWeight: 400;
+  --mercury-h3-tertiary-mobile-lineHeight: 1.25;
+  --mercury-h3-tertiary-mobile-fontStyle: none;
+  --mercury-h3-tertiary-mobile-textTransform: none;
+
+  --mercury-h4-fontFamily: var(--mercury-font-family);
+  --mercury-h4-fontSize: 48px;
+  --mercury-h4-fontWeight: 700;
+  --mercury-h4-lineHeight: 1.3;
+  --mercury-h4-fontStyle: none;
+  --mercury-h4-textTransform: none;
+  --mercury-h4-mobile-fontSize: 20px;
+  --mercury-h4-mobile-fontWeight: 700;
+  --mercury-h4-mobile-lineHeight: 1.3;
+  --mercury-h4-mobile-fontStyle: none;
+  --mercury-h4-mobile-textTransform: none;
+
+  --mercury-h4-secondary-fontFamily: var(--mercury-font-family);
+  --mercury-h4-secondary-fontSize: 48px;
+  --mercury-h4-secondary-fontWeight: 700;
+  --mercury-h4-secondary-lineHeight: 1.3;
+  --mercury-h4-secondary-fontStyle: italic;
+  --mercury-h4-secondary-textTransform: none;
+  --mercury-h4-secondary-mobile-fontSize: 20px;
+  --mercury-h4-secondary-mobile-fontWeight: 500;
+  --mercury-h4-secondary-mobile-lineHeight: 1.3;
+  --mercury-h4-secondary-mobile-fontStyle: none;
+  --mercury-h4-secondary-mobile-textTransform: none;
+
+  --mercury-h4-tertiary-fontFamily: var(--mercury-font-family);
+  --mercury-h4-tertiary-fontSize: 48px;
+  --mercury-h4-tertiary-fontWeight: 700;
+  --mercury-h4-tertiary-lineHeight: 1.3;
+  --mercury-h4-tertiary-fontStyle: none;
+  --mercury-h4-tertiary-textTransform: none;
+  --mercury-h4-tertiary-mobile-fontSize: 20px;
+  --mercury-h4-tertiary-mobile-fontWeight: 400;
+  --mercury-h4-tertiary-mobile-lineHeight: 1.3;
+  --mercury-h4-tertiary-mobile-fontStyle: none;
+  --mercury-h4-tertiary-mobile-textTransform: none;
+
+  --mercury-h5-fontFamily: var(--mercury-font-family-alt);
+  --mercury-h5-fontSize: 42px;
+  --mercury-h5-fontWeight: 400;
+  --mercury-h5-lineHeight: 1.5;
+  --mercury-h5-fontStyle: none;
+  --mercury-h5-textTransform: none;
+  --mercury-h5-mobile-fontSize: 20px;
+  --mercury-h5-mobile-fontWeight: 700;
+  --mercury-h5-mobile-lineHeight: 1.3;
+  --mercury-h5-mobile-fontStyle: none;
+  --mercury-h5-mobile-textTransform: none;
+
+  --mercury-h5-secondary-fontFamily: var(--mercury-font-family-alt);
+  --mercury-h5-secondary-fontSize: 42px;
+  --mercury-h5-secondary-fontWeight: 200;
+  --mercury-h5-secondary-lineHeight: 1.5;
+  --mercury-h5-secondary-fontStyle: none;
+  --mercury-h5-secondary-textTransform: none;
+  --mercury-h5-secondary-mobile-fontSize: 20px;
+  --mercury-h5-secondary-mobile-fontWeight: 500;
+  --mercury-h5-secondary-mobile-lineHeight: 1.3;
+  --mercury-h5-secondary-mobile-fontStyle: none;
+  --mercury-h5-secondary-mobile-textTransform: none;
+
+  --mercury-h5-tertiary-fontFamily: var(--mercury-font-family-alt);
+  --mercury-h5-tertiary-fontSize: 42px;
+  --mercury-h5-tertiary-fontWeight: 400;
+  --mercury-h5-tertiary-lineHeight: 1.5;
+  --mercury-h5-tertiary-fontStyle: none;
+  --mercury-h5-tertiary-textTransform: none;
+  --mercury-h5-tertiary-mobile-fontSize: 20px;
+  --mercury-h5-tertiary-mobile-fontWeight: 400;
+  --mercury-h5-tertiary-mobile-lineHeight: 1.3;
+  --mercury-h5-tertiary-mobile-fontStyle: none;
+  --mercury-h5-tertiary-mobile-textTransform: none;
+
+  --mercury-h6-fontFamily: var(--mercury-font-family-alt);
+  --mercury-h6-fontSize: 32px;
+  --mercury-h6-fontWeight: 700;
+  --mercury-h6-lineHeight: 1.5;
+  --mercury-h6-fontStyle: none;
+  --mercury-h6-textTransform: none;
+  --mercury-h6-mobile-fontSize: 20px;
+  --mercury-h6-mobile-fontWeight: 700;
+  --mercury-h6-mobile-lineHeight: 1.3;
+  --mercury-h6-mobile-fontStyle: none;
+  --mercury-h6-mobile-textTransform: none;
+
+  --mercury-h6-secondary-fontFamily: var(--mercury-font-family-alt);
+  --mercury-h6-secondary-fontSize: 32px;
+  --mercury-h6-secondary-fontWeight: 500;
+  --mercury-h6-secondary-lineHeight: 1.5;
+  --mercury-h6-secondary-fontStyle: none;
+  --mercury-h6-secondary-textTransform: none;
+  --mercury-h6-secondary-mobile-fontSize: 48px;
+  --mercury-h6-secondary-mobile-fontWeight: 500;
+  --mercury-h6-secondary-mobile-lineHeight: 1.3;
+  --mercury-h6-secondary-mobile-fontStyle: none;
+  --mercury-h6-secondary-mobile-textTransform: none;
+
+  --mercury-h6-tertiary-fontFamily: var(--mercury-font-family-alt);
+  --mercury-h6-tertiary-fontSize: 32px;
+  --mercury-h6-tertiary-fontWeight: 400;
+  --mercury-h6-tertiary-lineHeight: 1.5;
+  --mercury-h6-tertiary-fontStyle: none;
+  --mercury-h6-tertiary-textTransform: none;
+  --mercury-h6-tertiary-mobile-fontSize: 48px;
+  --mercury-h6-tertiary-mobile-fontWeight: 400;
+  --mercury-h6-tertiary-mobile-lineHeight: 1.3;
+  --mercury-h6-tertiary-mobile-fontStyle: none;
+  --mercury-h6-tertiary-mobile-textTransform: none;
+
   --mercury-primary-color: #2400ff;
   --mercury-primary-color-light: #d1d3fd;
   --mercury-primary-color-medium: #1e00d3;
@@ -107,6 +323,324 @@
 
   --mercury-shadow-color-light: rgba(40,47,52,.15);
   --mercury-shadow-color-dark: rgba(40,47,52,.3);
+}
+
+.h1-primary {
+  font-family: var(--mercury-h1-mobile-fontFamily);
+  font-size: var(--mercury-h1-mobile-fontSize);
+  font-weight: var(--mercury-h1-mobile-fontWeight);
+  line-height: var(--mercury-h1-mobile-lineHeight);
+  font-style: var(--mercury-h1-mobile-fontStyle);
+  text-transform: var(--mercury-h1-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h1-fontFamily);
+    font-size: var(--mercury-h1-fontSize);
+    font-weight: var(--mercury-h1-fontWeight);
+    line-height: var(--mercury-h1-lineHeight);
+    font-style: var(--mercury-h1-fontStyle);
+    text-transform: var(--mercury-h1-textTransform);
+  }
+}
+.h1-secondary {
+  font-family: var(--mercury-h1-secondary-mobile-fontFamily);
+  font-size: var(--mercury-h1-secondary-mobile-fontSize);
+  font-weight: var(--mercury-h1-secondary-mobile-fontWeight);
+  line-height: var(--mercury-h1-secondary-mobile-lineHeight);
+  font-style: var(--mercury-h1-secondary-mobile-fontStyle);
+  text-transform: var(--mercury-h1-secondary-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h1-secondary-fontFamily);
+    font-size: var(--mercury-h1-secondary-fontSize);
+    font-weight: var(--mercury-h1-secondary-fontWeight);
+    line-height: var(--mercury-h1-secondary-lineHeight);
+    font-style: var(--mercury-h1-secondary-fontStyle);
+    text-transform: var(--mercury-h1-secondary-textTransform);
+  }
+}
+
+.h1-tertiary {
+  font-family: var(--mercury-h1-tertiary-mobile-fontFamily);
+  font-size: var(--mercury-h1-tertiary-mobile-fontSize);
+  font-weight: var(--mercury-h1-tertiary-mobile-fontWeight);
+  line-height: var(--mercury-h1-tertiary-mobile-lineHeight);
+  font-style: var(--mercury-h1-tertiary-mobile-fontStyle);
+  text-transform: var(--mercury-h1-tertiary-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h1-tertiary-fontFamily);
+    font-size: var(--mercury-h1-tertiary-fontSize);
+    font-weight: var(--mercury-h1-tertiary-fontWeight);
+    line-height: var(--mercury-h1-tertiary-lineHeight);
+    font-style: var(--mercury-h1-tertiary-fontStyle);
+    text-transform: var(--mercury-h1-tertiary-textTransform);
+  }
+}
+
+.h2-primary {
+  font-family: var(--mercury-h2-mobile-fontFamily);
+  font-size: var(--mercury-h2-mobile-fontSize);
+  font-weight: var(--mercury-h2-mobile-fontWeight);
+  line-height: var(--mercury-h2-mobile-lineHeight);
+  font-style: var(--mercury-h2-mobile-fontStyle);
+  text-transform: var(--mercury-h2-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h2-fontFamily);
+    font-size: var(--mercury-h2-fontSize);
+    font-weight: var(--mercury-h2-fontWeight);
+    line-height: var(--mercury-h2-lineHeight);
+    font-style: var(--mercury-h2-fontStyle);
+    text-transform: var(--mercury-h2-textTransform);
+  }
+}
+.h2-secondary {
+  font-family: var(--mercury-h2-secondary-mobile-fontFamily);
+  font-size: var(--mercury-h2-secondary-mobile-fontSize);
+  font-weight: var(--mercury-h2-secondary-mobile-fontWeight);
+  line-height: var(--mercury-h2-secondary-mobile-lineHeight);
+  font-style: var(--mercury-h2-secondary-mobile-fontStyle);
+  text-transform: var(--mercury-h2-secondary-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h2-secondary-fontFamily);
+    font-size: var(--mercury-h2-secondary-fontSize);
+    font-weight: var(--mercury-h2-secondary-fontWeight);
+    line-height: var(--mercury-h2-secondary-lineHeight);
+    font-style: var(--mercury-h2-secondary-fontStyle);
+    text-transform: var(--mercury-h2-secondary-textTransform);
+  }
+}
+
+.h2-tertiary {
+  font-family: var(--mercury-h2-tertiary-mobile-fontFamily);
+  font-size: var(--mercury-h2-tertiary-mobile-fontSize);
+  font-weight: var(--mercury-h2-tertiary-mobile-fontWeight);
+  line-height: var(--mercury-h2-tertiary-mobile-lineHeight);
+  font-style: var(--mercury-h2-tertiary-mobile-fontStyle);
+  text-transform: var(--mercury-h2-tertiary-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h2-tertiary-fontFamily);
+    font-size: var(--mercury-h2-tertiary-fontSize);
+    font-weight: var(--mercury-h2-tertiary-fontWeight);
+    line-height: var(--mercury-h2-tertiary-lineHeight);
+    font-style: var(--mercury-h2-tertiary-fontStyle);
+    text-transform: var(--mercury-h2-tertiary-textTransform);
+  }
+}
+
+.h3-primary {
+  font-family: var(--mercury-h3-mobile-fontFamily);
+  font-size: var(--mercury-h3-mobile-fontSize);
+  font-weight: var(--mercury-h3-mobile-fontWeight);
+  line-height: var(--mercury-h3-mobile-lineHeight);
+  font-style: var(--mercury-h3-mobile-fontStyle);
+  text-transform: var(--mercury-h3-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h3-fontFamily);
+    font-size: var(--mercury-h3-fontSize);
+    font-weight: var(--mercury-h3-fontWeight);
+    line-height: var(--mercury-h3-lineHeight);
+    font-style: var(--mercury-h3-fontStyle);
+    text-transform: var(--mercury-h3-textTransform);
+  }
+}
+.h3-secondary {
+  font-family: var(--mercury-h3-secondary-mobile-fontFamily);
+  font-size: var(--mercury-h3-secondary-mobile-fontSize);
+  font-weight: var(--mercury-h3-secondary-mobile-fontWeight);
+  line-height: var(--mercury-h3-secondary-mobile-lineHeight);
+  font-style: var(--mercury-h3-secondary-mobile-fontStyle);
+  text-transform: var(--mercury-h3-secondary-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h3-secondary-fontFamily);
+    font-size: var(--mercury-h3-secondary-fontSize);
+    font-weight: var(--mercury-h3-secondary-fontWeight);
+    line-height: var(--mercury-h3-secondary-lineHeight);
+    font-style: var(--mercury-h3-secondary-fontStyle);
+    text-transform: var(--mercury-h3-secondary-textTransform);
+  }
+}
+
+.h3-tertiary {
+  font-family: var(--mercury-h3-tertiary-mobile-fontFamily);
+  font-size: var(--mercury-h3-tertiary-mobile-fontSize);
+  font-weight: var(--mercury-h3-tertiary-mobile-fontWeight);
+  line-height: var(--mercury-h3-tertiary-mobile-lineHeight);
+  font-style: var(--mercury-h3-tertiary-mobile-fontStyle);
+  text-transform: var(--mercury-h3-tertiary-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h3-tertiary-fontFamily);
+    font-size: var(--mercury-h3-tertiary-fontSize);
+    font-weight: var(--mercury-h3-tertiary-fontWeight);
+    line-height: var(--mercury-h3-tertiary-lineHeight);
+    font-style: var(--mercury-h3-tertiary-fontStyle);
+    text-transform: var(--mercury-h3-tertiary-textTransform);
+  }
+}
+
+.h4-primary {
+  font-family: var(--mercury-h4-mobile-fontFamily);
+  font-size: var(--mercury-h4-mobile-fontSize);
+  font-weight: var(--mercury-h4-mobile-fontWeight);
+  line-height: var(--mercury-h4-mobile-lineHeight);
+  font-style: var(--mercury-h4-mobile-fontStyle);
+  text-transform: var(--mercury-h4-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h4-fontFamily);
+    font-size: var(--mercury-h4-fontSize);
+    font-weight: var(--mercury-h4-fontWeight);
+    line-height: var(--mercury-h4-lineHeight);
+    font-style: var(--mercury-h4-fontStyle);
+    text-transform: var(--mercury-h4-textTransform);
+  }
+}
+.h4-secondary {
+  font-family: var(--mercury-h4-secondary-mobile-fontFamily);
+  font-size: var(--mercury-h4-secondary-mobile-fontSize);
+  font-weight: var(--mercury-h4-secondary-mobile-fontWeight);
+  line-height: var(--mercury-h4-secondary-mobile-lineHeight);
+  font-style: var(--mercury-h4-secondary-mobile-fontStyle);
+  text-transform: var(--mercury-h4-secondary-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h4-secondary-fontFamily);
+    font-size: var(--mercury-h4-secondary-fontSize);
+    font-weight: var(--mercury-h4-secondary-fontWeight);
+    line-height: var(--mercury-h4-secondary-lineHeight);
+    font-style: var(--mercury-h4-secondary-fontStyle);
+    text-transform: var(--mercury-h4-secondary-textTransform);
+  }
+}
+
+.h4-tertiary {
+  font-family: var(--mercury-h4-tertiary-mobile-fontFamily);
+  font-size: var(--mercury-h4-tertiary-mobile-fontSize);
+  font-weight: var(--mercury-h4-tertiary-mobile-fontWeight);
+  line-height: var(--mercury-h4-tertiary-mobile-lineHeight);
+  font-style: var(--mercury-h4-tertiary-mobile-fontStyle);
+  text-transform: var(--mercury-h4-tertiary-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h4-tertiary-fontFamily);
+    font-size: var(--mercury-h4-tertiary-fontSize);
+    font-weight: var(--mercury-h4-tertiary-fontWeight);
+    line-height: var(--mercury-h4-tertiary-lineHeight);
+    font-style: var(--mercury-h4-tertiary-fontStyle);
+    text-transform: var(--mercury-h4-tertiary-textTransform);
+  }
+}
+
+.h5-primary {
+  font-family: var(--mercury-h5-mobile-fontFamily);
+  font-size: var(--mercury-h5-mobile-fontSize);
+  font-weight: var(--mercury-h5-mobile-fontWeight);
+  line-height: var(--mercury-h5-mobile-lineHeight);
+  font-style: var(--mercury-h5-mobile-fontStyle);
+  text-transform: var(--mercury-h5-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h5-fontFamily);
+    font-size: var(--mercury-h5-fontSize);
+    font-weight: var(--mercury-h5-fontWeight);
+    line-height: var(--mercury-h5-lineHeight);
+    font-style: var(--mercury-h5-fontStyle);
+    text-transform: var(--mercury-h5-textTransform);
+  }
+}
+.h5-secondary {
+  font-family: var(--mercury-h5-secondary-mobile-fontFamily);
+  font-size: var(--mercury-h5-secondary-mobile-fontSize);
+  font-weight: var(--mercury-h5-secondary-mobile-fontWeight);
+  line-height: var(--mercury-h5-secondary-mobile-lineHeight);
+  font-style: var(--mercury-h5-secondary-mobile-fontStyle);
+  text-transform: var(--mercury-h5-secondary-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h5-secondary-fontFamily);
+    font-size: var(--mercury-h5-secondary-fontSize);
+    font-weight: var(--mercury-h5-secondary-fontWeight);
+    line-height: var(--mercury-h5-secondary-lineHeight);
+    font-style: var(--mercury-h5-secondary-fontStyle);
+    text-transform: var(--mercury-h5-secondary-textTransform);
+  }
+}
+
+.h5-tertiary {
+  font-family: var(--mercury-h5-tertiary-mobile-fontFamily);
+  font-size: var(--mercury-h5-tertiary-mobile-fontSize);
+  font-weight: var(--mercury-h5-tertiary-mobile-fontWeight);
+  line-height: var(--mercury-h5-tertiary-mobile-lineHeight);
+  font-style: var(--mercury-h5-tertiary-mobile-fontStyle);
+  text-transform: var(--mercury-h5-tertiary-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h5-tertiary-fontFamily);
+    font-size: var(--mercury-h5-tertiary-fontSize);
+    font-weight: var(--mercury-h5-tertiary-fontWeight);
+    line-height: var(--mercury-h5-tertiary-lineHeight);
+    font-style: var(--mercury-h5-tertiary-fontStyle);
+    text-transform: var(--mercury-h5-tertiary-textTransform);
+  }
+}
+
+.h6-primary {
+  font-family: var(--mercury-h6-mobile-fontFamily);
+  font-size: var(--mercury-h6-mobile-fontSize);
+  font-weight: var(--mercury-h6-mobile-fontWeight);
+  line-height: var(--mercury-h6-mobile-lineHeight);
+  font-style: var(--mercury-h6-mobile-fontStyle);
+  text-transform: var(--mercury-h6-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h6-fontFamily);
+    font-size: var(--mercury-h6-fontSize);
+    font-weight: var(--mercury-h6-fontWeight);
+    line-height: var(--mercury-h6-lineHeight);
+    font-style: var(--mercury-h6-fontStyle);
+    text-transform: var(--mercury-h6-textTransform);
+  }
+}
+.h6-secondary {
+  font-family: var(--mercury-h6-secondary-mobile-fontFamily);
+  font-size: var(--mercury-h6-secondary-mobile-fontSize);
+  font-weight: var(--mercury-h6-secondary-mobile-fontWeight);
+  line-height: var(--mercury-h6-secondary-mobile-lineHeight);
+  font-style: var(--mercury-h6-secondary-mobile-fontStyle);
+  text-transform: var(--mercury-h6-secondary-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h6-secondary-fontFamily);
+    font-size: var(--mercury-h6-secondary-fontSize);
+    font-weight: var(--mercury-h6-secondary-fontWeight);
+    line-height: var(--mercury-h6-secondary-lineHeight);
+    font-style: var(--mercury-h6-secondary-fontStyle);
+    text-transform: var(--mercury-h6-secondary-textTransform);
+  }
+}
+
+.h6-tertiary {
+  font-family: var(--mercury-h6-tertiary-mobile-fontFamily);
+  font-size: var(--mercury-h6-tertiary-mobile-fontSize);
+  font-weight: var(--mercury-h6-tertiary-mobile-fontWeight);
+  line-height: var(--mercury-h6-tertiary-mobile-lineHeight);
+  font-style: var(--mercury-h6-tertiary-mobile-fontStyle);
+  text-transform: var(--mercury-h6-tertiary-mobile-textTransform);
+
+  @media all and (min-width: 1024px) {
+    font-family: var(--mercury-h6-tertiary-fontFamily);
+    font-size: var(--mercury-h6-tertiary-fontSize);
+    font-weight: var(--mercury-h6-tertiary-fontWeight);
+    line-height: var(--mercury-h6-tertiary-lineHeight);
+    font-style: var(--mercury-h6-tertiary-fontStyle);
+    text-transform: var(--mercury-h6-tertiary-textTransform);
+  }
 }
 
 .icon {

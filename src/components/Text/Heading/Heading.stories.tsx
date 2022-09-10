@@ -10,7 +10,7 @@ export default {
   parameters: {
     pkg,
   },
-  argTypes: buildExcludeArgTypes(['className']),
+  // argTypes: buildExcludeArgTypes(['className']),
 } as ComponentMeta<typeof Heading>;
 
 const Template: ComponentStory<typeof Heading> = (args) => {
@@ -31,5 +31,5 @@ const Template: ComponentStory<typeof Heading> = (args) => {
 
 export const Head = Template.bind({});
 Head.args = {
-  tag: 'h1',
+  variation: 'h1',
 };
