@@ -59,216 +59,234 @@
   --mercury-font-family-alt: 'PP Monument Extended, sans-serif';
   --mercury-font-family-icons: 'Material Symbols Rounded';
 
-  --mercury-h1-fontFamily: 'PP Monument Extended, sans-serif';
+  --mercury-h1-fontFamily: "PP Monument Extended", sans-serif;
   --mercury-h1-fontSize: 68px;
   --mercury-h1-fontWeight: 700;
   --mercury-h1-lineHeight: 1.3;
   --mercury-h1-fontStyle: none;
   --mercury-h1-textTransform: uppercase;
+  --mercury-h1-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h1-mobile-fontSize: 48px;
   --mercury-h1-mobile-fontWeight: 700;
   --mercury-h1-mobile-lineHeight: 1.3;
   --mercury-h1-mobile-fontStyle: none;
   --mercury-h1-mobile-textTransform: none;
 
-  --mercury-h1-secondary-fontFamily: 'PP Monument Extended, sans-serif';
+  --mercury-h1-secondary-fontFamily: "PP Monument Extended", sans-serif;
   --mercury-h1-secondary-fontSize: 68px;
   --mercury-h1-secondary-fontWeight: 700;
   --mercury-h1-secondary-lineHeight: 1.3;
   --mercury-h1-secondary-fontStyle: none;
   --mercury-h1-secondary-textTransform: uppercase;
+  --mercury-h1-secondary-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h1-secondary-mobile-fontSize: 48px;
   --mercury-h1-secondary-mobile-fontWeight: 500;
   --mercury-h1-secondary-mobile-lineHeight: 1.3;
   --mercury-h1-secondary-mobile-fontStyle: none;
   --mercury-h1-secondary-mobile-textTransform: none;
 
-  --mercury-h1-tertiary-fontFamily: 'PP Monument Extended, sans-serif';
+  --mercury-h1-tertiary-fontFamily: "PP Monument Extended", sans-serif;
   --mercury-h1-tertiary-fontSize: 68px;
   --mercury-h1-tertiary-fontWeight: 700;
   --mercury-h1-tertiary-lineHeight: 1.3;
   --mercury-h1-tertiary-fontStyle: none;
   --mercury-h1-tertiary-textTransform: uppercase;
+  --mercury-h1-tertiary-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h1-tertiary-mobile-fontSize: 48px;
   --mercury-h1-tertiary-mobile-fontWeight: 400;
   --mercury-h1-tertiary-mobile-lineHeight: 1.3;
   --mercury-h1-tertiary-mobile-fontStyle: none;
   --mercury-h1-tertiary-mobile-textTransform: none;
 
-  --mercury-h2-fontFamily: 'PP Monument Extended, sans-serif';
+  --mercury-h2-fontFamily: "PP Monument Extended", sans-serif;
   --mercury-h2-fontSize: 60px;
   --mercury-h2-fontWeight: 700;
   --mercury-h2-lineHeight: 1.3;
   --mercury-h2-fontStyle: none;
   --mercury-h2-textTransform: uppercase;
+  --mercury-h2-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h2-mobile-fontSize: 32px;
   --mercury-h2-mobile-fontWeight: 700;
   --mercury-h2-mobile-lineHeight: 1.3;
   --mercury-h2-mobile-fontStyle: none;
   --mercury-h2-mobile-textTransform: none;
 
-  --mercury-h2-secondary-fontFamily: 'PP Monument Extended, sans-serif';
+  --mercury-h2-secondary-fontFamily: "PP Monument Extended", sans-serif;
   --mercury-h2-secondary-fontSize: 68px;
   --mercury-h2-secondary-fontWeight: 700;
   --mercury-h2-secondary-lineHeight: 1.3;
   --mercury-h2-secondary-fontStyle: none;
   --mercury-h2-secondary-textTransform: uppercase;
+  --mercury-h2-secondary-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h2-secondary-mobile-fontSize: 32px;
   --mercury-h2-secondary-mobile-fontWeight: 500;
   --mercury-h2-secondary-mobile-lineHeight: 1.3;
   --mercury-h2-secondary-mobile-fontStyle: none;
   --mercury-h2-secondary-mobile-textTransform: none;
 
-  --mercury-h2-tertiary-fontFamily: 'PP Monument Extended, sans-serif';
+  --mercury-h2-tertiary-fontFamily: "PP Monument Extended", sans-serif;
   --mercury-h2-tertiary-fontSize: 68px;
   --mercury-h2-tertiary-fontWeight: 700;
   --mercury-h2-tertiary-lineHeight: 1.3;
   --mercury-h2-tertiary-fontStyle: none;
   --mercury-h2-tertiary-textTransform: uppercase;
+  --mercury-h2-tertiary-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h2-tertiary-mobile-fontSize: 32px;
   --mercury-h2-tertiary-mobile-fontWeight: 400;
   --mercury-h2-tertiary-mobile-lineHeight: 1.3;
   --mercury-h2-tertiary-mobile-fontStyle: none;
   --mercury-h2-tertiary-mobile-textTransform: none;
 
-  --mercury-h3-fontFamily: 'PP Monument Extended, sans-serif';
+  --mercury-h3-fontFamily: "PP Monument Extended", sans-serif;
   --mercury-h3-fontSize: 54px;
   --mercury-h3-fontWeight: 700;
   --mercury-h3-lineHeight: 1.25;
   --mercury-h3-fontStyle: none;
   --mercury-h3-textTransform: uppercase;
+  --mercury-h3-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h3-mobile-fontSize: 24px;
   --mercury-h3-mobile-fontWeight: 700;
   --mercury-h3-mobile-lineHeight: 1.25;
   --mercury-h3-mobile-fontStyle: none;
   --mercury-h3-mobile-textTransform: none;
 
-  --mercury-h3-secondary-fontFamily: 'PP Monument Extended, sans-serif';
+  --mercury-h3-secondary-fontFamily: "PP Monument Extended", sans-serif;
   --mercury-h3-secondary-fontSize: 54px;
   --mercury-h3-secondary-fontWeight: 700;
   --mercury-h3-secondary-lineHeight: 1.25;
   --mercury-h3-secondary-fontStyle: none;
   --mercury-h3-secondary-textTransform: uppercase;
+  --mercury-h3-secondary-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h3-secondary-mobile-fontSize: 24px;
   --mercury-h3-secondary-mobile-fontWeight: 500;
   --mercury-h3-secondary-mobile-lineHeight: 1.25;
   --mercury-h3-secondary-mobile-fontStyle: none;
   --mercury-h3-secondary-mobile-textTransform: none;
 
-  --mercury-h3-tertiary-fontFamily: 'PP Monument Extended, sans-serif';
+  --mercury-h3-tertiary-fontFamily: "PP Monument Extended", sans-serif;
   --mercury-h3-tertiary-fontSize: 54px;
   --mercury-h3-tertiary-fontWeight: 700;
   --mercury-h3-tertiary-lineHeight: 1.25;
   --mercury-h3-tertiary-fontStyle: none;
   --mercury-h3-tertiary-textTransform: uppercase;
+  --mercury-h3-tertiary-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h3-tertiary-mobile-fontSize: 24px;
   --mercury-h3-tertiary-mobile-fontWeight: 400;
   --mercury-h3-tertiary-mobile-lineHeight: 1.25;
   --mercury-h3-tertiary-mobile-fontStyle: none;
   --mercury-h3-tertiary-mobile-textTransform: none;
 
-  --mercury-h4-fontFamily: 'PP Object Sans, sans-serif';
+  --mercury-h4-fontFamily: var(--mercury-font-family);
   --mercury-h4-fontSize: 48px;
   --mercury-h4-fontWeight: 700;
   --mercury-h4-lineHeight: 1.3;
   --mercury-h4-fontStyle: none;
   --mercury-h4-textTransform: none;
+  --mercury-h4-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h4-mobile-fontSize: 20px;
   --mercury-h4-mobile-fontWeight: 700;
   --mercury-h4-mobile-lineHeight: 1.3;
   --mercury-h4-mobile-fontStyle: none;
   --mercury-h4-mobile-textTransform: none;
 
-  --mercury-h4-secondary-fontFamily: 'PP Object Sans, sans-serif';
+  --mercury-h4-secondary-fontFamily: var(--mercury-font-family);
   --mercury-h4-secondary-fontSize: 48px;
   --mercury-h4-secondary-fontWeight: 700;
   --mercury-h4-secondary-lineHeight: 1.3;
   --mercury-h4-secondary-fontStyle: italic;
   --mercury-h4-secondary-textTransform: none;
+  --mercury-h4-secondary-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h4-secondary-mobile-fontSize: 20px;
   --mercury-h4-secondary-mobile-fontWeight: 500;
   --mercury-h4-secondary-mobile-lineHeight: 1.3;
   --mercury-h4-secondary-mobile-fontStyle: none;
   --mercury-h4-secondary-mobile-textTransform: none;
 
-  --mercury-h4-tertiary-fontFamily: 'PP Object Sans, sans-serif';
+  --mercury-h4-tertiary-fontFamily: var(--mercury-font-family);
   --mercury-h4-tertiary-fontSize: 48px;
   --mercury-h4-tertiary-fontWeight: 700;
   --mercury-h4-tertiary-lineHeight: 1.3;
   --mercury-h4-tertiary-fontStyle: none;
   --mercury-h4-tertiary-textTransform: none;
+  --mercury-h4-tertiary-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h4-tertiary-mobile-fontSize: 20px;
   --mercury-h4-tertiary-mobile-fontWeight: 400;
   --mercury-h4-tertiary-mobile-lineHeight: 1.3;
   --mercury-h4-tertiary-mobile-fontStyle: none;
   --mercury-h4-tertiary-mobile-textTransform: none;
 
-  --mercury-h5-fontFamily: 'PP Object Sans, sans-serif';
+  --mercury-h5-fontFamily: "PP Monument Extended", sans-serif;
   --mercury-h5-fontSize: 42px;
   --mercury-h5-fontWeight: 400;
   --mercury-h5-lineHeight: 1.5;
   --mercury-h5-fontStyle: none;
   --mercury-h5-textTransform: none;
+  --mercury-h5-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h5-mobile-fontSize: 20px;
   --mercury-h5-mobile-fontWeight: 700;
   --mercury-h5-mobile-lineHeight: 1.3;
   --mercury-h5-mobile-fontStyle: none;
   --mercury-h5-mobile-textTransform: none;
 
-  --mercury-h5-secondary-fontFamily: 'PP Object Sans, sans-serif';
+  --mercury-h5-secondary-fontFamily: "PP Monument Extended", sans-serif;
   --mercury-h5-secondary-fontSize: 42px;
   --mercury-h5-secondary-fontWeight: 200;
   --mercury-h5-secondary-lineHeight: 1.5;
   --mercury-h5-secondary-fontStyle: none;
   --mercury-h5-secondary-textTransform: none;
+  --mercury-h5-secondary-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h5-secondary-mobile-fontSize: 20px;
   --mercury-h5-secondary-mobile-fontWeight: 500;
   --mercury-h5-secondary-mobile-lineHeight: 1.3;
   --mercury-h5-secondary-mobile-fontStyle: none;
   --mercury-h5-secondary-mobile-textTransform: none;
 
-  --mercury-h5-tertiary-fontFamily: 'PP Object Sans, sans-serif';
+  --mercury-h5-tertiary-fontFamily: "PP Monument Extended", sans-serif;
   --mercury-h5-tertiary-fontSize: 42px;
   --mercury-h5-tertiary-fontWeight: 400;
   --mercury-h5-tertiary-lineHeight: 1.5;
   --mercury-h5-tertiary-fontStyle: none;
   --mercury-h5-tertiary-textTransform: none;
+  --mercury-h5-tertiary-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h5-tertiary-mobile-fontSize: 20px;
   --mercury-h5-tertiary-mobile-fontWeight: 400;
   --mercury-h5-tertiary-mobile-lineHeight: 1.3;
   --mercury-h5-tertiary-mobile-fontStyle: none;
   --mercury-h5-tertiary-mobile-textTransform: none;
 
-  --mercury-h6-fontFamily: 'PP Object Sans, sans-serif';
+  --mercury-h6-fontFamily: "PP Monument Extended", sans-serif;
   --mercury-h6-fontSize: 32px;
   --mercury-h6-fontWeight: 700;
   --mercury-h6-lineHeight: 1.5;
   --mercury-h6-fontStyle: none;
   --mercury-h6-textTransform: none;
+  --mercury-h6-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h6-mobile-fontSize: 20px;
   --mercury-h6-mobile-fontWeight: 700;
   --mercury-h6-mobile-lineHeight: 1.3;
   --mercury-h6-mobile-fontStyle: none;
   --mercury-h6-mobile-textTransform: none;
 
-  --mercury-h6-secondary-fontFamily: 'PP Object Sans, sans-serif';
+  --mercury-h6-secondary-fontFamily: "PP Monument Extended", sans-serif;
   --mercury-h6-secondary-fontSize: 32px;
   --mercury-h6-secondary-fontWeight: 500;
   --mercury-h6-secondary-lineHeight: 1.5;
   --mercury-h6-secondary-fontStyle: none;
   --mercury-h6-secondary-textTransform: none;
+  --mercury-h6-secondary-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h6-secondary-mobile-fontSize: 48px;
   --mercury-h6-secondary-mobile-fontWeight: 500;
   --mercury-h6-secondary-mobile-lineHeight: 1.3;
   --mercury-h6-secondary-mobile-fontStyle: none;
   --mercury-h6-secondary-mobile-textTransform: none;
 
-  --mercury-h6-tertiary-fontFamily: 'PP Object Sans, sans-serif';
+  --mercury-h6-tertiary-fontFamily: "PP Monument Extended", sans-serif;
   --mercury-h6-tertiary-fontSize: 32px;
   --mercury-h6-tertiary-fontWeight: 400;
   --mercury-h6-tertiary-lineHeight: 1.5;
   --mercury-h6-tertiary-fontStyle: none;
   --mercury-h6-tertiary-textTransform: none;
+  --mercury-h6-tertiary-mobile-fontFamily: "PP Object Sans", sans-serif;
   --mercury-h6-tertiary-mobile-fontSize: 48px;
   --mercury-h6-tertiary-mobile-fontWeight: 400;
   --mercury-h6-tertiary-mobile-lineHeight: 1.3;
@@ -325,8 +343,8 @@
   --mercury-shadow-color-dark: rgba(40,47,52,.3);
 }
 
-.h1-primary {
-  font-family: 'PP Monument Extended, sans-serif';
+.h1 {
+  font-family: var(--mercury-h1-mobile-fontFamily);
   font-size: var(--mercury-h1-mobile-fontSize);
   font-weight: var(--mercury-h1-mobile-fontWeight);
   line-height: var(--mercury-h1-mobile-lineHeight);
@@ -334,7 +352,7 @@
   text-transform: var(--mercury-h1-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h1-fontFamily);
     font-size: var(--mercury-h1-fontSize);
     font-weight: var(--mercury-h1-fontWeight);
     line-height: var(--mercury-h1-lineHeight);
@@ -343,7 +361,7 @@
   }
 }
 .h1-secondary {
-  font-family: 'PP Monument Extended, sans-serif';
+  font-family: var(--mercury-h1-secondary-mobile-fontFamily);
   font-size: var(--mercury-h1-secondary-mobile-fontSize);
   font-weight: var(--mercury-h1-secondary-mobile-fontWeight);
   line-height: var(--mercury-h1-secondary-mobile-lineHeight);
@@ -351,7 +369,7 @@
   text-transform: var(--mercury-h1-secondary-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h1-secondary-fontFamily);
     font-size: var(--mercury-h1-secondary-fontSize);
     font-weight: var(--mercury-h1-secondary-fontWeight);
     line-height: var(--mercury-h1-secondary-lineHeight);
@@ -361,7 +379,7 @@
 }
 
 .h1-tertiary {
-  font-family: 'PP Monument Extended, sans-serif';
+  font-family: var(--mercury-h1-tertiary-mobile-fontFamily);
   font-size: var(--mercury-h1-tertiary-mobile-fontSize);
   font-weight: var(--mercury-h1-tertiary-mobile-fontWeight);
   line-height: var(--mercury-h1-tertiary-mobile-lineHeight);
@@ -369,7 +387,7 @@
   text-transform: var(--mercury-h1-tertiary-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h1-tertiary-fontFamily);
     font-size: var(--mercury-h1-tertiary-fontSize);
     font-weight: var(--mercury-h1-tertiary-fontWeight);
     line-height: var(--mercury-h1-tertiary-lineHeight);
@@ -378,8 +396,8 @@
   }
 }
 
-.h2-primary {
-  font-family: 'PP Monument Extended, sans-serif';
+.h2 {
+  font-family: var(--mercury-h2-mobile-fontFamily);
   font-size: var(--mercury-h2-mobile-fontSize);
   font-weight: var(--mercury-h2-mobile-fontWeight);
   line-height: var(--mercury-h2-mobile-lineHeight);
@@ -387,7 +405,7 @@
   text-transform: var(--mercury-h2-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h2-fontFamily);
     font-size: var(--mercury-h2-fontSize);
     font-weight: var(--mercury-h2-fontWeight);
     line-height: var(--mercury-h2-lineHeight);
@@ -396,7 +414,7 @@
   }
 }
 .h2-secondary {
-  font-family: 'PP Monument Extended, sans-serif';
+  font-family: var(--mercury-h2-secondary-mobile-fontFamily);
   font-size: var(--mercury-h2-secondary-mobile-fontSize);
   font-weight: var(--mercury-h2-secondary-mobile-fontWeight);
   line-height: var(--mercury-h2-secondary-mobile-lineHeight);
@@ -404,7 +422,7 @@
   text-transform: var(--mercury-h2-secondary-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h2-secondary-fontFamily);
     font-size: var(--mercury-h2-secondary-fontSize);
     font-weight: var(--mercury-h2-secondary-fontWeight);
     line-height: var(--mercury-h2-secondary-lineHeight);
@@ -414,7 +432,7 @@
 }
 
 .h2-tertiary {
-  font-family: 'PP Monument Extended, sans-serif';
+  font-family: var(--mercury-h2-tertiary-mobile-fontFamily);
   font-size: var(--mercury-h2-tertiary-mobile-fontSize);
   font-weight: var(--mercury-h2-tertiary-mobile-fontWeight);
   line-height: var(--mercury-h2-tertiary-mobile-lineHeight);
@@ -422,7 +440,7 @@
   text-transform: var(--mercury-h2-tertiary-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h2-tertiary-fontFamily);
     font-size: var(--mercury-h2-tertiary-fontSize);
     font-weight: var(--mercury-h2-tertiary-fontWeight);
     line-height: var(--mercury-h2-tertiary-lineHeight);
@@ -431,8 +449,8 @@
   }
 }
 
-.h3-primary {
-  font-family: 'PP Monument Extended, sans-serif';
+.h3 {
+  font-family: var(--mercury-h3-mobile-fontFamily);
   font-size: var(--mercury-h3-mobile-fontSize);
   font-weight: var(--mercury-h3-mobile-fontWeight);
   line-height: var(--mercury-h3-mobile-lineHeight);
@@ -440,7 +458,7 @@
   text-transform: var(--mercury-h3-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h3-fontFamily);
     font-size: var(--mercury-h3-fontSize);
     font-weight: var(--mercury-h3-fontWeight);
     line-height: var(--mercury-h3-lineHeight);
@@ -449,7 +467,7 @@
   }
 }
 .h3-secondary {
-  font-family: 'PP Monument Extended, sans-serif';
+  font-family: var(--mercury-h3-secondary-mobile-fontFamily);
   font-size: var(--mercury-h3-secondary-mobile-fontSize);
   font-weight: var(--mercury-h3-secondary-mobile-fontWeight);
   line-height: var(--mercury-h3-secondary-mobile-lineHeight);
@@ -457,7 +475,7 @@
   text-transform: var(--mercury-h3-secondary-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h3-secondary-fontFamily);
     font-size: var(--mercury-h3-secondary-fontSize);
     font-weight: var(--mercury-h3-secondary-fontWeight);
     line-height: var(--mercury-h3-secondary-lineHeight);
@@ -467,7 +485,7 @@
 }
 
 .h3-tertiary {
-  font-family: 'PP Monument Extended, sans-serif';
+  font-family: var(--mercury-h3-tertiary-mobile-fontFamily);
   font-size: var(--mercury-h3-tertiary-mobile-fontSize);
   font-weight: var(--mercury-h3-tertiary-mobile-fontWeight);
   line-height: var(--mercury-h3-tertiary-mobile-lineHeight);
@@ -475,7 +493,7 @@
   text-transform: var(--mercury-h3-tertiary-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h3-tertiary-fontFamily);
     font-size: var(--mercury-h3-tertiary-fontSize);
     font-weight: var(--mercury-h3-tertiary-fontWeight);
     line-height: var(--mercury-h3-tertiary-lineHeight);
@@ -484,8 +502,8 @@
   }
 }
 
-.h4-primary {
-  font-family: 'PP Object Sans, sans-serif';
+.h4 {
+  font-family: var(--mercury-h4-mobile-fontFamily);
   font-size: var(--mercury-h4-mobile-fontSize);
   font-weight: var(--mercury-h4-mobile-fontWeight);
   line-height: var(--mercury-h4-mobile-lineHeight);
@@ -493,7 +511,7 @@
   text-transform: var(--mercury-h4-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h4-fontFamily);
     font-size: var(--mercury-h4-fontSize);
     font-weight: var(--mercury-h4-fontWeight);
     line-height: var(--mercury-h4-lineHeight);
@@ -502,7 +520,7 @@
   }
 }
 .h4-secondary {
-  font-family: 'PP Object Sans, sans-serif';
+  font-family: var(--mercury-h4-secondary-mobile-fontFamily);
   font-size: var(--mercury-h4-secondary-mobile-fontSize);
   font-weight: var(--mercury-h4-secondary-mobile-fontWeight);
   line-height: var(--mercury-h4-secondary-mobile-lineHeight);
@@ -510,7 +528,7 @@
   text-transform: var(--mercury-h4-secondary-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h4-secondary-fontFamily);
     font-size: var(--mercury-h4-secondary-fontSize);
     font-weight: var(--mercury-h4-secondary-fontWeight);
     line-height: var(--mercury-h4-secondary-lineHeight);
@@ -520,7 +538,7 @@
 }
 
 .h4-tertiary {
-  font-family: 'PP Object Sans, sans-serif';
+  font-family: var(--mercury-h4-tertiary-mobile-fontFamily);
   font-size: var(--mercury-h4-tertiary-mobile-fontSize);
   font-weight: var(--mercury-h4-tertiary-mobile-fontWeight);
   line-height: var(--mercury-h4-tertiary-mobile-lineHeight);
@@ -528,7 +546,7 @@
   text-transform: var(--mercury-h4-tertiary-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h4-tertiary-fontFamily);
     font-size: var(--mercury-h4-tertiary-fontSize);
     font-weight: var(--mercury-h4-tertiary-fontWeight);
     line-height: var(--mercury-h4-tertiary-lineHeight);
@@ -537,8 +555,8 @@
   }
 }
 
-.h5-primary {
-  font-family: 'PP Object Sans, sans-serif';
+.h5 {
+  font-family: var(--mercury-h5-mobile-fontFamily);
   font-size: var(--mercury-h5-mobile-fontSize);
   font-weight: var(--mercury-h5-mobile-fontWeight);
   line-height: var(--mercury-h5-mobile-lineHeight);
@@ -546,7 +564,7 @@
   text-transform: var(--mercury-h5-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h5-fontFamily);
     font-size: var(--mercury-h5-fontSize);
     font-weight: var(--mercury-h5-fontWeight);
     line-height: var(--mercury-h5-lineHeight);
@@ -555,7 +573,7 @@
   }
 }
 .h5-secondary {
-  font-family: 'PP Object Sans, sans-serif';
+  font-family: var(--mercury-h5-secondary-mobile-fontFamily);
   font-size: var(--mercury-h5-secondary-mobile-fontSize);
   font-weight: var(--mercury-h5-secondary-mobile-fontWeight);
   line-height: var(--mercury-h5-secondary-mobile-lineHeight);
@@ -563,7 +581,7 @@
   text-transform: var(--mercury-h5-secondary-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h5-secondary-fontFamily);
     font-size: var(--mercury-h5-secondary-fontSize);
     font-weight: var(--mercury-h5-secondary-fontWeight);
     line-height: var(--mercury-h5-secondary-lineHeight);
@@ -573,7 +591,7 @@
 }
 
 .h5-tertiary {
-  font-family: 'PP Object Sans, sans-serif';
+  font-family: var(--mercury-h5-tertiary-mobile-fontFamily);
   font-size: var(--mercury-h5-tertiary-mobile-fontSize);
   font-weight: var(--mercury-h5-tertiary-mobile-fontWeight);
   line-height: var(--mercury-h5-tertiary-mobile-lineHeight);
@@ -581,7 +599,7 @@
   text-transform: var(--mercury-h5-tertiary-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h5-tertiary-fontFamily);
     font-size: var(--mercury-h5-tertiary-fontSize);
     font-weight: var(--mercury-h5-tertiary-fontWeight);
     line-height: var(--mercury-h5-tertiary-lineHeight);
@@ -590,8 +608,8 @@
   }
 }
 
-.h6-primary {
-  font-family: 'PP Object Sans, sans-serif';
+.h6 {
+  font-family: var(--mercury-h6-mobile-fontFamily);
   font-size: var(--mercury-h6-mobile-fontSize);
   font-weight: var(--mercury-h6-mobile-fontWeight);
   line-height: var(--mercury-h6-mobile-lineHeight);
@@ -599,7 +617,7 @@
   text-transform: var(--mercury-h6-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h6-fontFamily);
     font-size: var(--mercury-h6-fontSize);
     font-weight: var(--mercury-h6-fontWeight);
     line-height: var(--mercury-h6-lineHeight);
@@ -608,7 +626,7 @@
   }
 }
 .h6-secondary {
-  font-family: 'PP Object Sans, sans-serif';
+  font-family: var(--mercury-h6-secondary-mobile-fontFamily);
   font-size: var(--mercury-h6-secondary-mobile-fontSize);
   font-weight: var(--mercury-h6-secondary-mobile-fontWeight);
   line-height: var(--mercury-h6-secondary-mobile-lineHeight);
@@ -616,7 +634,7 @@
   text-transform: var(--mercury-h6-secondary-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h6-secondary-fontFamily);
     font-size: var(--mercury-h6-secondary-fontSize);
     font-weight: var(--mercury-h6-secondary-fontWeight);
     line-height: var(--mercury-h6-secondary-lineHeight);
@@ -626,7 +644,7 @@
 }
 
 .h6-tertiary {
-  font-family: 'PP Object Sans, sans-serif';
+  font-family: var(--mercury-h6-tertiary-mobile-fontFamily);
   font-size: var(--mercury-h6-tertiary-mobile-fontSize);
   font-weight: var(--mercury-h6-tertiary-mobile-fontWeight);
   line-height: var(--mercury-h6-tertiary-mobile-lineHeight);
@@ -634,7 +652,7 @@
   text-transform: var(--mercury-h6-tertiary-mobile-textTransform);
 
   @media all and (min-width: 1024px) {
-    font-family: 'PP Object Sans, sans-serif';
+    font-family: var(--mercury-h6-tertiary-fontFamily);
     font-size: var(--mercury-h6-tertiary-fontSize);
     font-weight: var(--mercury-h6-tertiary-fontWeight);
     line-height: var(--mercury-h6-tertiary-lineHeight);

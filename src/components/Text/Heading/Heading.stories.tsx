@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Heading } from './index';
 import pkg from './package.json';
-import { buildExcludeArgTypes } from '../../../storybook/utils';
+// import { buildExcludeArgTypes } from '../../../storybook/utils';
 
 export default {
   title: 'Components/Heading',
