@@ -6,25 +6,27 @@ export const Radio: React.FC<ICheckRadioProps> = ({
   fieldName,
   isSelected = false,
   disabled = false,
-  errorMessage = '',
+  error = false,
   className,
-  children
-}) => <InputWithToggle 
-  variation="radio"
-  type="default"
-  size={size}
-  fieldName={fieldName}
-  isSelected={isSelected}
-  disabled={disabled}
-  errorMessage={errorMessage}
-  className={className}
->
-  {children}
-</InputWithToggle>
+  children,
+}) => (
+  <InputWithToggle
+    variation='radio'
+    type='default'
+    size={size}
+    fieldName={fieldName}
+    isSelected={isSelected}
+    disabled={disabled}
+    error={error}
+    className={className}
+  >
+    {children}
+  </InputWithToggle>
+);
 
 Radio.defaultProps = {
   size: 'default',
   isSelected: false,
   disabled: false,
-  errorMessage: ''
+  error: false,
 };

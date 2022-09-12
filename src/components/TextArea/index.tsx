@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect } from 'react';
+import React, { useRef, useLayoutEffect, useId } from 'react';
 import classNames from 'classnames';
 import useInput from '../../hooks/useInput';
 import HintMessage from '../HintMessage';
@@ -30,6 +30,7 @@ export const TextArea: React.FC<ITextArea> = (props) => {
     props;
 
   const { name, value, disabled, onChange, onBlur } = useInput<ITextArea>(rest);
+  const textAreaId = useId();
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
   const hasError = Boolean(error);
   const hasLabel = Boolean(label);
@@ -56,6 +57,7 @@ export const TextArea: React.FC<ITextArea> = (props) => {
       <div className={classNames('relative')}>
         <textarea
           ref={textAreaRef}
+          id={`textarea--${textAreaId}`}
           onChange={onChange}
           onBlur={onBlur}
           value={value}
@@ -79,7 +81,7 @@ export const TextArea: React.FC<ITextArea> = (props) => {
         />
         {hasLabel && (
           <label
-            htmlFor={name}
+            htmlFor={`textarea--${textAreaId}`}
             className={classNames(
               'font-normal left-0 right-0 px-3 pt-2 text-xs text-text-hint leading-none absolute pointer-events-none whitespace-nowrap',
               'peer-disabled:text-text-disabled peer-disabled:select-none' //input disabled

@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
-import { useTheme } from '../components/Theme';
 
-export const useScreenSize = () => {
+export const useScreenSize = (breakPoint: number) => {
   const [mobile, setMobile] = useState(false);
 
-  const { theme } = useTheme();
   const handleResize = () => {
-    if (window.innerWidth > theme.mobileView) {
+    if (window.innerWidth > breakPoint) {
       setMobile(false);
     } else {
       setMobile(true);

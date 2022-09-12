@@ -1,4 +1,4 @@
-import React, { useLayoutEffect, useRef, useState } from 'react';
+import React, { useLayoutEffect, useRef, useState, useId } from 'react';
 import classNames from 'classnames';
 import useInput from '../../hooks/useInput';
 import HintMessage from '../HintMessage';
@@ -31,6 +31,7 @@ export const Input: React.FC<IInput> = (props) => {
     props;
 
   const { name, value, disabled, inputProps, onChange, onBlur } = useInput<IInput>(rest, mask);
+  const inputId = useId();
   const sideContentRef = useRef<HTMLDivElement>(null);
   const [rightPad, setRightPad] = useState(0);
 
@@ -68,6 +69,7 @@ export const Input: React.FC<IInput> = (props) => {
         <input
           type='text'
           name={name}
+          id={`input--${inputId}`}
           placeholder={placeholder}
           value={value}
           disabled={disabled}
@@ -93,6 +95,7 @@ export const Input: React.FC<IInput> = (props) => {
         />
         {hasLabel && (
           <label
+            htmlFor={`input--${inputId}`}
             className={classNames(
               'text-base leading-none absolute left-3 top-1/2 -translate-y-1/2 flex items-center transition ease-out duration-250 text-text-primary pointer-events-none whitespace-nowrap', //base
               'peer-disabled:text-text-disabled peer-disabled:select-none', //input disabled

@@ -15,19 +15,21 @@ export const Checkbox: React.FC<ICheckboxProps> = ({
   disabled = false,
   errorMessage = '',
   className,
-  children
-}) => <InputWithToggle 
-  variation={variation === 'default' ? 'checkbox' : 'checkboxCircle'}
-  type={type}
-  size={size}
-  fieldName={fieldName}
-  isSelected={isSelected}
-  disabled={disabled}
-  errorMessage={errorMessage}
-  className={className}
->
-  {children}
-</InputWithToggle>
+  children,
+}) => (
+  <InputWithToggle
+    variation={variation === 'default' ? 'checkbox' : 'checkboxCircle'}
+    type={type}
+    size={size}
+    fieldName={fieldName}
+    isSelected={isSelected}
+    disabled={disabled}
+    errorMessage={errorMessage}
+    className={className}
+  >
+    {children}
+  </InputWithToggle>
+);
 
 Checkbox.defaultProps = {
   variation: 'default',
@@ -35,5 +37,5 @@ Checkbox.defaultProps = {
   size: 'default',
   isSelected: false,
   disabled: false,
-  errorMessage: ''
+  errorMessage: '',
 };

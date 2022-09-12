@@ -8,18 +8,16 @@ export default {
   title: 'Components/Radio',
   component: Radio,
   parameters: {
-    pkg
+    pkg,
   },
-  argTypes: buildExcludeArgTypes(['className'])
+  argTypes: buildExcludeArgTypes(['className']),
 } as ComponentMeta<typeof Radio>;
 
 const Template: ComponentStory<typeof Radio> = (args) => {
-  return <Radio {...args}>
-      Radio text 01
-  </Radio>;
+  return <Radio {...args}>Radio text 01</Radio>;
 };
 
 export const RadioInput = Template.bind({});
 RadioInput.args = {
-  fieldName: 'check01'
-}
+  fieldName: 'check01',
+};

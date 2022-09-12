@@ -8,18 +8,16 @@ export default {
   title: 'Components/Checkbox',
   component: Checkbox,
   parameters: {
-    pkg
+    pkg,
   },
-  argTypes: buildExcludeArgTypes(['variation', 'className'])
+  argTypes: buildExcludeArgTypes(['variation', 'className']),
 } as ComponentMeta<typeof Checkbox>;
 
 const Template: ComponentStory<typeof Checkbox> = (args) => {
-  return <Checkbox {...args}>
-      Checkbox text
-  </Checkbox>;
+  return <Checkbox {...args}>Checkbox text</Checkbox>;
 };
 
 export const CheckboxInput = Template.bind({});
 CheckboxInput.args = {
-  fieldName: 'check01'
-}
+  fieldName: 'check01',
+};
