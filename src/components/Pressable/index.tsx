@@ -31,7 +31,6 @@ const Button: React.FC<IPressable> = (props) => {
 
   const isIconOnly = Boolean(!label && (contentLeft || contentRight));
   const colorVariant = `${color}-${variant}`;
-
   return (
     <button
       disabled={disabled}
@@ -50,11 +49,13 @@ const Button: React.FC<IPressable> = (props) => {
           ['rounded-lg']: ['curved-medium', 'curved-large'].includes(`${shape}-${size}`),
           ['rounded-full']: `${shape}` === 'round',
 
-          //border-width
+          //border-width & disabled color
           ['font-medium border-1.5 disabled:text-text-disabled disabled:border-default-extra-light']: ['mini', 'small', 'medium', 'large'].includes(
             size
           ),
           ['font-normal border disabled:text-default disabled:bg-default-light ']: ['tag-large', 'tag-small'].includes(size),
+          ['disabled:border-default-extra-light']: ['mini', 'small', 'medium', 'large'].includes(size) && variant !== 'transparent',
+          ['disabled:border-transparent']: ['mini', 'small', 'medium', 'large'].includes(size) && variant === 'transparent',
 
           //text size
           ['text-2xs']: size === 'mini' || size === 'tag-small',
@@ -70,6 +71,7 @@ const Button: React.FC<IPressable> = (props) => {
           ['py-1.5 px-3.5']: !isIconOnly && size === 'small',
           ['py-3.5 px-5.5']: !isIconOnly && size === 'medium',
           ['py-5.5 px-7.5']: !isIconOnly && size === 'large',
+
           //paddings with icons only
           ['p-0.5']: isIconOnly && size === 'mini',
           ['p-1.5']: isIconOnly && size === 'small',
@@ -93,7 +95,7 @@ const Button: React.FC<IPressable> = (props) => {
           ['bg-transparent border-transparent hover:bg-default-extra-light focus:bg-default-extra-light active:bg-error-light hover:active:border-error-extra-light active:border-error-extra-light text-error hover:text-error-dark']:
             colorVariant === 'error-transparent',
 
-          //default || grey
+          //default ||
           ['bg-default-extra-light border-default-extra-light text-default-dark hover:bg-default-light focus:bg-default-light active:bg-default']:
             colorVariant === 'default-contained' || colorVariant === 'grey-contained',
           ['bg-transparent border-default-dark text-default-dark hover:bg-default-light focus:bg-default-light active:bg-default']:
