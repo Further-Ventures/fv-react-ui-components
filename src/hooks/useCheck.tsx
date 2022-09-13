@@ -14,7 +14,7 @@ const useCheck = <T extends BaseInput>(props: T) => {
   const initValue = isChecked;
   const [internalValue, setInternalValue] = React.useState<boolean>(initValue);
   const onChangeWrapper = (e: React.BaseSyntheticEvent) => {
-    if (disabled) {
+    if (disabled || !controlled) {
       return null;
     }
 
@@ -48,7 +48,7 @@ const useCheck = <T extends BaseInput>(props: T) => {
     value,
     disabled,
     inputProps,
-    checked: controlled ? isChecked : internalValue,
+    checked: controlled ? isChecked : undefined,
     onChange: onChangeWrapper,
   };
 };

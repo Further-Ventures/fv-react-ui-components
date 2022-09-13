@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useId } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Radio } from './index';
 import pkg from './package.json';
@@ -33,15 +33,34 @@ const TemplateGroup: ComponentStory<typeof Radio> = (args) => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <fieldset id={args[0].name}>
-        <Radio {...args[0]}>{args[0].children}</Radio>
-        <Radio {...args[1]}>{args[1].children}</Radio>
-        <Radio {...args[2]}>{args[2].children}</Radio>
-        <Radio {...args[3]}>{args[3].children}</Radio>
-      </fieldset>
-      <input type='submit' value='submit' />
-    </form>
+    <>
+      <form onSubmit={onSubmit}>
+        <fieldset id={args[0].name}>
+          <Radio {...args[0]}>{args[0].children}</Radio>
+          <Radio {...args[1]}>{args[1].children}</Radio>
+          <Radio {...args[2]}>{args[2].children}</Radio>
+          <Radio {...args[3]}>{args[3].children}</Radio>
+        </fieldset>
+        <input type='submit' value='submit' />
+      </form>
+      <form onSubmit={onSubmit}>
+        <fieldset id={args[0].name}>
+          <label htmlFor='testRadio1'>
+            Test radio <input id={'testRadio1'} name='testRadio' type='radio' />
+          </label>
+          <label htmlFor='testRadio2'>
+            Test radio <input id={'testRadio2'} name='testRadio' type='radio' />
+          </label>
+          <label htmlFor='testRadio3'>
+            Test radio <input id={'testRadio3'} name='testRadio' type='radio' />
+          </label>
+          <label htmlFor='testRadio4'>
+            Test radio <input id={'testRadio4'} name='testRadio' type='radio' />
+          </label>
+        </fieldset>
+        <input type='submit' value='submit' />
+      </form>
+    </>
   );
 };
 

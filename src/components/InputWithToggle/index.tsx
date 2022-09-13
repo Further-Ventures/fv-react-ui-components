@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useId } from 'react';
 import classNames from 'classnames';
 import Icons from '../Icons';
 import useCheck from '../../hooks/useCheck';
@@ -34,14 +34,26 @@ export const InputWithToggle: React.FC<IInputWithToggleProps & ISize & ICheckExt
   ...rest
 }) => {
   const { name, checked, value, disabled, inputProps, onChange } = useCheck<IInputWithToggleProps>(rest);
-
+  const inputId = useId();
   console.log('------------');
   console.log('component value', value, '; component checked', checked);
   return (
     <div>
+      <input
+        name={name}
+        className={classNames(className, 'peer')}
+        id={`${name}-${inputId}`}
+        onChange={onChange}
+        disabled={disabled}
+        type={variation === 'radio' ? 'radio' : 'checkbox'}
+        // className='hidden'
+        value={value}
+        defaultChecked={checked}
+        {...inputProps}
+      />
       <label
-        htmlFor={`${name}-${value}`}
-        className={classNames('group flex items-center cursor-pointer ease-out transition-colors duration-300', {
+        htmlFor={`${name}-${inputId}`}
+        className={classNames('peer-checked:bg-primary-dark group flex items-center cursor-pointer ease-out transition-colors duration-300', {
           ['text-default-light']: disabled,
           ['text-error']: error,
           className,
@@ -81,17 +93,6 @@ export const InputWithToggle: React.FC<IInputWithToggleProps & ISize & ICheckExt
         </span>
         <span>{children}</span>
       </label>
-      <input
-        name={name}
-        id={`${name}-${value}`}
-        onChange={onChange}
-        disabled={disabled}
-        type={variation === 'radio' ? 'radio' : 'checkbox'}
-        // className='hidden'
-        value={value}
-        defaultChecked={checked}
-        {...inputProps}
-      />
     </div>
   );
 };
