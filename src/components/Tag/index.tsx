@@ -12,7 +12,6 @@ const Tag: React.FC<ITag> = (props) => {
 
 Tag.defaultProps = {
   size: 'large',
-  variant: 'outlined',
 };
 
 export default Tag;
