@@ -10,9 +10,14 @@ export interface IPasswordInput extends Omit<IInput, 'mask' | 'type' | 'sideCont
 export const PasswordInput: React.FC<IPasswordInput> = (props) => {
   const [showPassword, setShowPassword] = useState(false);
   const { disabled, ...rest } = props;
-  const toggleInputType = useCallback(() => {
-    setShowPassword(!showPassword);
-  }, [showPassword, setShowPassword]);
+  const toggleInputType = useCallback(
+    (evt: React.MouseEvent<HTMLButtonElement>) => {
+      evt.stopPropagation();
+
+      setShowPassword(!showPassword);
+    },
+    [showPassword, setShowPassword]
+  );
 
   const inputType = showPassword ? 'text' : 'password';
   const icon = showPassword ? 'visibility' : 'visibility_off';

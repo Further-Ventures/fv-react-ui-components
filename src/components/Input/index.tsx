@@ -100,12 +100,12 @@ export const Input: React.FC<IInput> = (props) => {
             'transition-colors duration-300 ease-out w-full',
             'placeholder:text-text-disabled placeholder:text-base placeholder:tracking-normal placeholder:font-normal placeholder:font-mercury',
             {
-              ["text-[1.5rem] tracking-wide leading-none font-extrabold font-['Verdana']"]: isPassword,
+              ["text-[1.5rem] tracking-wide leading-none font-extrabold font-['Verdana'] placeholder:absolute"]: isPassword,
               ['disabled:border-default-light disabled:bg-background select-none']: disabled,
               ['border-default hover:border-text-primary hover:bg-default-extra-light focus:border-primary']: !hasError,
               ['border-error hover:bg-default-extra-light']: hasError,
               ['px-3 pb-1.5 pt-6.5']: hasLabel,
-              ['placeholder:absolute placeholder:invisible placeholder:opacity-0 placeholder:translate-y-full placeholder:transition placeholder:duration-250 ease-out focus:placeholder:visible focus:placeholder:opacity-100 focus:placeholder:translate-y-0']:
+              ['placeholder:invisible placeholder:opacity-0 placeholder:translate-y-full placeholder:transition placeholder:duration-250 ease-out focus:placeholder:visible focus:placeholder:opacity-100 focus:placeholder:translate-y-0']:
                 hasLabel,
               ['px-3 py-1.5']: !hasLabel,
             }
