@@ -1,5 +1,5 @@
-import React from 'react';
-import { applyDigitMask } from './utils';
+import React, { useState } from 'react';
+import { TVariation } from '../components/InputWithToggle';
 
 interface BaseInput extends React.InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
@@ -8,47 +8,28 @@ interface BaseInput extends React.InputHTMLAttributes<HTMLInputElement> {
   onChange?: (e: React.BaseSyntheticEvent) => void;
 }
 
-const useCheck = <T extends BaseInput>(props: T) => {
+const useCheck = <T extends BaseInput>(props: T, variation: TVariation) => {
+  const isCheckbox = variation !== 'radio';
   const { disabled, name = '', isChecked = false, onChange, value, ...inputProps } = props;
-  const controlled = Boolean(onChange);
-  const initValue = isChecked;
-  const [internalValue, setInternalValue] = React.useState<boolean>(initValue);
+  const [internalValue, setInternalValue] = useState(isChecked);
   const onChangeWrapper = (e: React.BaseSyntheticEvent) => {
-    if (disabled || !controlled) {
+    if (disabled) {
       return null;
     }
 
-    setInternalValue((prevValue) => {
-      console.log('---------------');
-      console.log('name', e.target.value, '; prevValue', prevValue, '; e.target.checked', e.target.checked, '; controlled', controlled);
-      // debugger;
-      return e.target.checked;
-    });
+    if (isCheckbox) {
+      setInternalValue(e.target.checked);
+    }
+
     onChange && onChange(e);
   };
-
-  console.log('------------------');
-  console.log(
-    'name',
-    name,
-    '; value',
-    value,
-    '; isChecked',
-    isChecked,
-    '; internalValue',
-    internalValue,
-    '; disabled',
-    disabled,
-    '; controlled',
-    controlled
-  );
 
   return {
     name,
     value,
     disabled,
     inputProps,
-    checked: controlled ? isChecked : undefined,
+    checked: internalValue,
     onChange: onChangeWrapper,
   };
 };

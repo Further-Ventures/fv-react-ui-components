@@ -1,26 +1,26 @@
-import React, { useState, useId } from 'react';
+import React, { useId } from 'react';
 import classNames from 'classnames';
 import Icons from '../Icons';
 import useCheck from '../../hooks/useCheck';
-import { IInput } from '../Input';
 
 export type TCheckboxType = 'default' | 'intermediate';
+export type TVariation = 'checkbox' | 'radio' | 'checkboxCircle';
 export interface ISize {
   size?: 'default' | 'large';
 }
 export interface ICheckExtra {
   children: React.ReactNode;
-  value: string;
+  value?: string;
 }
 export interface ICheckRadioProps {
   name: string;
   isChecked?: boolean;
   disabled?: boolean;
-  error?: boolean;
+  error?: string;
   className?: string;
 }
 interface IInputWithToggleProps extends ICheckRadioProps {
-  variation?: 'checkbox' | 'radio' | 'checkboxCircle';
+  variation?: TVariation;
   type?: TCheckboxType;
 }
 
@@ -28,59 +28,62 @@ export const InputWithToggle: React.FC<IInputWithToggleProps & ISize & ICheckExt
   variation = 'checkbox',
   type = 'default',
   size = 'default',
-  error = false,
+  error = '',
   className,
   children,
+  isChecked,
   ...rest
 }) => {
-  const { name, checked, value, disabled, inputProps, onChange } = useCheck<IInputWithToggleProps>(rest);
+  const { name, checked, value, disabled, inputProps, onChange } = useCheck<IInputWithToggleProps>({ ...rest, isChecked }, variation);
   const inputId = useId();
-  console.log('------------');
-  console.log('component value', value, '; component checked', checked);
+
+  const derivedInputProps = variation !== 'radio' ? { ...inputProps, checked } : { ...inputProps, defaultChecked: isChecked };
+  const derivedChecked = variation !== 'radio' ? checked : isChecked;
+
   return (
     <div>
-      <input
-        name={name}
-        className={classNames(className, 'peer')}
-        id={`${name}-${inputId}`}
-        onChange={onChange}
-        disabled={disabled}
-        type={variation === 'radio' ? 'radio' : 'checkbox'}
-        // className='hidden'
-        value={value}
-        defaultChecked={checked}
-        {...inputProps}
-      />
       <label
         htmlFor={`${name}-${inputId}`}
-        className={classNames('peer-checked:bg-primary-dark group flex items-center cursor-pointer ease-out transition-colors duration-300', {
+        className={classNames('group flex items-center cursor-pointer ease-out transition-colors duration-300', {
           ['text-default-light']: disabled,
           ['text-error']: error,
           className,
         })}
       >
+        <input
+          name={name}
+          className={classNames(className, 'peer')}
+          id={`${name}-${inputId}`}
+          onChange={onChange}
+          disabled={disabled}
+          type={variation === 'radio' ? 'radio' : 'checkbox'}
+          // className='hidden'
+          value={value}
+          // defaultChecked={derivedChecked}
+          {...derivedInputProps}
+        />
         <span
           className={classNames('flex justify-center items-center rounded border mr-2 ease-out transition-all duration-300', {
             ['rounded']: variation === 'checkbox',
             ['rounded-2xl']: variation !== 'checkbox',
             ['w-4 h-4']: size === 'default',
             ['w-5 h-5']: size === 'large',
-            ['border-default group-hover:bg-primary-light group-hover:border-primary-dark']: !checked && !disabled && !error,
-            ['border-primary bg-primary group-hover:bg-primary-dark group-hover:border-primary-dark']: checked && !disabled && !error,
+            ['border-default group-hover:bg-primary-light group-hover:border-primary-dark']: !derivedChecked && !disabled && !error,
+            ['border-primary bg-primary group-hover:bg-primary-dark group-hover:border-primary-dark']: derivedChecked && !disabled && !error,
             ['border-default-light bg-background-secondary group-hover:border-default-light group-hover:bg-background-secondary']: disabled,
             ['border-error']: error,
-            ['border-error group-hover:bg-error-light group-hover:border-error']: !checked && !disabled && error,
-            ['border-error bg-error group-hover:bg-error group-hover:border-error']: checked && !disabled && error,
+            ['border-error group-hover:bg-error-light group-hover:border-error']: !derivedChecked && !disabled && error,
+            ['border-error bg-error group-hover:bg-error group-hover:border-error']: derivedChecked && !disabled && error,
           })}
         >
-          {variation !== 'radio' && checked ? (
+          {variation !== 'radio' && derivedChecked ? (
             <Icons
               icon={variation === 'checkbox' && type === 'intermediate' ? 'remove' : 'check'}
               size={size === 'large' ? 15 : 10}
               color={disabled ? 'default-light' : 'primary-contrast-secondary'}
             />
           ) : null}
-          {variation === 'radio' && checked ? (
+          {variation === 'radio' && derivedChecked ? (
             <span
               className={classNames('rounded', {
                 ['bg-primary-contrast-secondary']: !disabled,
@@ -104,5 +107,5 @@ InputWithToggle.defaultProps = {
   value: 'fieldName',
   isChecked: false,
   disabled: false,
-  error: false,
+  error: '',
 };

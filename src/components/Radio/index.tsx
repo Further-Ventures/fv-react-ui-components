@@ -7,9 +7,10 @@ export const Radio: React.FC<ICheckRadioProps & ISize & ICheckExtra> = ({
   value = 'fieldName',
   isChecked = false,
   disabled = false,
-  error = false,
+  error = '',
   className,
   children,
+  ...rest
 }) => (
   <InputWithToggle
     variation='radio'
@@ -21,6 +22,7 @@ export const Radio: React.FC<ICheckRadioProps & ISize & ICheckExtra> = ({
     value={value}
     error={error}
     className={className}
+    {...rest}
   >
     {children}
   </InputWithToggle>
@@ -31,5 +33,5 @@ Radio.defaultProps = {
   value: 'fieldName',
   isChecked: false,
   disabled: false,
-  error: false,
+  error: '',
 };

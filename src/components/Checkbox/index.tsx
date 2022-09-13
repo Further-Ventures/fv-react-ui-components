@@ -12,28 +12,26 @@ export const Checkbox: React.FC<ICheckboxProps & ISize & ICheckExtra> = ({
   size = 'default',
   name,
   isChecked = false,
-  error = false,
+  error = '',
   value = 'fieldValue',
   className,
   children,
   ...rest
-}) => {
-  return (
-    <InputWithToggle
-      variation={variation === 'default' ? 'checkbox' : 'checkboxCircle'}
-      type={type}
-      size={size}
-      name={name}
-      value={value}
-      isChecked={isChecked}
-      error={error}
-      className={className}
-      {...rest}
-    >
-      {children}
-    </InputWithToggle>
-  );
-};
+}) => (
+  <InputWithToggle
+    variation={variation === 'default' ? 'checkbox' : 'checkboxCircle'}
+    type={type}
+    size={size}
+    name={name}
+    value={value}
+    isChecked={isChecked}
+    error={error}
+    className={className}
+    {...rest}
+  >
+    {children}
+  </InputWithToggle>
+);
 
 Checkbox.defaultProps = {
   variation: 'default',
@@ -42,5 +40,5 @@ Checkbox.defaultProps = {
   value: 'fieldName',
   isChecked: false,
   disabled: false,
-  error: false,
+  error: '',
 };

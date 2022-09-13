@@ -71,7 +71,7 @@ it('should render large circle checkbox', () => {
 it('should render checkbox with error', () => {
   const children = 'Checkbox 03';
   render(
-    <Checkbox name='check03' error={true}>
+    <Checkbox name='check03' error='error'>
       {children}
     </Checkbox>
   );
