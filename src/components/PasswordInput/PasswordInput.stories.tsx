@@ -4,8 +4,6 @@ import PasswordInput, { IPasswordInput } from './index';
 import pkg from './package.json';
 import { buildExcludeArgTypes } from '../../storybook/utils';
 
-import './stories.scss';
-
 export default {
   title: 'Components/PasswordInput',
   component: PasswordInput,
