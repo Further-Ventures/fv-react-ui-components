@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import Icons from '../Icons';
+import useCheck from '../../hooks/useCheck';
+import { IInput } from '../Input';
 
 export type TCheckboxType = 'default' | 'intermediate';
-export interface ICheckRadioProps {
+export interface ISize {
   size?: 'default' | 'large';
-  fieldName: string;
-  isSelected?: boolean;
-  disabled?: boolean;
+}
+export interface ICheckExtra {
   children: React.ReactNode;
+  value: string;
+}
+export interface ICheckRadioProps {
+  name: string;
+  isChecked?: boolean;
+  disabled?: boolean;
   error?: boolean;
   className?: string;
 }
@@ -17,26 +24,23 @@ interface IInputWithToggleProps extends ICheckRadioProps {
   type?: TCheckboxType;
 }
 
-export const InputWithToggle: React.FC<IInputWithToggleProps> = ({
+export const InputWithToggle: React.FC<IInputWithToggleProps & ISize & ICheckExtra> = ({
   variation = 'checkbox',
   type = 'default',
   size = 'default',
-  fieldName,
-  isSelected = false,
-  disabled = false,
   error = false,
   className,
   children,
+  ...rest
 }) => {
-  const [selected, setSelected] = useState(isSelected);
-  const handleSelected = () => {
-    !disabled && setSelected(!selected);
-  };
+  const { name, checked, value, disabled, inputProps, onChange } = useCheck<IInputWithToggleProps>(rest);
 
+  console.log('------------');
+  console.log('component value', value, '; component checked', checked);
   return (
     <div>
       <label
-        htmlFor={fieldName}
+        htmlFor={`${name}-${value}`}
         className={classNames('group flex items-center cursor-pointer ease-out transition-colors duration-300', {
           ['text-default-light']: disabled,
           ['text-error']: error,
@@ -49,22 +53,22 @@ export const InputWithToggle: React.FC<IInputWithToggleProps> = ({
             ['rounded-2xl']: variation !== 'checkbox',
             ['w-4 h-4']: size === 'default',
             ['w-5 h-5']: size === 'large',
-            ['border-default group-hover:bg-primary-light group-hover:border-primary-dark']: !selected && !disabled && !error,
-            ['border-primary bg-primary group-hover:bg-primary-dark group-hover:border-primary-dark']: selected && !disabled && !error,
+            ['border-default group-hover:bg-primary-light group-hover:border-primary-dark']: !checked && !disabled && !error,
+            ['border-primary bg-primary group-hover:bg-primary-dark group-hover:border-primary-dark']: checked && !disabled && !error,
             ['border-default-light bg-background-secondary group-hover:border-default-light group-hover:bg-background-secondary']: disabled,
             ['border-error']: error,
-            ['border-error group-hover:bg-error-light group-hover:border-error']: !selected && !disabled && error,
-            ['border-error bg-error group-hover:bg-error group-hover:border-error']: selected && !disabled && error,
+            ['border-error group-hover:bg-error-light group-hover:border-error']: !checked && !disabled && error,
+            ['border-error bg-error group-hover:bg-error group-hover:border-error']: checked && !disabled && error,
           })}
         >
-          {variation !== 'radio' && selected ? (
+          {variation !== 'radio' && checked ? (
             <Icons
               icon={variation === 'checkbox' && type === 'intermediate' ? 'remove' : 'check'}
               size={size === 'large' ? 15 : 10}
               color={disabled ? 'default-light' : 'primary-contrast-secondary'}
             />
           ) : null}
-          {variation === 'radio' && selected ? (
+          {variation === 'radio' && checked ? (
             <span
               className={classNames('rounded', {
                 ['bg-primary-contrast-secondary']: !disabled,
@@ -78,13 +82,15 @@ export const InputWithToggle: React.FC<IInputWithToggleProps> = ({
         <span>{children}</span>
       </label>
       <input
-        name={fieldName}
-        id={fieldName}
-        defaultChecked={selected}
-        onChange={handleSelected}
+        name={name}
+        id={`${name}-${value}`}
+        onChange={onChange}
         disabled={disabled}
         type={variation === 'radio' ? 'radio' : 'checkbox'}
-        className='hidden'
+        // className='hidden'
+        value={value}
+        defaultChecked={checked}
+        {...inputProps}
       />
     </div>
   );
@@ -94,7 +100,8 @@ InputWithToggle.defaultProps = {
   variation: 'checkbox',
   type: 'default',
   size: 'default',
-  isSelected: false,
+  value: 'fieldName',
+  isChecked: false,
   disabled: false,
   error: false,
 };

@@ -1,10 +1,11 @@
 import React from 'react';
-import { ICheckRadioProps, InputWithToggle } from '../InputWithToggle';
+import { ICheckRadioProps, ICheckExtra, InputWithToggle, ISize } from '../InputWithToggle';
 
-export const Radio: React.FC<ICheckRadioProps> = ({
+export const Radio: React.FC<ICheckRadioProps & ISize & ICheckExtra> = ({
   size = 'default',
-  fieldName,
-  isSelected = false,
+  name,
+  value = 'fieldName',
+  isChecked = false,
   disabled = false,
   error = false,
   className,
@@ -14,9 +15,10 @@ export const Radio: React.FC<ICheckRadioProps> = ({
     variation='radio'
     type='default'
     size={size}
-    fieldName={fieldName}
-    isSelected={isSelected}
+    name={name}
+    isChecked={isChecked}
     disabled={disabled}
+    value={value}
     error={error}
     className={className}
   >
@@ -26,7 +28,8 @@ export const Radio: React.FC<ICheckRadioProps> = ({
 
 Radio.defaultProps = {
   size: 'default',
-  isSelected: false,
+  value: 'fieldName',
+  isChecked: false,
   disabled: false,
   error: false,
 };

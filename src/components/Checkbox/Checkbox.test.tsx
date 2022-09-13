@@ -6,7 +6,7 @@ import getClassList from '../../utils/testUtils';
 
 it('should render checkbox', () => {
   const children = 'Checkbox 01';
-  render(<Checkbox fieldName='check01'>{children}</Checkbox>);
+  render(<Checkbox name='check01'>{children}</Checkbox>);
 
   const element = screen.queryByText(children);
   expect(element).toBeInTheDocument();
@@ -20,7 +20,7 @@ it('should render checkbox', () => {
 it('should render large checkbox', () => {
   const children = 'Checkbox 01';
   render(
-    <Checkbox fieldName='check01' size='large'>
+    <Checkbox name='check01' size='large'>
       {children}
     </Checkbox>
   );
@@ -37,7 +37,7 @@ it('should render large checkbox', () => {
 it('should render circle checkbox', () => {
   const children = 'Checkbox 02';
   render(
-    <Checkbox fieldName='check02' variation='circle'>
+    <Checkbox name='check02' variation='circle'>
       {children}
     </Checkbox>
   );
@@ -54,7 +54,7 @@ it('should render circle checkbox', () => {
 it('should render large circle checkbox', () => {
   const children = 'Checkbox 02';
   render(
-    <Checkbox fieldName='check02' variation='circle' size='large'>
+    <Checkbox name='check02' variation='circle' size='large'>
       {children}
     </Checkbox>
   );
@@ -71,7 +71,7 @@ it('should render large circle checkbox', () => {
 it('should render checkbox with error', () => {
   const children = 'Checkbox 03';
   render(
-    <Checkbox fieldName='check03' error={true}>
+    <Checkbox name='check03' error={true}>
       {children}
     </Checkbox>
   );
