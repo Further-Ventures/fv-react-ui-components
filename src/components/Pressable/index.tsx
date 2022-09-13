@@ -6,8 +6,8 @@ export interface IPressable extends Omit<React.ButtonHTMLAttributes<HTMLButtonEl
   label?: string;
   size?: 'mini' | 'small' | 'medium' | 'large' | 'tag-large' | 'tag-small';
   shape?: 'flat' | 'curved' | 'round';
-  variant?: 'contained' | 'outlined';
-  color?: 'primary' | 'error' | 'default';
+  variant?: 'contained' | 'outlined' | 'transparent';
+  color?: 'primary' | 'error' | 'default' | 'grey';
   disabled?: boolean;
   className?: string;
   contentLeft?: React.ReactNode;
@@ -30,6 +30,7 @@ const Button: React.FC<IPressable> = (props) => {
   } = props;
 
   const isIconOnly = Boolean(!label && (contentLeft || contentRight));
+  const colorVariant = `${color}-${variant}`;
 
   return (
     <button
@@ -78,19 +79,27 @@ const Button: React.FC<IPressable> = (props) => {
 
           //primary
           ['bg-primary disabled:bg-default-extra-light focus:bg-primary-medium focus:border-primary-medium hover:bg-primary-medium active:bg-primary-dark border-transparent text-primary-contrast-secondary']:
-            `${color}-${variant}` === 'primary-contained',
+            colorVariant === 'primary-contained',
           ['bg-transparent hover:bg-default-extra-light focus:bg-default-extra-light active:bg-primary-light border-primary hover:border-primary-dark text-primary hover:text-primary-dark']:
-            `${color}-${variant}` === 'primary-outlined',
-          //outlined
+            colorVariant === 'primary-outlined',
+          ['bg-transparent border-transparent hover:bg-default-extra-light focus:bg-default-extra-light hover:active:border-primary-extra-light active:border-primary-extra-light active:bg-primary-light text-primary hover:text-primary-dark']:
+            colorVariant === 'primary-transparent',
+
+          //error
           ['bg-error disabled:bg-default-extra-light focus:bg-error-medium hover:bg-error-medium active:bg-error-dark border-transparent text-primary-contrast-secondary']:
-            `${color}-${variant}` === 'error-contained',
+            colorVariant === 'error-contained',
           ['bg-transparent hover:bg-default-extra-light focus:bg-default-extra-light active:bg-error-light border-error hover:border-error-dark text-error hover:text-error-dark']:
-            `${color}-${variant}` === 'error-outlined',
-          //default
+            colorVariant === 'error-outlined',
+          ['bg-transparent border-transparent hover:bg-default-extra-light focus:bg-default-extra-light active:bg-error-light hover:active:border-error-extra-light active:border-error-extra-light text-error hover:text-error-dark']:
+            colorVariant === 'error-transparent',
+
+          //default || grey
           ['bg-default-extra-light border-default-extra-light text-default-dark hover:bg-default-light focus:bg-default-light active:bg-default']:
-            `${color}-${variant}` === 'default-contained',
+            colorVariant === 'default-contained' || colorVariant === 'grey-contained',
           ['bg-transparent border-default-dark text-default-dark hover:bg-default-light focus:bg-default-light active:bg-default']:
-            `${color}-${variant}` === 'default-outlined',
+            colorVariant === 'default-outlined' || colorVariant === 'grey-outlined',
+          ['bg-transparent border-transparent text-text-default hover:bg-default-extra-light focus:bg-default-extra-light active:bg-default']:
+            colorVariant === 'default-transparent' || colorVariant === 'grey-transparent',
         }
       )}
       {...rest}

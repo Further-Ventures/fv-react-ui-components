@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import useInput from '../../hooks/useInput';
 import HintMessage from '../HintMessage';
 import ErrorMessage from '../ErrorMessage';
+
 export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   inputClassName?: string;
@@ -27,8 +28,22 @@ const getPropertyValue = (ref: React.RefObject<HTMLElement>, value: string) =>
   ref.current && parseFloat(window.getComputedStyle(ref.current).getPropertyValue(value));
 
 export const Input: React.FC<IInput> = (props) => {
-  const { sideContent, inputClassName, label, className, hint, hintClassName, error, errorClassName, placeholder, onClick, width, mask, ...rest } =
-    props;
+  const {
+    type,
+    sideContent,
+    inputClassName,
+    label,
+    className,
+    hint,
+    hintClassName,
+    error,
+    errorClassName,
+    placeholder,
+    onClick,
+    width,
+    mask,
+    ...rest
+  } = props;
 
   const { name, value, disabled, inputProps, onChange, onBlur } = useInput<IInput>(rest, mask);
   const inputId = useId();
@@ -41,6 +56,8 @@ export const Input: React.FC<IInput> = (props) => {
 
   const hasContent = Boolean(sideContent);
   const overridePadding = Boolean(hasContent && sideContentRef.current);
+
+  const isPassword = type === 'password';
 
   useLayoutEffect(() => {
     if (!hasContent) {
@@ -67,26 +84,28 @@ export const Input: React.FC<IInput> = (props) => {
     >
       <div className={classNames('relative overflow-hidden', { ['text-text-disabled']: disabled })}>
         <input
-          type='text'
           name={name}
+          data-testid={`input--${name}`}
           id={`input--${inputId}`}
           placeholder={placeholder}
           value={value}
           disabled={disabled}
+          type={type}
           onChange={onChange}
           onBlur={onBlur}
           style={overridePadding ? { paddingRight: rightPad } : {}}
           className={classNames(
             inputClassName,
-            'peer border-1.5 rounded h-14',
+            'mercuryInput peer border-1.5 rounded h-14',
             'transition-colors duration-300 ease-out w-full',
-            'placeholder:text-text-disabled',
+            'placeholder:text-text-disabled placeholder:text-base placeholder:tracking-normal placeholder:font-normal placeholder:font-mercury',
             {
+              ["text-[1.5rem] tracking-wide leading-none font-extrabold font-['Verdana']"]: isPassword,
               ['disabled:border-default-light disabled:bg-background select-none']: disabled,
               ['border-default hover:border-text-primary hover:bg-default-extra-light focus:border-primary']: !hasError,
               ['border-error hover:bg-default-extra-light']: hasError,
               ['px-3 pb-1.5 pt-6.5']: hasLabel,
-              ['placeholder:invisible placeholder:opacity-0 placeholder:translate-y-full placeholder:transition placeholder:duration-250 ease-out focus:placeholder:visible focus:placeholder:opacity-100 focus:placeholder:translate-y-0']:
+              ['placeholder:absolute placeholder:invisible placeholder:opacity-0 placeholder:translate-y-full placeholder:transition placeholder:duration-250 ease-out focus:placeholder:visible focus:placeholder:opacity-100 focus:placeholder:translate-y-0']:
                 hasLabel,
               ['px-3 py-1.5']: !hasLabel,
             }
@@ -95,6 +114,7 @@ export const Input: React.FC<IInput> = (props) => {
         />
         {hasLabel && (
           <label
+            data-testid={`input-label--${name}`}
             htmlFor={`input--${inputId}`}
             className={classNames(
               'text-base leading-none absolute left-3 top-1/2 -translate-y-1/2 flex items-center transition ease-out duration-250 text-text-primary pointer-events-none whitespace-nowrap', //base
