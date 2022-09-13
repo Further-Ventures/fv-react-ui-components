@@ -35,7 +35,7 @@ interface IStoryArgs extends IPasswordInput {
 }
 
 const Template: ComponentStory<typeof PasswordInput> = (args) => {
-  const { buttonText, sideContent: inputSideContent, ...rest } = args as IStoryArgs;
+  const { buttonText, ...rest } = args as IStoryArgs;
   const [inputValue, setInputValue] = useState('');
   const handleInputChange = (e) => setInputValue(e.target.value);
 

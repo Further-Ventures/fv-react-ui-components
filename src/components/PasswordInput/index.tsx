@@ -5,7 +5,7 @@ import Button from '../Button';
 import Icon from '../Icons';
 import Input, { IInput } from '../Input';
 
-export interface IPasswordInput extends Omit<IInput, 'mask' | 'type'> {}
+export interface IPasswordInput extends Omit<IInput, 'mask' | 'type' | 'sideContent'> {}
 
 export const PasswordInput: React.FC<IPasswordInput> = (props) => {
   const [showPassword, setShowPassword] = useState(false);
