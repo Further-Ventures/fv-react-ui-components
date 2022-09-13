@@ -15,12 +15,8 @@ export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   errorClassName?: string;
   value?: string;
   name?: string;
-  onChange?: (e: React.BaseSyntheticEvent) => void;
-  onBlur?: (e: React.BaseSyntheticEvent) => void;
   mask?: string;
-
   width?: 'small' | 'medium' | 'large' | 'full';
-
   sideContent?: React.ReactNode | ((hasError: boolean, disabled?: boolean) => React.ReactNode);
 }
 
@@ -93,6 +89,7 @@ export const Input: React.FC<IInput> = (props) => {
           type={type}
           onChange={onChange}
           onBlur={onBlur}
+          onClick={onClick}
           style={overridePadding ? { paddingRight: rightPad } : {}}
           className={classNames(
             inputClassName,

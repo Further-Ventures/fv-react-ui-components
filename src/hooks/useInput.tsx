@@ -5,8 +5,9 @@ interface BaseInput extends React.InputHTMLAttributes<HTMLInputElement | HTMLTex
   disabled?: boolean;
   name?: string;
   value?: string;
-  onChange?: (e: React.BaseSyntheticEvent) => void;
-  onBlur?: (e: React.BaseSyntheticEvent) => void;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
+  onBlur?: React.FocusEventHandler<HTMLInputElement>;
+  onFocus?: React.FocusEventHandler<HTMLInputElement>;
 }
 
 const useInput = <T extends BaseInput>(props: T, mask?: string) => {
