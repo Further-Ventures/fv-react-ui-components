@@ -29,10 +29,10 @@ module.exports = {
       },
       fontSize: {
         '2xs': ['0.625rem', '0.9375rem'],
-        'xxs': '.625rem', // 10px
-        'base2': '1.125rem', // 18px
-        'lg': '1.5rem', // 24px
-        'xl': '2rem', // 32px
+        xxs: '.625rem', // 10px
+        base2: '1.125rem', // 18px
+        lg: '1.5rem', // 24px
+        xl: '2rem', // 32px
         '2xl': '2.5rem', // 40px
         '3xl': '2.625rem', // 42px
         '4xl': '3rem', // 48px
@@ -41,11 +41,11 @@ module.exports = {
         '7xl': '4.25rem', // 68px
       },
       lineHeight: {
-        'none': 1,
+        none: 1,
         'extra-tight': '1.2',
-        'tight': 1.25,
-        'snug': 1.3,
-        'normal': 1.5
+        tight: 1.25,
+        snug: 1.3,
+        normal: 1.5,
       },
       aspectRatio: {
         one: '1/1',
@@ -106,7 +106,7 @@ module.exports = {
         background: {
           DEFAULT: 'var(--mercury-background-color)',
           secondary: 'var(--mercury-background-color-secondary)',
-        }
+        },
       },
       boxShadow: {
         extraLight: '0 1px 2px var(--mercury-shadow-color-dark), 0 1px 3px 1px var(--mercury-shadow-color-light)',
