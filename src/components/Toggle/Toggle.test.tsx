@@ -1,98 +1,115 @@
-import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Tag, { ITag } from './index';
-import Icon from '../Icons';
-import pkg from './package.json';
-import { buildExcludeArgTypes } from '../../storybook/utils';
-import './stories.scss';
+import '@testing-library/jest-dom';
+import * as React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import Toggle from './';
 
-export default {
-  title: 'Components/Tag',
-  component: Tag,
-  parameters: {
-    pkg,
-  },
-  argTypes: {
-    ...buildExcludeArgTypes(['contentLeft', 'contentRight', 'className', 'color']),
-    icon: {
-      options: ['none', 'left', 'right', 'both'],
-      control: { type: 'radio' },
-    },
-  },
-} as ComponentMeta<typeof Tag>;
+const mockOnToggle = jest.fn();
 
-interface IStoryArgs extends ITag {
-  icon?: string;
-}
-
-const getIconSize = (size) => {
-  const iconSizes = {
-    mini: 12,
-    large: 15,
-    small: 13.33,
-  };
-
-  return (size && iconSizes[size]) ?? 20;
-};
-
-const Template: ComponentStory<typeof Tag> = (args) => {
-  const { icon, ...rest } = args as IStoryArgs;
-
-  const iconSize = getIconSize(args.size);
-  let componentArgs = rest;
-
-  if (icon === 'left' || icon === 'both') {
-    componentArgs = {
-      ...componentArgs,
-      contentLeft: <Icon icon='check_circle' size={iconSize} />,
-    };
-  }
-  if (icon === 'right' || icon === 'both') {
-    componentArgs = {
-      ...componentArgs,
-      contentRight: <Icon icon='check_circle' size={iconSize} />,
-    };
-  }
-
-  return (
-    <div className='storyWrapper'>
-      <Tag {...componentArgs} />
-    </div>
+it('should render large active toggle', () => {
+  const children = 'Hey! Toggle me!';
+  render(
+    <Toggle isActive={true} onToggle={mockOnToggle}>
+      {children}
+    </Toggle>
   );
-};
 
-export const Default = Template.bind({});
+  const toggleBackground = screen.queryByTestId('@fv/Toggle-toggleBackground');
+  expect(toggleBackground?.className).toContain('bg-primary'); // active
+  expect(toggleBackground?.className).toContain('w-11'); // large
 
-Default.args = {
-  label: 'Contained',
-  variant: 'contained',
-  size: 'large',
-  color: 'primary',
-  icon: 'none',
-};
-
-export const Showcase = () => {
-  const sizes: ReadonlyArray<ITag['size']> = ['large', 'small'];
-  const variants: ReadonlyArray<ITag['variant']> = ['contained', 'outlined'];
-  return (
-    <div className='showcaseTags'>
-      {sizes.map((size) => {
-        const iconSize = getIconSize(size);
-        return variants.map((variant) => {
-          return (
-            <>
-              <p className='rowLabel'>
-                {size} {variant}:
-              </p>
-              <Tag variant={variant} label={`${variant} `} size={size} />
-              <Tag variant={variant} label={`${variant} `} size={size} contentLeft={<Icon icon='check_circle' size={iconSize} />} />
-              <Tag variant={variant} label={`${variant} `} size={size} contentRight={<Icon icon='check_circle' size={iconSize} />} />
-              <Tag variant={variant} label={`${variant} disabled`} disabled size={size} />
-              <Tag variant={variant} label={`${variant} disabled`} size={size} disabled contentRight={<Icon icon='check_circle' size={iconSize} />} />
-            </>
-          );
-        });
-      })}
-    </div>
+  expect(screen.queryByTestId('@fv/Toggle-toggleCircle')?.className).toContain('left-5'); // active
+});
+it('should render small active toggle', () => {
+  const children = 'Hey! Toggle me!';
+  render(
+    <Toggle isActive={true} onToggle={mockOnToggle} size='small'>
+      {children}
+    </Toggle>
   );
-};
+
+  const toggleBackground = screen.queryByTestId('@fv/Toggle-toggleBackground');
+  expect(toggleBackground?.className).toContain('bg-primary'); // active
+  expect(toggleBackground?.className).toContain('w-[1.8125rem]'); // small
+
+  expect(screen.queryByTestId('@fv/Toggle-toggleCircle')?.className).toContain('left-3'); // active
+});
+
+it('should render and toggle', () => {
+  const children = 'Hey! Toggle me!';
+  render(
+    <Toggle isActive={true} onToggle={mockOnToggle}>
+      {children}
+    </Toggle>
+  );
+
+  const toggleBackground = screen.queryByTestId('@fv/Toggle-toggleBackground');
+  expect(toggleBackground?.className).toContain('bg-primary'); // active
+  expect(toggleBackground?.className).toContain('w-11'); // large
+
+  expect(screen.queryByTestId('@fv/Toggle-toggleCircle')?.className).toContain('left-5'); // active
+
+  const toggleButton = screen.queryByTestId('@fv/Toggle-toggleButton') as HTMLElement;
+  fireEvent.click(toggleButton);
+
+  expect(mockOnToggle).toBeCalled();
+});
+
+it('should render large inactive toggle', () => {
+  const children = 'Hey! Toggle me!';
+  render(
+    <Toggle isActive={false} onToggle={mockOnToggle}>
+      {children}
+    </Toggle>
+  );
+
+  const toggleBackground = screen.queryByTestId('@fv/Toggle-toggleBackground');
+
+  expect(toggleBackground?.className).toContain('bg-default-light'); // inactive
+  expect(toggleBackground?.className).toContain('w-11'); // large
+
+  expect(screen.queryByTestId('@fv/Toggle-toggleCircle')?.className).toContain('left-0'); // inactive
+});
+it('should render small inactive toggle', () => {
+  const children = 'Hey! Toggle me!';
+  render(
+    <Toggle isActive={false} onToggle={mockOnToggle} size='small'>
+      {children}
+    </Toggle>
+  );
+
+  const toggleBackground = screen.queryByTestId('@fv/Toggle-toggleBackground');
+
+  expect(toggleBackground?.className).toContain('bg-default-light'); // inactive
+  expect(toggleBackground?.className).toContain('w-[1.8125rem]'); // small
+
+  expect(screen.queryByTestId('@fv/Toggle-toggleCircle')?.className).toContain('left-0'); // inactive
+});
+
+it('should render large disabled toggle', () => {
+  const children = 'Hey! Toggle me!';
+  render(
+    <Toggle isActive={false} onToggle={mockOnToggle} disabled={true}>
+      {children}
+    </Toggle>
+  );
+
+  const toggleBackground = screen.queryByTestId('@fv/Toggle-toggleBackground');
+
+  expect(toggleBackground?.className).not.toContain('bg-default-light'); // disabled
+  expect(toggleBackground?.className).toContain('bg-default'); // disabled
+  expect(toggleBackground?.className).toContain('w-11'); // large
+});
+it('should render small disabled toggle', () => {
+  const children = 'Hey! Toggle me!';
+  render(
+    <Toggle isActive={false} onToggle={mockOnToggle} size='small' disabled={true}>
+      {children}
+    </Toggle>
+  );
+
+  const toggleBackground = screen.queryByTestId('@fv/Toggle-toggleBackground');
+
+  expect(toggleBackground?.className).not.toContain('bg-default-light'); // disabled
+  expect(toggleBackground?.className).toContain('bg-default'); // disabled
+  expect(toggleBackground?.className).toContain('w-[1.8125rem]'); // small
+});
