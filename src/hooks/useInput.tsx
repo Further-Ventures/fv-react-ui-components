@@ -5,14 +5,15 @@ interface BaseInput extends React.InputHTMLAttributes<HTMLInputElement | HTMLTex
   disabled?: boolean;
   name?: string;
   value?: string;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  onBlur?: React.FocusEventHandler<HTMLInputElement>;
-  onFocus?: React.FocusEventHandler<HTMLInputElement>;
+  onChange?: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+  onBlur?: React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
+  onFocus?: React.FocusEventHandler<HTMLInputElement | HTMLTextAreaElement>;
 }
 
 const useInput = <T extends BaseInput>(props: T, mask?: string) => {
   const { disabled, name = '', value = '', onChange, onBlur, ...inputProps } = props;
   const controlled = Boolean(onChange);
+  console.log('useInput', controlled);
   const initValue = value;
   const [internalValue, setInternalValue] = React.useState<string>(mask && initValue ? applyDigitMask(initValue, mask) : initValue);
   const onChangeWrapper = (e: React.BaseSyntheticEvent) => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import classNames from 'classnames';
 import '../Pressable';
 
@@ -14,7 +14,7 @@ export interface IPressable extends Omit<React.ButtonHTMLAttributes<HTMLButtonEl
   contentRight?: React.ReactNode;
 }
 
-const Button: React.FC<IPressable> = (props) => {
+const Pressable = forwardRef<HTMLButtonElement, IPressable>((props, ref) => {
   const {
     size = 'medium',
     shape = 'curved',
@@ -33,6 +33,7 @@ const Button: React.FC<IPressable> = (props) => {
   const colorVariant = `${color}-${variant}`;
   return (
     <button
+      ref={ref}
       disabled={disabled}
       onClick={onClick}
       aria-label={label}
@@ -111,6 +112,7 @@ const Button: React.FC<IPressable> = (props) => {
       {contentRight}
     </button>
   );
-};
+});
 
-export default Button;
+Pressable.displayName = 'Pressable';
+export default Pressable;
