@@ -51,6 +51,7 @@ export const DropDown: React.FC<IDropdown> = (props) => {
     }
     setOpenInternal(true);
   };
+
   const handleIconClick = (evt: React.MouseEvent<HTMLButtonElement>) => {
     onIconClick && onIconClick(evt);
     if (controlled) {
