@@ -89,6 +89,7 @@ WithIcon.args = {
 export const Showcase = () => {
   return (
     <div className='showcaseInput'>
+      <Input label='Label' placeholder='with placeholder' type='password' />
       <Input label='Label' placeholder='with placeholder' />
       <Input label='Some very long label asdasd a as dasd as dasd a as s sa a' />
       <Input placeholder='No label' />

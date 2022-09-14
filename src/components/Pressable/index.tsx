@@ -51,9 +51,7 @@ const Pressable = forwardRef<HTMLButtonElement, IPressable>((props, ref) => {
           ['rounded-full']: `${shape}` === 'round',
 
           //border-width & disabled color
-          ['font-medium border-1.5 disabled:text-text-disabled disabled:border-default-extra-light']: ['mini', 'small', 'medium', 'large'].includes(
-            size
-          ),
+          ['font-medium border-1.5 disabled:text-text-disabled']: ['mini', 'small', 'medium', 'large'].includes(size),
           ['font-normal border disabled:text-default disabled:bg-default-light ']: ['tag-large', 'tag-small'].includes(size),
           ['disabled:border-default-extra-light']: ['mini', 'small', 'medium', 'large'].includes(size) && variant !== 'transparent',
           ['disabled:border-transparent']: ['mini', 'small', 'medium', 'large'].includes(size) && variant === 'transparent',
