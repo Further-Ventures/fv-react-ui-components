@@ -52,14 +52,12 @@ export const InputWithToggle: React.FC<IInputWithToggleProps & ISize & ICheckExt
       >
         <input
           name={name}
-          className={classNames(className, 'peer')}
+          className={'peer hidden'}
           id={`${name}-${inputId}`}
           onChange={onChange}
           disabled={disabled}
           type={variation === 'radio' ? 'radio' : 'checkbox'}
-          // className='hidden'
           value={value}
-          // defaultChecked={derivedChecked}
           {...derivedInputProps}
         />
         <span
@@ -104,7 +102,6 @@ InputWithToggle.defaultProps = {
   variation: 'checkbox',
   type: 'default',
   size: 'default',
-  value: 'fieldName',
   isChecked: false,
   disabled: false,
   error: '',

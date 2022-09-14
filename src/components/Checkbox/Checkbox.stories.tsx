@@ -4,6 +4,7 @@ import { Checkbox } from './index';
 import pkg from './package.json';
 import { buildExcludeArgTypes } from '../../storybook/utils';
 import Button from '../Button';
+import { useState } from 'react';
 
 export default {
   title: 'Components/Checkbox',
@@ -22,14 +23,14 @@ const Template: ComponentStory<typeof Checkbox> = (args) => {
     console.log(' stories onSubmit:');
     const formData = new FormData(document.querySelector('form') as HTMLFormElement);
     for (const pair of formData.entries()) {
-      console.log('   ', pair[0] + ': ' + pair[1]);
+      console.log('   ', pair[0]);
     }
     console.log('----------------------------------------');
   };
   const onChange = (e: React.BaseSyntheticEvent) => {
     console.log('----------------------------------------');
     console.log(' stories onChange:');
-    console.log('   ', e.target.name, ':', e.target.value);
+    console.log('   ', e.target.name, ':', e.target.checked);
     console.log('----------------------------------------');
   };
 
@@ -44,9 +45,29 @@ const Template: ComponentStory<typeof Checkbox> = (args) => {
 
 export const CheckboxInput = Template.bind({});
 CheckboxInput.args = {
-  name: 'fieldName',
-  value: 'fieldValue',
+  name: 'checkbox01',
   isChecked: true,
+};
+
+const TemplateControlled: ComponentStory<typeof Checkbox> = (args) => {
+  const [isSubscribing, setIsSubscribing] = useState(false);
+
+  return (
+    <>
+      <Checkbox {...args} isChecked={isSubscribing} onChange={() => setIsSubscribing(!isSubscribing)}>
+        Subscribe to Newsletter
+      </Checkbox>
+      <br />
+      <span>
+        <b>CHECKED:</b> {`${isSubscribing}`}
+      </span>
+    </>
+  );
+};
+
+export const ControlledCheckboxInput = TemplateControlled.bind({});
+ControlledCheckboxInput.args = {
+  name: 'isSubscribed',
 };
 
 const TemplateGroup: ComponentStory<typeof Checkbox> = (args) => {
@@ -57,17 +78,14 @@ const TemplateGroup: ComponentStory<typeof Checkbox> = (args) => {
     console.log('stories onSubmit:');
     const formData = new FormData(document.querySelector('form') as HTMLFormElement);
     for (const pair of formData.entries()) {
-      console.log('   ', pair[0] + ': ' + pair[1]);
+      console.log('   ', pair[0]);
     }
     console.log('----------------------------------------');
   };
-  const onChange = () => {
+  const onChange = (e: React.BaseSyntheticEvent) => {
     console.log('----------------------------------------');
     console.log(' stories onChange:');
-    const formData = new FormData(document.querySelector('form') as HTMLFormElement);
-    for (const pair of formData.entries()) {
-      console.log('   ', pair[0] + ': ' + pair[1]);
-    }
+    console.log('   ', e.target.name, ':', e.target.checked);
     console.log('----------------------------------------');
   };
 
@@ -86,21 +104,21 @@ const TemplateGroup: ComponentStory<typeof Checkbox> = (args) => {
 export const CheckboxGroup = TemplateGroup.bind({});
 CheckboxGroup.args = [
   {
-    name: 'check02',
+    name: 'check01',
     children: 'Checkbox text 01',
   },
   {
-    name: 'check03',
+    name: 'check02',
     isChecked: true,
     children: 'Checkbox text 02',
   },
   {
-    name: 'check04',
+    name: 'check03',
     error: true,
     children: 'Checkbox text 03',
   },
   {
-    name: 'check05',
+    name: 'check04',
     disabled: true,
     children: 'Checkbox text 04',
   },

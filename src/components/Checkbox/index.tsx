@@ -13,7 +13,7 @@ export const Checkbox: React.FC<ICheckboxProps & ISize & ICheckExtra> = ({
   name,
   isChecked = false,
   error = '',
-  value = 'fieldValue',
+  value,
   className,
   children,
   ...rest
@@ -37,7 +37,6 @@ Checkbox.defaultProps = {
   variation: 'default',
   type: 'default',
   size: 'default',
-  value: 'fieldName',
   isChecked: false,
   disabled: false,
   error: '',
