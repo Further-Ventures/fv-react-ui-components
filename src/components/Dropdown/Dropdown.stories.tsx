@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import Dropdown, { IDropdown } from './index';
 import Button from '../Button';
 import pkg from './package.json';
@@ -29,7 +30,6 @@ export default {
     buttonText: {
       control: 'text',
     },
-    versions: { control: 'check', options: ['controlled', 'uncontrolled'] },
   },
 } as ComponentMeta<typeof Dropdown>;
 
@@ -38,58 +38,74 @@ interface IStoryArgs extends IDropdown {
   versions?: string[];
 }
 
-const Template: ComponentStory<typeof Dropdown> = (args) => {
-  console.log(args);
+const Uncontrolled: ComponentStory<typeof Dropdown> = (args) => {
+  const { buttonText, versions, onChange, ...rest } = args as IStoryArgs;
+
+  return (
+    <div>
+      <Dropdown key='uncontrolled' label={'Dropdown uncontrolled'} {...rest}>
+        <div className='grid grid-cols-2 gap-2 p-2'>
+          <span className=' col-span-2'>List content (uncontrolled)</span>
+          <Button label='Button1' size='small' />
+          <Button label='Button2' size='small' />
+          <Button label='Button3' size='small' />
+          <Button label='Button4' size='small' />
+          <Button label='Button5' size='small' />
+          <Button label='Button6' size='small' />
+        </div>
+      </Dropdown>
+    </div>
+  );
+};
+
+export const Default = Uncontrolled.bind({});
+
+Default.args = {
+  placeholder: 'olivia@example.com',
+};
+
+const TemplateControlled: ComponentStory<typeof Dropdown> = (args) => {
   const { buttonText, versions, onChange, ...rest } = args as IStoryArgs;
   const [inputValue, setInputValue] = useState('');
   const [isOpen, setIsOpen] = useState(true);
-
   const handleInputChange = (e) => setInputValue(e.target.value);
+
   const handleIconClick = () => setIsOpen(!isOpen);
   const handleFocus = () => setIsOpen(true);
   const handleBlur = () => setIsOpen(false);
   const handleClickOutside = () => setIsOpen(false);
 
   return (
-    <>
-      {versions && versions.includes('uncontrolled') && (
-        <div>
-          <Dropdown key='uncontrolled' label={'Dropdown uncontrolled'} {...rest}>
-            List content (uncontrolled)
-          </Dropdown>
+    <div>
+      <h4 className='mb-2'>{`State: ${inputValue} isOpen ${isOpen}`}</h4>
+      <Dropdown
+        key='controlled'
+        label={'Dropdown controlled'}
+        {...rest}
+        value={inputValue}
+        isOpen={isOpen}
+        onClickOutside={handleClickOutside}
+        onIconClick={handleIconClick}
+        onChange={handleInputChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+      >
+        <div className='grid grid-cols-2 gap-2 p-2'>
+          <span className=' col-span-2'>List content (controlled)</span>
+          <Button label='Button1' size='small' />
+          <Button label='Button2' size='small' />
+          <Button label='Button3' size='small' />
+          <Button label='Button4' size='small' />
+          <Button label='Button5' size='small' />
+          <Button label='Button6' size='small' />
         </div>
-      )}
-      {versions && versions.includes('controlled') && (
-        <div>
-          <h4 className='mb-2'>{`State: ${inputValue} isOpen ${isOpen}`}</h4>
-          <Dropdown
-            key='controlled'
-            label={'Dropdown controlled'}
-            {...rest}
-            value={inputValue}
-            isOpen={isOpen}
-            onClickOutside={handleClickOutside}
-            onIconClick={handleIconClick}
-            onChange={handleInputChange}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-          >
-            List content (controlled)
-            <Button label='Button1' />
-            <Button label='Button2' />
-            <Button label='Button3' />
-            <Button label='Button4' />
-            <Button label='Button5' />
-          </Dropdown>
-        </div>
-      )}
-    </>
+      </Dropdown>
+    </div>
   );
 };
 
-export const Default = Template.bind({});
+export const Controlled = TemplateControlled.bind({});
 
-Default.args = {
+Controlled.args = {
   placeholder: 'olivia@example.com',
-  versions: ['controlled'],
 };

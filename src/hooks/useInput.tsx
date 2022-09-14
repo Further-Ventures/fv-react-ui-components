@@ -13,9 +13,10 @@ interface BaseInput extends React.InputHTMLAttributes<HTMLInputElement | HTMLTex
 const useInput = <T extends BaseInput>(props: T, mask?: string) => {
   const { disabled, name = '', value = '', onChange, onBlur, ...inputProps } = props;
   const controlled = Boolean(onChange);
+
   const initValue = value;
   const [internalValue, setInternalValue] = React.useState<string>(mask && initValue ? applyDigitMask(initValue, mask) : initValue);
-  const onChangeWrapper = (e: React.BaseSyntheticEvent) => {
+  const onChangeWrapper = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     if (disabled) {
       return null;
     }
@@ -37,7 +38,7 @@ const useInput = <T extends BaseInput>(props: T, mask?: string) => {
     onChange && onChange(e);
   };
 
-  const onBlurWrapper = (e: React.BaseSyntheticEvent) => {
+  const onBlurWrapper = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     onBlur && onBlur(e);
   };
 

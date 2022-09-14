@@ -5,6 +5,9 @@
     "@typescript-eslint",
     "prettier"
   ],
+  "globals": {
+    "module": true
+  },
   "extends": [
     "prettier",
     "eslint:recommended",

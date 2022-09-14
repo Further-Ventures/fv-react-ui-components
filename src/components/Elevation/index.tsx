@@ -1,14 +1,17 @@
 import React from 'react';
 import classNames from 'classnames';
 
-interface IElevationProps {
+interface IElevationProps extends React.HTMLAttributes<HTMLDivElement> {
   variation?: 'extraLight' | 'light' | 'medium' | 'heavy' | 'extraHeavy';
-  children: React.ReactNode;
-  className?: string;
 }
 
-export const Elevation: React.FC<IElevationProps> = ({ variation = 'medium', className, children }) => {
-  return <div className={classNames(`shadow-${variation}`, className)}>{children}</div>;
+export const Elevation: React.FC<IElevationProps> = (props) => {
+  const { variation = 'medium', className, children, ...rest } = props;
+  return (
+    <div {...rest} className={classNames(`shadow-${variation}`, className)}>
+      {children}
+    </div>
+  );
 };
 
 Elevation.defaultProps = {

@@ -2,7 +2,6 @@ import { useRef, useEffect } from 'react';
 
 const useClickOutside = <T extends HTMLElement>(callback: (evt: MouseEvent) => void) => {
   const ref = useRef<T>(null);
-
   const handleClickOutside = (evt: MouseEvent) => {
     if (!ref.current?.contains(evt.target as Node)) {
       callback && callback(evt);
