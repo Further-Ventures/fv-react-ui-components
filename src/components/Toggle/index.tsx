@@ -47,7 +47,7 @@ const Toggle: React.FC<IToggle> = ({ isActive, onToggle, size = 'default', child
         <span
           data-testid={`${TEST_ID}-toggleCircle`}
           className={classNames('relative rounded-full shadow-light ease-out transition-all duration-300', {
-            ['w-5	h-5']: size === 'default',
+            ['w-5 h-5']: size === 'default',
             ['w-[0.8125rem] h-[0.8125rem]']: size === 'small',
             ['left-0']: !isActive,
             ['left-5']: isActive && size === 'default',
