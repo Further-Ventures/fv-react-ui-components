@@ -6,14 +6,14 @@
     "start": "start-storybook -p 6006",
     "build": "webpack --config webpack.config.js && node postBuild.js",
     "build-storybook": "build-storybook -o docs-build",
-    "lint": "eslint . --ext .ts,.tsx",
+    "lint": "eslint . --ext .js,.ts,.tsx",
     "lint:fix": "npm run lint -- --fix",
     "tsc-compile": "tsc --noemit",
     "test": "jest",
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{ts,tsx}": "eslint --fix"
+    "*.{js,ts,tsx}": "eslint --fix"
   },
   "dependencies": {
     "@stryberventures/gaia-react.theme": "^0.0.2",
@@ -22,6 +22,7 @@
     "postcss-loader": "^7.0.1",
     "react": "^18.2.0",
     "react-jss": "^10.9.0",
+    "react-transition-group": "^4.4.5",
     "yup": "^0.32.11"
   },
   "engines": {
@@ -46,6 +47,7 @@
     "@types/react": "^18.0.18",
     "@types/react-copy-to-clipboard": "^5.0.3",
     "@types/react-dom": "^18.0.6",
+    "@types/react-transition-group": "^4.4.5",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
     "autoprefixer": "^10.4.8",
