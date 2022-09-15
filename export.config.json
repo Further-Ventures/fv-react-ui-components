@@ -7,6 +7,9 @@
     "Core": "core",
     "Chip": "chip",
     "Tag": "tag",
-    "TextLink": "textlink"
+    "TextLink": "textlink",
+    "Checkbox": "checkbox",
+    "Radio": "radio",
+    "RadioGroup": "radiogroup",
   }
 }

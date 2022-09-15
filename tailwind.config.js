@@ -5,6 +5,7 @@ module.exports = {
     { pattern: /text-(primary|error|warning|success|cool|default|text)/ },
     { pattern: /fill-(primary|error|warning|success|cool|default|text)/ },
     { pattern: /stroke-(primary|error|warning|success|cool|default|text)/ },
+    { pattern: /border-(primary|error|warning|success|cool|default|text)/ },
     { pattern: /shadow-(extraLight|light|medium|heavy|extraHeavy)/ },
   ],
   theme: {
@@ -107,6 +108,7 @@ module.exports = {
         },
         background: {
           DEFAULT: 'var(--mercury-background-color)',
+          secondary: 'var(--mercury-background-color-secondary)',
         },
       },
       boxShadow: {
