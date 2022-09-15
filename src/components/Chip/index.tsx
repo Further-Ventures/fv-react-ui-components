@@ -1,7 +1,7 @@
 import React from 'react';
 import Pressable, { IPressable } from '../Pressable';
 
-export interface IChip extends Omit<IPressable, 'size' | 'color'> {
+export interface IChip extends Omit<IPressable, 'size' | 'color' | 'shape'> {
   size: 'small' | 'large';
 }
 
