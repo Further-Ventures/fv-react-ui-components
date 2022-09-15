@@ -103,9 +103,14 @@ export const DropDown: React.FC<IDropdown> = (props) => {
             variant='transparent'
             color='grey'
             size='small'
+            shape='round'
             onClick={handleIconClick}
             contentLeft={
-              <Icon className={classNames('transition-transform duration-250 ease-in', { 'rotate-180': isDropdownOpen })} icon='expand_more' />
+              <Icon
+                size={20}
+                className={classNames('transition-transform duration-250 ease-in', { 'rotate-180': isDropdownOpen })}
+                icon='expand_more'
+              />
             }
           />
         }
