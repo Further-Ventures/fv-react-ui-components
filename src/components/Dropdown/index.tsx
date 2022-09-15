@@ -46,11 +46,11 @@ export const DropDown: React.FC<IDropdown> = (props) => {
 
   const toggleOpenInternal = (isOpen: boolean) => {
     setOpenInternal(isOpen);
-    onToggle && onToggle(isOpen);
+    onToggle?.(isOpen);
   };
 
   const handleClickOutside = (evt: any) => {
-    onClickOutside && onClickOutside(evt);
+    onClickOutside?.(evt);
     if (controlled || !closeOnClickOutside) {
       return;
     }
@@ -63,7 +63,7 @@ export const DropDown: React.FC<IDropdown> = (props) => {
       return;
     }
 
-    onBlur && onBlur(evt);
+    onBlur?.(evt);
     if (controlled && !closeOnBlur) {
       return;
     }
@@ -71,7 +71,7 @@ export const DropDown: React.FC<IDropdown> = (props) => {
   };
 
   const handleFocus = (evt: React.FocusEvent<HTMLInputElement>) => {
-    onFocus && onFocus(evt);
+    onFocus?.(evt);
     if (controlled) {
       return;
     }
@@ -79,7 +79,7 @@ export const DropDown: React.FC<IDropdown> = (props) => {
   };
 
   const handleIconClick = (evt: React.MouseEvent<HTMLButtonElement>) => {
-    onIconClick && onIconClick(evt);
+    onIconClick?.(evt);
     if (controlled) {
       return;
     }
