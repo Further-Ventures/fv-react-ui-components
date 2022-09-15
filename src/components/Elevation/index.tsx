@@ -14,6 +14,7 @@ export const Elevation: React.FC<IElevationProps> = (props) => {
   );
 };
 
+export default Elevation;
 Elevation.defaultProps = {
   variation: 'medium',
 };

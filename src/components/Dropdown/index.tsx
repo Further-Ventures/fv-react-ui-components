@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import useClickOutside from '../../hooks/useClickOutside';
 
 import Input, { IInput } from '../Input';
-import { Elevation } from '../Elevation';
+import Elevation from '../Elevation';
 import Button from '../Button';
 import Icon from '../Icons';
 
