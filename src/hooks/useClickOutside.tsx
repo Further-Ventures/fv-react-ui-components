@@ -4,7 +4,7 @@ const useClickOutside = <T extends HTMLElement>(callback: (evt: MouseEvent) => v
   const ref = useRef<T>(null);
   const handleClickOutside = (evt: MouseEvent) => {
     if (!ref.current?.contains(evt.target as Node)) {
-      callback && callback(evt);
+      callback(evt);
       return;
     }
   };

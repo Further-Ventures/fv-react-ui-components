@@ -21,7 +21,7 @@ const useCheck = <T extends BaseInput>(props: T, variation: TVariation) => {
       setInternalValue(e.target.checked);
     }
 
-    onChange && onChange(e);
+    onChange?.(e);
   };
 
   return {

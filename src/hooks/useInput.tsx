@@ -35,11 +35,11 @@ const useInput = <T extends BaseInput>(props: T, mask?: string) => {
       return nextValue;
     });
 
-    onChange && onChange(e);
+    onChange?.(e);
   };
 
   const onBlurWrapper = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    onBlur && onBlur(e);
+    onBlur?.(e);
   };
 
   return {
