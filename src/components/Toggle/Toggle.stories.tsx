@@ -22,7 +22,15 @@ const Template: ComponentStory<typeof Toggle> = (args) => {
     setIsActive(!isActive);
   };
 
-  return <Toggle {...args} isActive={isActive} onToggle={handleToggle} />;
+  return (
+    <>
+      <Toggle {...args} isActive={isActive} onToggle={handleToggle} />
+      <br />
+      <span>
+        <b>isActive:</b> {`${isActive}`}
+      </span>
+    </>
+  );
 };
 
 export const Default = Template.bind({});

@@ -13,11 +13,11 @@ it('should render large active toggle', () => {
     </Toggle>
   );
 
-  const toggleBackground = screen.queryByTestId('@fv/Toggle-toggleBackground');
+  const toggleBackground = screen.queryByTestId('@fv/InputWithToggle-toggleBackground');
   expect(toggleBackground?.className).toContain('bg-primary'); // active
   expect(toggleBackground?.className).toContain('w-11'); // large
 
-  expect(screen.queryByTestId('@fv/Toggle-toggleCircle')?.className).toContain('left-5'); // active
+  expect(screen.queryByTestId('@fv/InputWithToggle-toggleCircle')?.className).toContain('left-5'); // active
 });
 it('should render small active toggle', () => {
   const children = 'Hey! Toggle me!';
@@ -27,11 +27,11 @@ it('should render small active toggle', () => {
     </Toggle>
   );
 
-  const toggleBackground = screen.queryByTestId('@fv/Toggle-toggleBackground');
+  const toggleBackground = screen.queryByTestId('@fv/InputWithToggle-toggleBackground');
   expect(toggleBackground?.className).toContain('bg-primary'); // active
   expect(toggleBackground?.className).toContain('w-[1.8125rem]'); // small
 
-  expect(screen.queryByTestId('@fv/Toggle-toggleCircle')?.className).toContain('left-3'); // active
+  expect(screen.queryByTestId('@fv/InputWithToggle-toggleCircle')?.className).toContain('left-3'); // active
 });
 
 it('should render and toggle', () => {
@@ -42,14 +42,14 @@ it('should render and toggle', () => {
     </Toggle>
   );
 
-  const toggleBackground = screen.queryByTestId('@fv/Toggle-toggleBackground');
+  const toggleBackground = screen.queryByTestId('@fv/InputWithToggle-toggleBackground');
   expect(toggleBackground?.className).toContain('bg-primary'); // active
   expect(toggleBackground?.className).toContain('w-11'); // large
 
-  expect(screen.queryByTestId('@fv/Toggle-toggleCircle')?.className).toContain('left-5'); // active
+  expect(screen.queryByTestId('@fv/InputWithToggle-toggleCircle')?.className).toContain('left-5'); // active
 
-  const toggleButton = screen.queryByTestId('@fv/Toggle-toggleButton') as HTMLElement;
-  fireEvent.click(toggleButton);
+  const input = screen.queryByTestId('@fv/InputWithToggle-label') as HTMLElement;
+  fireEvent.click(input);
 
   expect(mockOnToggle).toBeCalled();
 });
@@ -62,12 +62,12 @@ it('should render large inactive toggle', () => {
     </Toggle>
   );
 
-  const toggleBackground = screen.queryByTestId('@fv/Toggle-toggleBackground');
+  const toggleBackground = screen.queryByTestId('@fv/InputWithToggle-toggleBackground');
 
   expect(toggleBackground?.className).toContain('bg-default-light'); // inactive
   expect(toggleBackground?.className).toContain('w-11'); // large
 
-  expect(screen.queryByTestId('@fv/Toggle-toggleCircle')?.className).toContain('left-0'); // inactive
+  expect(screen.queryByTestId('@fv/InputWithToggle-toggleCircle')?.className).toContain('left-0'); // inactive
 });
 it('should render small inactive toggle', () => {
   const children = 'Hey! Toggle me!';
@@ -77,12 +77,12 @@ it('should render small inactive toggle', () => {
     </Toggle>
   );
 
-  const toggleBackground = screen.queryByTestId('@fv/Toggle-toggleBackground');
+  const toggleBackground = screen.queryByTestId('@fv/InputWithToggle-toggleBackground');
 
   expect(toggleBackground?.className).toContain('bg-default-light'); // inactive
   expect(toggleBackground?.className).toContain('w-[1.8125rem]'); // small
 
-  expect(screen.queryByTestId('@fv/Toggle-toggleCircle')?.className).toContain('left-0'); // inactive
+  expect(screen.queryByTestId('@fv/InputWithToggle-toggleCircle')?.className).toContain('left-0'); // inactive
 });
 
 it('should render large disabled toggle', () => {
@@ -93,7 +93,7 @@ it('should render large disabled toggle', () => {
     </Toggle>
   );
 
-  const toggleBackground = screen.queryByTestId('@fv/Toggle-toggleBackground');
+  const toggleBackground = screen.queryByTestId('@fv/InputWithToggle-toggleBackground');
 
   expect(toggleBackground?.className).not.toContain('bg-default-light'); // disabled
   expect(toggleBackground?.className).toContain('bg-default'); // disabled
@@ -107,7 +107,7 @@ it('should render small disabled toggle', () => {
     </Toggle>
   );
 
-  const toggleBackground = screen.queryByTestId('@fv/Toggle-toggleBackground');
+  const toggleBackground = screen.queryByTestId('@fv/InputWithToggle-toggleBackground');
 
   expect(toggleBackground?.className).not.toContain('bg-default-light'); // disabled
   expect(toggleBackground?.className).toContain('bg-default'); // disabled

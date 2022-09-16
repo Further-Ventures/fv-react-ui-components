@@ -4,7 +4,7 @@ import Icons from '../Icons';
 import useCheck from '../../hooks/useCheck';
 
 export type TCheckboxType = 'default' | 'intermediate';
-export type TVariation = 'checkbox' | 'radio' | 'checkboxCircle';
+export type TVariation = 'checkbox' | 'radio' | 'checkboxCircle' | 'toggle';
 export interface ISize {
   size?: 'default' | 'large';
 }
@@ -23,6 +23,8 @@ interface IInputWithToggleProps extends ICheckRadioProps {
   variation?: TVariation;
   type?: TCheckboxType;
 }
+
+const TEST_ID = '@fv/InputWithToggle';
 
 export const InputWithToggle: React.FC<IInputWithToggleProps & ISize & ICheckExtra> = ({
   variation = 'checkbox',
@@ -43,6 +45,7 @@ export const InputWithToggle: React.FC<IInputWithToggleProps & ISize & ICheckExt
   return (
     <div>
       <label
+        data-testid={`${TEST_ID}-label`}
         htmlFor={`${name}-${inputId}`}
         className={classNames('group flex items-center cursor-pointer ease-out transition-colors duration-300', {
           ['text-default-light']: disabled,
@@ -51,6 +54,7 @@ export const InputWithToggle: React.FC<IInputWithToggleProps & ISize & ICheckExt
         })}
       >
         <input
+          data-testid={`${TEST_ID}-input`}
           name={name}
           className={'peer hidden'}
           id={`${name}-${inputId}`}
@@ -61,21 +65,33 @@ export const InputWithToggle: React.FC<IInputWithToggleProps & ISize & ICheckExt
           {...derivedInputProps}
         />
         <span
-          className={classNames('flex justify-center items-center rounded border mr-2 ease-out transition-all duration-300', {
+          data-testid={`${TEST_ID}-toggleBackground`}
+          className={classNames('flex items-center mr-2 ease-out transition-all duration-300', {
+            ['justify-center rounded border']: variation !== 'toggle',
+            ['overflow-hidden rounded-3xl']: variation === 'toggle',
+            ['w-11 h-6 p-0.5']: size === 'large' && variation === 'toggle',
+            ['w-[1.8125rem] h-[1.0625rem] p-0.5']: size === 'default' && variation === 'toggle',
+            ['bg-default-light group-hover:bg-default']: !derivedChecked && !disabled && variation === 'toggle',
+            ['bg-primary group-hover:bg-primary-medium group-active:bg-primary-dark']: derivedChecked && !disabled && variation === 'toggle',
+            ['bg-default']: disabled && variation === 'toggle',
             ['rounded']: variation === 'checkbox',
             ['rounded-2xl']: variation !== 'checkbox',
-            ['w-4 h-4']: size === 'default',
-            ['w-5 h-5']: size === 'large',
-            ['border-default group-hover:bg-primary-light group-hover:border-primary-dark']: !derivedChecked && !disabled && !error,
-            ['border-primary bg-primary group-hover:bg-primary-dark group-hover:border-primary-dark']: derivedChecked && !disabled && !error,
-            ['border-default-light bg-background-secondary group-hover:border-default-light group-hover:bg-background-secondary']: disabled,
-            ['border-error']: error,
-            ['border-error group-hover:bg-error-light group-hover:border-error']: !derivedChecked && !disabled && error,
-            ['border-error bg-error group-hover:bg-error group-hover:border-error']: derivedChecked && !disabled && error,
+            ['w-4 h-4']: size === 'default' && variation !== 'toggle',
+            ['w-5 h-5']: size === 'large' && variation !== 'toggle',
+            ['border-default group-hover:bg-primary-light group-hover:border-primary-dark']:
+              !derivedChecked && !disabled && !error && variation !== 'toggle',
+            ['border-primary bg-primary group-hover:bg-primary-dark group-hover:border-primary-dark']:
+              derivedChecked && !disabled && !error && variation !== 'toggle',
+            ['border-default-light bg-background-secondary group-hover:border-default-light group-hover:bg-background-secondary']:
+              disabled && variation !== 'toggle',
+            ['border-error']: error && variation !== 'toggle',
+            ['border-error group-hover:bg-error-light group-hover:border-error']: !derivedChecked && !disabled && error && variation !== 'toggle',
+            ['border-error bg-error group-hover:bg-error group-hover:border-error']: derivedChecked && !disabled && error && variation !== 'toggle',
           })}
         >
-          {variation !== 'radio' && derivedChecked ? (
+          {!['radio', 'toggle'].includes(variation) && derivedChecked ? (
             <Icons
+              data-testid={`${TEST_ID}-checbboxIcon`}
               icon={variation === 'checkbox' && type === 'intermediate' ? 'remove' : 'check'}
               size={size === 'large' ? 15 : 10}
               color={disabled ? 'default-light' : 'primary-contrast-secondary'}
@@ -83,6 +99,7 @@ export const InputWithToggle: React.FC<IInputWithToggleProps & ISize & ICheckExt
           ) : null}
           {variation === 'radio' && derivedChecked ? (
             <span
+              data-testid={`${TEST_ID}-radioIcon`}
               className={classNames('rounded', {
                 ['bg-primary-contrast-secondary']: !disabled,
                 ['bg-default-light']: disabled,
@@ -90,6 +107,20 @@ export const InputWithToggle: React.FC<IInputWithToggleProps & ISize & ICheckExt
                 ['w-2 h-2']: size === 'large',
               })}
             />
+          ) : null}
+          {variation === 'toggle' ? (
+            <span
+              data-testid={`${TEST_ID}-toggleCircle`}
+              className={classNames('relative rounded-full shadow-light ease-out transition-all duration-300', {
+                ['w-5 h-5']: size === 'large',
+                ['w-[0.8125rem] h-[0.8125rem]']: size === 'default',
+                ['left-0']: !derivedChecked,
+                ['left-5']: derivedChecked && size === 'large',
+                ['left-3']: derivedChecked && size === 'default',
+                ['bg-default-extra-light']: disabled,
+                ['bg-primary-contrast-secondary']: !disabled,
+              })}
+            ></span>
           ) : null}
         </span>
         <span>{children}</span>
