@@ -1,4 +1,4 @@
-import React, { useId } from 'react';
+import React, { HTMLAttributes, useId } from 'react';
 import classNames from 'classnames';
 import Icons from '../Icons';
 import useCheck from '../../hooks/useCheck';
@@ -8,7 +8,7 @@ export type TVariation = 'checkbox' | 'radio' | 'checkboxCircle';
 export interface ISize {
   size?: 'default' | 'large';
 }
-export interface ICheckExtra {
+export interface ICheckExtra extends HTMLAttributes<HTMLInputElement> {
   children: React.ReactNode;
   value?: string;
 }
@@ -44,10 +44,9 @@ export const InputWithToggle: React.FC<IInputWithToggleProps & ISize & ICheckExt
     <div>
       <label
         htmlFor={`${name}-${inputId}`}
-        className={classNames('group flex items-center cursor-pointer ease-out transition-colors duration-300', {
+        className={classNames(className, 'group flex items-center cursor-pointer ease-out transition-colors duration-300', {
           ['text-default-light']: disabled,
           ['text-error']: error,
-          className,
         })}
       >
         <input
