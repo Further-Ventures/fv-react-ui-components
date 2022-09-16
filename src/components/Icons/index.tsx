@@ -140,7 +140,6 @@ const Icons: React.FC<IIconsProps> = ({ icon = 'person', size = 24, fill = false
     >
       <span
         className={classNames('font-mercury-icons', {
-          ['icon']: !fill,
           ['filled']: fill,
           [`text-${color}`]: color,
           ['text-text']: !color,
