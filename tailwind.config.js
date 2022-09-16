@@ -51,6 +51,9 @@ module.exports = {
         one: '1/1',
         paymentIcon: '17/12',
       },
+      transitionDuration: {
+        250: '250ms',
+      },
       colors: {
         primary: {
           light: 'var(--mercury-primary-color-light)',

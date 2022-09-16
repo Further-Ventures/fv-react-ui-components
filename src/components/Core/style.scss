@@ -2,7 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@font-face {
+  font-family: 'Material Symbols Rounded';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/icons.woff2') format('woff2');
+  font-display: block;
+}
+@font-face {
+  font-family: 'Material Symbols Rounded Filled';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/icons-filled.woff2') format('woff2');
+  font-display: block;
+}
+
 @font-face {
   font-family: 'PP Object Sans';
   src: url('./fonts/PPObjectSans-Bold.woff') format('woff'), url('./fonts/PPObjectSans-Bold.woff2') format('woff2');
@@ -94,7 +108,7 @@
 
   --mercury-text-color-primary: #000000;
   --mercury-text-color-secondary: #344054;
-  --mercury-text-color-disabled: #D2D2D2;
+  --mercury-text-color-disabled: #C7CCD3;
   --mercury-text-color-hint: #667085;
 
   --mercury-background-color: #FFFFFF;
@@ -110,9 +124,21 @@
   --mercury-shadow-color-dark: rgba(40,47,52,.3);
 }
 
-.icon {
-  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
 }
 .filled {
-  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+  font-family: 'Material Symbols Rounded Filled';
 }

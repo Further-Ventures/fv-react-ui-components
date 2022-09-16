@@ -16,11 +16,10 @@ export interface ITextArea extends React.InputHTMLAttributes<HTMLTextAreaElement
   errorClassName?: string;
   value?: string;
   name?: string;
-  controlled?: boolean;
   rows?: number;
-  onChange?: (e: React.BaseSyntheticEvent) => void;
-  onBlur?: (e: React.BaseSyntheticEvent) => void;
-
+  onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
+  onBlur?: React.FocusEventHandler<HTMLTextAreaElement>;
+  onFocus?: React.FocusEventHandler<HTMLTextAreaElement>;
   width?: 'small' | 'medium' | 'large' | 'full';
   maxLength?: number;
 }

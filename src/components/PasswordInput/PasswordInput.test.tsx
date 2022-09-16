@@ -7,8 +7,8 @@ describe('Password Input component', () => {
   it('should be rendered with label, icon and password type', () => {
     const label = 'Test input';
     render(<PasswordInput name='passwordInput' label={label} />);
-    const inputElement = screen.getByTestId('input--passwordInput');
-    const labelElement = screen.getByTestId('input-label--passwordInput');
+    const inputElement = screen.getByTestId('@fv/input-passwordInput');
+    const labelElement = screen.getByTestId('@fv/input-passwordInput--label');
 
     expect(inputElement).toBeInTheDocument();
     expect(inputElement.getAttribute('type')).toEqual('password');
@@ -19,8 +19,8 @@ describe('Password Input component', () => {
   it('should should switch password visibility when icon is clicked', () => {
     const label = 'Test input';
     render(<PasswordInput name='passwordInput' label={label} />);
-    const inputElement = screen.getByTestId('input--passwordInput');
-    const labelElement = screen.getByTestId('input-label--passwordInput');
+    const inputElement = screen.getByTestId('@fv/input-passwordInput');
+    const labelElement = screen.getByTestId('@fv/input-passwordInput--label');
     const iconElement = screen.queryByText('visibility_off');
 
     iconElement && fireEvent.click(iconElement);

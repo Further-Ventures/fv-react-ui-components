@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import Pressable, { IPressable } from '../Pressable';
 
 export interface IButton extends Omit<IPressable, 'size' | 'color'> {
@@ -6,6 +6,6 @@ export interface IButton extends Omit<IPressable, 'size' | 'color'> {
   color?: 'primary' | 'error' | 'grey';
 }
 
-const Button: React.FC<IButton> = (props) => <Pressable {...props} />;
-
+const Button = forwardRef<HTMLButtonElement, IButton>((props, ref) => <Pressable ref={ref} {...props} />);
+Button.displayName = 'Button';
 export default Button;

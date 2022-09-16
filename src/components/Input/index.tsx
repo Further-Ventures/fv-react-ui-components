@@ -15,17 +15,15 @@ export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   errorClassName?: string;
   value?: string;
   name?: string;
-  onChange?: (e: React.BaseSyntheticEvent) => void;
-  onBlur?: (e: React.BaseSyntheticEvent) => void;
   mask?: string;
-
   width?: 'small' | 'medium' | 'large' | 'full';
-
   sideContent?: React.ReactNode | ((hasError: boolean, disabled?: boolean) => React.ReactNode);
 }
 
 const getPropertyValue = (ref: React.RefObject<HTMLElement>, value: string) =>
   ref.current && parseFloat(window.getComputedStyle(ref.current).getPropertyValue(value));
+
+const TEST_ID = '@fv/input';
 
 export const Input: React.FC<IInput> = (props) => {
   const {
@@ -69,6 +67,10 @@ export const Input: React.FC<IInput> = (props) => {
 
     const newPadRight = contentWidth + 2 * contentRight;
 
+    if (isNaN(newPadRight)) {
+      return;
+    }
+
     if (newPadRight !== rightPad) {
       setRightPad(newPadRight);
     }
@@ -85,7 +87,7 @@ export const Input: React.FC<IInput> = (props) => {
       <div className={classNames('relative overflow-hidden', { ['text-text-disabled']: disabled })}>
         <input
           name={name}
-          data-testid={`input--${name}`}
+          data-testid={`${TEST_ID}-${name}`}
           id={`input--${inputId}`}
           placeholder={placeholder}
           value={value}
@@ -93,6 +95,7 @@ export const Input: React.FC<IInput> = (props) => {
           type={type}
           onChange={onChange}
           onBlur={onBlur}
+          onClick={onClick}
           style={overridePadding ? { paddingRight: rightPad } : {}}
           className={classNames(
             inputClassName,
@@ -114,7 +117,7 @@ export const Input: React.FC<IInput> = (props) => {
         />
         {hasLabel && (
           <label
-            data-testid={`input-label--${name}`}
+            data-testid={`${TEST_ID}-${name}--label`}
             htmlFor={`input--${inputId}`}
             className={classNames(
               'text-base leading-none absolute left-3 top-1/2 -translate-y-1/2 flex items-center transition ease-out duration-250 text-text-primary pointer-events-none whitespace-nowrap', //base
