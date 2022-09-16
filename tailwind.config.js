@@ -5,6 +5,7 @@ module.exports = {
     { pattern: /text-(primary|error|warning|success|cool|default|text)/ },
     { pattern: /fill-(primary|error|warning|success|cool|default|text)/ },
     { pattern: /stroke-(primary|error|warning|success|cool|default|text)/ },
+    { pattern: /border-(primary|error|warning|success|cool|default|text)/ },
     { pattern: /shadow-(extraLight|light|medium|heavy|extraHeavy)/ },
   ],
   theme: {
@@ -28,10 +29,10 @@ module.exports = {
       },
       fontSize: {
         '2xs': ['0.625rem', '0.9375rem'],
-        'xxs': '.625rem', // 10px
-        'base2': '1.125rem', // 18px
-        'lg': '1.5rem', // 24px
-        'xl': '2rem', // 32px
+        xxs: '.625rem', // 10px
+        base2: '1.125rem', // 18px
+        lg: '1.5rem', // 24px
+        xl: '2rem', // 32px
         '2xl': '2.5rem', // 40px
         '3xl': '2.625rem', // 42px
         '4xl': '3rem', // 48px
@@ -40,15 +41,18 @@ module.exports = {
         '7xl': '4.25rem', // 68px
       },
       lineHeight: {
-        'none': 1,
+        none: 1,
         'extra-tight': '1.2',
-        'tight': 1.25,
-        'snug': 1.3,
-        'normal': 1.5
+        tight: 1.25,
+        snug: 1.3,
+        normal: 1.5,
       },
       aspectRatio: {
         one: '1/1',
         paymentIcon: '17/12',
+      },
+      transitionDuration: {
+        250: '250ms',
       },
       colors: {
         primary: {
@@ -104,7 +108,8 @@ module.exports = {
         },
         background: {
           DEFAULT: 'var(--mercury-background-color)',
-        }
+          secondary: 'var(--mercury-background-color-secondary)',
+        },
       },
       boxShadow: {
         extraLight: '0 1px 2px var(--mercury-shadow-color-dark), 0 1px 3px 1px var(--mercury-shadow-color-light)',
@@ -114,38 +119,38 @@ module.exports = {
         extraHeavy: '0 4px 4px var(--mercury-shadow-color-dark), 0 8px 12px 6px var(--mercury-shadow-color-light)',
       },
       rotate: {
-        '270': '270deg',
-        '360': '360deg',
+        270: '270deg',
+        360: '360deg',
       },
       animation: {
-        'partialPathFill': 'partialPath 1.5s ease-in-out infinite',
-        'partialLineFill': 'barPartialLine 1.5s ease-in-out infinite alternate',
+        partialPathFill: 'partialPath 1.5s ease-in-out infinite',
+        partialLineFill: 'barPartialLine 1.5s ease-in-out infinite alternate',
       },
       keyframes: {
         partialPath: {
           '0%, 100%': {
             'stroke-dasharray': '90, 120',
-            'stroke-dashoffset': '0'
+            'stroke-dashoffset': '0',
           },
           '50%': {
             'stroke-dasharray': '30, 120',
-            'stroke-dashoffset': '-55px'
-          }
+            'stroke-dashoffset': '-55px',
+          },
         },
         barPartialLine: {
           '0%, 100%': {
             'stroke-dasharray': '80, 240',
-            'stroke-dashoffset': '0'
+            'stroke-dashoffset': '0',
           },
           '25%, 75%': {
             'stroke-dasharray': '112, 240',
           },
           '50%': {
             'stroke-dasharray': '80, 240',
-            'stroke-dashoffset': '-156'
+            'stroke-dashoffset': '-156',
           },
-        }
-      }
+        },
+      },
     },
   },
   plugins: [],

@@ -1,0 +1,20 @@
+.mercuryDropdownContent{
+    &-enter {
+        opacity: 0;
+        transform: translateY(-0.5rem);
+    }
+    &-enter-active {
+        opacity: 1;
+        transform: translateY(0rem);
+    }
+    &-exit {
+        opacity: 1;
+    }
+    &-exit-active {
+        opacity: 0;
+        transform: translateY(-0.5rem);
+    }
+    &-enter-active, &-exit-active{
+        transition: opacity 250ms ease-in, transform 250ms ease-in;
+    }
+}

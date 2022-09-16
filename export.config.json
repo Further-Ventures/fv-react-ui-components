@@ -8,6 +8,9 @@
     "Icons": "icons",
     "Loader": "loader",
     "Tag": "tag",
-    "TextLink": "textlink"
+    "TextLink": "textlink",
+    "Checkbox": "checkbox",
+    "Radio": "radio",
+    "RadioGroup": "radiogroup",
   }
 }
