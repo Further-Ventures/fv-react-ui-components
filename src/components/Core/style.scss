@@ -115,3 +115,16 @@
 .filled {
   font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
 }
+
+.circular-path-loader {
+  stroke-dasharray: 30, 120;
+  stroke-dashoffset: 0;
+}
+.circular-path-rounded-loader {
+  stroke-dasharray: 30, 120;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+}
+.line-path-rounded-loader {
+  stroke-linecap: round;
+}

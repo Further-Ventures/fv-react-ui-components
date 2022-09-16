@@ -2,10 +2,11 @@
   "name": "@further-ventures/fv-react-ui-components",
   "components": {
     "Button": "button",
+    "Chip": "chip",
+    "Core": "core",
     "Input": "input",
     "Icons": "icons",
-    "Core": "core",
-    "Chip": "chip",
+    "Loader": "loader",
     "Tag": "tag",
     "TextLink": "textlink"
   }

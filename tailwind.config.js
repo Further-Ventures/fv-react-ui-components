@@ -113,6 +113,39 @@ module.exports = {
         heavy: '0 2px 3px var(--mercury-shadow-color-dark), 0 6px 10px 4px var(--mercury-shadow-color-light)',
         extraHeavy: '0 4px 4px var(--mercury-shadow-color-dark), 0 8px 12px 6px var(--mercury-shadow-color-light)',
       },
+      rotate: {
+        '270': '270deg',
+        '360': '360deg',
+      },
+      animation: {
+        'partialPathFill': 'partialPath 1.5s ease-in-out infinite',
+        'partialLineFill': 'barPartialLine 1.5s ease-in-out infinite alternate',
+      },
+      keyframes: {
+        partialPath: {
+          '0%, 100%': {
+            'stroke-dasharray': '90, 120',
+            'stroke-dashoffset': '0'
+          },
+          '50%': {
+            'stroke-dasharray': '30, 120',
+            'stroke-dashoffset': '-55px'
+          }
+        },
+        barPartialLine: {
+          '0%, 100%': {
+            'stroke-dasharray': '80, 240',
+            'stroke-dashoffset': '0'
+          },
+          '25%, 75%': {
+            'stroke-dasharray': '112, 240',
+          },
+          '50%': {
+            'stroke-dasharray': '80, 240',
+            'stroke-dashoffset': '-156'
+          },
+        }
+      }
     },
   },
   plugins: [],
