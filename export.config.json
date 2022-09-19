@@ -2,14 +2,15 @@
   "name": "@further-ventures/fv-react-ui-components",
   "components": {
     "Button": "button",
+    "Checkbox": "checkbox",
+    "Chip": "chip",
+    "Core": "core",
     "Input": "input",
     "Icons": "icons",
-    "Core": "core",
-    "Chip": "chip",
-    "Tag": "tag",
-    "TextLink": "textlink",
-    "Checkbox": "checkbox",
     "Radio": "radio",
     "RadioGroup": "radiogroup",
+    "Tag": "tag",
+    "TextLink": "textlink",
+    "Toggle": "toggle",
   }
 }
