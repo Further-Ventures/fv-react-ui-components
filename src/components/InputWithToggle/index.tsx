@@ -4,7 +4,7 @@ import Icons from '../Icons';
 import useCheck from '../../hooks/useCheck';
 
 export type TCheckboxType = 'default' | 'intermediate';
-export type TVariation = 'checkbox' | 'radio' | 'checkboxCircle';
+export type TVariation = 'checkbox' | 'radio' | 'checkboxCircle' | 'toggle';
 export interface ISize {
   size?: 'default' | 'large';
 }
