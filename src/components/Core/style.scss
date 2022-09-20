@@ -142,3 +142,16 @@
 .filled {
   font-family: 'Material Symbols Rounded Filled';
 }
+
+.circular-path-loader {
+  stroke-dasharray: 30, 120;
+  stroke-dashoffset: 0;
+}
+.circular-path-rounded-loader {
+  stroke-dasharray: 30, 120;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+}
+.line-path-rounded-loader {
+  stroke-linecap: round;
+}
