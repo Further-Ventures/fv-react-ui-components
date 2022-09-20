@@ -3,122 +3,28 @@ import classNames from 'classnames';
 
 interface ILoaderProps {
   variant?: 'circular' | 'bar';
-  progress?:
-    | -1
-    | 0
-    | 1
-    | 2
-    | 3
-    | 4
-    | 5
-    | 6
-    | 7
-    | 8
-    | 9
-    | 10
-    | 11
-    | 12
-    | 13
-    | 14
-    | 15
-    | 16
-    | 17
-    | 18
-    | 19
-    | 20
-    | 21
-    | 22
-    | 23
-    | 24
-    | 25
-    | 26
-    | 27
-    | 28
-    | 29
-    | 30
-    | 31
-    | 32
-    | 33
-    | 34
-    | 35
-    | 36
-    | 37
-    | 38
-    | 39
-    | 40
-    | 41
-    | 42
-    | 43
-    | 44
-    | 45
-    | 46
-    | 47
-    | 48
-    | 49
-    | 50
-    | 51
-    | 52
-    | 53
-    | 54
-    | 55
-    | 56
-    | 57
-    | 58
-    | 59
-    | 60
-    | 61
-    | 62
-    | 63
-    | 64
-    | 65
-    | 66
-    | 67
-    | 68
-    | 69
-    | 70
-    | 71
-    | 72
-    | 73
-    | 74
-    | 75
-    | 76
-    | 77
-    | 78
-    | 79
-    | 80
-    | 81
-    | 82
-    | 83
-    | 84
-    | 85
-    | 86
-    | 87
-    | 88
-    | 89
-    | 90
-    | 91
-    | 92
-    | 93
-    | 94
-    | 95
-    | 96
-    | 97
-    | 98
-    | 99
-    | 100;
+  progress?: number;
   flat?: boolean;
   className?: string;
 }
 
 const TEST_ID = '@fv/Loader';
+const DIAMETER = 48;
+const BAR_LENGTH = 236;
+const STROKE_WIDTH = 4;
+const INNER_RADIUS = DIAMETER / 2 /* radius */ - STROKE_WIDTH / 2;
 
 export const Loader: React.FC<ILoaderProps> = ({ variant = 'circular', flat = false, progress = -1 }) => {
+  const limitedProgress = progress < -1 ? 0 : progress > 100 ? 100 : progress;
+
   const calculateProgress = () => {
-    const factor = variant === 'bar' ? 2.36 : flat ? 1.385 : 1.365;
+    const circumferenceOrLength = variant === 'circular' ? 2 * Math.PI * INNER_RADIUS : BAR_LENGTH;
+    const dasharray0 = Math.round((circumferenceOrLength * limitedProgress) / 100);
+    const dasharray1 = circumferenceOrLength - dasharray0 + 5;
 
     return progress > -1
       ? {
-          strokeDasharray: `${Math.round(progress * factor)}, ${variant === 'bar' ? 240 : progress === 0 ? 142 : 138}`,
+          strokeDasharray: `${variant === 'circular' && !flat ? dasharray0 - 1 : dasharray0} ${dasharray1}`,
           strokeDashoffset: `${progress === 0 ? 1 : 0}`,
         }
       : {};
@@ -158,7 +64,7 @@ export const Loader: React.FC<ILoaderProps> = ({ variant = 'circular', flat = fa
         <line
           x1='2'
           y1='2'
-          x2='238'
+          x2={BAR_LENGTH + 2}
           y2='2'
           className={classNames('stroke-primary-light', {
             ['line-path-rounded-loader']: !flat,
@@ -169,7 +75,7 @@ export const Loader: React.FC<ILoaderProps> = ({ variant = 'circular', flat = fa
         <line
           x1='2'
           y1='2'
-          x2='238'
+          x2={BAR_LENGTH + 2}
           y2='2'
           className={classNames('stroke-primary', {
             ['animate-partialLineFill']: progress === -1,

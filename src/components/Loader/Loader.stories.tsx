@@ -22,8 +22,8 @@ const Template: ComponentStory<typeof Loader> = (args) => {
   return <Loader {...args} />;
 };
 
-export const Text = Template.bind({});
-Text.args = {
+export const LoaderTemplate = Template.bind({});
+LoaderTemplate.args = {
   variant: 'circle',
   flat: false,
   progress: null,
