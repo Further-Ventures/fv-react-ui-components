@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
-import { TVariation } from '../components/InputWithToggle';
+import React, { useMemo, useState } from 'react';
 
 interface BaseInput extends React.InputHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
   name?: string;
+  isDefaultChecked?: boolean;
   isChecked?: boolean;
   onChange?: (e: React.BaseSyntheticEvent) => void;
 }
 
-const useCheck = <T extends BaseInput>(props: T, variation: TVariation) => {
-  const isCheckbox = variation !== 'radio';
-  const { disabled, name = '', isChecked = false, onChange, value, ...inputProps } = props;
-  const [internalValue, setInternalValue] = useState(isChecked);
+const useCheck = <T extends BaseInput>(props: T) => {
+  const { disabled, name = '', isDefaultChecked, isChecked, onChange, value, ...inputProps } = props;
+  const controlled = useMemo(() => isChecked !== undefined && isChecked !== null, [isChecked]);
+
+  const [internalValue, setInternalValue] = useState(controlled ? isChecked : isDefaultChecked);
   const onChangeWrapper = (e: React.BaseSyntheticEvent) => {
     if (disabled) {
       return null;
     }
 
-    if (isCheckbox) {
+    if (!controlled) {
       setInternalValue(e.target.checked);
     }
 
@@ -28,9 +29,18 @@ const useCheck = <T extends BaseInput>(props: T, variation: TVariation) => {
     name,
     value,
     disabled,
-    inputProps,
-    checked: internalValue,
-    onChange: onChangeWrapper,
+    inputProps: controlled
+      ? {
+          ...inputProps,
+          onChange: onChangeWrapper,
+          checked: isChecked,
+        }
+      : {
+          ...inputProps,
+          onChange: onChangeWrapper,
+          defaultChecked: isDefaultChecked,
+        },
+    checked: controlled ? isChecked : internalValue,
   };
 };
 
