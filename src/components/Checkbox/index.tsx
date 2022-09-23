@@ -11,7 +11,8 @@ export const Checkbox: React.FC<ICheckboxProps & ISize & ICheckExtra> = ({
   type = 'default',
   size = 'default',
   name,
-  isChecked = false,
+  isChecked,
+  isDefaultChecked,
   error = '',
   value,
   className,
@@ -27,6 +28,7 @@ export const Checkbox: React.FC<ICheckboxProps & ISize & ICheckExtra> = ({
     isChecked={isChecked}
     error={error}
     className={className}
+    isDefaultChecked={isDefaultChecked}
     {...rest}
   >
     {children}
@@ -37,7 +39,6 @@ Checkbox.defaultProps = {
   variation: 'default',
   type: 'default',
   size: 'default',
-  isChecked: false,
   disabled: false,
   error: '',
 };

@@ -20,7 +20,7 @@ export const Loader: React.FC<ILoaderProps> = ({ variant = 'circular', flat = fa
   const calculateProgress = () => {
     const circumferenceOrLength = variant === 'circular' ? 2 * Math.PI * INNER_RADIUS : BAR_LENGTH;
     const dasharray0 = Math.round((circumferenceOrLength * limitedProgress) / 100);
-    const dasharray1 = circumferenceOrLength - dasharray0 + 5;
+    const dasharray1 = circumferenceOrLength - dasharray0;
 
     return progress > -1
       ? {
@@ -48,9 +48,9 @@ export const Loader: React.FC<ILoaderProps> = ({ variant = 'circular', flat = fa
             ['circular-path-rounded-loader']: !flat,
           })}
           style={calculateProgress()}
-          cx='48'
-          cy='48'
-          r='22'
+          cx={DIAMETER}
+          cy={DIAMETER}
+          r={INNER_RADIUS}
           fill='none'
           strokeWidth='4'
           data-testid={`${TEST_ID}-circle`}
