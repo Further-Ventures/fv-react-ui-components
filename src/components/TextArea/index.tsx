@@ -82,7 +82,7 @@ export const TextArea: React.FC<ITextArea> = (props) => {
           <label
             htmlFor={`textarea--${textAreaId}`}
             className={classNames(
-              'font-normal left-0 right-0 px-3 pt-2 text-xs text-text-hint leading-none absolute pointer-events-none whitespace-nowrap',
+              'font-normal left-0 right-0 px-3 pt-2 text-xs text-text-hint leading-none absolute pointer-events-none whitespace-nowrap truncate',
               'peer-disabled:text-text-disabled peer-disabled:select-none' //input disabled
             )}
           >
