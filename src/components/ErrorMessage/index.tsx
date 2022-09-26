@@ -13,7 +13,7 @@ const ErrorMessage = (props: IErrorMessage) => {
   return (
     <div
       {...rest}
-      className={classNames(className, 'flex items-center gap-1 text-sm leading-none  mt-2', {
+      className={classNames(className, 'flex items-center gap-1 text-sm leading-none mt-2 ml-3', {
         'text-error': !disabled,
         'text-text-disabled': disabled,
       })}
