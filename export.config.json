@@ -13,5 +13,7 @@
     "Tag": "tag",
     "TextLink": "textlink",
     "Toggle": "toggle",
+    "Elevation": "elevation",
+    "PasswordInput": "passwordinput"
   }
 }
