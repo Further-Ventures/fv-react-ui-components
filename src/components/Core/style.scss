@@ -144,12 +144,12 @@
 }
 
 .circular-path-loader {
-  stroke-dasharray: 30, 120;
-  stroke-dashoffset: 0;
+  stroke-dasharray: 0, 144;
+  stroke-dashoffset: 1;
 }
 .circular-path-rounded-loader {
-  stroke-dasharray: 30, 120;
-  stroke-dashoffset: 0;
+  stroke-dasharray: 0, 144;
+  stroke-dashoffset: 1;
   stroke-linecap: round;
 }
 .line-path-rounded-loader {
