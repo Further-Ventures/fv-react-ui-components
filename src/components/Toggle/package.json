@@ -1,5 +1,5 @@
 {
-  "name": "@further-ventures/fv-react-ui-components.checkbox",
+  "name": "@further-ventures/fv-react-ui-components.toggle",
   "version": "0.0.1",
   "peerDependencies": {
     "classnames": ">=2.0.0",

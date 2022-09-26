@@ -4,70 +4,24 @@ import { Checkbox } from './index';
 import pkg from './package.json';
 import { buildExcludeArgTypes } from '../../storybook/utils';
 import Button from '../Button';
-import { useState } from 'react';
 
 export default {
-  title: 'Components/Checkbox',
+  title: 'Components/CheckboxUncontrolled',
   component: Checkbox,
   parameters: {
     pkg,
   },
-  argTypes: buildExcludeArgTypes(['variation', 'className']),
+  argTypes: buildExcludeArgTypes(['variation', 'isChecked', 'className']),
 } as ComponentMeta<typeof Checkbox>;
 
-const Template: ComponentStory<typeof Checkbox> = (args) => {
-  const onSubmit = (e: React.BaseSyntheticEvent) => {
-    e.preventDefault();
-
-    console.log('----------------------------------------');
-    console.log(' stories onSubmit:');
-    const formData = new FormData(document.querySelector('form') as HTMLFormElement);
-    for (const pair of formData.entries()) {
-      console.log('   ', pair[0]);
-    }
-    console.log('----------------------------------------');
-  };
-  const onChange = (e: React.BaseSyntheticEvent) => {
-    console.log('----------------------------------------');
-    console.log(' stories onChange:');
-    console.log('   ', e.target.name, ':', e.target.checked);
-    console.log('----------------------------------------');
-  };
-
-  return (
-    <form onSubmit={onSubmit} onChange={onChange}>
-      <Checkbox {...args}>Checkbox text</Checkbox>
-      <br />
-      <Button label='Submit' size='small' />
-    </form>
-  );
+const TemplateUncontrolled: ComponentStory<typeof Checkbox> = (args) => {
+  return <Checkbox {...args}>Checkbox text</Checkbox>;
 };
 
-export const CheckboxInput = Template.bind({});
+export const CheckboxInput = TemplateUncontrolled.bind({});
 CheckboxInput.args = {
   name: 'checkbox01',
-  isChecked: true,
-};
-
-const TemplateControlled: ComponentStory<typeof Checkbox> = (args) => {
-  const [isSubscribing, setIsSubscribing] = useState(false);
-
-  return (
-    <>
-      <Checkbox {...args} isChecked={isSubscribing} onChange={() => setIsSubscribing(!isSubscribing)}>
-        Subscribe to Newsletter
-      </Checkbox>
-      <br />
-      <span>
-        <b>CHECKED:</b> {`${isSubscribing}`}
-      </span>
-    </>
-  );
-};
-
-export const ControlledCheckboxInput = TemplateControlled.bind({});
-ControlledCheckboxInput.args = {
-  name: 'isSubscribed',
+  isDefaultChecked: true,
 };
 
 const TemplateGroup: ComponentStory<typeof Checkbox> = (args) => {
@@ -109,7 +63,7 @@ CheckboxGroup.args = [
   },
   {
     name: 'check02',
-    isChecked: true,
+    isDefaultChecked: true,
     children: 'Checkbox text 02',
   },
   {

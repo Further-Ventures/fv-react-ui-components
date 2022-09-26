@@ -5,7 +5,7 @@ export const Radio: React.FC<ICheckRadioProps & ISize & ICheckExtra> = ({
   size = 'default',
   name,
   value = 'fieldName',
-  isChecked = false,
+  isDefaultChecked,
   disabled = false,
   error = '',
   className,
@@ -17,11 +17,11 @@ export const Radio: React.FC<ICheckRadioProps & ISize & ICheckExtra> = ({
     type='default'
     size={size}
     name={name}
-    isChecked={isChecked}
     disabled={disabled}
     value={value}
     error={error}
     className={className}
+    isDefaultChecked={isDefaultChecked}
     {...rest}
   >
     {children}
@@ -31,7 +31,6 @@ export const Radio: React.FC<ICheckRadioProps & ISize & ICheckExtra> = ({
 Radio.defaultProps = {
   size: 'default',
   value: 'fieldName',
-  isChecked: false,
   disabled: false,
   error: '',
 };
