@@ -28,70 +28,85 @@ export const Theme = () => {
       <h3 className='p-2 text-4xl'>Colors</h3>
       <h4 className='p-2 text-lg w-full'>Primary</h4>
       <div className='flex flex-wrap gap-4'>
-        <div className='shadow-lg border-primary bg-primary rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-primary bg-primary rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast-secondary'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Main: <br />
-            #2400ff
+            #2400FF
           </span>
         </div>
-        <div className='shadow-lg border-primary-light bg-primary-light rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-primary-light bg-primary-light rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Light: <br />
-            #d1d3fd
+            #D1D3FD
           </span>
         </div>
-        <div className='shadow-lg border-primary-dark bg-primary-dark rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-primary-medium bg-primary-medium rounded-md border-8 w-40 pt- flex flex-col justify-end'>
+          <span className='p-8 text-center text-primary-contrast-secondary'>AAA</span>
+          <span className='bg-white text-black w-full block rounded-md p-1'>
+            Medium: <br />
+            #1E00D3
+          </span>
+        </div>
+        <div className='shadow-lg border-primary-dark bg-primary-dark rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast-secondary'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Dark: <br />
-            #17019c
+            #17019C
           </span>
         </div>
-        <div className='shadow-lg border-primary-contrast bg-primary-contrast rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-primary-contrast bg-primary-contrast rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast-secondary'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Contrast: <br />
             #000000
           </span>
         </div>
-        <div className='shadow-lg border-primary-contrast-secondary bg-primary-contrast-secondary rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-primary-contrast-secondary bg-primary-contrast-secondary rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Contrast secondary: <br />
-            #ffffff
+            #FFFFFF
           </span>
         </div>
       </div>
 
       <h4 className='p-2 text-lg w-full'>Error</h4>
       <div className='flex flex-wrap gap-4'>
-        <div className='shadow-lg border-error bg-error rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-error bg-error rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-error-contrast-secondary'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Main: <br />
-            #cc2418
+            #CC2418
           </span>
         </div>
 
-        <div className='shadow-lg border-error-light bg-error-light rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-error-light bg-error-light rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-error-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Light: <br />
-            #fbdcda
+            #FBDCDA
           </span>
         </div>
 
-        <div className='shadow-lg border-error-dark bg-error-dark rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-error-medium bg-error-medium rounded-md border-8 w-40 pt- flex flex-col justify-end'>
+          <span className='p-8 text-center text-error-contrast-secondary'>AAA</span>
+          <span className='bg-white text-black w-full block rounded-md p-1'>
+            Medium: <br />
+            #D8281C
+          </span>
+        </div>
+
+        <div className='shadow-lg border-error-dark bg-error-dark rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-error-contrast-secondary'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Dark: <br />
-            #b91d12
+            #B91D12
           </span>
         </div>
 
-        <div className='shadow-lg border-error-contrast bg-error-contrast rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-error-contrast bg-error-contrast rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-error-contrast-secondary'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Contrast: <br />
@@ -99,42 +114,50 @@ export const Theme = () => {
           </span>
         </div>
 
-        <div className='shadow-lg border-error-contrast-secondary bg-error-contrast-secondary rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-error-contrast-secondary bg-error-contrast-secondary rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-error-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Contrast secondary: <br />
-            #ffffff
+            #FFFFFF
           </span>
         </div>
       </div>
 
       <h4 className='p-2 text-lg w-full'>Warning</h4>
       <div className='flex flex-wrap gap-4'>
-        <div className='shadow-lg border-warning bg-warning rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-warning bg-warning rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-warning-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Main: <br />
-            #fe9e34
+            #FE9E34
           </span>
         </div>
 
-        <div className='shadow-lg border-warning-light bg-warning-light rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-warning-light bg-warning-light rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-warning-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Light: <br />
-            #ffddb3
+            #FFDDB3
           </span>
         </div>
 
-        <div className='shadow-lg border-warning-dark bg-warning-dark rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-warning-medium bg-warning-medium rounded-md border-8 w-40 pt- flex flex-col justify-end'>
+          <span className='p-8 text-center text-warning-contrast'>AAA</span>
+          <span className='bg-white text-black w-full block rounded-md p-1'>
+            Medium: <br />
+            #E57942
+          </span>
+        </div>
+
+        <div className='shadow-lg border-warning-dark bg-warning-dark rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-warning-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Dark: <br />
-            #eb621c
+            #EB621C
           </span>
         </div>
 
-        <div className='shadow-lg border-warning-contrast bg-warning-contrast rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-warning-contrast bg-warning-contrast rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-warning-contrast-secondary'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Contrast: <br />
@@ -142,17 +165,17 @@ export const Theme = () => {
           </span>
         </div>
 
-        <div className='shadow-lg border-warning-contrast-secondary bg-warning-contrast-secondary rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-warning-contrast-secondary bg-warning-contrast-secondary rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-warning-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Contrast secondary: <br />
-            #ffffff
+            #FFFFFF
           </span>
         </div>
       </div>
       <h4 className='p-2 text-lg w-full'>Success</h4>
       <div className='flex flex-wrap gap-4'>
-        <div className='shadow-lg border-success bg-success rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-success bg-success rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-success-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Main: <br />
@@ -160,15 +183,23 @@ export const Theme = () => {
           </span>
         </div>
 
-        <div className='shadow-lg border-success-light bg-success-light rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-success-light bg-success-light rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-success-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Light: <br />
-            #b3dfca
+            #B3DFCA
           </span>
         </div>
 
-        <div className='shadow-lg border-success-dark bg-success-dark rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-success-medium bg-success-medium rounded-md border-8 w-40 pt- flex flex-col justify-end'>
+          <span className='p-8 text-center text-success-contrast'>AAA</span>
+          <span className='bg-white text-black w-full block rounded-md p-1'>
+            Medium: <br />
+            #049D49
+          </span>
+        </div>
+
+        <div className='shadow-lg border-success-dark bg-success-dark rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-success-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Dark: <br />
@@ -176,7 +207,7 @@ export const Theme = () => {
           </span>
         </div>
 
-        <div className='shadow-lg border-success-contrast bg-success-contrast rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-success-contrast bg-success-contrast rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-success-contrast-secondary'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Contrast: <br />
@@ -184,42 +215,42 @@ export const Theme = () => {
           </span>
         </div>
 
-        <div className='shadow-lg border-success-contrast-secondary bg-success-contrast-secondary rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-success-contrast-secondary bg-success-contrast-secondary rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-success-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Contrast secondary: <br />
-            #ffffff
+            #FFFFFF
           </span>
         </div>
       </div>
 
       <h4 className='p-2 text-lg w-full'>Default (Grey)</h4>
       <div className='flex flex-wrap gap-4'>
-        <div className='shadow-lg border-default bg-default rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-default bg-default rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-text'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Main: <br />
-            #c7ccd3
+            #C7CCD3
           </span>
         </div>
 
-        <div className='shadow-lg border-default-extra-light bg-default-extra-light rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-default-extra-light bg-default-extra-light rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-text'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Extra Light: <br />
-            #e4e7ec
+            #E4E7Ec
           </span>
         </div>
 
-        <div className='shadow-lg border-default-light bg-default-light rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-default-light bg-default-light rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-text'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Light: <br />
-            #eff1f3
+            #EFF1F3
           </span>
         </div>
 
-        <div className='shadow-lg border-default-dark bg-default-dark rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-default-dark bg-default-dark rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast-secondary'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Dark: <br />
@@ -230,7 +261,7 @@ export const Theme = () => {
 
       <h4 className='p-2 text-lg w-full'>Text</h4>
       <div className='flex flex-wrap gap-4'>
-        <div className='shadow-lg border-text bg-text rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-text bg-text rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast-secondary'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Main: <br />
@@ -238,7 +269,7 @@ export const Theme = () => {
           </span>
         </div>
 
-        <div className='shadow-lg border-text-extra-light bg-text-extra-light rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-text-extra-light bg-text-extra-light rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast-secondary'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Extra Light: <br />
@@ -246,15 +277,15 @@ export const Theme = () => {
           </span>
         </div>
 
-        <div className='shadow-lg border-text-light bg-text-light rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-text-light bg-text-light rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Light: <br />
-            #d2d2d2
+            #D2D2D2
           </span>
         </div>
 
-        <div className='shadow-lg border-text-dark bg-text-dark rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-text-dark bg-text-dark rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast-secondary'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Dark: <br />
@@ -265,14 +296,14 @@ export const Theme = () => {
 
       <h4 className='p-2 text-lg w-full'>Other</h4>
       <div className='flex flex-wrap gap-4'>
-        <div className='shadow-lg border-background bg-background rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-background bg-background rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Background: <br />
             #000000
           </span>
         </div>
-        <div className='shadow-lg border-background bg-background-secondary rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-background bg-background-secondary rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Background Secondary: <br />
@@ -280,31 +311,31 @@ export const Theme = () => {
           </span>
         </div>
 
-        <div className='shadow-lg border-cool-20 bg-cool-20 rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-cool-20 bg-cool-20 rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Cool 20: <br />
-            #eef3f8
+            #EEF3F8
           </span>
         </div>
 
-        <div className='shadow-lg border-cool-40 bg-cool-40 rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-cool-40 bg-cool-40 rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Cool 40: <br />
-            #d1ddeb
+            #D1DDEB
           </span>
         </div>
 
-        <div className='shadow-lg border-cool-60 bg-cool-60 rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-cool-60 bg-cool-60 rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Cool 60: <br />
-            #9cb2c9
+            #9CB2C9
           </span>
         </div>
 
-        <div className='shadow-lg border-cool-90 bg-cool-90 rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-cool-90 bg-cool-90 rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast-secondary'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Cool 90: <br />
@@ -312,11 +343,11 @@ export const Theme = () => {
           </span>
         </div>
 
-        <div className='shadow-lg border-cool-100 bg-cool-100 rounded-md border-4 w-60 pt-4 flex flex-col justify-end'>
+        <div className='shadow-lg border-cool-100 bg-cool-100 rounded-md border-8 w-40 pt- flex flex-col justify-end'>
           <span className='p-8 text-center text-primary-contrast-secondary'>AAA</span>
           <span className='bg-white text-black w-full block rounded-md p-1'>
             Cool 100: <br />
-            #14212e
+            #14212E
           </span>
         </div>
       </div>
