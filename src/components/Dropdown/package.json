@@ -4,6 +4,10 @@
   "peerDependencies": {
     "classnames": ">=2.0.0",
     "react": ">=18.0.0",
-    "react-transition-group": "^4.4.5"
+    "react-transition-group": "^4.4.5",
+    "@further-ventures/fv-react-ui-components.button": ">=0.0.1",
+    "@further-ventures/fv-react-ui-components.elevation": ">=0.0.1",
+    "@further-ventures/fv-react-ui-components.input": ">=0.0.1",
+    "@further-ventures/fv-react-ui-components.icons": ">=0.0.1"
   }
 }

@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "peerDependencies": {
     "classnames": ">=2.0.0",
-    "react": ">=17.0.0",
-    "@further-ventures/fv-react-ui-components.theme": ">=0.0.1"
+    "react": ">=17.0.0"
   }
 }
