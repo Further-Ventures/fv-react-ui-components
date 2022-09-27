@@ -102,14 +102,14 @@ export const Input: React.FC<IInput> = (props) => {
             'mercuryInput peer border-1.5 rounded h-14',
             'transition-colors duration-300 ease-out w-full',
             'placeholder:text-text-disabled placeholder:text-base placeholder:tracking-normal placeholder:font-normal placeholder:font-mercury',
+            'placeholder:invisible placeholder:opacity-0 placeholder:translate-y-full placeholder:transition placeholder:duration-250 ease-out focus:placeholder:visible focus:placeholder:opacity-100',
             {
-              ["text-[1.5rem] tracking-wide leading-none font-extrabold font-['Verdana'] placeholder:absolute"]: isPassword,
               ['disabled:border-default-light disabled:bg-background select-none']: disabled,
               ['border-default hover:border-text-primary hover:bg-default-extra-light focus:border-primary']: !hasError,
               ['border-error hover:bg-default-extra-light']: hasError,
               ['px-3 pb-1.5 pt-6.5']: hasLabel,
-              ['placeholder:invisible placeholder:opacity-0 placeholder:translate-y-full placeholder:transition placeholder:duration-250 ease-out focus:placeholder:visible focus:placeholder:opacity-100 focus:placeholder:translate-y-0']:
-                hasLabel,
+              ['focus:placeholder:translate-y-0']: hasLabel && !isPassword,
+              ["text-[1.5rem] tracking-wide leading-none font-extrabold font-['Verdana'] focus:placeholder:-translate-y-1"]: isPassword,
               ['px-3 py-1.5']: !hasLabel,
             }
           )}
@@ -120,10 +120,11 @@ export const Input: React.FC<IInput> = (props) => {
             data-testid={`${TEST_ID}-${name}--label`}
             htmlFor={`input--${inputId}`}
             className={classNames(
-              'text-base leading-none absolute left-3 top-1/2 -translate-y-1/2 flex items-center transition ease-out duration-250 text-text-primary pointer-events-none whitespace-nowrap', //base
-              'peer-disabled:text-text-disabled peer-disabled:select-none', //input disabled
+              'text-base leading-none absolute left-3 top-1/2 -translate-y-1/2 transition ease-out duration-250 text-text-primary pointer-events-none w-[calc(100%-1.5rem)] truncate', //base
+              'peer-disabled:text-text-disabled peer-disabled:select-none]', //input disabled
               'peer-focus:-translate-y-5.5 peer-focus:scale-75 peer-focus:-translate-x-[12.5%] peer-focus:text-text-hint', //input focus
-              { ['-translate-y-5.5 scale-75 -translate-x-[12.5%] text-text-hint']: hasValue }
+              { ['-translate-y-5.5 scale-75 -translate-x-[12.5%] text-text-hint']: hasValue },
+              { ['w-[calc(100%-4.75rem)] ']: hasContent }
             )}
           >
             {label}
