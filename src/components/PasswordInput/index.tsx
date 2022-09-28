@@ -7,9 +7,11 @@ import Input, { IInput } from '../Input';
 
 export interface IPasswordInput extends Omit<IInput, 'mask' | 'type' | 'sideContent'> {}
 
+const TEST_ID = '@fv/input-password';
+
 export const PasswordInput: React.FC<IPasswordInput> = (props) => {
   const [showPassword, setShowPassword] = useState(false);
-  const { disabled, ...rest } = props;
+  const { disabled, name = '', ...rest } = props;
   const toggleInputType = useCallback(
     (evt: React.MouseEvent<HTMLButtonElement>) => {
       evt.stopPropagation();
@@ -24,10 +26,19 @@ export const PasswordInput: React.FC<IPasswordInput> = (props) => {
   return (
     <Input
       {...rest}
+      name={name}
       disabled={disabled}
       type={inputType}
       sideContent={
-        <Button variant='transparent' disabled={disabled} color='grey' size='small' onClick={toggleInputType} contentLeft={<Icon icon={icon} />} />
+        <Button
+          data-testid={`${TEST_ID}-${name}-button`}
+          variant='transparent'
+          disabled={disabled}
+          color='grey'
+          size='small'
+          onClick={toggleInputType}
+          contentLeft={<Icon icon={icon} />}
+        />
       }
     />
   );

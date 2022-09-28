@@ -10,9 +10,12 @@ export interface IPressable extends Omit<React.ButtonHTMLAttributes<HTMLButtonEl
   color?: 'primary' | 'error' | 'default' | 'grey';
   disabled?: boolean;
   className?: string;
+  name?: string;
   contentLeft?: React.ReactNode;
   contentRight?: React.ReactNode;
 }
+
+const TEST_ID = '@fv/pressable';
 
 const Pressable = forwardRef<HTMLButtonElement, IPressable>((props, ref) => {
   const {
@@ -26,6 +29,7 @@ const Pressable = forwardRef<HTMLButtonElement, IPressable>((props, ref) => {
     onClick,
     contentLeft,
     contentRight,
+    name = '',
     ...rest
   } = props;
 
@@ -33,6 +37,8 @@ const Pressable = forwardRef<HTMLButtonElement, IPressable>((props, ref) => {
   const colorVariant = `${color}-${variant}`;
   return (
     <button
+      data-testid={`${TEST_ID}-${name}`}
+      name={name}
       ref={ref}
       disabled={disabled}
       onClick={onClick}
