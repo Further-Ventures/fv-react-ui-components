@@ -13,7 +13,7 @@ export default {
     pkg,
   },
   argTypes: {
-    ...buildExcludeArgTypes(['contentLeft', 'contentRight', 'className', 'color']),
+    ...buildExcludeArgTypes(['contentLeft', 'contentRight', 'className', 'color', 'shape']),
     icon: {
       options: ['none', 'left', 'right', 'both'],
       control: { type: 'radio' },
@@ -61,9 +61,44 @@ const Template: ComponentStory<typeof Chip> = (args) => {
   );
 };
 
-export const Default = Template.bind({});
+export const ContainedSmallNoIcon = Template.bind({});
+ContainedSmallNoIcon.args = {
+  label: 'Contained',
+  variant: 'contained',
+  size: 'small',
+  color: 'primary',
+  icon: 'none',
+};
 
-Default.args = {
+export const ContainedSmallIconLeft = Template.bind({});
+ContainedSmallIconLeft.args = {
+  label: 'Contained',
+  variant: 'contained',
+  size: 'small',
+  color: 'primary',
+  icon: 'left',
+};
+
+export const ContainedSmallIconRight = Template.bind({});
+ContainedSmallIconRight.args = {
+  label: 'Contained',
+  variant: 'contained',
+  size: 'small',
+  color: 'primary',
+  icon: 'right',
+};
+
+export const ContainedSmallIconsBothSides = Template.bind({});
+ContainedSmallIconsBothSides.args = {
+  label: 'Contained',
+  variant: 'contained',
+  size: 'small',
+  color: 'primary',
+  icon: 'both',
+};
+
+export const ContainedLargeNoIcon = Template.bind({});
+ContainedLargeNoIcon.args = {
   label: 'Contained',
   variant: 'contained',
   size: 'large',
@@ -71,34 +106,174 @@ Default.args = {
   icon: 'none',
 };
 
-export const Showcase = () => {
-  const sizes: ReadonlyArray<IChip['size']> = ['large', 'small'];
-  const variants: ReadonlyArray<IChip['variant']> = ['contained', 'outlined'];
-  return (
-    <div className='showcaseChips'>
-      {sizes.map((size) => {
-        const iconSize = getIconSize(size);
-        return variants.map((variant) => {
-          return (
-            <>
-              <p className='rowLabel'>
-                {size} {variant}:
-              </p>
-              <Chip variant={variant} label={`${variant} `} size={size} />
-              <Chip variant={variant} label={`${variant} `} size={size} contentLeft={<Icon icon='check_circle' size={iconSize} />} />
-              <Chip variant={variant} label={`${variant} `} size={size} contentRight={<Icon icon='check_circle' size={iconSize} />} />
-              <Chip variant={variant} label={`${variant} disabled`} disabled size={size} />
-              <Chip
-                variant={variant}
-                label={`${variant} disabled`}
-                size={size}
-                disabled
-                contentRight={<Icon icon='check_circle' size={iconSize} />}
-              />
-            </>
-          );
-        });
-      })}
-    </div>
-  );
+export const ContainedLargeIconLeft = Template.bind({});
+ContainedLargeIconLeft.args = {
+  label: 'Contained',
+  variant: 'contained',
+  size: 'large',
+  color: 'primary',
+  icon: 'left',
+};
+
+export const ContainedLargeIconRight = Template.bind({});
+ContainedLargeIconRight.args = {
+  label: 'Contained',
+  variant: 'contained',
+  size: 'large',
+  color: 'primary',
+  icon: 'right',
+};
+
+export const ContainedLargeIconsBothSides = Template.bind({});
+ContainedLargeIconsBothSides.args = {
+  label: 'Contained',
+  variant: 'contained',
+  size: 'large',
+  color: 'primary',
+  icon: 'both',
+};
+
+export const OutlinedSmallNoIcon = Template.bind({});
+OutlinedSmallNoIcon.args = {
+  label: 'Outlined',
+  variant: 'outlined',
+  size: 'small',
+  color: 'primary',
+  icon: 'none',
+};
+
+export const OutlinedSmallIconLeft = Template.bind({});
+OutlinedSmallIconLeft.args = {
+  label: 'Outlined',
+  variant: 'outlined',
+  size: 'small',
+  color: 'primary',
+  icon: 'left',
+};
+
+export const OutlinedSmallIconRight = Template.bind({});
+OutlinedSmallIconRight.args = {
+  label: 'Outlined',
+  variant: 'outlined',
+  size: 'small',
+  color: 'primary',
+  icon: 'right',
+};
+
+export const OutlinedSmallIconsBothSides = Template.bind({});
+OutlinedSmallIconsBothSides.args = {
+  label: 'Outlined',
+  variant: 'outlined',
+  size: 'small',
+  color: 'primary',
+  icon: 'both',
+};
+
+export const OutlinedLargeNoIcon = Template.bind({});
+OutlinedLargeNoIcon.args = {
+  label: 'Outlined',
+  variant: 'outlined',
+  size: 'large',
+  color: 'primary',
+  icon: 'none',
+};
+
+export const OutlinedLargeIconLeft = Template.bind({});
+OutlinedLargeIconLeft.args = {
+  label: 'Outlined',
+  variant: 'outlined',
+  size: 'large',
+  color: 'primary',
+  icon: 'left',
+};
+
+export const OutlinedLargeIconRight = Template.bind({});
+OutlinedLargeIconRight.args = {
+  label: 'Outlined',
+  variant: 'outlined',
+  size: 'large',
+  color: 'primary',
+  icon: 'right',
+};
+
+export const OutlinedLargeIconsBothSides = Template.bind({});
+
+OutlinedLargeIconsBothSides.args = {
+  label: 'Outlined',
+  variant: 'outlined',
+  size: 'large',
+  color: 'primary',
+  icon: 'both',
+};
+
+export const TransparentSmallNoIcon = Template.bind({});
+TransparentSmallNoIcon.args = {
+  label: 'Transparent',
+  variant: 'transparent',
+  size: 'small',
+  color: 'primary',
+  icon: 'none',
+};
+
+export const TransparentSmallIconLeft = Template.bind({});
+TransparentSmallIconLeft.args = {
+  label: 'Transparent',
+  variant: 'transparent',
+  size: 'small',
+  color: 'primary',
+  icon: 'left',
+};
+
+export const TransparentSmallIconRight = Template.bind({});
+TransparentSmallIconRight.args = {
+  label: 'Transparent',
+  variant: 'transparent',
+  size: 'small',
+  color: 'primary',
+  icon: 'right',
+};
+
+export const TransparentSmallIconsBothSides = Template.bind({});
+TransparentSmallIconsBothSides.args = {
+  label: 'Transparent',
+  variant: 'transparent',
+  size: 'small',
+  color: 'primary',
+  icon: 'both',
+};
+
+export const TransparentLargeNoIcon = Template.bind({});
+TransparentLargeNoIcon.args = {
+  label: 'Transparent',
+  variant: 'transparent',
+  size: 'large',
+  color: 'primary',
+  icon: 'none',
+};
+
+export const TransparentLargeIconLeft = Template.bind({});
+TransparentLargeIconLeft.args = {
+  label: 'Transparent',
+  variant: 'transparent',
+  size: 'large',
+  color: 'primary',
+  icon: 'left',
+};
+
+export const TransparentLargeIconRight = Template.bind({});
+TransparentLargeIconRight.args = {
+  label: 'Transparent',
+  variant: 'transparent',
+  size: 'large',
+  color: 'primary',
+  icon: 'right',
+};
+
+export const TransparentLargeIconsBothSides = Template.bind({});
+TransparentLargeIconsBothSides.args = {
+  label: 'Transparent',
+  variant: 'transparent',
+  size: 'large',
+  color: 'primary',
+  icon: 'both',
 };
