@@ -4,14 +4,3 @@
   align-items: center;
   justify-content: center;
 }
-
-.showcaseChips {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(10rem ,max-content));
-  justify-items: start;
-  align-items: center;
-  gap: 1rem;
-}
-.rowLabel {
-  text-transform: capitalize;
-}
