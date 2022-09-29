@@ -1,56 +1,23 @@
-import React, { FormEvent, HTMLAttributes, useCallback } from 'react';
 import classNames from 'classnames';
-import { Checkbox } from '../Checkbox';
-import Icon from '../Icons';
+import React, { HTMLAttributes, useCallback } from 'react';
+import ListItem, { IListItem } from './ListItem';
 
 export interface IControl {
-  control: 'checkbox' | 'checkmark' | 'none';
+  control?: 'checkbox' | 'checkmark' | 'text' | 'listItems';
 }
-
-export interface IListItem extends Omit<HTMLAttributes<HTMLLIElement>, 'onSelect'> {
-  id: string;
-  content: React.ReactNode;
-  name?: string;
-  value?: string;
-  isChecked?: boolean;
-  className?: string;
-}
-
-export interface IListItemExtra extends IListItem {
-  onSelect?: (item: string, evt: React.BaseSyntheticEvent) => void;
+export interface IVariant {
+  variant: 'thick' | 'thin';
 }
 
 export interface IList extends Omit<HTMLAttributes<HTMLUListElement>, 'width'> {
-  variant: 'thick' | 'thin';
   width?: 'small' | 'medium' | 'large' | 'full';
   items: ReadonlyArray<IListItem>;
   onItemSelect?: (item: string, evt: React.BaseSyntheticEvent) => void;
+  dividers?: 0 | 1 | 2;
 }
 
-const ListItem: React.FC<IListItemExtra & IControl> = (props) => {
-  const { id, name, content, control, isChecked, onSelect, className, ...rest } = props;
-  const handleSelect = useCallback((evt: React.MouseEvent | FormEvent) => onSelect?.(id, evt), [id, onSelect]);
-
-  return (
-    <li {...rest} className={classNames(className, 'hover:bg-default-extra-light')}>
-      {control === 'checkbox' && (
-        <Checkbox className='px-4 py-2.5' name={name ?? id} onChange={handleSelect} isChecked={isChecked}>
-          {content}
-        </Checkbox>
-      )}
-      {control === 'checkmark' && (
-        <span className='flex justify-between px-4 py-2.5 cursor-pointer' onClick={handleSelect}>
-          {content}
-          {isChecked && <Icon icon='check' />}
-        </span>
-      )}
-      {control === 'none' && <span className='block px-4 py-2.5'>{content}</span>}
-    </li>
-  );
-};
-
-const List: React.FC<IList & IControl> = (props) => {
-  const { width, variant, control, className, items, onItemSelect, ...rest } = props;
+const List: React.FC<IList & IVariant & IControl> = (props) => {
+  const { width, variant = 'thick', control = 'text', className, items, dividers = 0, onItemSelect, ...rest } = props;
   const handleSelect = useCallback(
     (itemId: string, event: any) => {
       console.log('handleSelect', itemId, event);
@@ -58,6 +25,7 @@ const List: React.FC<IList & IControl> = (props) => {
     },
     [onItemSelect]
   );
+
   return (
     <ul
       {...rest}
@@ -68,7 +36,7 @@ const List: React.FC<IList & IControl> = (props) => {
       })}
     >
       {items?.map((item) => {
-        return <ListItem key={item.id} control={control} onSelect={handleSelect} {...item} />;
+        return <ListItem key={item.id} variant={variant} control={control} dividers={dividers} onSelect={handleSelect} {...item} />;
       })}
     </ul>
   );
@@ -76,26 +44,9 @@ const List: React.FC<IList & IControl> = (props) => {
 
 List.defaultProps = {
   width: 'medium',
-  control: 'checkbox',
-  items: [
-    {
-      content: 'item1',
-      id: 'item1',
-      isChecked: true,
-    },
-    {
-      content: 'item2',
-      id: 'item2',
-    },
-    {
-      content: 'item3',
-      id: 'item3',
-    },
-    {
-      content: 'item4',
-      id: 'item4',
-    },
-  ],
+  control: 'text',
+  variant: 'thick',
+  dividers: 0,
 };
 
 export default List;
