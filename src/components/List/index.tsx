@@ -20,7 +20,6 @@ const List: React.FC<IList & IVariant & IControl> = (props) => {
   const { width, variant = 'thick', control = 'text', className, items, dividers = 0, onItemSelect, ...rest } = props;
   const handleSelect = useCallback(
     (itemId: string, event: any) => {
-      console.log('handleSelect', itemId, event);
       onItemSelect?.(itemId, event);
     },
     [onItemSelect]
