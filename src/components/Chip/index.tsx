@@ -12,6 +12,7 @@ const Chip: React.FC<IChip> = (props) => {
 
 Chip.defaultProps = {
   size: 'large',
+  variant: 'outlined',
 };
 
 export default Chip;
