@@ -71,7 +71,7 @@ export const ListItem: React.FC<IListItemExtra & IVariant & IControl> = (props) 
         ['hover:bg-default-extra-light active:bg-default-light']: !disabled,
       })}
     >
-      <button onClick={control !== 'checkbox' ? handleSelect : () => {}} className='flex flex-nowrap w-full text-left'>
+      <button onClick={control !== 'checkbox' ? handleSelect : () => {}} className='flex items-center flex-nowrap w-full text-left'>
         {hasIconLeft ? (
           <Icons
             icon={iconLeft?.name}
