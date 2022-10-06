@@ -1,21 +1,6 @@
-.story--components-buttontw--default {
-  background-color: red;
-}
-
 .storyWrapper {
   min-height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.showcaseTags {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(10rem ,max-content));
-  justify-items: start;
-  align-items: center;
-  gap: 1rem;
-}
-.rowLabel {
-  text-transform: capitalize;
 }
