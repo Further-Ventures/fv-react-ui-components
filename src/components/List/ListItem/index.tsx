@@ -1,9 +1,9 @@
 import React, { FormEvent, HTMLAttributes, useCallback } from 'react';
 import classNames from 'classnames';
-import { Checkbox } from '../../Checkbox';
 import Icon, { tColors } from '../../Icons';
 import { IControl, IVariant } from '..';
 import Icons from '../../Icons';
+import { ToggleIcon } from '../../InputWithToggle/toggleIcon';
 
 type TIcon = {
   name: string;
@@ -15,7 +15,6 @@ type TIcon = {
 export interface IListItem extends Omit<HTMLAttributes<HTMLLIElement>, 'onSelect'> {
   id: string;
   content: React.ReactNode;
-  name?: string;
   value?: string;
   isChecked?: boolean;
   iconLeft?: TIcon;
@@ -34,7 +33,6 @@ export interface IListItemExtra extends IListItem {
 export const ListItem: React.FC<IListItemExtra & IVariant & IControl> = (props) => {
   const {
     id,
-    name,
     variant,
     content,
     control = 'text',
@@ -71,7 +69,7 @@ export const ListItem: React.FC<IListItemExtra & IVariant & IControl> = (props) 
         ['hover:bg-default-extra-light active:bg-default-light']: !disabled,
       })}
     >
-      <button onClick={control !== 'checkbox' ? handleSelect : () => {}} className='flex items-center flex-nowrap w-full text-left'>
+      <span onClick={handleSelect} className='flex items-center flex-nowrap w-full text-left'>
         {hasIconLeft ? (
           <Icons
             icon={iconLeft?.name}
@@ -85,18 +83,15 @@ export const ListItem: React.FC<IListItemExtra & IVariant & IControl> = (props) 
           />
         ) : null}
         {control === 'checkbox' ? (
-          <Checkbox
-            className={classNames('flex-1 pr-3 px-4 w-full', {
+          <span
+            className={classNames('flex items-center flex-1 pr-3 px-4 w-full', {
               ['py-3 text-base']: variant === 'thick',
               ['py-1.5 text-sm']: variant === 'thin',
             })}
-            name={name ?? id}
-            onChange={handleSelect}
-            isChecked={isChecked}
-            disabled={disabled}
           >
-            {content}
-          </Checkbox>
+            <ToggleIcon variation='checkbox' size='default' checked={isChecked} disabled={disabled} className='mr-3' />
+            <span className='flex-1 max-w-full truncate'>{content}</span>
+          </span>
         ) : null}
         {control !== 'checkbox' ? (
           <span
@@ -151,7 +146,7 @@ export const ListItem: React.FC<IListItemExtra & IVariant & IControl> = (props) 
         ) : null}
         {dividers ? <span className='absolute bottom-0 left-0 w-full h-[1px] bg-default-light' /> : null}
         {dividers === 2 ? <span className='absolute top-0 left-0 w-full h-[1px] bg-default-light' /> : null}
-      </button>
+      </span>
     </li>
   );
 };
