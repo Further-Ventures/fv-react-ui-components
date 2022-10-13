@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import React, { RefObject, useCallback, useEffect, useRef, useState } from 'react';
+import React, { RefObject, useEffect, useRef, useState } from 'react';
+import useClickOutside from '../../hooks/useClickOutside';
 import { IListItem } from '../List/ListItem';
 import MenuItem from './MenuItem';
 
@@ -23,16 +24,32 @@ interface IMenu {
   menuPosition?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 }
 
+const DEFAULT_MENU_POSITION = 'top-left';
+const DEFAULT_MIN_HEIGHT = 200;
+
 const Menu: React.FC<IMenu> = (props) => {
   const { width, variant = 'thick', control = 'default', menuPosition, onVisibleChange, onSelect, isMobile, className, items, children } = props;
   const hasSubMenus = !!items.find((item) => item?.items);
   const [visible, setVisible] = useState(false);
-  const [calculatedMenuPosition, setCalculatedMenuPosition] = useState('top-left');
+  const [calculatedMenuPosition, setCalculatedMenuPosition] = useState(DEFAULT_MENU_POSITION);
+  const [maxHeight, setMaxHeight] = useState(`${DEFAULT_MIN_HEIGHT}px`);
+
   const triggerRef = useRef(null);
+
+  /**
+   * When menu is open and you click outside,
+   * the menu should close
+   */
+  const handleClickOutside = () => {
+    setVisible(false);
+  };
+  const menuWrapperRef = useClickOutside<HTMLDivElement>(handleClickOutside);
+
+  /**
+   * if the menuPosition prop is not set,
+   * then the menu will position automatically depeding on the space available on the screen
+   */
   const menuRef = useRef(null);
-
-  const [maxHeight, setMaxHeight] = useState(200);
-
   useEffect(() => {
     if (!menuPosition) {
       const trigger = triggerRef?.current as HTMLElement | null;
@@ -48,17 +65,31 @@ const Menu: React.FC<IMenu> = (props) => {
     }
   }, [triggerRef, menuPosition]);
 
-  const handleMenuHeight = useCallback(() => {
-    if (visible) {
-      const menu = menuRef?.current as HTMLElement | null;
-      const menuDimensions = menu?.getBoundingClientRect();
-      const calculatedMaxHeight = calculatedMenuPosition.includes('bottom')
-        ? window.innerHeight - menuDimensions!.top - 10
-        : menuDimensions!.bottom - 10;
+  /**
+   * if the menu would go out of screen,
+   * then the menu's max height will be auto-adjusted to be contained in the screen
+   *
+   * NOTE!
+   * 1. There is a min height set (DEFAULT_MIN_HEIGHT)
+   * 2. if the menu is cascading menu (at least an item has sub-items),
+   *    this auto-height will not apply for the desktop resolution because adding vertical scroll
+   *    will prevent the submenu to be shown on the right or left when hovering on the parent item
+   */
+  const handleMenuHeight = () => {
+    if ((!isMobile && !hasSubMenus) || isMobile) {
+      if (visible) {
+        const menu = menuRef?.current as HTMLElement | null;
+        const menuDimensions = menu?.getBoundingClientRect();
+        const calculatedMaxHeight = calculatedMenuPosition.includes('bottom')
+          ? window.innerHeight - menuDimensions!.top - 10
+          : menuDimensions!.bottom - 10;
 
-      setMaxHeight(Math.max(calculatedMaxHeight, 200));
+        setMaxHeight(`${Math.max(calculatedMaxHeight, 200)}px`);
+      }
+    } else {
+      setMaxHeight('none');
     }
-  }, [visible, calculatedMenuPosition, setMaxHeight]);
+  };
   useEffect(() => {
     window.addEventListener('resize', handleMenuHeight);
 
@@ -70,23 +101,19 @@ const Menu: React.FC<IMenu> = (props) => {
     handleMenuHeight();
   }, [visible, calculatedMenuPosition]);
 
-  const onMenuToggle = useCallback(() => {
+  const onMenuToggle = () => {
     setVisible(!visible);
     onVisibleChange?.(!visible);
-  }, [visible, setVisible, onVisibleChange]);
-
-  const onItemSelect = useCallback(
-    (itemId: string, event: any) => {
-      if (control === 'default' && visible) {
-        onMenuToggle();
-      }
-      onSelect?.(itemId, event);
-    },
-    [onSelect, onMenuToggle]
-  );
+  };
+  const onItemSelect = (itemId: string, event: any) => {
+    if (control === 'default' && visible) {
+      onMenuToggle();
+    }
+    onSelect?.(itemId, event);
+  };
 
   return (
-    <div className={classNames('relative inline-block', className)}>
+    <div className={classNames('relative inline-block', className)} ref={menuWrapperRef}>
       <button onClick={onMenuToggle} ref={triggerRef}>
         {children}
       </button>
@@ -103,7 +130,7 @@ const Menu: React.FC<IMenu> = (props) => {
           ['overflow-y-auto']: (!isMobile && !hasSubMenus) || isMobile,
         })}
         style={{
-          maxHeight: (!isMobile && !hasSubMenus) || isMobile ? `${maxHeight}px` : 'none',
+          maxHeight: maxHeight,
         }}
         ref={menuRef}
       >

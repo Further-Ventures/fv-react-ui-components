@@ -20,7 +20,7 @@ export default {
 
 const TemplateDefault: ComponentStory<typeof Menu> = (args: any) => {
   console.log('typeof Menu', typeof Menu);
-  const [selected, setSelected] = useState(args.items.find((item) => item.isChecked)?.content);
+  const [selected, setSelected] = useState(args.items.find((item) => item.isChecked)?.id);
   const onSelect = (itemId) => {
     setSelected(itemId);
   };
@@ -47,9 +47,8 @@ const TemplateDefault: ComponentStory<typeof Menu> = (args: any) => {
   );
 };
 
-export const MenuLeftTop = TemplateDefault.bind({});
-
-MenuLeftTop.args = {
+export const TopLeft = TemplateDefault.bind({});
+TopLeft.args = {
   width: 'medium',
   variant: 'thick',
   position: 'top-5 left-5',
@@ -64,6 +63,7 @@ MenuLeftTop.args = {
     {
       content: 'Selected option',
       id: 'item2',
+      isChecked: true,
     },
     {
       content: 'Disabled option',
@@ -90,7 +90,6 @@ MenuLeftTop.args = {
 };
 
 export const MenuTopRight = TemplateDefault.bind({});
-
 MenuTopRight.args = {
   width: 'medium',
   variant: 'thick',
@@ -106,6 +105,7 @@ MenuTopRight.args = {
     {
       content: 'Selected option',
       id: 'item2',
+      isChecked: true,
     },
     {
       content: 'Disabled option',
@@ -132,7 +132,6 @@ MenuTopRight.args = {
 };
 
 export const MenuBottomLeft = TemplateDefault.bind({});
-
 MenuBottomLeft.args = {
   width: 'medium',
   variant: 'thick',
@@ -148,6 +147,7 @@ MenuBottomLeft.args = {
     {
       content: 'Selected option',
       id: 'item2',
+      isChecked: true,
     },
     {
       content: 'Disabled option',
@@ -174,7 +174,6 @@ MenuBottomLeft.args = {
 };
 
 export const MenuBottomRight = TemplateDefault.bind({});
-
 MenuBottomRight.args = {
   width: 'medium',
   variant: 'thick',
@@ -190,6 +189,7 @@ MenuBottomRight.args = {
     {
       content: 'Selected option',
       id: 'item2',
+      isChecked: true,
     },
     {
       content: 'Disabled option',
@@ -215,9 +215,8 @@ MenuBottomRight.args = {
   ],
 };
 
-export const CascadingMenu = TemplateDefault.bind({});
-
-CascadingMenu.args = {
+export const CascadingMenuTopLeft = TemplateDefault.bind({});
+CascadingMenuTopLeft.args = {
   width: 'medium',
   variant: 'thick',
   position: 'top-5 left-5',
@@ -230,7 +229,7 @@ CascadingMenu.args = {
       },
     },
     {
-      content: 'Selected option',
+      content: 'Option with submenu',
       id: 'item2',
       items: [
         {
@@ -244,7 +243,7 @@ CascadingMenu.args = {
       ],
     },
     {
-      content: 'Disabled option',
+      content: 'Disabled option with submenu',
       id: 'item3',
       disabled: true,
       items: [
@@ -259,7 +258,7 @@ CascadingMenu.args = {
       ],
     },
     {
-      content: 'An option with a fairly long text to show',
+      content: 'An option with a fairly long text to show and submenu',
       id: 'item4',
       items: [
         {
@@ -280,14 +279,344 @@ CascadingMenu.args = {
         },
       ],
     },
+    {
+      content: 'Option with submenu',
+      id: 'item5',
+      items: [
+        {
+          id: 'subitem9',
+          content: 'Sub item 9',
+        },
+        {
+          id: 'subitem10',
+          content: 'Sub item 10',
+        },
+      ],
+    },
+    {
+      content: 'Option with submenu',
+      id: 'item6',
+      items: [
+        {
+          id: 'subitem11',
+          content: 'Sub item 11',
+        },
+        {
+          id: 'subitem12',
+          content: 'Sub item 12',
+        },
+      ],
+    },
   ],
 };
 
+export const CascadingMenuTopRight = TemplateDefault.bind({});
+CascadingMenuTopRight.args = {
+  width: 'medium',
+  variant: 'thick',
+  position: 'top-5 right-5',
+  items: [
+    {
+      content: 'Option with Icon Left',
+      id: 'item1',
+      iconLeft: {
+        name: 'person',
+      },
+    },
+    {
+      content: 'Option with submenu',
+      id: 'item2',
+      items: [
+        {
+          id: 'subitem1',
+          content: 'Sub item 1',
+        },
+        {
+          id: 'subitem2',
+          content: 'Sub item 2',
+        },
+      ],
+    },
+    {
+      content: 'Disabled option with submenu',
+      id: 'item3',
+      disabled: true,
+      items: [
+        {
+          id: 'subitem3',
+          content: 'Sub item 3',
+        },
+        {
+          id: 'subitem4',
+          content: 'Sub item 4',
+        },
+      ],
+    },
+    {
+      content: 'An option with a fairly long text to show and submenu',
+      id: 'item4',
+      items: [
+        {
+          id: 'subitem5',
+          content: 'Sub item 5',
+        },
+        {
+          id: 'subitem6',
+          content: 'Sub item 6',
+        },
+        {
+          id: 'subitem7',
+          content: 'Sub item 7',
+        },
+        {
+          id: 'subitem8',
+          content: 'Sub item 8',
+        },
+      ],
+    },
+    {
+      content: 'Option with submenu',
+      id: 'item5',
+      items: [
+        {
+          id: 'subitem9',
+          content: 'Sub item 9',
+        },
+        {
+          id: 'subitem10',
+          content: 'Sub item 10',
+        },
+      ],
+    },
+    {
+      content: 'Option with submenu',
+      id: 'item6',
+      items: [
+        {
+          id: 'subitem11',
+          content: 'Sub item 11',
+        },
+        {
+          id: 'subitem12',
+          content: 'Sub item 12',
+        },
+      ],
+    },
+  ],
+};
+
+export const CascadingMenuBottomLeft = TemplateDefault.bind({});
+CascadingMenuBottomLeft.args = {
+  width: 'medium',
+  variant: 'thick',
+  position: 'bottom-5 left-5',
+  items: [
+    {
+      content: 'Option with Icon Left',
+      id: 'item1',
+      iconLeft: {
+        name: 'person',
+      },
+    },
+    {
+      content: 'Option with submenu',
+      id: 'item2',
+      items: [
+        {
+          id: 'subitem1',
+          content: 'Sub item 1',
+        },
+        {
+          id: 'subitem2',
+          content: 'Sub item 2',
+        },
+      ],
+    },
+    {
+      content: 'Disabled option with submenu',
+      id: 'item3',
+      disabled: true,
+      items: [
+        {
+          id: 'subitem3',
+          content: 'Sub item 3',
+        },
+        {
+          id: 'subitem4',
+          content: 'Sub item 4',
+        },
+      ],
+    },
+    {
+      content: 'An option with a fairly long text to show and submenu',
+      id: 'item4',
+      items: [
+        {
+          id: 'subitem5',
+          content: 'Sub item 5',
+        },
+        {
+          id: 'subitem6',
+          content: 'Sub item 6',
+        },
+        {
+          id: 'subitem7',
+          content: 'Sub item 7',
+        },
+        {
+          id: 'subitem8',
+          content: 'Sub item 8',
+        },
+      ],
+    },
+    {
+      content: 'Option with submenu',
+      id: 'item5',
+      items: [
+        {
+          id: 'subitem9',
+          content: 'Sub item 9',
+        },
+        {
+          id: 'subitem10',
+          content: 'Sub item 10',
+        },
+      ],
+    },
+    {
+      content: 'Option with submenu',
+      id: 'item6',
+      items: [
+        {
+          id: 'subitem11',
+          content: 'Sub item 11',
+        },
+        {
+          id: 'subitem12',
+          content: 'Sub item 12',
+        },
+      ],
+    },
+  ],
+};
+
+export const CascadingMenuBottomRight = TemplateDefault.bind({});
+CascadingMenuBottomRight.args = {
+  width: 'medium',
+  variant: 'thick',
+  position: 'bottom-5 right-5',
+  items: [
+    {
+      content: 'Option with Icon Left',
+      id: 'item1',
+      iconLeft: {
+        name: 'person',
+      },
+    },
+    {
+      content: 'Option with submenu',
+      id: 'item2',
+      items: [
+        {
+          id: 'subitem1',
+          content: 'Sub item 1',
+        },
+        {
+          id: 'subitem2',
+          content: 'Sub item 2',
+        },
+      ],
+    },
+    {
+      content: 'Disabled option with submenu',
+      id: 'item3',
+      disabled: true,
+      items: [
+        {
+          id: 'subitem3',
+          content: 'Sub item 3',
+        },
+        {
+          id: 'subitem4',
+          content: 'Sub item 4',
+        },
+      ],
+    },
+    {
+      content: 'An option with a fairly long text to show and submenu',
+      id: 'item4',
+      items: [
+        {
+          id: 'subitem5',
+          content: 'Sub item 5',
+        },
+        {
+          id: 'subitem6',
+          content: 'Sub item 6',
+        },
+        {
+          id: 'subitem7',
+          content: 'Sub item 7',
+        },
+        {
+          id: 'subitem8',
+          content: 'Sub item 8',
+        },
+      ],
+    },
+    {
+      content: 'Option with submenu',
+      id: 'item5',
+      items: [
+        {
+          id: 'subitem9',
+          content: 'Sub item 9',
+        },
+        {
+          id: 'subitem10',
+          content: 'Sub item 10',
+        },
+      ],
+    },
+    {
+      content: 'Option with submenu',
+      id: 'item6',
+      items: [
+        {
+          id: 'subitem11',
+          content: 'Sub item 11',
+        },
+        {
+          id: 'subitem12',
+          content: 'Sub item 12',
+        },
+      ],
+    },
+  ],
+};
+
+const getInitialSelected = (items) => {
+  let selectedSubItems: string[] = [];
+  const selectedItems = items
+    .filter((item) => {
+      selectedSubItems = [...selectedSubItems, ...(item.items?.filter((sitem) => sitem.isChecked).map((sitem) => sitem.id) || [])];
+
+      console.log('selectedSubItems', selectedSubItems);
+      return item.isChecked;
+    })
+    .map((item) => item.id);
+
+  console.log('selectedItems', selectedItems);
+
+  return [...selectedItems, ...selectedSubItems].sort();
+};
+
 const TemplateMultiple: ComponentStory<typeof Menu> = (args: any) => {
-  const [selected, setSelected] = useState(args.items.filter((item) => item.isChecked).map((item) => item.id));
+  const initialSelected = getInitialSelected(args.items);
+  const [selected, setSelected] = useState(initialSelected);
   const onSelect = (itemId) => {
-    if (selected.includes(itemId)) {
-      setSelected(selected.filter((id) => id != itemId));
+    if (selected!.includes(itemId)) {
+      setSelected(selected!.filter((id) => id != itemId));
     } else {
       setSelected([...selected, itemId]);
     }
@@ -322,7 +651,6 @@ const TemplateMultiple: ComponentStory<typeof Menu> = (args: any) => {
 };
 
 export const MultipleCheckbox = TemplateMultiple.bind({});
-
 MultipleCheckbox.args = {
   width: 'medium',
   variant: 'thick',
@@ -332,18 +660,22 @@ MultipleCheckbox.args = {
     {
       content: 'Option with Icon Left',
       id: 'item1',
+      iconLeft: {
+        name: 'menu',
+      },
     },
     {
-      content: 'Selected option',
+      content: 'With Submenu',
       id: 'item2',
       items: [
         {
           id: 'subitem1',
           content: 'Sub item 1',
+          isChecked: true,
         },
         {
           id: 'subitem2',
-          content: 'Sub item 2',
+          content: 'Selected Sub item 2',
         },
       ],
     },
@@ -353,14 +685,14 @@ MultipleCheckbox.args = {
       disabled: true,
     },
     {
-      content: 'An option with a fairly long text to show',
+      content: 'Selected option with a fairly long text to show',
       id: 'item4',
+      isChecked: true,
     },
   ],
 };
 
 export const MultipleCheckmark = TemplateMultiple.bind({});
-
 MultipleCheckmark.args = {
   width: 'medium',
   variant: 'thick',
@@ -368,20 +700,25 @@ MultipleCheckmark.args = {
   position: 'top-5 left-5',
   items: [
     {
-      content: 'Option with Icon Left',
+      content: 'Selected Option with Icon Left',
       id: 'item1',
+      isChecked: true,
+      iconLeft: {
+        name: 'settings',
+      },
     },
     {
-      content: 'Selected option',
+      content: 'Option with submenu',
       id: 'item2',
       items: [
         {
           id: 'subitem1',
-          content: 'Sub item 1',
+          content: 'Selected Sub item 1',
         },
         {
           id: 'subitem2',
           content: 'Sub item 2',
+          isChecked: true,
         },
       ],
     },

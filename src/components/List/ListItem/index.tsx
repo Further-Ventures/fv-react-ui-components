@@ -68,18 +68,6 @@ const ListItem = forwardRef<HTMLLIElement, IListItemExtra & IVariant & IControl>
 
   const listItemContent = (
     <span className='flex items-center flex-nowrap w-full text-left'>
-      {hasIconLeft ? (
-        <Icons
-          icon={iconLeft?.name}
-          fill={iconLeft?.fill}
-          size={iconLeft?.size || 20}
-          color={disabled ? 'text-disabled' : iconLeft?.color || 'primary-contrast'}
-          className={classNames('mx-4 self-start', {
-            ['my-3.5']: variant === 'thick',
-            ['my-2.5']: variant === 'thin',
-          })}
-        />
-      ) : null}
       {control === 'checkbox' ? (
         <span
           className={classNames('flex items-center flex-1 pr-3 px-4 w-full', {
@@ -92,43 +80,57 @@ const ListItem = forwardRef<HTMLLIElement, IListItemExtra & IVariant & IControl>
         </span>
       ) : null}
       {control !== 'checkbox' ? (
-        <span
-          className={classNames('flex flex-1 max-w-full first:pl-4', {
-            ['py-3']: (variant === 'thick' && !(label || subtext)) || (variant === 'thin' && (label || subtext)),
-            ['pt-3.5 pb-[0.8125rem]']: variant === 'thick' && (label || subtext),
-            ['pt-2.5 pb-[0.5625rem]']: variant === 'thin' && !(label || subtext),
-            ['w-[calc(100%-3.25rem)]']: hasIconLeft || hasIconRight,
-            ['w-[calc(100%-6.5rem)]']: hasIconLeft && hasIconRight,
-            ['pr-4']: !hasIconRight,
-          })}
-        >
+        <>
+          {hasIconLeft ? (
+            <Icons
+              icon={iconLeft?.name}
+              fill={iconLeft?.fill}
+              size={iconLeft?.size || 20}
+              color={disabled ? 'text-disabled' : iconLeft?.color || 'primary-contrast'}
+              className={classNames('mx-4 self-start', {
+                ['my-3.5']: variant === 'thick',
+                ['my-2.5']: variant === 'thin',
+              })}
+            />
+          ) : null}
           <span
-            className={classNames('flex-1 max-w-full', {
-              ['pl-[2.25rem]']: control === 'listItems',
+            className={classNames('flex flex-1 max-w-full first:pl-4', {
+              ['py-3']: (variant === 'thick' && !(label || subtext)) || (variant === 'thin' && (label || subtext)),
+              ['pt-3.5 pb-[0.8125rem]']: variant === 'thick' && (label || subtext),
+              ['pt-2.5 pb-[0.5625rem]']: variant === 'thin' && !(label || subtext),
+              ['w-[calc(100%-3.25rem)]']: hasIconLeft || hasIconRight,
+              ['w-[calc(100%-6.5rem)]']: hasIconLeft && hasIconRight,
+              ['pr-4']: !hasIconRight,
             })}
           >
-            {label ? <span className='block text-xs leading-normal pb-[0.3125rem] w-full truncate'>{label}</span> : null}
             <span
-              className={classNames('block w-full truncate', {
-                ['text-base leading-normal']: variant === 'thick',
-                ['text-sm leading-[1.215]']: variant === 'thin',
+              className={classNames('flex-1 max-w-full', {
+                ['pl-[2.25rem]']: control === 'listItems',
               })}
             >
-              {content}
-            </span>
-            {subtext ? (
+              {label ? <span className='block text-xs leading-normal pb-[0.3125rem] w-full truncate'>{label}</span> : null}
               <span
-                className={classNames('block text-sm pt-2 leading-[1.215] w-full truncate', {
-                  ['pt-1.5']: variant === 'thick',
-                  ['pt-1']: variant === 'thin',
-                  ['text-text-hint']: !disabled,
+                className={classNames('block w-full truncate', {
+                  ['text-base leading-normal']: variant === 'thick',
+                  ['text-sm leading-[1.215]']: variant === 'thin',
                 })}
               >
-                {subtext}
+                {content}
               </span>
-            ) : null}
+              {subtext ? (
+                <span
+                  className={classNames('block text-sm pt-2 leading-[1.215] w-full truncate', {
+                    ['pt-1.5']: variant === 'thick',
+                    ['pt-1']: variant === 'thin',
+                    ['text-text-hint']: !disabled,
+                  })}
+                >
+                  {subtext}
+                </span>
+              ) : null}
+            </span>
           </span>
-        </span>
+        </>
       ) : null}
       {iconRight?.name ? (
         <Icons

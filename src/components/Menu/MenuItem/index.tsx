@@ -8,7 +8,6 @@ type IListItemLink = {
 interface IListSubItem {
   items?: ReadonlyArray<IListItem & IListItemLink>;
 }
-
 interface IMenuItem {
   item?: Readonly<IListItem & IListSubItem & IListItemLink>;
   variant?: 'thin' | 'thick';
@@ -19,19 +18,29 @@ interface IMenuItem {
   width?: 'small' | 'medium' | 'large';
 }
 
+const DEFAULT_SUBMENU_POSITION = 'right';
+
 const MenuItem: React.FC<IMenuItem> = (props) => {
   const { item, variant = 'thick', control = 'default', onSelect, isMobile, width, visible } = props;
-  const [isOpen, setIsOpen] = useState(false);
-  const [menuPosition, setMenuPosition] = useState('right');
   const hasSubMenu = !!item?.items?.length;
-  const listItemRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const [submenuPosition, setSubmenuPosition] = useState(DEFAULT_SUBMENU_POSITION);
 
+  /**
+   * The submenu will position itself on the left or right
+   * depending on the space available on the screen
+   */
+  const listItemRef = useRef(null);
   useEffect(() => {
     if (visible) {
       const listItem = listItemRef?.current as HTMLElement | null;
       const mainItemPosition = listItem?.getBoundingClientRect();
 
-      setMenuPosition(mainItemPosition!.left + 2 * mainItemPosition!.width > window.innerWidth ? 'left' : 'right');
+      setSubmenuPosition(
+        `${mainItemPosition!.top > window.innerHeight / 2 ? 'bottom' : 'top'}-${
+          mainItemPosition!.left + 2 * mainItemPosition!.width > window.innerWidth ? 'left' : 'right'
+        }`
+      );
     }
   }, [listItemRef, visible]);
 
@@ -43,13 +52,6 @@ const MenuItem: React.FC<IMenuItem> = (props) => {
       onSelect?.(itemId, event);
     }
   };
-
-  console.log('item', item?.content, item?.isChecked);
-  if (item?.items) {
-    item?.items.forEach((item) => {
-      console.log('subitem', item.content, item.isChecked);
-    });
-  }
 
   return (
     <div className='relative group'>
@@ -77,10 +79,12 @@ const MenuItem: React.FC<IMenuItem> = (props) => {
       {hasSubMenu ? (
         <ul
           className={classNames('py-2 z-50 bg-white', {
-            ['absolute top-0 rounded-lg shadow-light']: !isMobile,
-            ['group-hover:block']: !item?.disabled,
-            ['left-full']: !isMobile && menuPosition === 'right',
-            ['right-full']: !isMobile && menuPosition === 'left',
+            ['absolute rounded-lg shadow-light']: !isMobile,
+            ['group-hover:block']: !item?.disabled && !isMobile,
+            ['top-0 left-full']: !isMobile && submenuPosition === 'top-right',
+            ['top-0 right-full']: !isMobile && submenuPosition === 'top-left',
+            ['bottom-0 left-full']: !isMobile && submenuPosition === 'bottom-right',
+            ['bottom-0 right-full']: !isMobile && submenuPosition === 'bottom-left',
             ['hidden']: (!isOpen && isMobile) || !isMobile,
             ['block bg-background-secondary']: isOpen && isMobile,
             ['w-[8.5rem]']: width === 'small',
