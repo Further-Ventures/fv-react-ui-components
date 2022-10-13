@@ -169,7 +169,7 @@ const ListItem = forwardRef<HTMLLIElement, IListItemExtra & IVariant & IControl>
           </a>
         )
       ) : (
-        <button onClick={control !== 'checkbox' ? handleSelect : () => {}} className='w-full'>
+        <button onClick={handleSelect} className='w-full'>
           {listItemContent}
         </button>
       )}
