@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { CreateSvg } from './createSvg';
 
-export type tColors =
+export type TColors =
   | ''
   | 'inherit'
   | 'primary'
@@ -52,7 +52,7 @@ interface IIconsProps {
   icon?: string;
   size?: number;
   fill?: boolean;
-  color?: tColors;
+  color?: TColors;
   className?: string;
 }
 
