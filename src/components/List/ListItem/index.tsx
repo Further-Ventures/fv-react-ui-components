@@ -1,9 +1,9 @@
 import React, { FormEvent, forwardRef, HTMLAttributes, useCallback } from 'react';
 import classNames from 'classnames';
-import { Checkbox } from '../../Checkbox';
 import Icon, { TColors } from '../../Icons';
 import { IControl, IVariant } from '..';
 import Icons from '../../Icons';
+import { ToggleIcon } from '../../InputWithToggle/toggleIcon';
 
 export type TIcon = {
   name?: string;
@@ -81,18 +81,15 @@ const ListItem = forwardRef<HTMLLIElement, IListItemExtra & IVariant & IControl>
         />
       ) : null}
       {control === 'checkbox' ? (
-        <Checkbox
-          className={classNames('flex-1 pr-3 px-4 w-full', {
+        <span
+          className={classNames('flex items-center flex-1 pr-3 px-4 w-full', {
             ['py-3 text-base']: variant === 'thick',
             ['py-1.5 text-sm']: variant === 'thin',
           })}
-          name={name ?? id}
-          onChange={handleSelect}
-          isChecked={isChecked}
-          disabled={disabled}
         >
-          {content}
-        </Checkbox>
+          <ToggleIcon variation='checkbox' size='default' checked={isChecked} disabled={disabled} className='mr-3' />
+          <span className='flex-1 max-w-full truncate'>{content}</span>
+        </span>
       ) : null}
       {control !== 'checkbox' ? (
         <span

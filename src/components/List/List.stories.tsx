@@ -125,9 +125,9 @@ const TemplateCheckbox: ComponentStory<typeof List> = (args) => {
   const [selected, setSelected] = useState(args.items.filter((item) => item.isChecked).map((item) => item.id));
   const onItemSelect = (itemId) => {
     if (selected.includes(itemId)) {
-      setSelected(selected.filter((id) => id != itemId));
+      setSelected(selected.filter((id) => id != itemId).sort());
     } else {
-      setSelected([...selected, itemId]);
+      setSelected([...selected, itemId].sort());
     }
   };
   useEffect(() => {
@@ -184,9 +184,9 @@ const TemplateCheckmark: ComponentStory<typeof List> = (args) => {
   const [selected, setSelected] = useState(args.items.filter((item) => item.isChecked).map((item) => item.id));
   const onItemSelect = (itemId) => {
     if (selected.includes(itemId)) {
-      setSelected(selected.filter((id) => id != itemId));
+      setSelected(selected.filter((id) => id != itemId).sort());
     } else {
-      setSelected([...selected, itemId]);
+      setSelected([...selected, itemId].sort());
     }
   };
   useEffect(() => {
