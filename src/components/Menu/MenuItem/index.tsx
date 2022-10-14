@@ -2,14 +2,11 @@ import classNames from 'classnames';
 import React, { useEffect, useRef, useState } from 'react';
 import ListItem, { IListItem } from '../../List/ListItem';
 
-type IListItemLink = {
-  href?: string;
-};
 interface IListSubItem {
-  items?: ReadonlyArray<IListItem & IListItemLink>;
+  items?: ReadonlyArray<IListItem>;
 }
 interface IMenuItem {
-  item?: Readonly<IListItem & IListSubItem & IListItemLink>;
+  item?: Readonly<IListItem & IListSubItem>;
   variant?: 'thin' | 'thick';
   control?: 'default' | 'checkbox' | 'checkmark';
   onSelect?: (item: string, evt: React.BaseSyntheticEvent) => void;
@@ -70,7 +67,6 @@ const MenuItem: React.FC<IMenuItem> = (props) => {
             : null
         }
         control={hasSubMenu ? 'default' : control}
-        to={item?.href}
         ref={listItemRef}
         className={classNames({
           ['bg-background-secondary']: isMobile && isOpen,
@@ -100,7 +96,6 @@ const MenuItem: React.FC<IMenuItem> = (props) => {
                 {...subitem}
                 onSelect={(e) => onItemSelect(subitem.id, e, false)}
                 control={control}
-                to={subitem.href}
                 className={classNames({
                   ['bg-background-secondary']: isMobile,
                 })}

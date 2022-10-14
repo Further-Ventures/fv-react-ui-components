@@ -37,7 +37,6 @@ const ListItem = forwardRef<HTMLLIElement, IListItemExtra & IVariant & IControl>
     id,
     name,
     variant,
-    to = '',
     content,
     control = 'default',
     iconLeft = null,
@@ -162,19 +161,9 @@ const ListItem = forwardRef<HTMLLIElement, IListItemExtra & IVariant & IControl>
       )}
       ref={ref}
     >
-      {to ? (
-        disabled ? (
-          <span className='w-full'>{listItemContent}</span>
-        ) : (
-          <a href={to} className='w-full'>
-            {listItemContent}
-          </a>
-        )
-      ) : (
-        <button onClick={handleSelect} className='w-full'>
-          {listItemContent}
-        </button>
-      )}
+      <button onClick={handleSelect} className='w-full'>
+        {listItemContent}
+      </button>
     </li>
   );
 });
