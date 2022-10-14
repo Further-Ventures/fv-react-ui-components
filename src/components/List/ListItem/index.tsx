@@ -17,7 +17,6 @@ export interface IListItem extends Omit<HTMLAttributes<HTMLLIElement>, 'onSelect
   content: React.ReactNode;
   name?: string;
   value?: string;
-  to?: string;
   isChecked?: boolean;
   iconLeft?: TIcon | null;
   label?: string;
@@ -170,7 +169,6 @@ const ListItem = forwardRef<HTMLLIElement, IListItemExtra & IVariant & IControl>
 
 ListItem.defaultProps = {
   control: 'default',
-  to: '',
   iconLeft: null,
   label: '',
   subtext: '',
