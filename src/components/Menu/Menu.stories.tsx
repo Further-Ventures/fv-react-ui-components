@@ -15,11 +15,14 @@ export default {
   },
   argTypes: {
     ...buildExcludeArgTypes(['onSelect', 'onItemSelect', 'ref', 'className', 'isMobile', 'onVisibleChange', 'control']),
+    width: {
+      options: ['small', 'medium', 'large'],
+      control: { type: 'radio' },
+    },
   },
 } as ComponentMeta<typeof Menu>;
 
 const TemplateDefault: ComponentStory<typeof Menu> = (args: any) => {
-  console.log('typeof Menu', typeof Menu);
   const [selected, setSelected] = useState(args.items.find((item) => item.isChecked)?.id);
   const onSelect = (itemId) => {
     setSelected(itemId);
@@ -601,7 +604,6 @@ const getInitialSelected = (items) => {
     .filter((item) => {
       selectedSubItems = [...selectedSubItems, ...(item.items?.filter((sitem) => sitem.isChecked).map((sitem) => sitem.id) || [])];
 
-      console.log('selectedSubItems', selectedSubItems);
       return item.isChecked;
     })
     .map((item) => item.id);
@@ -730,6 +732,76 @@ MultipleCheckmark.args = {
     {
       content: 'An option with a fairly long text to show',
       id: 'item4',
+    },
+  ],
+};
+
+const TemplateFullWidth: ComponentStory<typeof Menu> = (args: any) => {
+  const [selected, setSelected] = useState(args.items.find((item) => item.isChecked)?.id);
+  const onSelect = (itemId) => {
+    setSelected(itemId);
+  };
+  const isMobile = useScreenSize(1024);
+
+  return (
+    <div className='relative -m-4 h-[100vh] p-5 bg-[#f5f5f5]'>
+      <div>
+        <Menu
+          {...args}
+          isMobile={isMobile?.isMobile}
+          items={args.items.map((item) => ({ ...item, isChecked: item.id === selected }))}
+          onSelect={onSelect}
+        >
+          <span className='flex justify-center items-center w-10 h-10 rounded-lg shadow-extraLight bg-white'>
+            <Icons icon='menu' color='primary' />
+          </span>
+        </Menu>
+      </div>
+      <div className='absolute top-1/2 left-1/2 -translate-x-1/2 mt-5'>
+        <strong>selected id:</strong> {selected}
+      </div>
+    </div>
+  );
+};
+
+export const FullWidth = TemplateFullWidth.bind({});
+FullWidth.args = {
+  width: 'full',
+  variant: 'thick',
+  position: 'top-5 left-5',
+  items: [
+    {
+      content: 'Option with Icon Left',
+      id: 'item1',
+      iconLeft: {
+        name: 'person',
+      },
+    },
+    {
+      content: 'Selected option',
+      id: 'item2',
+      isChecked: true,
+    },
+    {
+      content: 'Disabled option',
+      id: 'item3',
+      disabled: true,
+    },
+    {
+      content: 'An option with a fairly long text to show',
+      id: 'item4',
+    },
+    {
+      content: 'Option 5',
+      id: 'item5',
+    },
+    {
+      content: 'Option 6',
+      id: 'item6',
+    },
+    {
+      content: 'Option 7',
+      id: 'item7',
     },
   ],
 };

@@ -12,7 +12,7 @@ interface IMenuItem {
   onSelect?: (item: string, evt: React.BaseSyntheticEvent) => void;
   isMobile?: boolean;
   visible: boolean;
-  width?: 'small' | 'medium' | 'large';
+  width?: 'small' | 'medium' | 'large' | 'full';
 }
 
 const DEFAULT_SUBMENU_POSITION = 'right';
@@ -86,6 +86,7 @@ const MenuItem: React.FC<IMenuItem> = (props) => {
             ['w-[8.5rem]']: width === 'small',
             ['w-[12.5rem]']: width === 'medium',
             ['w-[21.4375rem]']: width === 'large',
+            ['w-full']: width === 'full',
           })}
         >
           {item?.items?.map((subitem) => {

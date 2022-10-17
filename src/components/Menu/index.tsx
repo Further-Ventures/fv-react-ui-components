@@ -11,7 +11,7 @@ interface IListSubItem {
   items?: ReadonlyArray<IListItem & IListItemLink>;
 }
 interface IMenu {
-  width?: 'small' | 'medium' | 'large';
+  width?: 'small' | 'medium' | 'large' | 'full';
   variant?: 'thin' | 'thick';
   control?: 'default' | 'checkbox' | 'checkmark';
   onVisibleChange?: (visible: boolean) => void;
@@ -113,7 +113,16 @@ const Menu: React.FC<IMenu> = (props) => {
   };
 
   return (
-    <div className={classNames('relative inline-block', className)} ref={menuWrapperRef}>
+    <div
+      className={classNames(
+        'relative inline-block',
+        {
+          ['w-full']: width === 'full',
+        },
+        className
+      )}
+      ref={menuWrapperRef}
+    >
       <button onClick={onMenuToggle} ref={triggerRef}>
         {children}
       </button>
@@ -126,6 +135,7 @@ const Menu: React.FC<IMenu> = (props) => {
           ['w-[8.5rem]']: width === 'small',
           ['w-[12.5rem]']: width === 'medium',
           ['w-[21.4375rem]']: width === 'large',
+          ['w-full']: width === 'full',
           ['hidden']: !visible,
           ['overflow-y-auto']: (!isMobile && !hasSubMenus) || isMobile,
         })}
