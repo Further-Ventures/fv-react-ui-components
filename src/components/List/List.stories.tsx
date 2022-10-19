@@ -37,7 +37,7 @@ const TemplateDefault: ComponentStory<typeof List> = (args) => {
 export const Default = TemplateDefault.bind({});
 
 Default.args = {
-  control: 'text',
+  control: 'default',
   width: 'medium',
   variant: 'thick',
   items: [
@@ -83,7 +83,7 @@ const TemplateLeftIcon: ComponentStory<typeof List> = (args) => {
 export const WithLeftIcon = TemplateLeftIcon.bind({});
 
 WithLeftIcon.args = {
-  control: 'text',
+  control: 'default',
   width: 'medium',
   variant: 'thick',
   items: [
@@ -335,7 +335,7 @@ const TemplateListItems: ComponentStory<typeof List> = (args) => {
 export const ListItems = TemplateListItems.bind({});
 
 ListItems.args = {
-  control: 'text',
+  control: 'default',
   width: 'medium',
   variant: 'thick',
   items: [
@@ -381,7 +381,7 @@ const TemplateWithLabel: ComponentStory<typeof List> = (args) => {
 export const WithLabel = TemplateWithLabel.bind({});
 
 WithLabel.args = {
-  control: 'text',
+  control: 'default',
   width: 'medium',
   variant: 'thick',
   items: [
@@ -454,7 +454,7 @@ const TemplateWithSubtext: ComponentStory<typeof List> = (args) => {
 export const WithSubtext = TemplateWithSubtext.bind({});
 
 WithSubtext.args = {
-  control: 'text',
+  control: 'default',
   width: 'medium',
   variant: 'thick',
   items: [

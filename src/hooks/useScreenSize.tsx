@@ -12,6 +12,7 @@ export const useScreenSize = (breakPoint: number) => {
   };
 
   useEffect(() => {
+    handleResize();
     window.addEventListener('resize', handleResize);
 
     return () => {
