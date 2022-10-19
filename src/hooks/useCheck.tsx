@@ -9,7 +9,7 @@ interface BaseInput extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 
 const useCheck = <T extends BaseInput>(props: T) => {
-  const { disabled, name = '', isDefaultChecked, isChecked, onChange, value, ...inputProps } = props;
+  const { disabled, name = '', isDefaultChecked, isChecked, onChange, value, type, ...inputProps } = props;
   const controlled = useMemo(() => isChecked !== undefined && isChecked !== null, [isChecked]);
 
   const [internalValue, setInternalValue] = useState(controlled ? isChecked : isDefaultChecked);
@@ -33,12 +33,12 @@ const useCheck = <T extends BaseInput>(props: T) => {
       ? {
           ...inputProps,
           onChange: onChangeWrapper,
-          checked: isChecked,
+          checked: type === 'intermediate' ? false : isChecked,
         }
       : {
           ...inputProps,
           onChange: onChangeWrapper,
-          defaultChecked: isDefaultChecked,
+          defaultChecked: type === 'intermediate' ? false : isDefaultChecked,
         },
     checked: controlled ? isChecked : internalValue,
   };

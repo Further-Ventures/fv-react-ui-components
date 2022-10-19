@@ -93,10 +93,10 @@ export const TextArea: React.FC<ITextArea> = (props) => {
       {hasContent && (
         <div className='flex justify-between pl-3'>
           <div>
-            {hint && <HintMessage text={hint} className={hintClassName} disabled={disabled} />}
-            {error && <ErrorMessage text={error} className={errorClassName} disabled={disabled} />}
+            {hint && <HintMessage text={hint} className={hintClassName} disabled={disabled} size='large' />}
+            {error && <ErrorMessage text={error} className={errorClassName} disabled={disabled} size='large' />}
           </div>
-          {Boolean(maxLength) && <HintMessage text={`${value.length}/${maxLength}`} className={hintClassName} disabled={disabled} />}
+          {Boolean(maxLength) && <HintMessage text={`${value.length}/${maxLength}`} className={hintClassName} disabled={disabled} size='large' />}
         </div>
       )}
     </div>

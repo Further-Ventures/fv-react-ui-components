@@ -150,8 +150,8 @@ const Select: React.FC<ISelect> = (props) => {
         />
       </div>
       <input name={name} type='hidden' value={singleOption ? selected[0] || '' : selected.join(', ') || ''} />
-      {hint && <HintMessage text={hint} />}
-      {error && <ErrorMessage text={error} />}
+      {hint && <HintMessage text={hint} size='large' />}
+      {error && <ErrorMessage text={error} size='large' />}
     </div>
   );
 };
