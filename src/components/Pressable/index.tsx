@@ -58,7 +58,9 @@ const Pressable = forwardRef<HTMLButtonElement, IPressable>((props, ref) => {
 
           //border-width & disabled color
           ['font-medium border-1.5 disabled:text-text-disabled']: ['mini', 'small', 'medium', 'large'].includes(size),
-          ['font-normal border disabled:text-default disabled:bg-default-light ']: ['tag-large', 'tag-small'].includes(size),
+          ['font-normal border disabled:text-default']: ['tag-large', 'tag-small'].includes(size),
+          ['disabled:border-default']: ['tag-large', 'tag-small'].includes(size) && variant === 'outlined',
+          ['disabled:bg-default-light disabled:border-default-light']: ['tag-large', 'tag-small'].includes(size) && variant !== 'outlined',
           ['disabled:border-default-extra-light']: ['mini', 'small', 'medium', 'large'].includes(size) && variant !== 'transparent',
           ['disabled:border-transparent']: ['mini', 'small', 'medium', 'large'].includes(size) && variant === 'transparent',
 
