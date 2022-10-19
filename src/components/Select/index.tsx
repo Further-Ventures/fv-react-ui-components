@@ -5,17 +5,18 @@ import ErrorMessage from '../ErrorMessage';
 import HintMessage from '../HintMessage';
 import Icons from '../Icons';
 import List from '../List';
+import { TIcon } from '../List/ListItem';
 import Tag from '../Tag';
 
 type TItems = {
   id: string;
-  content: string;
+  content?: string;
+  icon?: TIcon | null;
   isChecked?: boolean;
 };
 export interface ISelect {
   name: string;
   label: string;
-  type: 'default' | 'multiple' | 'multipleCheckbox';
   selectedType: 'default' | 'tag';
   variant?: 'default' | 'large';
   width?: 'small' | 'medium' | 'large' | 'full';
@@ -26,30 +27,18 @@ export interface ISelect {
 }
 
 const Select: React.FC<ISelect> = (props) => {
-  const { name, label, variant = 'default', type = 'default', selectedType = 'default', width = 'medium', error, disabled, hint, items } = props;
-  const singleOption = type === 'default';
+  const { name, label, variant = 'default', selectedType = 'default', width = 'medium', error, disabled, hint, items } = props;
+  const hasIcon = !!items.find((item) => item?.icon?.name);
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState<string[]>([]);
-  const getItem = (itemId: string) => items?.find((item) => item.id === itemId);
-  const removeItem = (itemId: string) => {
-    setSelected(selected.filter((id) => id != itemId).sort());
-  };
-  const handleRemove = (itemId: string) => {
-    if (selected.includes(itemId)) {
-      removeItem(itemId);
-    }
+  const [selected, setSelected] = useState<TItems | null>(null);
+  const getItem = (itemId: string) => items?.find((item) => item.id === itemId) || null;
+  const handleRemove = () => {
+    setSelected(null);
   };
   const handleSelect = (itemId: string) => {
-    if (singleOption) {
-      setSelected([itemId]);
-      setIsOpen(false);
-    } else {
-      if (selected.includes(itemId)) {
-        removeItem(itemId);
-      } else {
-        setSelected([...selected, itemId].sort());
-      }
-    }
+    console.log('item', getItem(itemId));
+    setSelected(getItem(itemId));
+    setIsOpen(false);
   };
   const toggleOpen = () => {
     if (!disabled) {
@@ -65,17 +54,20 @@ const Select: React.FC<ISelect> = (props) => {
   return (
     <div
       className={classNames('relative', {
-        ['w-48']: width === 'small',
-        ['w-64']: width === 'medium',
-        ['w-96']: width === 'large',
-        ['w-full']: width === 'full',
+        ['w-[5.8125rem]']: hasIcon,
+        ['w-48']: width === 'small' && !hasIcon,
+        ['w-64']: width === 'medium' && !hasIcon,
+        ['w-96']: width === 'large' && !hasIcon,
+        ['w-full']: width === 'full' && !hasIcon,
       })}
       ref={selectRef}
     >
       <span
         className={classNames(
-          'flex items-center h-14 w-full border rounded cursor-pointer hover:bg-background-secondary transition-all ease-out duration-300',
+          'flex items-center h-14 w-full border cursor-pointer hover:bg-background-secondary transition-all ease-out duration-300',
           {
+            ['rounded-l rounded-r-none']: hasIcon,
+            ['rounded']: !hasIcon,
             ['border-default hover:border-primary-contrast']: !isOpen && !error && !disabled,
             ['border-primary']: isOpen,
             ['border-error']: error,
@@ -85,40 +77,46 @@ const Select: React.FC<ISelect> = (props) => {
         onClick={toggleOpen}
       >
         <span className={classNames('flex flex-1 pl-3 text-left flex-col justify-center max-w-[calc(100%-2.25rem)]')}>
-          <span
-            className={classNames('leading-normal', {
-              ['text-xs text-text-hint']: !!selected?.length,
-              ['text-base']: selectedType === 'default' || (!selected?.length && !disabled),
-              ['text-text-disabled']: disabled,
-            })}
-          >
-            {label}
-          </span>
-          {selected?.length ? (
+          {selected && hasIcon ? null : (
             <span
-              className={classNames('w-full truncate', {
-                ['pt-0.5']: selectedType !== 'tag',
+              className={classNames('leading-normal max-w-full truncate', {
+                ['text-xs text-text-hint']: !!selected,
+                ['text-base']: selectedType === 'default' || (!selected && !disabled),
+                ['text-text-disabled']: disabled,
               })}
             >
-              {selected.map((item, index) => {
-                const itemFull = getItem(item);
-
-                return selectedType === 'tag' ? (
-                  <Tag
-                    key={itemFull?.id}
-                    size='small'
-                    contentRight={<Icons icon='cancel' size={13.33} />}
-                    label={itemFull?.content}
-                    className='mr-1'
-                    disabled={disabled}
-                    onClick={() => {
-                      handleRemove(item);
-                    }}
-                  />
-                ) : (
-                  `${index !== 0 ? ', ' : ''}${itemFull?.content}`
-                );
+              {label}
+            </span>
+          )}
+          {selected ? (
+            <span
+              className={classNames('w-full truncate', {
+                ['pt-0.5']: selectedType !== 'tag' && !selected?.icon?.name,
+                ['flex justify-center']: !!selected?.icon?.name,
               })}
+            >
+              {selected?.icon?.name ? (
+                <Icons
+                  icon={selected?.icon?.name}
+                  fill={selected?.icon?.fill}
+                  size={selected?.icon?.size || 24}
+                  color={disabled ? 'text-disabled' : selected?.icon?.color || 'primary-contrast'}
+                />
+              ) : selectedType === 'tag' ? (
+                <Tag
+                  key={selected?.id}
+                  size='small'
+                  contentRight={<Icons icon='cancel' size={13.33} />}
+                  label={selected?.content}
+                  className='mr-1'
+                  disabled={disabled}
+                  onClick={() => {
+                    handleRemove();
+                  }}
+                />
+              ) : (
+                selected?.content
+              )}
             </span>
           ) : null}
         </span>
@@ -130,14 +128,14 @@ const Select: React.FC<ISelect> = (props) => {
         })}
       >
         <List
-          control={type === 'multipleCheckbox' ? 'checkbox' : type === 'multiple' ? 'checkmark' : 'default'}
+          control='default'
           variant={variant === 'default' ? 'thin' : 'thick'}
-          items={items.map((item) => ({ ...item, isChecked: selected.includes(item.id) }))}
+          items={items.map((item) => ({ ...item, isChecked: selected?.id === item.id }))}
           width='full'
           onItemSelect={handleSelect}
         />
       </div>
-      <input name={name} type='hidden' value={singleOption ? selected[0] || '' : selected.join(', ') || ''} />
+      <input name={name} type='hidden' value={selected?.id} />
       {hint && <HintMessage text={hint} />}
       {error && <ErrorMessage text={error} />}
     </div>
@@ -147,7 +145,6 @@ const Select: React.FC<ISelect> = (props) => {
 Select.defaultProps = {
   variant: 'default',
   width: 'medium',
-  type: 'default',
   selectedType: 'default',
   hint: '',
   error: '',

@@ -14,7 +14,8 @@ export type TIcon = {
 
 export interface IListItem extends Omit<HTMLAttributes<HTMLLIElement>, 'onSelect'> {
   id: string;
-  content: React.ReactNode;
+  content?: React.ReactNode;
+  icon?: TIcon | null;
   name?: string;
   value?: string;
   isChecked?: boolean;
@@ -37,6 +38,7 @@ const ListItem = forwardRef<HTMLLIElement, IListItemExtra & IVariant & IControl>
     name,
     variant,
     content,
+    icon = null,
     control = 'default',
     iconLeft = null,
     subtext = '',
@@ -62,6 +64,7 @@ const ListItem = forwardRef<HTMLLIElement, IListItemExtra & IVariant & IControl>
   );
 
   const hasIconLeft = !!iconLeft?.name;
+  const hasIcon = !!icon?.name;
   const hasIconRight = !!((control === 'checkmark' && isChecked) || iconRight?.name);
 
   const listItemContent = (
@@ -79,7 +82,7 @@ const ListItem = forwardRef<HTMLLIElement, IListItemExtra & IVariant & IControl>
       ) : null}
       {control !== 'checkbox' ? (
         <>
-          {hasIconLeft ? (
+          {hasIconLeft && !hasIcon ? (
             <Icons
               icon={iconLeft?.name}
               fill={iconLeft?.fill}
@@ -99,23 +102,34 @@ const ListItem = forwardRef<HTMLLIElement, IListItemExtra & IVariant & IControl>
               ['w-[calc(100%-3.25rem)]']: hasIconLeft || hasIconRight,
               ['w-[calc(100%-6.5rem)]']: hasIconLeft && hasIconRight,
               ['pr-4']: !hasIconRight,
+              ['items-center justify-center']: hasIcon,
             })}
           >
             <span
-              className={classNames('flex-1 max-w-full', {
+              className={classNames({
+                ['flex-1 max-w-full']: !hasIcon,
                 ['pl-[2.25rem]']: control === 'listItems',
               })}
             >
-              {label ? <span className='block text-xs leading-normal pb-[0.3125rem] w-full truncate'>{label}</span> : null}
+              {label && !hasIcon ? <span className='block text-xs leading-normal pb-[0.3125rem] w-full truncate'>{label}</span> : null}
               <span
                 className={classNames('block w-full truncate', {
                   ['text-base leading-normal']: variant === 'thick',
                   ['text-sm leading-[1.215]']: variant === 'thin',
                 })}
               >
-                {content}
+                {hasIcon ? (
+                  <Icons
+                    icon={icon?.name}
+                    fill={icon?.fill}
+                    size={icon?.size || 24}
+                    color={disabled ? 'text-disabled' : icon?.color || 'primary-contrast'}
+                  />
+                ) : (
+                  content
+                )}
               </span>
-              {subtext ? (
+              {subtext && !hasIcon ? (
                 <span
                   className={classNames('block text-sm pt-2 leading-[1.215] w-full truncate', {
                     ['pt-1.5']: variant === 'thick',
@@ -130,7 +144,7 @@ const ListItem = forwardRef<HTMLLIElement, IListItemExtra & IVariant & IControl>
           </span>
         </>
       ) : null}
-      {iconRight?.name ? (
+      {iconRight?.name && !hasIcon ? (
         <Icons
           icon={iconRight?.name}
           fill={iconRight?.fill}
@@ -172,6 +186,7 @@ ListItem.defaultProps = {
   iconLeft: null,
   label: '',
   subtext: '',
+  icon: null,
   iconRight: null,
   dividers: 0,
   disabled: false,
