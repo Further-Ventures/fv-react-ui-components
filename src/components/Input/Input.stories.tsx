@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Icon from '../Icons';
 import Button from '../Button';
@@ -26,21 +26,12 @@ export default {
       'errorClassName',
       'sideContent',
       'inputClassName',
-      'mask',
     ]),
   },
 } as ComponentMeta<typeof Input>;
 
 const Template: ComponentStory<typeof Input> = (args) => {
-  const [inputValue, setInputValue] = useState('');
-  const handleInputChange = (e: React.BaseSyntheticEvent) => setInputValue(e.target.value);
-
-  return (
-    <>
-      <h4 className='mb-2'>{`State: ${inputValue}`}</h4>
-      <Input {...args} value={inputValue} onChange={handleInputChange} />
-    </>
-  );
+  return <Input {...args} />;
 };
 
 export const Default = Template.bind({});
@@ -73,6 +64,14 @@ WithIcon.args = {
   label: 'Input default',
   placeholder: 'olivia@example.com',
   sideContent: <Icon icon='info' size={20} />,
+};
+
+export const WithMask = Template.bind({});
+
+WithMask.args = {
+  label: 'Digit mask',
+  placeholder: 'XXXX-XXXX',
+  mask: 'XXXX-XXXX',
 };
 
 export const Showcase = () => {
