@@ -124,7 +124,7 @@ module.exports = {
       },
       animation: {
         partialPathFill: 'partialPath 1.5s ease-in-out infinite',
-        partialLineFill: 'barPartialLine 1.5s ease-in-out infinite alternate',
+        partialLineFill: 'barPartialLine 1.1s linear infinite',
       },
       keyframes: {
         partialPath: {
@@ -138,16 +138,13 @@ module.exports = {
           },
         },
         barPartialLine: {
-          '0%, 100%': {
-            'stroke-dasharray': '80, 240',
-            'stroke-dashoffset': '0',
-          },
-          '25%, 75%': {
+          '0%': {
             'stroke-dasharray': '112, 240',
+            'stroke-dashoffset': '112',
           },
-          '50%': {
-            'stroke-dasharray': '80, 240',
-            'stroke-dashoffset': '-156',
+          '100%': {
+            'stroke-dasharray': '112, 240',
+            'stroke-dashoffset': '-240',
           },
         },
       },
