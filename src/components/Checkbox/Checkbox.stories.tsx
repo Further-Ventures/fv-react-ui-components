@@ -12,7 +12,7 @@ export default {
   parameters: {
     pkg,
   },
-  argTypes: buildExcludeArgTypes(['isDefaultChecked', 'className']),
+  argTypes: buildExcludeArgTypes(['isDefaultChecked', 'className', 'name']),
 } as ComponentMeta<typeof Checkbox>;
 
 const TemplateControlled: ComponentStory<typeof Checkbox> = (args) => {

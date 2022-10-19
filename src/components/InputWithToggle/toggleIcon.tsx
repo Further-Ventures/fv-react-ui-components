@@ -41,10 +41,12 @@ export const ToggleIcon: React.FC<IToggleInput & ISize> = ({
             ['bg-default']: disabled && variation === 'toggle',
             ['rounded']: variation === 'checkbox',
             ['rounded-2xl']: variation !== 'checkbox',
-            ['w-4 h-4 mr-2']: size === 'default' && variation !== 'toggle',
-            ['w-5 h-5 mr-2.5']: size === 'large' && variation !== 'toggle',
-            [`m${horizontalPosition === 'left' ? 'r' : 'l'}-${size === 'default' ? '2' : '2.5'}`]: variation !== 'toggle',
-            ['mr-2.5']: size === 'large' && variation !== 'toggle',
+            ['w-4 h-4']: size === 'default' && variation !== 'toggle',
+            ['w-5 h-5']: size === 'large' && variation !== 'toggle',
+            ['mr-2']: horizontalPosition === 'left' && size === 'default' && variation !== 'toggle',
+            ['ml-2']: horizontalPosition === 'right' && size === 'default' && variation !== 'toggle',
+            ['mr-2.5']: horizontalPosition === 'left' && size === 'large' && variation !== 'toggle',
+            ['ml-2.5']: horizontalPosition === 'right' && size === 'large' && variation !== 'toggle',
             ['border-default group-hover:bg-primary-light group-hover:border-primary-dark']:
               !checked && !disabled && !error && variation !== 'toggle',
             ['border-primary bg-primary group-hover:bg-primary-dark group-hover:border-primary-dark']:
