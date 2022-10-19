@@ -3,7 +3,7 @@ import React, { HTMLAttributes, useCallback } from 'react';
 import ListItem, { IListItem } from './ListItem';
 
 export interface IControl {
-  control?: 'checkbox' | 'checkmark' | 'text' | 'listItems';
+  control?: 'checkbox' | 'checkmark' | 'default' | 'listItems';
 }
 export interface IVariant {
   variant: 'thick' | 'thin';
@@ -17,7 +17,7 @@ export interface IList extends Omit<HTMLAttributes<HTMLUListElement>, 'width'> {
 }
 
 const List: React.FC<IList & IVariant & IControl> = (props) => {
-  const { width, variant = 'thick', control = 'text', className, items, dividers = 0, onItemSelect, ...rest } = props;
+  const { width, variant = 'thick', control = 'default', className, items, dividers = 0, onItemSelect, ...rest } = props;
   const handleSelect = useCallback(
     (itemId: string, event: any) => {
       onItemSelect?.(itemId, event);
@@ -43,7 +43,7 @@ const List: React.FC<IList & IVariant & IControl> = (props) => {
 
 List.defaultProps = {
   width: 'medium',
-  control: 'text',
+  control: 'default',
   variant: 'thick',
   dividers: 0,
 };

@@ -1,26 +1,27 @@
-import React, { FormEvent, HTMLAttributes, useCallback } from 'react';
+import React, { FormEvent, forwardRef, HTMLAttributes, useCallback } from 'react';
 import classNames from 'classnames';
-import Icon, { tColors } from '../../Icons';
+import Icon, { TColors } from '../../Icons';
 import { IControl, IVariant } from '..';
 import Icons from '../../Icons';
 import { ToggleIcon } from '../../InputWithToggle/toggleIcon';
 
-type TIcon = {
-  name: string;
+export type TIcon = {
+  name?: string;
   size?: number;
-  color?: tColors;
+  color?: TColors;
   fill?: boolean;
 } | null;
 
 export interface IListItem extends Omit<HTMLAttributes<HTMLLIElement>, 'onSelect'> {
   id: string;
   content: React.ReactNode;
+  name?: string;
   value?: string;
   isChecked?: boolean;
-  iconLeft?: TIcon;
+  iconLeft?: TIcon | null;
   label?: string;
   subtext?: string;
-  iconRight?: TIcon;
+  iconRight?: TIcon | null;
   dividers?: 0 | 1 | 2;
   disabled?: boolean;
   className?: string;
@@ -30,12 +31,13 @@ export interface IListItemExtra extends IListItem {
   onSelect?: (item: string, evt: React.BaseSyntheticEvent) => void;
 }
 
-export const ListItem: React.FC<IListItemExtra & IVariant & IControl> = (props) => {
+const ListItem = forwardRef<HTMLLIElement, IListItemExtra & IVariant & IControl>((props, ref) => {
   const {
     id,
+    name,
     variant,
     content,
-    control = 'text',
+    control = 'default',
     iconLeft = null,
     subtext = '',
     label = '',
@@ -47,6 +49,7 @@ export const ListItem: React.FC<IListItemExtra & IVariant & IControl> = (props) 
     className,
     ...rest
   } = props;
+
   const handleSelect = useCallback(
     (evt: React.MouseEvent | FormEvent) => {
       if (disabled) {
@@ -61,39 +64,33 @@ export const ListItem: React.FC<IListItemExtra & IVariant & IControl> = (props) 
   const hasIconLeft = !!iconLeft?.name;
   const hasIconRight = !!((control === 'checkmark' && isChecked) || iconRight?.name);
 
-  return (
-    <li
-      {...rest}
-      className={classNames(className, 'relative items-center bg-background transition-all ease-out duration-300', {
-        ['text-text-disabled']: disabled,
-        ['hover:bg-default-extra-light active:bg-default-light']: !disabled,
-      })}
-    >
-      <span onClick={handleSelect} className='flex items-center flex-nowrap w-full text-left'>
-        {hasIconLeft ? (
-          <Icons
-            icon={iconLeft?.name}
-            fill={iconLeft?.fill}
-            size={iconLeft?.size || 20}
-            color={disabled ? 'text-disabled' : iconLeft?.color || 'primary-contrast'}
-            className={classNames('mx-4 self-start', {
-              ['my-3.5']: variant === 'thick',
-              ['my-2.5']: variant === 'thin',
-            })}
-          />
-        ) : null}
-        {control === 'checkbox' ? (
-          <span
-            className={classNames('flex items-center flex-1 pr-3 px-4 w-full', {
-              ['py-3 text-base']: variant === 'thick',
-              ['py-1.5 text-sm']: variant === 'thin',
-            })}
-          >
-            <ToggleIcon variation='checkbox' size='default' checked={isChecked} disabled={disabled} className='mr-3' />
-            <span className='flex-1 max-w-full truncate'>{content}</span>
-          </span>
-        ) : null}
-        {control !== 'checkbox' ? (
+  const listItemContent = (
+    <span className='flex items-center flex-nowrap w-full text-left'>
+      {control === 'checkbox' ? (
+        <span
+          className={classNames('flex items-center flex-1 pr-3 px-4 w-full', {
+            ['py-3 text-base']: variant === 'thick',
+            ['py-1.5 text-sm']: variant === 'thin',
+          })}
+        >
+          <ToggleIcon variation='checkbox' size='default' checked={isChecked} disabled={disabled} className='mr-3' />
+          <span className='flex-1 max-w-full truncate'>{content}</span>
+        </span>
+      ) : null}
+      {control !== 'checkbox' ? (
+        <>
+          {hasIconLeft ? (
+            <Icons
+              icon={iconLeft?.name}
+              fill={iconLeft?.fill}
+              size={iconLeft?.size || 20}
+              color={disabled ? 'text-disabled' : iconLeft?.color || 'primary-contrast'}
+              className={classNames('mx-4 self-start', {
+                ['my-3.5']: variant === 'thick',
+                ['my-2.5']: variant === 'thin',
+              })}
+            />
+          ) : null}
           <span
             className={classNames('flex flex-1 max-w-full first:pl-4', {
               ['py-3']: (variant === 'thick' && !(label || subtext)) || (variant === 'thin' && (label || subtext)),
@@ -131,28 +128,47 @@ export const ListItem: React.FC<IListItemExtra & IVariant & IControl> = (props) 
               ) : null}
             </span>
           </span>
-        ) : null}
-        {iconRight?.name ? (
-          <Icons
-            icon={iconRight?.name}
-            fill={iconRight?.fill}
-            size={iconRight?.size || 20}
-            color={disabled ? 'text-disabled' : iconRight?.color || 'primary-contrast'}
-            className='mx-4'
-          />
-        ) : null}
-        {control === 'checkmark' && isChecked ? (
-          <Icon icon='check' size={20} color={disabled ? 'text-disabled' : 'primary-contrast'} className='mx-4' />
-        ) : null}
-        {dividers ? <span className='absolute bottom-0 left-0 w-full h-[1px] bg-default-light' /> : null}
-        {dividers === 2 ? <span className='absolute top-0 left-0 w-full h-[1px] bg-default-light' /> : null}
-      </span>
+        </>
+      ) : null}
+      {iconRight?.name ? (
+        <Icons
+          icon={iconRight?.name}
+          fill={iconRight?.fill}
+          size={iconRight?.size || 20}
+          color={disabled ? 'text-disabled' : iconRight?.color || 'primary-contrast'}
+          className='mx-4'
+        />
+      ) : null}
+      {control === 'checkmark' && isChecked ? (
+        <Icon icon='check' size={20} color={disabled ? 'text-disabled' : 'primary-contrast'} className='mx-4' />
+      ) : null}
+      {dividers ? <span className='absolute bottom-0 left-0 w-full h-[1px] bg-default-light' /> : null}
+      {dividers === 2 ? <span className='absolute top-0 left-0 w-full h-[1px] bg-default-light' /> : null}
+    </span>
+  );
+
+  return (
+    <li
+      {...rest}
+      className={classNames(
+        'relative items-center justify-start bg-background transition-all ease-out duration-300',
+        {
+          ['text-text-disabled']: disabled,
+          ['hover:bg-default-extra-light active:bg-default-light']: !disabled,
+        },
+        className
+      )}
+      ref={ref}
+    >
+      <button onClick={handleSelect} className='w-full'>
+        {listItemContent}
+      </button>
     </li>
   );
-};
+});
 
 ListItem.defaultProps = {
-  control: 'text',
+  control: 'default',
   iconLeft: null,
   label: '',
   subtext: '',
@@ -160,5 +176,7 @@ ListItem.defaultProps = {
   dividers: 0,
   disabled: false,
 };
+
+ListItem.displayName = 'ListItem';
 
 export default ListItem;

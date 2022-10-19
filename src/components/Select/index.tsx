@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
+import useClickOutside from '../../hooks/useClickOutside';
 import ErrorMessage from '../ErrorMessage';
 import HintMessage from '../HintMessage';
 import Icons from '../Icons';
@@ -26,11 +27,10 @@ export interface ISelect {
 
 const Select: React.FC<ISelect> = (props) => {
   const { name, label, variant = 'default', type = 'default', selectedType = 'default', width = 'medium', error, disabled, hint, items } = props;
-  const selectRef = useRef<HTMLDivElement>(null);
   const singleOption = type === 'default';
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState<string[]>([]);
-  const getItem = useCallback((itemId: string) => items?.find((item) => item.id === itemId), [items]);
+  const getItem = (itemId: string) => items?.find((item) => item.id === itemId);
   const removeItem = (itemId: string) => {
     setSelected(selected.filter((id) => id != itemId).sort());
   };
@@ -57,22 +57,10 @@ const Select: React.FC<ISelect> = (props) => {
     }
   };
 
-  const handleClickOutside = useCallback(
-    (e: MouseEvent) => {
-      if (e.target !== document.body && selectRef.current && !selectRef.current.contains(e.target as HTMLElement)) {
-        setIsOpen(false);
-      }
-
-      return false;
-    },
-    [setIsOpen, selectRef]
-  );
-
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutside);
-
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, []);
+  const handleClickOutside = () => {
+    setIsOpen(false);
+  };
+  const selectRef = useClickOutside<HTMLDivElement>(handleClickOutside);
 
   return (
     <div
@@ -142,7 +130,7 @@ const Select: React.FC<ISelect> = (props) => {
         })}
       >
         <List
-          control={type === 'multipleCheckbox' ? 'checkbox' : type === 'multiple' ? 'checkmark' : 'text'}
+          control={type === 'multipleCheckbox' ? 'checkbox' : type === 'multiple' ? 'checkmark' : 'default'}
           variant={variant === 'default' ? 'thin' : 'thick'}
           items={items.map((item) => ({ ...item, isChecked: selected.includes(item.id) }))}
           width='full'
