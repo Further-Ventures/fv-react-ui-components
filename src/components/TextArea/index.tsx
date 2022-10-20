@@ -22,6 +22,7 @@ export interface ITextArea extends React.InputHTMLAttributes<HTMLTextAreaElement
   onFocus?: React.FocusEventHandler<HTMLTextAreaElement>;
   width?: 'small' | 'medium' | 'large' | 'full';
   maxLength?: number;
+  controlled?: boolean;
 }
 
 export const TextArea: React.FC<ITextArea> = (props) => {

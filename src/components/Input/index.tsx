@@ -18,6 +18,7 @@ export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   mask?: string;
   width?: 'small' | 'medium' | 'large' | 'full';
   sideContent?: React.ReactNode | ((hasError: boolean, disabled?: boolean) => React.ReactNode);
+  controlled?: boolean;
 }
 
 const getPropertyValue = (ref: React.RefObject<HTMLElement>, value: string) =>
