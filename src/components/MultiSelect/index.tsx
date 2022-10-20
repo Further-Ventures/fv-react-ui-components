@@ -80,8 +80,9 @@ const MultiSelect: React.FC<ISelect> = (props) => {
       >
         <span className={classNames('flex flex-1 pl-3 text-left flex-col justify-center max-w-[calc(100%-2.25rem)]')}>
           <span
-            className={classNames('leading-normal', {
-              ['text-xs text-text-hint']: !!selected?.length,
+            className={classNames('leading-normal max-w-full truncate', {
+              ['text-xs']: !!selected?.length,
+              ['text-text-hint']: !!selected?.length && !disabled,
               ['text-base']: selectedType === 'default' || (!selected?.length && !disabled),
               ['text-text-disabled']: disabled,
             })}
@@ -92,6 +93,7 @@ const MultiSelect: React.FC<ISelect> = (props) => {
             <span
               className={classNames('w-full truncate', {
                 ['pt-0.5']: selectedType !== 'tag',
+                ['text-text-disabled']: disabled,
               })}
             >
               {selected.map((item, index) => {

@@ -80,7 +80,8 @@ const Select: React.FC<ISelect> = (props) => {
           {selected && hasIcon ? null : (
             <span
               className={classNames('leading-normal max-w-full truncate', {
-                ['text-xs text-text-hint']: !!selected,
+                ['text-xs']: !!selected,
+                ['text-text-hint']: !!selected && !disabled,
                 ['text-base']: selectedType === 'default' || (!selected && !disabled),
                 ['text-text-disabled']: disabled,
               })}
