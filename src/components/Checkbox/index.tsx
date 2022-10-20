@@ -16,7 +16,10 @@ export const Checkbox: React.FC<ICheckboxProps & ISize & ICheckExtra> = ({
   error = '',
   value,
   className,
-  children,
+  heading,
+  label,
+  horizontalPosition = 'left',
+  verticalPosition = 'top',
   ...rest
 }) => (
   <InputWithToggle
@@ -29,10 +32,12 @@ export const Checkbox: React.FC<ICheckboxProps & ISize & ICheckExtra> = ({
     error={error}
     className={className}
     isDefaultChecked={isDefaultChecked}
+    heading={heading}
+    label={label}
+    horizontalPosition={horizontalPosition}
+    verticalPosition={verticalPosition}
     {...rest}
-  >
-    {children}
-  </InputWithToggle>
+  />
 );
 
 Checkbox.defaultProps = {

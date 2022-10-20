@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { useState } from 'react';
 import { InputWithToggle } from '../InputWithToggle';
 
@@ -5,17 +6,29 @@ interface ICheckRadioGroupProps {
   size?: 'default' | 'large';
   name: string;
   items?: {
-    children: React.ReactNode;
+    heading?: React.ReactNode;
+    label?: React.ReactNode;
+    hint?: string;
     value: string;
     disabled?: boolean;
     error?: string;
   }[];
+  horizontalPosition?: 'left' | 'right';
+  verticalPosition?: 'top' | 'middle';
   selected?: string;
   value?: string;
   className?: string;
 }
 
-export const RadioGroup: React.FC<ICheckRadioGroupProps> = ({ size = 'default', name, items, selected, className }) => {
+export const RadioGroup: React.FC<ICheckRadioGroupProps> = ({
+  size = 'default',
+  name,
+  items,
+  selected,
+  horizontalPosition = 'left',
+  verticalPosition = 'top',
+  className,
+}) => {
   const [selectedValue, setSelectedValue] = useState(selected);
   const onChange = (e: React.BaseSyntheticEvent) => {
     setSelectedValue(e.target.value);
@@ -23,7 +36,7 @@ export const RadioGroup: React.FC<ICheckRadioGroupProps> = ({ size = 'default', 
 
   return (
     <fieldset onChange={onChange}>
-      {items?.map(({ children, value, disabled, error }) => (
+      {items?.map(({ heading, label, hint, error, value, disabled }) => (
         <InputWithToggle
           key={value}
           variation='radio'
@@ -34,10 +47,13 @@ export const RadioGroup: React.FC<ICheckRadioGroupProps> = ({ size = 'default', 
           disabled={disabled}
           value={value}
           error={error}
-          className={className}
-        >
-          {children}
-        </InputWithToggle>
+          heading={heading}
+          label={label}
+          hint={hint}
+          horizontalPosition={horizontalPosition}
+          verticalPosition={verticalPosition}
+          className={classNames('py-2', className)}
+        />
       ))}
     </fieldset>
   );

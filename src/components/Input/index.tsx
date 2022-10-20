@@ -137,8 +137,8 @@ export const Input: React.FC<IInput> = (props) => {
           </div>
         )}
       </div>
-      {hint && <HintMessage text={hint} className={hintClassName} />}
-      {error && <ErrorMessage text={error} className={errorClassName} />}
+      {hint && <HintMessage text={hint} className={hintClassName} size='large' />}
+      {error && <ErrorMessage text={error} className={errorClassName} size='large' />}
     </div>
   );
 };

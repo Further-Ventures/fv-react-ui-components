@@ -10,6 +10,7 @@ export interface IToggleInput {
   error?: string;
   checked?: boolean;
   className?: string;
+  horizontalPosition?: 'left' | 'right';
 }
 
 const TEST_ID = '@fv/ToggleIcon';
@@ -21,6 +22,7 @@ export const ToggleIcon: React.FC<IToggleInput & ISize> = ({
   error = '',
   checked,
   disabled,
+  horizontalPosition,
   className,
 }) => {
   return (
@@ -28,7 +30,7 @@ export const ToggleIcon: React.FC<IToggleInput & ISize> = ({
       <span
         data-testid={`${TEST_ID}-toggleBackground`}
         className={classNames(
-          'flex items-center mr-2 ease-out transition-all duration-300',
+          'flex items-center justify-center ease-out transition-all duration-300',
           {
             ['justify-center rounded border']: variation !== 'toggle',
             ['overflow-hidden rounded-3xl']: variation === 'toggle',
@@ -41,6 +43,10 @@ export const ToggleIcon: React.FC<IToggleInput & ISize> = ({
             ['rounded-2xl']: variation !== 'checkbox',
             ['w-4 h-4']: size === 'default' && variation !== 'toggle',
             ['w-5 h-5']: size === 'large' && variation !== 'toggle',
+            ['mr-2']: horizontalPosition === 'left' && size === 'default' && variation !== 'toggle',
+            ['ml-2']: horizontalPosition === 'right' && size === 'default' && variation !== 'toggle',
+            ['mr-2.5']: horizontalPosition === 'left' && size === 'large' && variation !== 'toggle',
+            ['ml-2.5']: horizontalPosition === 'right' && size === 'large' && variation !== 'toggle',
             ['border-default group-hover:bg-primary-light group-hover:border-primary-dark']:
               !checked && !disabled && !error && variation !== 'toggle',
             ['border-primary bg-primary group-hover:bg-primary-dark group-hover:border-primary-dark']:
