@@ -31,6 +31,7 @@ module.exports = {
         '2xs': ['0.625rem', '0.9375rem'],
         xxs: '.625rem', // 10px
         base2: '1.125rem', // 18px
+        base3: '1.25rem', // 20px
         lg: '1.5rem', // 24px
         xl: '2rem', // 32px
         '2xl': '2.5rem', // 40px
