@@ -6,12 +6,8 @@ import Toggle from './';
 const mockOnToggle = jest.fn();
 
 it('should render large active toggle', () => {
-  const children = 'Hey! Toggle me!';
-  render(
-    <Toggle isActive={true} onToggle={mockOnToggle}>
-      {children}
-    </Toggle>
-  );
+  const label = 'Hey! Toggle me!';
+  render(<Toggle isActive={true} onToggle={mockOnToggle} label={label} />);
 
   waitFor(
     () => {
@@ -25,12 +21,8 @@ it('should render large active toggle', () => {
   );
 });
 it('should render small active toggle', () => {
-  const children = 'Hey! Toggle me!';
-  render(
-    <Toggle isActive={true} onToggle={mockOnToggle} size='small'>
-      {children}
-    </Toggle>
-  );
+  const label = 'Hey! Toggle me!';
+  render(<Toggle isActive={true} onToggle={mockOnToggle} size='small' label={label} />);
 
   waitFor(
     () => {
@@ -45,12 +37,8 @@ it('should render small active toggle', () => {
 });
 
 it('should render and toggle', () => {
-  const children = 'Hey! Toggle me!';
-  render(
-    <Toggle isActive={true} onToggle={mockOnToggle}>
-      {children}
-    </Toggle>
-  );
+  const label = 'Hey! Toggle me!';
+  render(<Toggle isActive={true} onToggle={mockOnToggle} label={label} />);
 
   waitFor(
     () => {
@@ -70,12 +58,8 @@ it('should render and toggle', () => {
 });
 
 it('should render large inactive toggle', () => {
-  const children = 'Hey! Toggle me!';
-  render(
-    <Toggle isActive={false} onToggle={mockOnToggle}>
-      {children}
-    </Toggle>
-  );
+  const label = 'Hey! Toggle me!';
+  render(<Toggle isActive={false} onToggle={mockOnToggle} label={label} />);
 
   waitFor(
     () => {
@@ -90,12 +74,8 @@ it('should render large inactive toggle', () => {
   );
 });
 it('should render small inactive toggle', () => {
-  const children = 'Hey! Toggle me!';
-  render(
-    <Toggle isActive={false} onToggle={mockOnToggle} size='small'>
-      {children}
-    </Toggle>
-  );
+  const label = 'Hey! Toggle me!';
+  render(<Toggle isActive={false} onToggle={mockOnToggle} size='small' label={label} />);
 
   waitFor(
     () => {
@@ -111,12 +91,8 @@ it('should render small inactive toggle', () => {
 });
 
 it('should render large disabled toggle', () => {
-  const children = 'Hey! Toggle me!';
-  render(
-    <Toggle isActive={false} onToggle={mockOnToggle} disabled={true}>
-      {children}
-    </Toggle>
-  );
+  const label = 'Hey! Toggle me!';
+  render(<Toggle isActive={false} onToggle={mockOnToggle} disabled={true} label={label} />);
 
   waitFor(
     () => {
@@ -130,12 +106,8 @@ it('should render large disabled toggle', () => {
   );
 });
 it('should render small disabled toggle', () => {
-  const children = 'Hey! Toggle me!';
-  render(
-    <Toggle isActive={false} onToggle={mockOnToggle} size='small' disabled={true}>
-      {children}
-    </Toggle>
-  );
+  const label = 'Hey! Toggle me!';
+  render(<Toggle isActive={false} onToggle={mockOnToggle} size='small' disabled={true} label={label} />);
 
   waitFor(
     () => {

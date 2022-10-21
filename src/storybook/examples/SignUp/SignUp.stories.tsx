@@ -29,6 +29,7 @@ const Template: ComponentStory<any> = () => {
   return (
     <div style={{ position: 'relative', width: '16rem' }}>
       <Input
+        controlled
         label='Email'
         name='email'
         value={email}
@@ -37,6 +38,7 @@ const Template: ComponentStory<any> = () => {
         }}
       />
       <PasswordInput
+        controlled
         label='Password'
         name='password'
         value={password}
@@ -46,6 +48,7 @@ const Template: ComponentStory<any> = () => {
         hint='Include at least 8 characters, upper and lower case and number'
       />
       <PasswordInput
+        controlled
         label='Password'
         name='password2'
         value={password2}

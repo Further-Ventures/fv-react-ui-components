@@ -11,7 +11,7 @@ export default {
   parameters: {
     pkg,
   },
-  argTypes: buildExcludeArgTypes(['className']),
+  argTypes: buildExcludeArgTypes(['name', 'className', 'selected', 'value']),
 } as ComponentMeta<typeof RadioGroup>;
 
 const TemplateGroup: ComponentStory<typeof RadioGroup> = (args) => {
@@ -52,20 +52,21 @@ RadioGroups.args = {
   items: [
     {
       value: 'value-1',
-      children: 'RadioGroup text 01',
+      label: 'RadioGroup text 01',
     },
     {
       value: 'value-2',
-      children: 'RadioGroup text 02',
+      label: 'RadioGroup text 02',
+      hint: "Hey! Here's a hint!",
     },
     {
       value: 'value-3',
-      children: 'RadioGroup text 03',
+      label: 'RadioGroup text 03',
       error: "Hey! Here's an error!",
     },
     {
       value: 'value-4',
-      children: 'RadioGroup text 04',
+      label: 'RadioGroup text 04',
       disabled: true,
     },
   ],

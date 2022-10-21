@@ -1,7 +1,7 @@
 import React from 'react';
 import { ICheckRadioProps, ICheckExtra, InputWithToggle, ISize, TCheckboxType } from '../InputWithToggle';
 
-interface ICheckboxProps extends ICheckRadioProps {
+export interface ICheckboxProps extends ICheckRadioProps {
   variation?: 'default' | 'circle';
   type?: TCheckboxType;
 }
@@ -16,7 +16,10 @@ export const Checkbox: React.FC<ICheckboxProps & ISize & ICheckExtra> = ({
   error = '',
   value,
   className,
-  children,
+  heading,
+  label,
+  horizontalPosition = 'left',
+  verticalPosition = 'top',
   ...rest
 }) => (
   <InputWithToggle
@@ -29,10 +32,12 @@ export const Checkbox: React.FC<ICheckboxProps & ISize & ICheckExtra> = ({
     error={error}
     className={className}
     isDefaultChecked={isDefaultChecked}
+    heading={heading}
+    label={label}
+    horizontalPosition={horizontalPosition}
+    verticalPosition={verticalPosition}
     {...rest}
-  >
-    {children}
-  </InputWithToggle>
+  />
 );
 
 Checkbox.defaultProps = {
