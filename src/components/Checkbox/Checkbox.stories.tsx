@@ -48,7 +48,7 @@ const TemplateUncontrolled: ComponentStory<typeof Checkbox> = (args) => {
     console.log('stories onSubmit:');
     const formData = new FormData(document.querySelector('form') as HTMLFormElement);
     let size = 0;
-    for (const pair of formData.entries()) {
+    for (const pair of Array.from(formData.entries())) {
       console.log('   ', pair[0]);
       size++;
     }
@@ -164,7 +164,7 @@ const TemplateUncontrolledMultiple: ComponentStory<any> = (args) => {
 
     const formData = new FormData(document.querySelector('form') as HTMLFormElement);
     const checkedFields = [] as string[];
-    for (const pair of formData.entries()) {
+    for (const pair of Array.from(formData.entries())) {
       console.log('   ', pair[0]);
       checkedFields.push(pair[0]);
     }

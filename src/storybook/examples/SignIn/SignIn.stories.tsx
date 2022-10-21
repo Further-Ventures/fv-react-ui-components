@@ -28,6 +28,7 @@ const Template: ComponentStory<any> = () => {
   return (
     <div style={{ position: 'relative', width: '16rem' }}>
       <Input
+        controlled
         label='Email'
         name='email'
         error={error}
@@ -37,6 +38,7 @@ const Template: ComponentStory<any> = () => {
         }}
       />
       <PasswordInput
+        controlled
         label='Password'
         name='password'
         value={password}
@@ -45,7 +47,7 @@ const Template: ComponentStory<any> = () => {
         }}
       />
       <div style={{ marginBottom: '1.25rem' }}>
-        <Checkbox name='checkbox'>Remember me</Checkbox>
+        <Checkbox name='checkbox' label='Remember me' />
       </div>
       <Button
         label='Sign In'

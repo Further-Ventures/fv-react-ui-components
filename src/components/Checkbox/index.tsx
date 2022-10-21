@@ -1,7 +1,7 @@
 import React from 'react';
 import { ICheckRadioProps, ICheckExtra, InputWithToggle, ISize, TCheckboxType } from '../InputWithToggle';
 
-interface ICheckboxProps extends ICheckRadioProps {
+export interface ICheckboxProps extends ICheckRadioProps {
   variation?: 'default' | 'circle';
   type?: TCheckboxType;
 }

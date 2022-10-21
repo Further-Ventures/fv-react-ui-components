@@ -24,7 +24,7 @@ const Template: ComponentStory<typeof Loader> = (args) => {
 
 export const LoaderTemplate = Template.bind({});
 LoaderTemplate.args = {
-  variant: 'circle',
+  variant: 'circular',
   flat: false,
-  progress: null,
+  progress: -1,
 };
