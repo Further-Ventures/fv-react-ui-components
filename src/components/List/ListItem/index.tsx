@@ -5,24 +5,24 @@ import { IControl, IVariant } from '..';
 import Icons from '../../Icons';
 import { ToggleIcon } from '../../InputWithToggle/toggleIcon';
 
-export type TIcon = {
+export interface IIcon {
   name?: string;
   size?: number;
   color?: TColors;
   fill?: boolean;
-} | null;
+}
 
 export interface IListItem extends Omit<HTMLAttributes<HTMLLIElement>, 'onSelect'> {
   id: string;
   content?: React.ReactNode;
-  icon?: TIcon | null;
+  icon?: IIcon | null;
   name?: string;
   value?: string;
   isChecked?: boolean;
-  iconLeft?: TIcon | null;
+  iconLeft?: IIcon | null;
   label?: string;
   subtext?: string;
-  iconRight?: TIcon | null;
+  iconRight?: IIcon | null;
   dividers?: 0 | 1 | 2;
   disabled?: boolean;
   className?: string;

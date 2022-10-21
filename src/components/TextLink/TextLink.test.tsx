@@ -17,7 +17,22 @@ it('should render default variant and no icon', () => {
 it('should render default variant and left icon', () => {
   const children = 'Text Link';
   render(
-    <TextLink icon='left' to='https://google.com/'>
+    <TextLink iconLeft={{ name: 'left' }} to='https://google.com/'>
+      {children}
+    </TextLink>
+  );
+
+  const iconWrapper = document.getElementsByTagName('a') as HTMLCollection;
+  expect(iconWrapper[0].className).toContain('text-base');
+
+  const spans = document.getElementsByTagName('span') as HTMLCollection;
+  expect(spans.length).toBe(3); // contains the icon as well (span inside span)
+});
+
+it('should render default variant and left icon', () => {
+  const children = 'Text Link';
+  render(
+    <TextLink iconRight={{ name: 'right' }} to='https://google.com/'>
       {children}
     </TextLink>
   );

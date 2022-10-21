@@ -5,13 +5,13 @@ import ErrorMessage from '../ErrorMessage';
 import HintMessage from '../HintMessage';
 import Icons from '../Icons';
 import List from '../List';
-import { TIcon } from '../List/ListItem';
+import { IIcon } from '../List/ListItem';
 import Tag from '../Tag';
 
 type TItems = {
   id: string;
   content?: string;
-  icon?: TIcon | null;
+  icon?: IIcon | null;
   isChecked?: boolean;
 };
 export interface ISelect {

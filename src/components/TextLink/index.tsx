@@ -1,30 +1,38 @@
 import React from 'react';
 import classNames from 'classnames';
 import Icons from '../Icons';
+import { IIcon } from '../List/ListItem';
 
 interface ITextLinkProps {
   variation?: 'large' | 'default' | 'description' | 'caption';
-  icon?: 'default' | 'left' | 'right';
   to?: string;
   target?: '_self' | '_blank' | '_parent' | '_top';
   disabled?: boolean;
   children: React.ReactNode;
   className?: string;
+  iconLeft?: Omit<IIcon, 'color' | 'size'> | null;
+  iconRight?: Omit<IIcon, 'color' | 'size'> | null;
 }
 
 export const TextLink: React.FC<ITextLinkProps> = ({
   variation = 'default',
-  icon = 'default',
   to = '',
   target = '_self',
   disabled = false,
   className,
   children,
+  iconLeft,
+  iconRight,
 }) => {
   const textLinkContent = (
     <>
-      {icon === 'left' ? (
-        <Icons icon='west' size={['large', 'default'].includes(variation) ? 24 : 20} className='mr-1 group-visited:text-primary-dark' />
+      {iconLeft ? (
+        <Icons
+          icon={iconLeft.name}
+          fill={iconLeft.fill}
+          size={['large', 'default'].includes(variation) ? 24 : 20}
+          className='mr-2 group-visited:text-primary-dark'
+        />
       ) : null}
       <span
         className={classNames(
@@ -37,8 +45,13 @@ export const TextLink: React.FC<ITextLinkProps> = ({
       >
         {children}
       </span>
-      {icon === 'right' ? (
-        <Icons icon='download' size={['large', 'default'].includes(variation) ? 24 : 20} className='ml-1 group-visited:text-primary-dark' />
+      {iconRight ? (
+        <Icons
+          icon={iconRight.name}
+          fill={iconRight.fill}
+          size={['large', 'default'].includes(variation) ? 24 : 20}
+          className='ml-2 group-visited:text-primary-dark'
+        />
       ) : null}
     </>
   );
@@ -65,5 +78,4 @@ export const TextLink: React.FC<ITextLinkProps> = ({
 
 TextLink.defaultProps = {
   variation: 'default',
-  icon: 'default',
 };
