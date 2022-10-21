@@ -4,6 +4,7 @@ import { CreateSvg } from './createSvg';
 
 export type TColors =
   | ''
+  | 'currentcolor'
   | 'inherit'
   | 'primary'
   | 'primary-light'
@@ -38,6 +39,7 @@ export type TColors =
   | 'text-disabled'
   | 'text-hint'
   | 'background'
+  | 'background-secondary'
   | 'cool-20'
   | 'cool-40'
   | 'cool-60'
