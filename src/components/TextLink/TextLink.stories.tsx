@@ -20,5 +20,12 @@ const Template: ComponentStory<typeof TextLink> = (args) => {
 export const Text = Template.bind({});
 Text.args = {
   to: 'https://google.com',
-  // target: '_self'
+  // target: '_self',
+  iconLeft: {
+    name: 'west',
+    fill: true,
+  },
+  iconRight: {
+    name: 'east',
+  },
 };
