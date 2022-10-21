@@ -107,7 +107,7 @@ const Select: React.FC<ISelect> = (props) => {
                 <Tag
                   key={selected?.id}
                   size='small'
-                  contentRight={<Icons icon='cancel' size={13.33} />}
+                  contentRight={<Icons icon='cancel' size={13.33} color={'default'} fill={true} />}
                   label={selected?.content}
                   className='mr-1'
                   disabled={disabled}

@@ -103,7 +103,7 @@ const MultiSelect: React.FC<ISelect> = (props) => {
                   <Tag
                     key={itemFull?.id}
                     size='small'
-                    contentRight={<Icons icon='cancel' size={13.33} />}
+                    contentRight={<Icons icon='cancel' size={13.33} color={'default'} fill={true} />}
                     label={itemFull?.content}
                     className='mr-1'
                     disabled={disabled}
