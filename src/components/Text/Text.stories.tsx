@@ -16,8 +16,8 @@ export default {
       control: { type: 'text' },
     },
     weight: {
-      options: ['', 'thin', 'normal', 'medium', 'bold'],
-      control: { type: 'radio' },
+      options: ['', 'extralight', 'normal', 'medium', 'bold'],
+      control: { type: 'select' },
     },
   },
 } as ComponentMeta<typeof Text>;
