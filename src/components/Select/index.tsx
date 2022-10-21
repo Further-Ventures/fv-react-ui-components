@@ -80,7 +80,8 @@ const Select: React.FC<ISelect> = (props) => {
           {selected && hasIcon ? null : (
             <span
               className={classNames('leading-normal max-w-full truncate', {
-                ['text-xs text-text-hint']: !!selected,
+                ['text-xs']: !!selected,
+                ['text-text-hint']: !!selected && !disabled,
                 ['text-base']: selectedType === 'default' || (!selected && !disabled),
                 ['text-text-disabled']: disabled,
               })}
@@ -106,7 +107,7 @@ const Select: React.FC<ISelect> = (props) => {
                 <Tag
                   key={selected?.id}
                   size='small'
-                  contentRight={<Icons icon='cancel' size={13.33} />}
+                  contentRight={<Icons icon='cancel' size={13.33} color={'default'} fill={true} />}
                   label={selected?.content}
                   className='mr-1'
                   disabled={disabled}
@@ -136,8 +137,8 @@ const Select: React.FC<ISelect> = (props) => {
         />
       </div>
       <input name={name} type='hidden' value={selected?.id} />
-      {hint && <HintMessage text={hint} />}
-      {error && <ErrorMessage text={error} />}
+      {hint && <HintMessage text={hint} size='large' />}
+      {error && <ErrorMessage text={error} size='large' />}
     </div>
   );
 };

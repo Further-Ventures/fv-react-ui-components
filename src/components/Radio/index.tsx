@@ -9,7 +9,10 @@ export const Radio: React.FC<ICheckRadioProps & ISize & ICheckExtra> = ({
   disabled = false,
   error = '',
   className,
-  children,
+  heading,
+  label,
+  horizontalPosition = 'left',
+  verticalPosition = 'top',
   ...rest
 }) => (
   <InputWithToggle
@@ -22,10 +25,12 @@ export const Radio: React.FC<ICheckRadioProps & ISize & ICheckExtra> = ({
     error={error}
     className={className}
     isDefaultChecked={isDefaultChecked}
+    heading={heading}
+    label={label}
+    horizontalPosition={horizontalPosition}
+    verticalPosition={verticalPosition}
     {...rest}
-  >
-    {children}
-  </InputWithToggle>
+  />
 );
 
 Radio.defaultProps = {

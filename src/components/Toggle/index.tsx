@@ -2,16 +2,16 @@ import React, { useId } from 'react';
 import { InputWithToggle } from '../InputWithToggle';
 import { IPressable } from '../Pressable';
 
-export interface IToggle extends Omit<IPressable, 'size' | 'color'> {
+export interface IToggle extends Omit<IPressable, 'label' | 'size' | 'children' | 'color'> {
   isActive: boolean;
   onToggle?: (e: React.BaseSyntheticEvent) => void;
   size?: 'default' | 'small';
-  children?: React.ReactNode;
+  label?: React.ReactNode;
   className?: string;
   disabled?: boolean;
 }
 
-const Toggle: React.FC<IToggle> = ({ isActive, onToggle, size = 'default', children, className, disabled }) => {
+const Toggle: React.FC<IToggle> = ({ isActive, onToggle, size = 'default', label, className, disabled }) => {
   const handleClick = (e: React.BaseSyntheticEvent) => {
     if (disabled) {
       return null;
@@ -35,10 +35,9 @@ const Toggle: React.FC<IToggle> = ({ isActive, onToggle, size = 'default', child
         isChecked={isActive}
         disabled={disabled}
         className={className}
+        label={label}
         {...rest}
-      >
-        {children}
-      </InputWithToggle>
+      />
     </>
   );
 };

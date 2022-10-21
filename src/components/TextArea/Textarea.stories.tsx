@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import TextArea from './index';
 import pkg from './package.json';
@@ -18,6 +18,7 @@ export default {
     'controlled',
     'onChange',
     'onBlur',
+    'onFocus',
     'contentClassName',
     'hintClassName',
     'errorClassName',
@@ -27,14 +28,7 @@ export default {
 } as ComponentMeta<typeof TextArea>;
 
 const Template: ComponentStory<typeof TextArea> = (args) => {
-  const [inputValue, setInputValue] = useState('');
-  const handleInputChange = (e) => setInputValue(e.target.value);
-  return (
-    <>
-      <h4 className='mb-2'>{`State: ${inputValue}`}</h4>
-      <TextArea {...args} value={inputValue} onChange={handleInputChange} />
-    </>
-  );
+  return <TextArea {...args} />;
 };
 
 export const Default = Template.bind({});
@@ -42,7 +36,6 @@ export const Default = Template.bind({});
 Default.args = {
   label: 'TextArea default',
   placeholder: 'olivia@example.com',
-  size: 'medium',
 };
 
 export const Showcase = () => {

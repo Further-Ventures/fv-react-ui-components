@@ -18,6 +18,7 @@ export interface IInput extends React.InputHTMLAttributes<HTMLInputElement> {
   mask?: string;
   width?: 'small' | 'medium' | 'large' | 'full';
   sideContent?: React.ReactNode | ((hasError: boolean, disabled?: boolean) => React.ReactNode);
+  controlled?: boolean;
 }
 
 const getPropertyValue = (ref: React.RefObject<HTMLElement>, value: string) =>
@@ -136,8 +137,8 @@ export const Input: React.FC<IInput> = (props) => {
           </div>
         )}
       </div>
-      {hint && <HintMessage text={hint} className={hintClassName} />}
-      {error && <ErrorMessage text={error} className={errorClassName} />}
+      {hint && <HintMessage text={hint} className={hintClassName} size='large' />}
+      {error && <ErrorMessage text={error} className={errorClassName} size='large' />}
     </div>
   );
 };
